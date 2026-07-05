@@ -4,8 +4,10 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#define OMI_ENV_SIZE       64
-#define OMI_PREHEADER_SIZE 8
+#define OMI_ENV_SIZE           64
+#define OMI_PREHEADER_SIZE     8
+#define OMI_CROSS_REF_OFFSET   16
+#define OMI_CROSS_REF_BYTES    16
 
 #define OMI_BB_GAUGE_MASK       0x000000000000007FULL
 #define OMI_BB_DPLUS_SHIFT      7

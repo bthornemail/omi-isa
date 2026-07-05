@@ -17,20 +17,19 @@ const FACE_CATEGORIES = {
 const FACE_DB = {
 
     /* ── Core Faces ── */
-    'Omi-Form':   { cat: 'core',   role: 'structural',    edge: 'relation.structure' },
-    'Omi-Glyph':  { cat: 'core',   role: 'symbolic',      edge: 'relation.symbol' },
-    'Omi-Hash':   { cat: 'core',   role: 'digest',        edge: 'relation.digest' },
-    'Omi-Map':    { cat: 'core',   role: 'coordinate',    edge: 'relation.route' },
-    'Omi-Image':  { cat: 'core',   role: 'recoverable',   edge: 'relation.package' },
-    'Omi-Matrix': { cat: 'core',   role: 'observation',   edge: 'relation.observe' },
-    'Omi-Gnomon': { cat: 'core',   role: 'orientation',   edge: 'relation.bearing' },
-    'Omi-Mirror': { cat: 'core',   role: 'chirality',     edge: 'relation.inverse' },
-    'Omi-Clock':  { cat: 'core',   role: 'timing',        edge: 'relation.cadence' },
-    'Omi-Light':  { cat: 'core',   role: 'emission',      edge: 'relation.visual' },
-    'Omi-Sound':  { cat: 'core',   role: 'audio',         edge: 'relation.sonic' },
-    'Omi-Portal': { cat: 'core',   role: 'access',        edge: 'relation.doorway' },
-    'Omi-World':  { cat: 'core',   role: 'environment',   edge: 'relation.persist' },
-    'Omi-Sense':  { cat: 'core',   role: 'sensory',       edge: 'relation.reader' },
+    'Omi-Form':        { cat: 'core',   role: 'structural',             edge: 'relation.structure' },
+    'Omi-Glyph':       { cat: 'core',   role: 'symbolic',               edge: 'relation.symbol' },
+    'Omi-Hash':        { cat: 'core',   role: 'digest',                 edge: 'relation.digest' },
+    'Omi-Map':         { cat: 'core',   role: 'coordinate',             edge: 'relation.route' },
+    'Omi-Image':       { cat: 'core',   role: 'recoverable',            edge: 'relation.package' },
+    'Omi-Matrix':      { cat: 'core',   role: 'observation',            edge: 'relation.observe' },
+    'Omi-Gnomon':      { cat: 'core',   role: 'orientation',            edge: 'relation.bearing' },
+    'Omi-Mirror':      { cat: 'core',   role: 'chirality',              edge: 'relation.inverse' },
+    'Omi-Clock':       { cat: 'core',   role: 'timing',                 edge: 'relation.cadence' },
+    'Omi-Portal':      { cat: 'core',   role: 'access',                 edge: 'relation.doorway' },
+    'Omi-Sense':       { cat: 'core',   role: 'sensory reader',         edge: 'transducer' },
+    'Omi-World':       { cat: 'core',   role: 'persistent environment', edge: 'world' },
+    'Omi-Environment': { cat: 'core',   role: 'world state',            edge: 'ambient' },
 
     /* ── Authority / Witness Faces ── */
     'Omi-Receipt':  { cat: 'authority', role: 'witness',      edge: 'relation.resolution' },
@@ -85,6 +84,9 @@ const FACE_DB = {
     'Omi-Mesh':     { cat: 'geometry', role: 'field-network',    edge: 'relation.located' },
     'Omi-NEAT':     { cat: 'geometry', role: 'entropy-topology', edge: 'relation.layer' },
     'Omi-Psi':      { cat: 'geometry', role: 'sensed-field',     edge: 'relation.unified' },
+    'Omi-Light':    { cat: 'geometry', role: 'visual emission',  edge: 'photon' },
+    'Omi-Sound':    { cat: 'geometry', role: 'sound/cadence',    edge: 'acoustic' },
+    'Omi-Motion':   { cat: 'geometry', role: 'movement',         edge: 'velocity' },
 
     /* ── Carrier / Encoding Faces ── */
     'Omi-Tape':       { cat: 'carrier', role: 'sequential-carrier',  edge: 'relation.script' },
@@ -97,16 +99,20 @@ const FACE_DB = {
     'Omi-Script':     { cat: 'carrier', role: 'executable-projection',edge: 'relation.runtime' },
 
     /* ── Hardware / Sensory / Body Faces ── */
-    'Omi-Pyramid':    { cat: 'hardware', role: 'encoder-automaton',   edge: 'relation.encode' },
-    'Omi-Amulet':     { cat: 'hardware', role: 'decoder-automaton',   edge: 'relation.decode' },
-    'Omi-Dome':       { cat: 'hardware', role: 'immersive-world',     edge: 'relation.sensory' },
-    'Omi-Base':       { cat: 'hardware', role: 'rotational-platform', edge: 'relation.sync' },
-    'Omi-Radio':      { cat: 'hardware', role: 'gossip-carrier',      edge: 'relation.rf' },
-    'OMI-GPIO':       { cat: 'hardware', role: 'voltage-transducer',  edge: 'relation.gpio' },
-    'Omi-Talisman':   { cat: 'hardware', role: 'meaning-mirror',      edge: 'relation.personal' },
-    'Omi-Avatar':     { cat: 'hardware', role: 'digital-body',        edge: 'relation.projection' },
-    'Omi-Skeleton':   { cat: 'hardware', role: 'semantic-rig',        edge: 'relation.structure' },
-    'SpectrumDOM':    { cat: 'hardware', role: 'wavelength-matrix',   edge: 'relation.field' },
+    'Omi-Pyramid':      { cat: 'hardware', role: 'encoder-automaton',   edge: 'relation.encode' },
+    'Omi-Amulet':       { cat: 'hardware', role: 'decoder-automaton',   edge: 'relation.decode' },
+    'Omi-Dome':         { cat: 'hardware', role: 'immersive-world',     edge: 'relation.sensory' },
+    'Omi-Base':         { cat: 'hardware', role: 'rotational-platform', edge: 'relation.sync' },
+    'Omi-Radio':        { cat: 'hardware', role: 'gossip-carrier',      edge: 'relation.rf' },
+    'OMI-GPIO':         { cat: 'hardware', role: 'voltage-transducer',  edge: 'relation.gpio' },
+    'Omi-Talisman':     { cat: 'hardware', role: 'meaning-mirror',      edge: 'relation.personal' },
+    'Omi-Avatar':       { cat: 'hardware', role: 'digital-body',        edge: 'relation.projection' },
+    'Omi-Skeleton':     { cat: 'hardware', role: 'semantic-rig',        edge: 'relation.structure' },
+    'Omi-Touch':        { cat: 'hardware', role: 'haptic/contact',      edge: 'pressure' },
+    'Omi-Gesture':      { cat: 'hardware', role: 'motion/pattern',      edge: 'movement' },
+    'Omi-Temperature':  { cat: 'hardware', role: 'thermal',             edge: 'heat' },
+    'Omi-Proximity':    { cat: 'hardware', role: 'near/far',            edge: 'distance' },
+    'SpectrumDOM':      { cat: 'hardware', role: 'wavelength-matrix',   edge: 'relation.field' },
 
     /* ── Graph / Node Process Faces ── */
     'Omi-Graph':        { cat: 'graph', role: 'class-container',    edge: 'relation.class' },
@@ -134,6 +140,7 @@ const ORIENTATION_TO_FACE = {
     0x05: 'Omi-Mesh',
     0x0A: 'Omi-Sound',
     0x0B: 'Omi-Light',
+    0x0C: 'Omi-Sense',
 };
 
 function faceCategory(name) {
@@ -213,4 +220,13 @@ function faceReductionChain(face) {
         { step: 'edge', value: '(' + face.edge.replace('relation.', '') + ' . ' + face.receiptPath.replace('accepted.', '') + ')' },
         { step: 'receipt', value: face.receiptPath },
     ];
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        FACE_DB, FACE_CATEGORIES, GAUGE_TO_FACE, ORIENTATION_TO_FACE,
+        faceCategory, faceRole, faceEdge, faceReceiptPath,
+        resolveGaugeFace, resolveOrientationFaces, resolveGaugeFaces,
+        resolveFaces, faceReductionChain,
+    };
 }

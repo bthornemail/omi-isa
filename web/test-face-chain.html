@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Face Chain Verification</title>
+<style>
+  body { font-family: monospace; background: #0d1117; color: #c9d1d9; padding: 20px; }
+  h1 { color: #58a6ff; }
+  h2 { color: #79c0ff; margin-top: 24px; }
+  .pass { color: #3fb950; }
+  .fail { color: #f85149; }
+  .summary { padding: 12px; background: #161b22; border-radius: 6px; margin: 12px 0; }
+  .test-row { padding: 4px 8px; margin: 2px 0; }
+  .detail { padding: 8px 16px; margin: 4px 0; background: #0d1117; border-left: 3px solid #30363d; font-size: 13px; }
+  .chain-step { display: inline-block; margin: 2px 4px; }
+  .arrow { color: #484f58; margin: 0 4px; }
+</style>
+</head>
+<body>
+<h1>Face Chain Verification</h1>
+<div id="output"></div>
+
+<script>
+const out = document.getElementById('output');
+let passed = 0, failed = 0;
+
+function test(name, cond, detail) {
+    const row = document.createElement('div');
+    row.className = 'test-row';
+    row.innerHTML = (cond ? '<span class="pass">PASS</span>' : '<span class="fail">FAIL</span>') + ' ' + name;
+    out.appendChild(row);
+    if (detail) {
+        const d = document.createElement('div');
+        d.className = 'detail';
+        d.textContent = detail;
+        out.appendChild(d);
+    }
+    if (cond) passed++; else failed++;
+}
+
+/* Load face registry inline (no module system needed) */
+</script>
+<script src="face-registry.js"></script>
+<script>
+out.innerHTML = '<div class="summary">Loaded face-registry.js — ' +
+    Object.keys(FACE_DB).length + ' faces, ' +
+    Object.keys(FACE_CATEGORIES).length + ' categories</div>';
+
+/* ── Test 1: All faces resolve through reduction chain ── */
+let chainOk = 0, chainFail = 0;
+for (const name in FACE_DB) {
+    const entry = FACE_DB[name];
+    const face = {
+        name, category: FACE_CATEGORIES[entry.cat],
+        catKey: entry.cat, role: entry.role,
+        edge: entry.edge, receiptPath: 'accepted.' + entry.role
+    };
+    const chain = faceReductionChain(face);
+    if (chain.length === 5) chainOk++; else chainFail++;
+}
+const chainPct = (chainOk / Object.keys(FACE_DB).length * 100).toFixed(1);
+test('All faces produce 5-step reduction chain',
+    chainFail === 0,
+    chainOk + '/' + Object.keys(FACE_DB).length + ' valid chains (' + chainPct + '%)');
+
+/* ── Test 2: In each chain, steps progress name→face→role→edge→receipt ── */
+let stepNamesOk = 0;
+for (const name in FACE_DB) {
+    const entry = FACE_DB[name];
+    const face = {
+        name, category: FACE_CATEGORIES[entry.cat],
+        catKey: entry.cat, role: entry.role,
+        edge: entry.edge, receiptPath: 'accepted.' + entry.role
+    };
+    const chain = faceReductionChain(face);
+    const expected = ['name','face','role','edge','receipt'];
+    if (chain.map(s => s.step).join(',') === expected.join(',')) stepNamesOk++;
+}
+test('All chains have correct step order',
+    stepNamesOk === Object.keys(FACE_DB).length,
+    stepNamesOk + '/' + Object.keys(FACE_DB).length);
+
+/* ── Test 3: Gauge action → primary face ── */
+const gaugeTests = [
+    [0x00, 'Omi-Form'],
+    [0x1C, 'Omi-Glyph'],
+    [0x1D, 'Omi-Glyph'],
+    [0x1E, 'Omi-Map'],
+    [0x1F, 'Omi-Map'],
+    [0x20, 'Omi-Matrix'],
+];
+let gaugeOk = 0;
+for (const [code, expected] of gaugeTests) {
+    const actual = resolveGaugeFace(code);
+    if (actual === expected) gaugeOk++;
+}
+test('Gauge action → primary face mapping',
+    gaugeOk === gaugeTests.length,
+    gaugeOk + '/' + gaugeTests.length + ' correct');
+
+/* ── Test 4: High gauge codes → Omi-Receipt ── */
+let highOk = 0;
+for (let code = 0xF0; code <= 0xFF; code++) {
+    if (resolveGaugeFace(code) === 'Omi-Receipt') highOk++;
+}
+test('Gauge codes 0xF0-0xFF → Omi-Receipt',
+    highOk === 16,
+    highOk + '/16 correct');
+
+/* ── Test 5: Orientation markers → secondary faces ── */
+const orientTests = [
+    [0x01, 'Omi-Mesh'],
+    [0x0A, 'Omi-Sound'],
+    [0x0B, 'Omi-Light'],
+];
+let orientOk = 0;
+for (const [code, expected] of orientTests) {
+    const faces = resolveOrientationFaces(code);
+    if (faces.indexOf(expected) >= 0) orientOk++;
+}
+test('Orientation markers → secondary faces',
+    orientOk === orientTests.length,
+    orientOk + '/' + orientTests.length + ' correct');
+
+/* ── Test 6: resolveFaces returns correct primary for each gauge action ── */
+const env0 = new Uint8Array(64);
+env0[0] = 0xFF; env0[1] = 0x00; env0[2] = 0x1C; env0[3] = 0x1D;
+env0[4] = 0x1E; env0[5] = 0x1F; env0[6] = 0x20; env0[7] = 0xFF;
+
+let facesOk = 0;
+for (const [code, expected] of gaugeTests) {
+    env0[0] = 0xF0 | code;
+    const faces = resolveFaces(env0, code);
+    if (faces.length > 0 && faces[0].name === expected) facesOk++;
+}
+env0[0] = 0xFF;
+test('resolveFaces primary for each gauge action',
+    facesOk === gaugeTests.length,
+    facesOk + '/' + gaugeTests.length + ' correct');
+
+/* ── Test 7: resolveFaces includes orientation faces ── */
+const envOrient = new Uint8Array(64);
+envOrient[0] = 0xFF; envOrient[7] = 0xFF;
+envOrient[8] = 0x0A; /* orientation[0] = Omi-Sound */
+const orientFaces = resolveFaces(envOrient, 0x00);
+const hasSound = orientFaces.some(f => f.name === 'Omi-Sound');
+test('resolveFaces includes orientation face',
+    hasSound,
+    'Omi-Sound found in ' + orientFaces.map(f => f.name).join(', '));
+
+/* ── Test 8: Each face has valid category badge ── */
+const validCats = Object.keys(FACE_CATEGORIES);
+let catOk = 0;
+for (const name in FACE_DB) {
+    if (validCats.indexOf(FACE_DB[name].cat) >= 0) catOk++;
+}
+test('All faces have valid category',
+    catOk === Object.keys(FACE_DB).length,
+    catOk + '/' + Object.keys(FACE_DB).length + ' valid');
+
+/* ── Test 9: All 9 categories present ── */
+const catsUsed = {};
+for (const name in FACE_DB) catsUsed[FACE_DB[name].cat] = true;
+const catsPresent = Object.keys(catsUsed).length;
+test('All 9 categories present in FACE_DB',
+    catsPresent === 9,
+    'Found ' + catsPresent + ' categories: ' + Object.keys(catsUsed).sort().join(', '));
+
+/* ── Test 10: Face categories match FACE_CATEGORIES ── */
+let catMatchOk = 0;
+for (const name in FACE_DB) {
+    const entry = FACE_DB[name];
+    if (FACE_CATEGORIES[entry.cat]) catMatchOk++;
+}
+test('All catKeys have FACE_CATEGORIES entry',
+    catMatchOk === Object.keys(FACE_DB).length,
+    catMatchOk + '/' + Object.keys(FACE_DB).length);
+
+/* ── Summary ── */
+const total = passed + failed;
+const pct = (passed / total * 100).toFixed(1);
+const summary = document.createElement('div');
+summary.className = 'summary';
+summary.innerHTML = '<strong>Results: ' + passed + '/' + total + ' passed (' + pct + '%)</strong>';
+out.insertBefore(summary, out.firstChild);
+
+if (failed === 0) {
+    const allPass = document.createElement('div');
+    allPass.className = 'summary';
+    allPass.style.borderLeft = '4px solid #3fb950';
+    allPass.innerHTML = 'All face chain tests passed.';
+    out.appendChild(allPass);
+}
+</script>
+</body>
+</html>
