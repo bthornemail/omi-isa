@@ -15,6 +15,9 @@
       <span id="status-serial" class="status offline">Serial</span>
       <span id="status-audio" class="status offline">Audio</span>
     </div>
+    <div id="header-controls">
+      <button id="btn-toggle-viewer" class="btn-header">&#x25B6; 3D Viewer</button>
+    </div>
   </header>
 
   <main>
@@ -72,10 +75,10 @@
     <section id="mesh-panel" class="panel">
       <h2>Mesh Debug</h2>
       <div class="mesh-stats">
-        <span>Routes: <span id="mesh-routes">—</span></span>
-        <span>Queue: <span id="mesh-queue">—</span></span>
-        <span>Dead Letters: <span id="mesh-dead">—</span></span>
-        <button id="btn-mesh-refresh">⟳ Refresh</button>
+        <span>Routes: <span id="mesh-routes">&mdash;</span></span>
+        <span>Queue: <span id="mesh-queue">&mdash;</span></span>
+        <span>Dead Letters: <span id="mesh-dead">&mdash;</span></span>
+        <button id="btn-mesh-refresh">&#x27F3; Refresh</button>
       </div>
       <div id="mesh-route-list" class="mesh-routes"></div>
     </section>
@@ -84,11 +87,93 @@
       <h2>Omicron Projection</h2>
       <div id="projection-container"></div>
     </section>
+
+    <section id="viewer-panel" class="panel viewer-panel-hidden">
+      <div id="viewer-header">
+        <h2>3D Twin Viewer</h2>
+        <div class="viewer-header-stats">
+          <span id="vwr-cycles">cycle: 0</span>
+          <span id="vwr-receipts">receipts: 0</span>
+          <span id="vwr-filled">filled: 0/5040</span>
+        </div>
+        <button id="btn-close-viewer" class="btn-small">&#x2715; Close</button>
+      </div>
+      <div id="twin-viewer-wrapper">
+        <div id="twin-container"></div>
+        <div id="face-panel-overlay">
+          <div class="face-panel-title">Faces</div>
+          <div id="face-panel"></div>
+        </div>
+        <div id="twin-info-overlay">
+          <div id="twin-info"></div>
+          <div id="smith-row">
+            <div id="smith-container">
+              <canvas id="smith-canvas" width="320" height="320"></canvas>
+              <div id="smith-tooltip"></div>
+              <button id="smith-toggle" class="btn-tiny">IMPEDANCE</button>
+            </div>
+          </div>
+        </div>
+        <div id="ring-bar-track">
+          <span class="ring-label">RING</span>
+          <div id="ring-bar-container"><div id="ring-bar" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* OrbitControls for r128 — required by TwinViewer */
+THREE.OrbitControls = (function() {
+  var STATE = { NONE: -1, ROTATE: 0, DOLLY: 1, PAN: 2, TOUCH_ROTATE: 3, TOUCH_DOLLY: 4, TOUCH_PAN: 5 };
+  function OrbitControls(object, domElement) {
+    this.object = object; this.domElement = domElement !== undefined ? domElement : document;
+    this.enabled = true; this.target = new THREE.Vector3();
+    this.enableDamping = false; this.dampingFactor = 0.05; this.enableZoom = true;
+    this.zoomSpeed = 1.0; this.enableRotate = true; this.rotateSpeed = 1.0;
+    this.enablePan = true; this.panSpeed = 1.0; this.screenSpacePanning = false;
+    this.maxPolarAngle = Math.PI; this.minPolarAngle = 0;
+    var scope = this;
+    var spherical = new THREE.Spherical();
+    var sphericalDelta = new THREE.Spherical();
+    var scale = 1; var panOffset = new THREE.Vector3();
+    var rotateStart = new THREE.Vector2(); var rotateEnd = new THREE.Vector2(); var rotateDelta = new THREE.Vector2();
+    var dollyStart = new THREE.Vector2(); var dollyEnd = new THREE.Vector2(); var dollyDelta = new THREE.Vector2();
+    var panStart = new THREE.Vector2(); var panEnd = new THREE.Vector2(); var panDelta = new THREE.Vector2();
+    var state = STATE.NONE;
+    function getZoomScale() { return Math.pow(0.95, scope.zoomSpeed); }
+    function rotateLeft(angle) { sphericalDelta.theta -= angle; }
+    function rotateUp(angle) { sphericalDelta.phi -= angle; }
+    var panLeft = (function() { var v = new THREE.Vector3(); return function(d, m) { v.setFromMatrixColumn(m, 0); v.multiplyScalar(-d); panOffset.add(v); }; })();
+    var panUp = (function() { var v = new THREE.Vector3(); return function(d, m) { if (scope.screenSpacePanning === true) v.setFromMatrixColumn(m, 1); else { v.setFromMatrixColumn(m, 0); v.crossVectors(scope.object.up, v); } v.multiplyScalar(d); panOffset.add(v); }; })();
+    function pan(dx, dy) { var e = scope.domElement === document ? scope.domElement.body : scope.domElement; if (scope.object.isPerspectiveCamera) { var p = scope.object.position; var o = p.clone().sub(scope.target); var td = o.length(); td *= Math.tan((scope.object.fov / 2) * Math.PI / 180.0); panLeft(2*dx*td/e.clientHeight, scope.object.matrix); panUp(2*dy*td/e.clientHeight, scope.object.matrix); } }
+    function dollyIn(s) { if (scope.object.isPerspectiveCamera) scale /= s; }
+    function dollyOut(s) { if (scope.object.isPerspectiveCamera) scale *= s; }
+    this.update = function() { var p = scope.object.position; offset.copy(p).sub(scope.target); offset.applyQuaternion(quat); spherical.setFromVector3(offset); spherical.theta += sphericalDelta.theta; spherical.phi += sphericalDelta.phi; spherical.phi = Math.max(scope.minPolarAngle, Math.min(scope.maxPolarAngle, spherical.phi)); spherical.makeSafe(); spherical.radius *= scale; spherical.radius = Math.max(spherical.radius, 0.001); scope.target.add(panOffset); offset.setFromSpherical(spherical); offset.applyQuaternion(quatInverse); p.copy(scope.target).add(offset); scope.object.lookAt(scope.target); if (scope.enableDamping === true) { sphericalDelta.theta *= (1-scope.dampingFactor); sphericalDelta.phi *= (1-scope.dampingFactor); panOffset.multiplyScalar(1-scope.dampingFactor); } else { sphericalDelta.set(0,0,0); panOffset.set(0,0,0); } scale = 1; };
+    var offset = new THREE.Vector3();
+    var quat = new THREE.Quaternion().setFromUnitVectors(object.up, new THREE.Vector3(0,1,0));
+    var quatInverse = quat.clone().invert();
+    function onMouseDown(e) { if (!scope.enabled) return; e.preventDefault(); if (e.button===0) { state=STATE.ROTATE; rotateStart.set(e.clientX,e.clientY); } else if (e.button===1) { state=STATE.PAN; panStart.set(e.clientX,e.clientY); } else if (e.button===2) { state=STATE.DOLLY; dollyStart.set(e.clientX,e.clientY); } if (scope.domElement!==document) { scope.domElement.addEventListener('mousemove',onMouseMove,false); scope.domElement.addEventListener('mouseup',onMouseUp,false); } }
+    function onMouseMove(e) { if (!scope.enabled) return; e.preventDefault(); if (state===STATE.ROTATE) { rotateEnd.set(e.clientX,e.clientY); rotateDelta.subVectors(rotateEnd,rotateStart); rotateLeft(2*Math.PI*rotateDelta.x/scope.domElement.clientHeight); rotateUp(2*Math.PI*rotateDelta.y/scope.domElement.clientHeight); rotateStart.copy(rotateEnd); } else if (state===STATE.DOLLY) { dollyEnd.set(e.clientX,e.clientY); dollyDelta.subVectors(dollyEnd,dollyStart); if (dollyDelta.y>0) dollyIn(getZoomScale()); else if (dollyDelta.y<0) dollyOut(getZoomScale()); dollyStart.copy(dollyEnd); } else if (state===STATE.PAN) { panEnd.set(e.clientX,e.clientY); panDelta.subVectors(panEnd,panStart); pan(panDelta.x,panDelta.y); panStart.copy(panEnd); } }
+    function onMouseUp() { if (!scope.enabled) return; state=STATE.NONE; if (scope.domElement!==document) { scope.domElement.removeEventListener('mousemove',onMouseMove); scope.domElement.removeEventListener('mouseup',onMouseUp); } }
+    function onMouseWheel(e) { if (!scope.enabled||!scope.enableZoom) return; e.preventDefault(); if (e.deltaY<0) dollyOut(getZoomScale()); else if (e.deltaY>0) dollyIn(getZoomScale()); }
+    this.domElement.addEventListener('contextmenu',function(e){e.preventDefault();},false);
+    this.domElement.addEventListener('mousedown',onMouseDown,false);
+    this.domElement.addEventListener('wheel',onMouseWheel,false);
+  }
+  return OrbitControls;
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/omi-wasm@latest/omi_wasm.js"></script>
 <script src="omi_web_serial.js"></script>
 <script src="omi_web_audio.js"></script>
+<script src="viewer/geometry-decoder.js"></script>
+<script src="viewer/twin-viewer.js"></script>
+<script src="face-registry.js"></script>
+<script src="constant-witness.js"></script>
+<script src="viewer/face-panel.js"></script>
+<script src="viewer-bridge.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

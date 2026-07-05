@@ -99,6 +99,36 @@ function updateMeshDisplay(env) {
     }
 }
 
+let viewerBridge = null;
+let viewerVisible = false;
+
+function toggleViewer() {
+    const panel = document.getElementById('viewer-panel');
+    const btn = document.getElementById('btn-toggle-viewer');
+    if (!panel || !btn) return;
+    viewerVisible = !viewerVisible;
+    panel.classList.toggle('viewer-panel-hidden', !viewerVisible);
+    panel.classList.toggle('viewer-panel-visible', viewerVisible);
+    btn.textContent = viewerVisible ? '\u25BC 3D Viewer' : '\u25B6 3D Viewer';
+
+    if (viewerVisible && viewerBridge && !viewerBridge.lazyInitDone) {
+        const container = document.getElementById('twin-container');
+        if (container) viewerBridge.initViewer(container);
+    }
+
+    if (viewerVisible && viewerBridge && viewerBridge.twinViewer) {
+        viewerBridge.twinViewer.onResize();
+    }
+}
+
+function updateViewerStats(frameData) {
+    const t = frameData && frameData.twin;
+    if (!t) return;
+    document.getElementById('vwr-cycles').textContent = 'cycle: ' + (t.cycle || 0);
+    document.getElementById('vwr-receipts').textContent = 'receipts: ' + ((t.summary && t.summary.filled) || 0);
+    document.getElementById('vwr-filled').textContent = 'filled: ' + ((t.summary && t.summary.filled) || 0) + '/5040';
+}
+
 function log(level, msg) {
     const el = document.getElementById('sys-log');
     const ts = new Date().toISOString().slice(11, 23);
@@ -202,6 +232,10 @@ async function init() {
 
     state.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
+    viewerBridge = new ViewerBridge();
+    const facePanel = new FacePanel('face-panel');
+    viewerBridge.setFacePanel(facePanel);
+
     state.serial = new OMIWebSerialTransport();
     state.serial.onLog = (level, msg) => log(level, msg);
     state.serial.onEnvelope = (evt) => {
@@ -219,6 +253,8 @@ async function init() {
             rxLog(`  AUDIO: ${samples.length} samples queued (total ${state.rxAudioQueue.reduce((a,f)=>a+f.length,0)})`, 'env-info');
             playAudioQueue();
         }
+        const frameData = viewerBridge.pushEnvelope(evt.envelope);
+        updateViewerStats(frameData);
     };
 
     btnConnect.addEventListener('click', async () => {
@@ -324,6 +360,9 @@ async function init() {
     });
 
     document.getElementById('btn-mesh-refresh').addEventListener('click', requestMeshStatus);
+
+    document.getElementById('btn-toggle-viewer').addEventListener('click', toggleViewer);
+    document.getElementById('btn-close-viewer').addEventListener('click', toggleViewer);
 
     log('info', 'OMI Web Bridge ready');
 }
