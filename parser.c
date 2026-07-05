@@ -1,17 +1,49 @@
-
+#include "lexer.h"
+#include "ast.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-typedef struct Node {
-    enum { ATOM, PAIR } type;
-    char sym[64];
-    struct Node* car;
-    struct Node* cdr;
-} Node;
+extern int pos;
 
-Node* new_node(){
-    Node* n = malloc(sizeof(Node));
-    memset(n,0,sizeof(Node));
-    return n;
+Node* parse_expr();
+
+static Token consume(TokenType expected){
+    Token t = next_token();
+    if(t.type != expected){
+        fprintf(stderr,"parse error: expected token type %d got %d\n",expected,t.type);
+        exit(1);
+    }
+    return t;
+}
+
+Node* parse_atom(){
+    Token t = consume(TOK_SYMBOL);
+    return make_atom(t.text);
+}
+
+Node* parse_pair(){
+    consume(TOK_LPAREN);
+    Node* car = parse_expr();
+    consume(TOK_DOT);
+    Node* cdr = parse_expr();
+    consume(TOK_RPAREN);
+    return make_pair(car,cdr);
+}
+
+Node* parse_expr(){
+    Token t = peek_token();
+    switch(t.type){
+        case TOK_LPAREN: return parse_pair();
+        case TOK_SYMBOL: return parse_atom();
+        default: return NULL;
+    }
+}
+
+Node* parse(const char* src_text){
+    init_lexer(src_text);
+    // Skip to SP boundary (0x20) if present, otherwise start from 0
+    int i = 0;
+    while(src_text[i] && src_text[i] != ' ') i++;
+    if(src_text[i] == ' ') pos = i + 1;
+    return parse_expr();
 }

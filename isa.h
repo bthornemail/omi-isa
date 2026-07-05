@@ -1,4 +1,3 @@
-
 #ifndef OMI_ISA_H
 #define OMI_ISA_H
 
@@ -20,7 +19,8 @@ enum {
     ADD, SUB,
     CAR, CDR,
     CMP, JMP, JZ,
-    DELTA, HALT
+    DELTA, HALT,
+    SYSCALL
 };
 
 #endif
