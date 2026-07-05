@@ -32,6 +32,12 @@ void init_cpu(OMI_CPU* cpu){
     cpu->log=fopen("omi.log","w");
     cpu->program=0;
     cpu->prog_len=0;
+    cpu->capability=0xFFFFFFFF;
+    cpu->peer_capability=0;
+    cpu->isa_subset=0;
+    cpu->neighbor_count=0;
+    for(int i=0;i<16;i++) cpu->neighbors[i]=0;
+    cpu->probe_state=PROBE_STATE_IDLE;
 }
 
 void step(OMI_CPU* cpu, uint16_t instr){

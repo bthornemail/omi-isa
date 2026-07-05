@@ -21,6 +21,11 @@ static void build_test_envelope(OMI_512_Envelope* env, uint8_t opcode) {
     env->target[0] = opcode;
 }
 
+static int custom_handler_stub(OMI_DispatchContext* ctx) {
+    (void)ctx;
+    return 42;
+}
+
 int main(void) {
     printf("=== OMI Dispatch Table Tests ===\n\n");
 
@@ -161,11 +166,6 @@ int main(void) {
         TEST("probe_state = NEGOTIATED", cpu.probe_state == PROBE_STATE_NEGOTIATED);
         TEST("ack sent", tx_len == OMI_ENV_SIZE);
     }
-
-int custom_handler_stub(OMI_DispatchContext* ctx) {
-    (void)ctx;
-    return 42;
-}
 
     printf("\n[Test 8] omi_dispatch_set — custom handler\n");
     {
