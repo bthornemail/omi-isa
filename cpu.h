@@ -19,6 +19,10 @@
 #define SP_FLAG   0x1
 #define HALT_FLAG 0x2
 
+#define PROBE_STATE_IDLE       0
+#define PROBE_STATE_PROBING    1
+#define PROBE_STATE_NEGOTIATED 2
+
 typedef enum {
     MODE_BOOT,
     MODE_KERNEL,
@@ -36,6 +40,13 @@ typedef struct {
     FILE* log;
     uint16_t* program;
     uint32_t prog_len;
+
+    uint32_t capability;
+    uint32_t peer_capability;
+    uint32_t isa_subset;
+    uint8_t neighbor_count;
+    uint8_t neighbors[16];
+    uint8_t probe_state;
 } OMI_CPU;
 
 void init_cpu(OMI_CPU* cpu);

@@ -1,4 +1,5 @@
 #include "stream.h"
+#include "omi_dispatch.h"
 #include <string.h>
 
 static const uint8_t CANONICAL_PREHEADER[8] = {
@@ -56,6 +57,9 @@ void stream_push_byte(StreamParser* sp, uint8_t byte) {
                     if (sp->validation_result == 0) {
                         sp->state = STREAM_STATE_COMPLETE;
                         omi_env_to_bitboard(&sp->envelope, &sp->bitboard);
+                        if (sp->auto_dispatch) {
+                            sp->dispatch_result = stream_execute(sp);
+                        }
                     } else {
                         sp->state = STREAM_STATE_INVALID;
                     }
@@ -80,8 +84,33 @@ int stream_pop_event(StreamParser* sp, StreamEvent* evt) {
     evt->bitboard = sp->bitboard;
     evt->valid = (sp->validation_result == 0);
     evt->cell_index = 0;
+    evt->opcode = omi_env_get_opcode(&sp->envelope);
+    evt->dispatch_result = sp->dispatch_result;
+    evt->response_len = sp->response_len;
+    if (sp->response_len > 0)
+        memcpy(evt->response, sp->response_buffer, sp->response_len);
     stream_parser_init(sp);
     return 0;
+}
+
+int stream_execute(StreamParser* sp) {
+    if (!sp) return -1;
+    if (sp->state != STREAM_STATE_COMPLETE) return -2;
+    if (!sp->vm) return -3;
+
+    OMI_DispatchContext ctx;
+    ctx.env = &sp->envelope;
+    ctx.bitboard = sp->bitboard;
+    ctx.vm = sp->vm;
+    ctx.tx_buffer = sp->response_buffer;
+    ctx.tx_capacity = OMI_ENV_SIZE;
+    ctx.tx_len = &sp->response_len;
+    ctx.transport_ctx = NULL;
+
+    sp->response_len = 0;
+    int result = omi_dispatch_execute(&ctx);
+    sp->dispatch_result = result;
+    return result;
 }
 
 static void build_binary_envelope(OMI_512_Envelope* env,
