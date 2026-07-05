@@ -41,9 +41,6 @@ Node* parse_expr(){
 
 Node* parse(const char* src_text){
     init_lexer(src_text);
-    // Skip to SP boundary (0x20) if present, otherwise start from 0
-    int i = 0;
-    while(src_text[i] && src_text[i] != ' ') i++;
-    if(src_text[i] == ' ') pos = i + 1;
+    pos = 0;
     return parse_expr();
 }

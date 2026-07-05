@@ -30,6 +30,7 @@ typedef struct {
     uint32_t delta_acc;
     uint32_t MEM[MEM_SIZE];
     uint32_t PC;
+    uint32_t SP;
     uint32_t FLAGS;
     Mode mode;
     FILE* log;

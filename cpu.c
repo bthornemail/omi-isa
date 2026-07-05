@@ -26,6 +26,7 @@ void init_cpu(OMI_CPU* cpu){
     for(int i=0;i<REG_COUNT;i++) cpu->R[i]=0;
     cpu->delta_acc = 0;
     cpu->PC=0;
+    cpu->SP=0;
     cpu->FLAGS=0;
     cpu->mode=MODE_BOOT;
     cpu->log=fopen("omi.log","w");
@@ -90,6 +91,18 @@ void step(OMI_CPU* cpu, uint16_t instr){
         case DELTA:
             cpu->R[dst]=rotl(cpu->R[a],1)^rotl(cpu->R[a],3)^rotr(cpu->R[a],2)^0xA5A5A5A5;
             if(dst != 0) cpu->delta_acc ^= cpu->R[dst];
+            break;
+        case LOADM:
+            cpu->R[dst] = cpu->MEM[(cpu->R[a] + imm) & 0xFFFF];
+            break;
+        case CALL:
+            cpu->SP = (cpu->SP - 1) & 0xFFFF;
+            cpu->MEM[cpu->SP] = cpu->PC;
+            cpu->PC = cpu->R[a];
+            break;
+        case RET:
+            cpu->PC = cpu->MEM[cpu->SP];
+            cpu->SP = (cpu->SP + 1) & 0xFFFF;
             break;
         case SYSCALL:
             syscall_handler(cpu, cpu->R[a]);

@@ -2,6 +2,7 @@
 #include "isa.h"
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 static uint32_t sym_hash(const char* s){
@@ -43,10 +44,39 @@ static void compile_to_reg(Node* n, uint16_t* out, int* ip, int max, int dst, in
     *next_reg = r1;
 }
 
+static int is_word_form(Node* n){
+    return n && n->type == PAIR && n->car->type == ATOM &&
+           strcmp(n->car->sym, "word") == 0;
+}
+
+static int compile_word_seq(Node* n, uint16_t* out, int max, int ip){
+    while(n && n->type == PAIR){
+        if(n->car->type == PAIR && n->car->car->type == ATOM &&
+           strcmp(n->car->car->sym, "word") == 0){
+            uint32_t val = strtoul(n->car->cdr->sym, NULL, 0);
+            if(ip < max) out[ip++] = val & 0xFFFF;
+            n = n->cdr;
+        } else if(is_word_form(n)){
+            uint32_t val = strtoul(n->cdr->sym, NULL, 0);
+            if(ip < max) out[ip++] = val & 0xFFFF;
+            break;
+        } else {
+            break;
+        }
+    }
+    return ip;
+}
+
 int compile(Node* n, uint16_t* out, int max){
     int ip = 0;
-    int next_reg = 1;
-    compile_to_reg(n, out, &ip, max, 0, &next_reg);
-    if(ip < max) out[ip++] = (HALT<<11);
+    if(n && n->type == PAIR &&
+       ((n->car->type == PAIR && n->car->car->type == ATOM &&
+         strcmp(n->car->car->sym, "word") == 0) || is_word_form(n))){
+        ip = compile_word_seq(n, out, max, ip);
+    } else {
+        int next_reg = 1;
+        compile_to_reg(n, out, &ip, max, 0, &next_reg);
+        if(ip < max) out[ip++] = (HALT<<11);
+    }
     return ip;
 }

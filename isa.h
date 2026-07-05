@@ -20,7 +20,8 @@ enum {
     CAR, CDR,
     CMP, JMP, JZ,
     DELTA, HALT,
-    SYSCALL
+    SYSCALL,
+    LOADM, CALL, RET
 };
 
 #endif
