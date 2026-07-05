@@ -41,6 +41,14 @@ static int handle_ret(OMI_DispatchContext* ctx) { (void)ctx; return 0; }
 /* ---- 0x14: PROBE ---- */
 static int handle_probe(OMI_DispatchContext* ctx) {
     if (!ctx || !ctx->tx_buffer || !ctx->tx_len) return -1;
+    if (ctx->vm && ctx->env) {
+        uint32_t cap = ((uint32_t)ctx->env->orientation[0] << 24)
+                     | ((uint32_t)ctx->env->orientation[1] << 16)
+                     | ((uint32_t)ctx->env->orientation[2] << 8)
+                     | (uint32_t)ctx->env->orientation[3];
+        ctx->vm->peer_capability = cap;
+        ctx->vm->isa_subset = ctx->vm->capability & cap;
+    }
     OMI_512_Envelope ack;
     memset(&ack, 0, sizeof(ack));
     memcpy(ack.gauge, CANONICAL_PREHEADER, 8);
@@ -73,6 +81,7 @@ static int handle_probe_ack(OMI_DispatchContext* ctx) {
 /* ---- 0x16: SYNC_COMMIT ---- */
 static int handle_sync_commit(OMI_DispatchContext* ctx) {
     if (!ctx || !ctx->vm) return -1;
+    if (ctx->vm->probe_state == PROBE_STATE_NEGOTIATED) return 0;
     ctx->vm->probe_state = PROBE_STATE_NEGOTIATED;
     if (ctx->tx_buffer && ctx->tx_len) {
         OMI_512_Envelope ack;

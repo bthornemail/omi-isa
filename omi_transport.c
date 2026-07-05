@@ -3,7 +3,9 @@
 
 int omi_transport_send_envelope(OMI_Transport* t, const OMI_512_Envelope* env) {
     if (!t || !env || !t->send) return -1;
-    return t->send(t, (const uint8_t*)env, sizeof(OMI_512_Envelope));
+    int n = t->send(t, (const uint8_t*)env, sizeof(OMI_512_Envelope));
+    if (n < (int)sizeof(OMI_512_Envelope)) return -3;
+    return 0;
 }
 
 int omi_transport_recv_envelope(OMI_Transport* t, OMI_512_Envelope* env) {
