@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build OMI C stack
+        run: make
+      - name: Run all tests
+        run: make test
+  wasm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install emscripten
+        run: |
+          git clone https://github.com/emscripten-core/emsdk.git
+          cd emsdk && ./emsdk install latest && ./emsdk activate latest
+          source ./emsdk_env.sh
+          echo "EMSDK_READY=1" >> $GITHUB_ENV
+      - name: Build WASM
+        run: |
+          source ./emsdk/emsdk_env.sh
+          make wasm

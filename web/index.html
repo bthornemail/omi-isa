@@ -68,6 +68,17 @@
       <h2>System Log</h2>
       <pre id="sys-log"><span class="placeholder">Initializing...</span></pre>
     </section>
+
+    <section id="mesh-panel" class="panel">
+      <h2>Mesh Debug</h2>
+      <div class="mesh-stats">
+        <span>Routes: <span id="mesh-routes">—</span></span>
+        <span>Queue: <span id="mesh-queue">—</span></span>
+        <span>Dead Letters: <span id="mesh-dead">—</span></span>
+        <button id="btn-mesh-refresh">⟳ Refresh</button>
+      </div>
+      <div id="mesh-route-list" class="mesh-routes"></div>
+    </section>
   </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/omi-wasm@latest/omi_wasm.js"></script>

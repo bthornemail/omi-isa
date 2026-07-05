@@ -12,6 +12,9 @@
 #define OMI_MESH_RETRY_INTERVAL 5
 #define OMI_MESH_MAX_RETRIES    3
 #define OMI_MESH_STALE_TIMEOUT  120
+#define OMI_MESH_DEAD_LETTER_MAX 32
+#define OMI_MESH_RREQ_RETRY_INTERVAL 3000
+#define OMI_MESH_RREQ_MAX_RETRIES 5
 
 typedef struct {
     uint8_t node_id;
@@ -38,6 +41,20 @@ typedef struct {
 } OMI_QueuedEnvelope;
 
 typedef struct {
+    OMI_512_Envelope envelope;
+    uint8_t dest_id;
+    uint8_t origin_id;
+    uint8_t ttl;
+    uint64_t dropped_at;
+    uint8_t reason;  // 0=no_route, 1=ttl_expired, 2=retry_exhausted
+} OMI_DeadLetter;
+
+typedef struct {
+    OMI_DeadLetter entries[OMI_MESH_DEAD_LETTER_MAX];
+    int count;
+} OMI_DeadLetterQueue;
+
+typedef struct {
     OMI_Transport base;
     OMI_Transport* underlying;
     uint8_t node_id;
@@ -52,6 +69,12 @@ typedef struct {
     int stale_timeout_s;
     int initialized;
     uint64_t (*time_ms)(void);
+    OMI_DeadLetterQueue dead_letters;
+    uint8_t pending_rreq_dest;
+    uint8_t rreq_seqno;
+    uint32_t rreq_sent_at;
+    int rreq_retries;
+    int rreq_pending;
 } OMI_MeshTransport;
 
 OMI_Transport* omi_mesh_create(OMI_Transport* underlying, uint8_t node_id,
@@ -60,5 +83,7 @@ void omi_mesh_destroy(OMI_Transport* t);
 int omi_mesh_get_route_count(OMI_Transport* t);
 const OMI_RouteEntry* omi_mesh_get_route(OMI_Transport* t, int index);
 int omi_mesh_queue_depth(OMI_Transport* t);
+int omi_mesh_dead_letter_count(OMI_Transport* t);
+const OMI_DeadLetter* omi_mesh_get_dead_letter(OMI_Transport* t, int index);
 
 #endif

@@ -2,6 +2,8 @@
 #include <string.h>
 #include <esp_log.h>
 #include <esp_system.h>
+#include <esp_timer.h>
+#include <esp_efuse.h>
 #include <nvs_flash.h>
 #include <driver/uart.h>
 #include <freertos/FreeRTOS.h>
@@ -14,6 +16,7 @@ extern "C" {
 #include "cpu.h"
 #include "gauge_exec.h"
 #include "omi_transport.h"
+#include "omi_mesh.h"
 }
 
 #include "omi_sx1262.h"
@@ -26,7 +29,8 @@ static const char* TAG = "omi_esp32";
 
 static StreamParser stream_parser;
 static OMI_CPU cpu;
-static OMI_EspTransport* transport;
+static OMI_EspTransport* lora_transport;
+static OMI_Transport* mesh_transport;
 
 static void init_omi_stack(void) {
     omi_gauge_init();
@@ -55,7 +59,11 @@ static void init_serial(void) {
     ESP_LOGI(TAG, "CDC UART initialized");
 }
 
-static void process_serial_to_lora(void) {
+static uint64_t esp_time_ms(void) {
+    return esp_timer_get_time() / 1000;
+}
+
+static void process_serial_to_mesh(void) {
     uint8_t buf[64];
     int len = uart_read_bytes(CDC_UART_NUM, buf, sizeof(buf), 0);
     if (len <= 0) return;
@@ -64,8 +72,8 @@ static void process_serial_to_lora(void) {
         stream_push_byte(&stream_parser, buf[i]);
         if (stream_parser.state == STREAM_STATE_COMPLETE) {
             OMI_512_Envelope* env = &stream_parser.envelope;
-            if (transport && transport->initialized) {
-                omi_transport_send_envelope(&transport->base, env);
+            if (mesh_transport) {
+                mesh_transport->send(mesh_transport, (const uint8_t*)env, OMI_ENV_SIZE);
             }
             StreamEvent evt;
             stream_pop_event(&stream_parser, &evt);
@@ -73,15 +81,14 @@ static void process_serial_to_lora(void) {
     }
 }
 
-static void process_lora_to_serial(void) {
-    if (!transport || !transport->initialized) return;
+static void process_mesh_to_serial(void) {
+    if (!mesh_transport) return;
 
     OMI_512_Envelope env;
-    int ret = omi_transport_recv_envelope(&transport->base, &env);
-    if (ret != 0) return;
+    int ret = mesh_transport->recv(mesh_transport, (uint8_t*)&env, OMI_ENV_SIZE, 0);
+    if (ret != OMI_ENV_SIZE) return;
 
-    uint8_t* bytes = (uint8_t*)&env;
-    uart_write_bytes(CDC_UART_NUM, bytes, OMI_ENV_SIZE);
+    uart_write_bytes(CDC_UART_NUM, (const char*)&env, OMI_ENV_SIZE);
 }
 
 extern "C" void app_main(void) {
@@ -106,16 +113,26 @@ extern "C" void app_main(void) {
         .rx_enable_pin = 5,
     };
 
-    transport = omi_esp_transport_create(&lora_cfg, 868000000, CDC_UART_NUM);
-    if (!transport) {
+    lora_transport = omi_esp_transport_create(&lora_cfg, 868000000, CDC_UART_NUM);
+    if (!lora_transport) {
         ESP_LOGE(TAG, "Failed to create LoRa transport");
         return;
     }
     ESP_LOGI(TAG, "LoRa transport ready at 868 MHz");
 
+    uint8_t mac[6] = {0};
+    esp_efuse_mac_get_default(mac);
+    uint8_t node_id = mac[5];
+    mesh_transport = omi_mesh_create(&lora_transport->base, node_id, esp_time_ms);
+    if (!mesh_transport) {
+        ESP_LOGE(TAG, "Failed to create mesh transport");
+        return;
+    }
+    ESP_LOGI(TAG, "Mesh transport ready, node_id=%d", node_id);
+
     while (1) {
-        process_serial_to_lora();
-        process_lora_to_serial();
+        process_serial_to_mesh();
+        process_mesh_to_serial();
         vTaskDelay(pdMS_TO_TICKS(1));
     }
 }

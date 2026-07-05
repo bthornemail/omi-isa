@@ -7,6 +7,58 @@ const state = {
     audioCtx: null,
 };
 
+// Mesh debug state
+let meshDebugInterval = null;
+
+function startMeshDebug() {
+    if (meshDebugInterval) return;
+    meshDebugInterval = setInterval(requestMeshStatus, 5000);
+}
+
+function stopMeshDebug() {
+    if (meshDebugInterval) {
+        clearInterval(meshDebugInterval);
+        meshDebugInterval = null;
+    }
+}
+
+function requestMeshStatus() {
+    if (!state.serial || !state.serial.connected) {
+        document.getElementById('mesh-routes').textContent = 'Disconnected';
+        document.getElementById('mesh-queue').textContent = '\u2014';
+        document.getElementById('mesh-dead').textContent = '\u2014';
+        return;
+    }
+    const env = new Uint8Array(64);
+    const preheader = [0xFF, 0x00, 0x1C, 0x1D, 0x1E, 0x1F, 0x20, 0xFF];
+    env.set(preheader, 0);
+    env[8] = 0x10;
+    state.serial.sendEnvelope(env);
+}
+
+function updateMeshDisplay(env) {
+    if (env[8] !== 0x11) return;
+    const routeCount = env[9];
+    const queueDepth = env[10];
+    const deadCount = env[11];
+    document.getElementById('mesh-routes').textContent = routeCount.toString();
+    document.getElementById('mesh-queue').textContent = queueDepth.toString();
+    document.getElementById('mesh-dead').textContent = deadCount.toString();
+    const routesEl = document.getElementById('mesh-route-list');
+    routesEl.innerHTML = '';
+    for (let i = 0; i < routeCount && i < 8; i++) {
+        const off = 32 + i * 4;
+        const dest = env[off];
+        const nextHop = env[off + 1];
+        const metric = env[off + 2];
+        const seq = env[off + 3];
+        const row = document.createElement('div');
+        row.className = 'route-entry';
+        row.textContent = `\u2192 ${dest} via ${nextHop} (metric ${metric}, seq ${seq})`;
+        routesEl.appendChild(row);
+    }
+}
+
 function log(level, msg) {
     const el = document.getElementById('sys-log');
     const ts = new Date().toISOString().slice(11, 23);
@@ -119,6 +171,7 @@ async function init() {
         if (evt.response) {
             rxLog(`  RESPONSE ${hex(evt.response)}`, 'env-info');
         }
+        updateMeshDisplay(evt.envelope);
         if (isAudioEnvelope(evt.envelope)) {
             const samples = unpackAudioSamples(evt.envelope);
             state.rxAudioQueue.push(samples);
@@ -136,10 +189,12 @@ async function init() {
             btnDisconnect.disabled = false;
             updateInjectButtons(true);
             log('info', 'Serial connected at ' + baud + ' baud');
+            startMeshDebug();
         }
     });
 
     btnDisconnect.addEventListener('click', async () => {
+        stopMeshDebug();
         await state.serial.disconnect();
         setStatus('status-serial', false);
         btnConnect.disabled = false;
@@ -226,6 +281,8 @@ async function init() {
         document.getElementById('vu-bar').style.width = '0%';
         log('info', 'Audio stopped');
     });
+
+    document.getElementById('btn-mesh-refresh').addEventListener('click', requestMeshStatus);
 
     log('info', 'OMI Web Bridge ready');
 }

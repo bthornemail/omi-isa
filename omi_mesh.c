@@ -9,6 +9,8 @@ static const uint8_t CANONICAL_PREHEADER[8] = {
 
 #define ROUTE_UPDATE_MARKER 0x01
 #define ROUTE_DATA_MARKER   0x00
+#define ROUTE_RREQ_MARKER   0x02
+#define ROUTE_RREP_MARKER   0x03
 
 static OMI_MeshTransport* cast(OMI_Transport* t) {
     return (OMI_MeshTransport*)t;
@@ -114,6 +116,25 @@ static void expire_stale_routes(OMI_MeshTransport* m) {
     }
 }
 
+static void enqueue_dead_letter_raw(OMI_MeshTransport* m, const OMI_512_Envelope* env,
+                                     uint8_t dest_id, uint8_t origin_id,
+                                     uint8_t ttl, uint8_t reason) {
+    if (m->dead_letters.count >= OMI_MESH_DEAD_LETTER_MAX) return;
+    OMI_DeadLetter* d = &m->dead_letters.entries[m->dead_letters.count];
+    memcpy(&d->envelope, env, sizeof(OMI_512_Envelope));
+    d->dest_id = dest_id;
+    d->origin_id = origin_id;
+    d->ttl = ttl;
+    d->dropped_at = now_ms(m);
+    d->reason = reason;
+    m->dead_letters.count++;
+}
+
+static void enqueue_dead_letter(OMI_MeshTransport* m, const OMI_QueuedEnvelope* q,
+                                 uint8_t reason) {
+    enqueue_dead_letter_raw(m, &q->envelope, q->dest_id, q->origin_id, q->ttl, reason);
+}
+
 static int enqueue(OMI_MeshTransport* m, const OMI_512_Envelope* env,
                     uint8_t dest_id, uint8_t ttl) {
     if (m->queue_count >= OMI_MESH_MAX_QUEUE) return -1;
@@ -149,7 +170,10 @@ static int retry_queue(OMI_MeshTransport* m) {
         } else {
             q->retries++;
             q->enqueued_at = now_ms(m);
-            if (q->retries >= m->max_retries) q->valid = 0;
+            if (q->retries >= m->max_retries) {
+                enqueue_dead_letter(m, q, 2);
+                q->valid = 0;
+            }
         }
     }
     int wi = 0;
@@ -161,6 +185,78 @@ static int retry_queue(OMI_MeshTransport* m) {
     }
     m->queue_count = wi;
     return sent;
+}
+
+static void send_rreq(OMI_MeshTransport* m, uint8_t dest_id) {
+    if (m->rreq_pending && m->pending_rreq_dest == dest_id) return;
+    OMI_512_Envelope env;
+    memset(&env, 0, sizeof(OMI_512_Envelope));
+    env.orientation[0] = ROUTE_RREQ_MARKER;
+    env.target[0] = dest_id;
+    env.target[1] = m->node_id;
+    env.target[2] = ++m->rreq_seqno;
+    env.recovery[0] = 1;
+    env.target[0] = 0xFF;
+    m->underlying->send(m->underlying, (const uint8_t*)&env, sizeof(OMI_512_Envelope));
+    m->pending_rreq_dest = dest_id;
+    m->rreq_sent_at = now_ms(m);
+    m->rreq_retries = 0;
+    m->rreq_pending = 1;
+}
+
+static void handle_rreq(OMI_MeshTransport* m, const OMI_512_Envelope* env) {
+    uint8_t dest_id = env->target[0];
+    uint8_t origin_id = env->target[1];
+    uint8_t seqno = env->target[2];
+    uint8_t hop_count = env->recovery[0];
+
+    if (dest_id == m->node_id) {
+        OMI_RouteEntry* rt = find_route(m, origin_id);
+        if (!rt && m->routes.count < OMI_MESH_MAX_ROUTES) {
+            m->routes.entries[m->routes.count].node_id = origin_id;
+            m->routes.entries[m->routes.count].next_hop = origin_id;
+            m->routes.entries[m->routes.count].metric = hop_count;
+            m->routes.entries[m->routes.count].seqno = 0;
+            m->routes.entries[m->routes.count].timestamp = now_ms(m);
+            m->routes.entries[m->routes.count].valid = 1;
+            m->routes.count++;
+        }
+        OMI_512_Envelope rrep;
+        memset(&rrep, 0, sizeof(OMI_512_Envelope));
+        rrep.orientation[0] = ROUTE_RREP_MARKER;
+        rrep.target[0] = origin_id;
+        rrep.target[1] = m->node_id;
+        rrep.target[2] = seqno;
+        rrep.recovery[0] = hop_count;
+        rrep.target[0] = 0xFF;
+        m->underlying->send(m->underlying, (const uint8_t*)&rrep, sizeof(OMI_512_Envelope));
+    } else {
+        OMI_512_Envelope fwd;
+        memcpy(&fwd, env, sizeof(OMI_512_Envelope));
+        fwd.recovery[0] = hop_count + 1;
+        fwd.target[0] = 0xFF;
+        m->underlying->send(m->underlying, (const uint8_t*)&fwd, sizeof(OMI_512_Envelope));
+    }
+}
+
+static void handle_rrep(OMI_MeshTransport* m, const OMI_512_Envelope* env) {
+    uint8_t origin_id = env->target[0];
+    uint8_t target_id = env->target[1];
+    uint8_t hop_count = env->recovery[0];
+
+    OMI_RouteEntry* rt = find_route(m, target_id);
+    if (!rt && m->routes.count < OMI_MESH_MAX_ROUTES) {
+        m->routes.entries[m->routes.count].node_id = target_id;
+        m->routes.entries[m->routes.count].next_hop = target_id;
+        m->routes.entries[m->routes.count].metric = hop_count;
+        m->routes.entries[m->routes.count].seqno = 0;
+        m->routes.entries[m->routes.count].timestamp = now_ms(m);
+        m->routes.entries[m->routes.count].valid = 1;
+        m->routes.count++;
+    }
+    if (origin_id == m->node_id) {
+        m->rreq_pending = 0;
+    }
 }
 
 static int flood_routes(OMI_MeshTransport* m) {
@@ -205,6 +301,7 @@ static int mesh_send(OMI_Transport* self, const uint8_t* data, size_t len) {
                                    sizeof(OMI_512_Envelope));
     }
 
+    send_rreq(m, dest_id);
     return enqueue(m, &env, dest_id, ttl);
 }
 
@@ -223,6 +320,14 @@ static int mesh_recv(OMI_Transport* self, uint8_t* data, size_t maxlen, int time
         handle_route_update(m, &env);
         return 0;
     }
+    if (marker == ROUTE_RREQ_MARKER) {
+        handle_rreq(m, &env);
+        return 0;
+    }
+    if (marker == ROUTE_RREP_MARKER) {
+        handle_rrep(m, &env);
+        return 0;
+    }
 
     uint8_t dest = env.target[0];
     if (dest == m->node_id || dest == 0xFF) {
@@ -231,7 +336,10 @@ static int mesh_recv(OMI_Transport* self, uint8_t* data, size_t maxlen, int time
     }
 
     uint8_t ttl = env.recovery[1];
-    if (ttl <= 1) return 0;
+    if (ttl <= 1) {
+        enqueue_dead_letter_raw(m, &env, dest, env.recovery[0], ttl, 1);
+        return 0;
+    }
     env.recovery[1] = ttl - 1;
 
     OMI_RouteEntry* route = find_route(m, dest);
@@ -250,6 +358,22 @@ static void mesh_tick(OMI_MeshTransport* m) {
     uint32_t now = now_ms(m);
 
     expire_stale_routes(m);
+
+    if (m->rreq_pending &&
+        (now - m->rreq_sent_at) > OMI_MESH_RREQ_RETRY_INTERVAL &&
+        m->rreq_retries < OMI_MESH_RREQ_MAX_RETRIES) {
+        m->rreq_retries++;
+        OMI_512_Envelope env;
+        memset(&env, 0, sizeof(OMI_512_Envelope));
+        env.orientation[0] = ROUTE_RREQ_MARKER;
+        env.target[0] = m->pending_rreq_dest;
+        env.target[1] = m->node_id;
+        env.target[2] = m->rreq_seqno;
+        env.recovery[0] = 1;
+        env.target[0] = 0xFF;
+        m->underlying->send(m->underlying, (const uint8_t*)&env, sizeof(OMI_512_Envelope));
+        m->rreq_sent_at = now;
+    }
 
     if (now - m->last_flood > (uint32_t)m->flood_interval_s * 1000) {
         flood_routes(m);
@@ -296,6 +420,12 @@ OMI_Transport* omi_mesh_create(OMI_Transport* underlying, uint8_t node_id,
 
     m->routes.count = 0;
     m->queue_count  = 0;
+    m->dead_letters.count = 0;
+    m->rreq_pending = 0;
+    m->pending_rreq_dest = 0;
+    m->rreq_seqno = 0;
+    m->rreq_sent_at = 0;
+    m->rreq_retries = 0;
 
     return &m->base;
 }
@@ -333,4 +463,16 @@ int omi_mesh_queue_depth(OMI_Transport* t) {
     OMI_MeshTransport* m = cast(t);
     if (!m) return 0;
     return m->queue_count;
+}
+
+int omi_mesh_dead_letter_count(OMI_Transport* t) {
+    OMI_MeshTransport* m = cast(t);
+    if (!m) return 0;
+    return m->dead_letters.count;
+}
+
+const OMI_DeadLetter* omi_mesh_get_dead_letter(OMI_Transport* t, int index) {
+    OMI_MeshTransport* m = cast(t);
+    if (!m || index < 0 || index >= m->dead_letters.count) return NULL;
+    return &m->dead_letters.entries[index];
 }

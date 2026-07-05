@@ -8,6 +8,17 @@ static const char* TAG = "omi_esp_transport";
 static int esp_send(OMI_Transport* self, const uint8_t* data, size_t len) {
     OMI_EspTransport* t = (OMI_EspTransport*)self;
     if (!t || !t->initialized) return -1;
+
+    int channel_busy = 0;
+    SX126X_Error cad_err = sx1262_cad(&t->sx1262, &channel_busy);
+    if (cad_err == SX126X_OK && channel_busy) {
+        ESP_LOGW(TAG, "channel busy, aborting send");
+        return -3;
+    }
+    if (cad_err != SX126X_OK) {
+        ESP_LOGW(TAG, "CAD failed (%d), sending anyway", cad_err);
+    }
+
     size_t remain = len;
     while (remain > 0) {
         uint8_t chunk_len = (remain > 64) ? 64 : (uint8_t)remain;
@@ -71,6 +82,7 @@ OMI_EspTransport* omi_esp_transport_create(const SX126X_Config* lora_cfg,
     sx126x_set_tx_power(&t->sx1262, 14);
     sx126x_set_lora_modem(&t->sx1262, 7, 125000, 5);
     sx126x_standby(&t->sx1262);
+    sx1262_set_cad_params(&t->sx1262, SX126X_CAD_SYMBOLS_4, SX126X_CAD_EXIT_STANDBY, 0);
 
     t->initialized = 1;
     ESP_LOGI(TAG, "ESP transport initialized at %u Hz", lora_freq_hz);

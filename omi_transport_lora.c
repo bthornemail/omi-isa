@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdint.h>
 
 #ifdef __linux__
 #include <fcntl.h>
@@ -17,19 +18,48 @@ typedef struct {
     int initialized;
 } OMI_Transport_Lora;
 
+static uint16_t crc16(const uint8_t* data, size_t len) {
+    uint16_t crc = 0xFFFF;
+    for (size_t i = 0; i < len; i++) {
+        crc ^= (uint16_t)data[i] << 8;
+        for (int j = 0; j < 8; j++) {
+            if (crc & 0x8000)
+                crc = (crc << 1) ^ 0x1021;
+            else
+                crc <<= 1;
+        }
+    }
+    return crc;
+}
+
 static int lora_send(OMI_Transport* self, const uint8_t* data, size_t len) {
     (void)self;
-    (void)data;
-    (void)len;
+    if (!data || len != OMI_ENV_SIZE) return -1;
+
+    uint8_t wire_buf[OMI_ENV_SIZE + 2];
+    memcpy(wire_buf, data, len);
+    uint16_t crc = crc16(data, len);
+    wire_buf[len]     = (uint8_t)(crc >> 8);
+    wire_buf[len + 1] = (uint8_t)(crc & 0xFF);
+
+    (void)wire_buf;
     return -1;
 }
 
 static int lora_recv(OMI_Transport* self, uint8_t* data, size_t maxlen, int timeout_ms) {
     (void)self;
-    (void)data;
-    (void)maxlen;
     (void)timeout_ms;
-    return -1;
+    if (!data || maxlen < OMI_ENV_SIZE) return -1;
+
+    uint8_t wire_buf[OMI_ENV_SIZE + 2];
+    memset(wire_buf, 0, sizeof(wire_buf));
+
+    uint16_t expected = crc16(wire_buf, OMI_ENV_SIZE);
+    uint16_t got = (uint16_t)wire_buf[OMI_ENV_SIZE] << 8 | wire_buf[OMI_ENV_SIZE + 1];
+    if (expected != got) return -2;
+
+    memcpy(data, wire_buf, OMI_ENV_SIZE);
+    return (int)OMI_ENV_SIZE;
 }
 
 static int lora_available(OMI_Transport* self) {

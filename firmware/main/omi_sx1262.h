@@ -25,15 +25,24 @@
 #define SX126X_CMD_CLEAR_IRQ_STATUS        0x02
 #define SX126X_CMD_GET_IRQ_STATUS          0x12
 #define SX126X_CMD_SET_CAD                 0xC5
+#define SX126X_CMD_SET_CAD_PARAMS          0x88
+
+#define SX126X_CAD_SYMBOLS_1               0x00
+#define SX126X_CAD_SYMBOLS_2               0x01
+#define SX126X_CAD_SYMBOLS_4               0x02
+#define SX126X_CAD_SYMBOLS_8               0x03
+#define SX126X_CAD_SYMBOLS_16              0x04
+#define SX126X_CAD_EXIT_CONTINUOUS         0x00
+#define SX126X_CAD_EXIT_STANDBY            0x01
 
 #define SX126X_REG_LORA_SYNC_WORD          0x0740
 #define SX126X_REG_LORA_RX_GAIN            0x08AC
 
 #define SX126X_IRQ_TX_DONE                 0x01
 #define SX126X_IRQ_RX_DONE                 0x02
-#define SX126X_IRQ_TIMEOUT                 0x80
-#define SX126X_IRQ_CAD_DONE                0x04
-#define SX126X_IRQ_CAD_DETECTED            0x08
+#define SX126X_IRQ_TIMEOUT                 0x04
+#define SX126X_IRQ_CAD_DONE                (1 << 6)
+#define SX126X_IRQ_CAD_DETECTED            (1 << 7)
 
 #define SX126X_PACKET_TYPE_LORA            0x01
 
@@ -78,5 +87,7 @@ SX126X_Error sx126x_tx(SX126X_Device* dev, const uint8_t* data, uint8_t len);
 SX126X_Error sx126x_rx(SX126X_Device* dev, uint8_t* data, uint8_t* len, uint32_t timeout_ms);
 SX126X_Error sx126x_available(SX126X_Device* dev);
 SX126X_Error sx126x_get_irq(SX126X_Device* dev, uint16_t* irq);
+SX126X_Error sx1262_set_cad_params(SX126X_Device* dev, uint8_t cad_sym_num, uint8_t cad_exit_mode, uint32_t cad_timeout_ms);
+SX126X_Error sx1262_cad(SX126X_Device* dev, int* channel_busy);
 
 #endif

@@ -342,3 +342,46 @@ SX126X_Error sx126x_get_irq(SX126X_Device* dev, uint16_t* irq) {
     *irq = ((uint16_t)buf[2] << 8) | buf[3];
     return SX126X_OK;
 }
+
+SX126X_Error sx1262_set_cad_params(SX126X_Device* dev, uint8_t cad_sym_num, uint8_t cad_exit_mode, uint32_t cad_timeout_ms) {
+    uint8_t params[7] = {
+        cad_sym_num,
+        cad_exit_mode,
+        (uint8_t)(cad_timeout_ms >> 16),
+        (uint8_t)(cad_timeout_ms >> 8),
+        (uint8_t)(cad_timeout_ms),
+        0x00,
+        0x00
+    };
+    spi_write_cmd_data(dev, SX126X_CMD_SET_CAD_PARAMS, params, 7);
+    sx126x_set_dio_irq(dev, SX126X_IRQ_CAD_DONE | SX126X_IRQ_CAD_DETECTED);
+    return SX126X_OK;
+}
+
+SX126X_Error sx1262_cad(SX126X_Device* dev, int* channel_busy) {
+    if (!dev || !channel_busy) return SX126X_ERR_SPI;
+    *channel_busy = 0;
+
+    wait_on_busy(dev);
+    spi_write_cmd(dev, SX126X_CMD_SET_CAD);
+
+    uint16_t irq = 0;
+    int timeout = 5000;
+    while (!(irq & SX126X_IRQ_CAD_DONE) && timeout--) {
+        sx126x_get_irq(dev, &irq);
+        ets_delay_us(100);
+    }
+
+    if (!timeout) {
+        ESP_LOGW(TAG, "CAD timeout");
+        uint8_t clear[2] = {0xFF, 0xFF};
+        spi_write_cmd_data(dev, SX126X_CMD_CLEAR_IRQ_STATUS, clear, 2);
+        return SX126X_ERR_TIMEOUT;
+    }
+
+    *channel_busy = (irq & SX126X_IRQ_CAD_DETECTED) ? 1 : 0;
+
+    uint8_t clear[2] = {0xFF, 0xFF};
+    spi_write_cmd_data(dev, SX126X_CMD_CLEAR_IRQ_STATUS, clear, 2);
+    return SX126X_OK;
+}

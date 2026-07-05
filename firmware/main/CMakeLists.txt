@@ -11,6 +11,7 @@ idf_component_register(
         "../../gauge_exec.c"
         "../../cpu.c"
         "../../boot.c"
+        "../../omi_mesh.c"
     INCLUDE_DIRS
         "."
         "../../"

@@ -27,3 +27,9 @@ pre { background:#0d1117; border:1px solid #21262d; border-radius:4px; padding:0
 #vu-bar { height:100%; width:0%; background:#3fb950; transition:width 0.05s; }
 #rx-log .env-entry { color:#58a6ff; margin-bottom:0.25rem; }
 #rx-log .env-info { color:#8b949e; font-size:0.75rem; }
+
+#mesh-panel .mesh-stats { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-bottom:0.5rem; }
+#mesh-panel .mesh-stats span { font-size:0.85rem; color:#8b949e; }
+#mesh-panel .mesh-stats span span { color:#c9d1d9; font-weight:bold; }
+#mesh-panel .mesh-routes { margin-top:0.5rem; }
+#mesh-panel .route-entry { font-size:0.8rem; color:#58a6ff; margin-bottom:0.2rem; }
