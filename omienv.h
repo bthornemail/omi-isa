@@ -69,6 +69,10 @@ typedef struct {
     uint32_t cdr;
     uint32_t bridge;
     uint8_t active;
+    uint32_t car_addr;
+    uint32_t cdr_addr;
+    uint8_t eval_depth;
+    uint8_t is_lambda;
 } OmiGaugeEntry;
 
 int omi_env_parse(const uint8_t* data, size_t len, OMI_512_Envelope* env);

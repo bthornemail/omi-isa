@@ -173,6 +173,10 @@ static void omi_gauge_build_table(void) {
         gauge_table[i].car = 0;
         gauge_table[i].cdr = 0;
         gauge_table[i].bridge = 0;
+        gauge_table[i].car_addr = 0;
+        gauge_table[i].cdr_addr = 0;
+        gauge_table[i].eval_depth = 0;
+        gauge_table[i].is_lambda = 0;
     }
     for (int i = 0; i < 32; i++) {
         gauge_table[i].cls = GAUGE_CLASS_CONTROL;

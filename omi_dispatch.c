@@ -1,4 +1,5 @@
 #include "omi_dispatch.h"
+#include "gauge_exec.h"
 #include <string.h>
 
 OMI_OpcodeHandler omi_dispatch_table[OMI_DISPATCH_SLOTS];
@@ -157,15 +158,26 @@ static int handle_gauge_bind(OMI_DispatchContext* ctx) {
     if (!ctx) return -1;
     uint8_t code = ctx->env->target[1];
     if (code > 127) return -2;
-    return 0;
+
+    const OmiGaugeEntry* entry = omi_gauge_lookup(code);
+    if (!entry) return -3;
+
+    int r = gauge_exec_bind(code, NULL);
+    return r;
 }
 
 /* ---- 0x1D: GAUGE_INVOKE ---- */
 static int handle_gauge_invoke(OMI_DispatchContext* ctx) {
     if (!ctx) return -1;
     uint8_t code = ctx->env->target[1];
-    const OmiGaugeEntry* entry = omi_gauge_lookup(code);
-    if (!entry || !entry->active) return -3;
+    if (code > 127) return -2;
+
+    int r = gauge_exec_lambda(ctx, code);
+    if (r != 0) return r;
+
+    if (ctx->vm) {
+        ctx->vm->R[0] = code;
+    }
     return 0;
 }
 
@@ -189,6 +201,8 @@ static int handle_vm_escape(OMI_DispatchContext* ctx) {
 }
 
 void omi_dispatch_init(void) {
+    gauge_exec_init_handlers();
+
     for (int i = 0; i < OMI_DISPATCH_SLOTS; i++)
         omi_dispatch_table[i] = handle_nop;
 

@@ -1,8 +1,8 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
 
-VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o
-TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o
+VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o
+TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o
 
 all: omi_vm omi_toolchain
 
@@ -25,16 +25,21 @@ toolchain_main.o: toolchain_main.c ast.h isa.h loader.h
 omienv.o: omienv.c omienv.h
 stream.o: stream.c stream.h omienv.h omi_dispatch.h cpu.h
 sector.o: sector.c sector.h omienv.h
-omi_dispatch.o: omi_dispatch.c omi_dispatch.h omienv.h cpu.h isa.h
+omi_dispatch.o: omi_dispatch.c omi_dispatch.h omienv.h cpu.h isa.h gauge_exec.h
 omi_transport.o: omi_transport.c omi_transport.h omienv.h
+gauge_exec.o: gauge_exec.c gauge_exec.h omienv.h omi_dispatch.h
 
-test_env: test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c
-	$(CC) $(CFLAGS) -o $@ test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c
+test_env: test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
+	$(CC) $(CFLAGS) -o $@ test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
 	./test_env
 
-test_dispatch: test_dispatch.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
-	$(CC) $(CFLAGS) -o $@ test_dispatch.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+test_dispatch: test_dispatch.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c gauge_exec.c
+	$(CC) $(CFLAGS) -o $@ test_dispatch.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c gauge_exec.c
 	./test_dispatch
+
+test_gauge_exec: test_gauge_exec.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+	$(CC) $(CFLAGS) -o $@ test_gauge_exec.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+	./test_gauge_exec
 
 run: omi_vm
 	./omi_vm programs/test.omi
@@ -55,6 +60,6 @@ bootstrap-compiler.bin: gen_bootstrap.py
 	python3 gen_bootstrap.py bootstrap-compiler.bin
 
 clean:
-	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
+	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 
-.PHONY: all run run-tc bootstrap clean test_env test_dispatch
+.PHONY: all run run-tc bootstrap clean test_env test_dispatch test_gauge_exec
