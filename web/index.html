@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMI-ISA Web Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>OMI-ISA Web Bridge</h1>
+    <div id="status-bar">
+      <span id="status-wasm" class="status offline">WASM</span>
+      <span id="status-serial" class="status offline">Serial</span>
+      <span id="status-audio" class="status offline">Audio</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="connection-panel" class="panel">
+      <h2>Connection</h2>
+      <div class="btn-row">
+        <button id="btn-connect" disabled>Connect Serial</button>
+        <button id="btn-disconnect" disabled>Disconnect</button>
+      </div>
+      <div class="config-row">
+        <label>Baud: <input type="number" id="baud-rate" value="115200" min="9600" max="921600"></label>
+        <label>Sample Rate: <input type="number" id="sample-rate" value="8000" min="8000" max="48000"></label>
+      </div>
+    </section>
+
+    <section id="rx-panel" class="panel">
+      <h2>Received Envelopes</h2>
+      <pre id="rx-log"><span class="placeholder">No envelopes received yet.</span></pre>
+    </section>
+
+    <section id="inject-panel" class="panel">
+      <h2>Inject Envelope</h2>
+      <div class="inject-row">
+        <input type="number" id="inject-pin" placeholder="Pin" min="0" max="255" value="1">
+        <input type="number" id="inject-value" placeholder="Value" min="0" max="255" value="42">
+        <button id="btn-inject-sensor" disabled>Inject Sensor</button>
+      </div>
+      <div class="inject-row">
+        <input type="text" id="inject-event-type" placeholder="event_type" value="button">
+        <input type="number" id="inject-event-value" placeholder="Value" value="1">
+        <button id="btn-inject-event" disabled>Inject Event</button>
+      </div>
+      <div class="inject-row">
+        <input type="text" id="inject-device" placeholder="device" value="led">
+        <input type="text" id="inject-action" placeholder="action" value="toggle">
+        <button id="btn-inject-hardware" disabled>Inject Hardware</button>
+      </div>
+    </section>
+
+    <section id="audio-panel" class="panel">
+      <h2>Audio</h2>
+      <div class="btn-row">
+        <button id="btn-record" disabled>Start Record</button>
+        <button id="btn-stop" disabled>Stop</button>
+      </div>
+      <div id="audio-vu"><div id="vu-bar"></div></div>
+      <pre id="audio-log"></pre>
+    </section>
+
+    <section id="log-panel" class="panel">
+      <h2>System Log</h2>
+      <pre id="sys-log"><span class="placeholder">Initializing...</span></pre>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/omi-wasm@latest/omi_wasm.js"></script>
+<script src="omi_web_serial.js"></script>
+<script src="omi_web_audio.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

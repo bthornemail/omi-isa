@@ -1,0 +1,21 @@
+idf_component_register(
+    SRCS
+        "main.cpp"
+        "omi_sx1262.cpp"
+        "omi_esp_transport.cpp"
+        "../../omienv.c"
+        "../../stream.c"
+        "../../sector.c"
+        "../../omi_dispatch.c"
+        "../../omi_transport.c"
+        "../../gauge_exec.c"
+        "../../cpu.c"
+        "../../boot.c"
+    INCLUDE_DIRS
+        "."
+        "../../"
+    REQUIRES
+        driver
+        nvs_flash
+        freertos
+)

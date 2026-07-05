@@ -1,6 +1,6 @@
 # OMI-ISA
 
-A 4-stage distributed semantic execution stack: 16-bit reversible-XOR register VM, 512-bit envelope transport, 32-slot dispatch ISA, gauge lambda engine, and LoRa RF transport.
+A 7-phase distributed semantic execution stack: 16-bit reversible-XOR register VM, 512-bit envelope transport, 32-slot dispatch ISA, gauge lambda engine, LoRa RF transport, Web Serial + WASM bridge, and mesh networking.
 
 ```
 OMI-Lisp (.omi) → lexer → parser → AST → compiler → 16-bit bytecode → boot → CPU → log
@@ -241,6 +241,9 @@ make test_env               # 39 envelope/stream/bitboard tests
 make test_dispatch          # 31 dispatch table tests
 make test_gauge_exec        # 21 gauge lambda execution tests
 make test_radio_vm          # 43 radio VM end-to-end tests
+make test_mesh             # 23 mesh routing/queue tests
+make test                  # all 5 test suites (157 tests)
+make wasm                   # build WASM module (requires emcc)
 make run                    # ./omi_vm programs/test.omi
 make run-tc                 # toolchain compile only
 make clean                  # remove build artifacts
@@ -256,6 +259,7 @@ All test targets auto-run after compilation. Zero warnings expected.
 | test_dispatch | 31 | 32-slot dispatch table, PROBE handshake, FOLD, SYNC_COMMIT, custom handlers, stream dispatch integration |
 | test_gauge_exec | 21 | Gauge bind/unbind, lambda eval, car/cdr chain, depth limit, non-printing semantics |
 | test_radio_vm | 43 | Sim transport, envelope send/recv, probe session, two-node handshake, transport→stream→dispatch pipeline |
+| test_mesh     | 23 | Mesh routing table, route update flood, data forwarding, store-and-forward queue, retry/expiry |
 
 ---
 
@@ -289,6 +293,36 @@ Phase 3 — Radio VM
 ├── omi_transport_sim.c / .h  simulated paired transport
 ├── omi_transport_lora.c / .h SX1262 LoRa driver stub
 ├── omi_probe.c / .h      probe handshake state machine
+
+Phase 4 — Web Serial + WASM Bridge
+├── web/omi_web_bridge.c     Emscripten WASM bindings
+├── web/omi_web_serial.js    Web Serial API transport class
+├── web/omi_web_audio.js     Web Audio capture/playback
+├── web/omi_audio_worklet.js AudioWorkletProcessor (PCM → 16-sample frames)
+├── web/index.html           Web UI entry point
+├── web/app.js               Application logic
+├── web/style.css            Dark terminal theme
+├── web/omi_wasm.js          Generated WASM glue (emcc output)
+└── web/omi_wasm.wasm        Compiled WASM module (emcc output)
+
+Phase 5 — ESP32-S3 LoRa Firmware
+├── firmware/main/main.cpp               ESP-IDF entry, serial↔LoRa bridge loop
+├── firmware/main/omi_sx1262.h/cpp        Real SX1262 SPI driver (config, TX, RX, CAD)
+├── firmware/main/omi_esp_transport.h/cpp OMI_Transport impl using SX1262 + CDC UART
+├── firmware/main/CMakeLists.txt          ESP-IDF component (includes OMI C sources)
+├── firmware/CMakeLists.txt               Top-level ESP-IDF project
+├── firmware/platformio.ini               PlatformIO config (two targets)
+└── firmware/README.md                    Build and flash instructions
+
+Phase 6 — Web Audio Integration
+├── web/app.js                    (audio frame queue, envelope detection, playback)
+├── web/omi_web_audio.js          (OMIWebAudio capture/playback class)
+└── web/omi_audio_worklet.js     (AudioWorkletProcessor: PCM → 16-sample frames)
+
+Phase 7 — Mesh Networking
+├── omi_mesh.c / omi_mesh.h      Mesh transport layer: routing table, store-and-forward,
+│                                 route update flood, retry queue, stale expiry
+└── test_mesh.c                  23 mesh routing/forwarding/queue tests
 
 Tests
 ├── test_env.c            39 envelope/stream/sector tests

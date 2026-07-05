@@ -1,0 +1,29 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Courier New', monospace; background:#0d1117; color:#c9d1d9; padding:1rem; }
+#app { max-width:960px; margin:0 auto; }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; }
+h1 { font-size:1.4rem; color:#58a6ff; }
+h2 { font-size:0.95rem; color:#8b949e; margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em; }
+#status-bar { display:flex; gap:0.5rem; }
+.status { padding:0.2rem 0.6rem; border-radius:3px; font-size:0.75rem; font-weight:bold; }
+.status.offline { background:#21262d; color:#484f58; }
+.status.online { background:#1b3a1c; color:#3fb950; }
+.status.active { background:#1b3a1c; color:#3fb950; }
+.panel { background:#161b22; border:1px solid #30363d; border-radius:6px; padding:1rem; margin-bottom:1rem; }
+.btn-row { display:flex; gap:0.5rem; margin-bottom:0.5rem; flex-wrap:wrap; }
+.inject-row { display:flex; gap:0.5rem; margin-bottom:0.5rem; flex-wrap:wrap; align-items:center; }
+.config-row { display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.5rem; }
+.config-row label { font-size:0.85rem; color:#8b949e; }
+button { background:#21262d; border:1px solid #30363d; color:#c9d1d9; padding:0.4rem 1rem; border-radius:4px; cursor:pointer; font-family:'Courier New',monospace; font-size:0.85rem; }
+button:hover:not(:disabled) { background:#30363d; }
+button:disabled { opacity:0.4; cursor:not-allowed; }
+button.primary { background:#1f6feb; border-color:#1f6feb; color:#fff; }
+button.primary:hover:not(:disabled) { background:#388bfd; }
+input { background:#0d1117; border:1px solid #30363d; color:#c9d1d9; padding:0.35rem 0.5rem; border-radius:4px; font-family:'Courier New',monospace; font-size:0.85rem; }
+input:focus { outline:none; border-color:#58a6ff; }
+pre { background:#0d1117; border:1px solid #21262d; border-radius:4px; padding:0.75rem; font-size:0.8rem; max-height:240px; overflow-y:auto; white-space:pre-wrap; word-break:break-all; }
+.placeholder { color:#484f58; font-style:italic; }
+#audio-vu { margin:0.5rem 0; height:12px; background:#0d1117; border:1px solid #21262d; border-radius:3px; overflow:hidden; }
+#vu-bar { height:100%; width:0%; background:#3fb950; transition:width 0.05s; }
+#rx-log .env-entry { color:#58a6ff; margin-bottom:0.25rem; }
+#rx-log .env-info { color:#8b949e; font-size:0.75rem; }
