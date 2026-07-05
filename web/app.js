@@ -7,6 +7,46 @@ const state = {
     audioCtx: null,
 };
 
+const GAUGE_ACTION_NAMES = {
+    0: 'NONE',
+    1: 'PLACE',
+    2: 'REGISTER_INJECT',
+    3: 'KERNEL_READ',
+    4: 'RECORD_CLOSE',
+    5: 'SYSTEM_WITNESS',
+    6: 'SEAL',
+    7: 'BOOT_PAGE',
+    8: 'EXTERNAL_BRIDGE'
+};
+
+const GAUGE_ACTION_CLASSES = {
+    1: 'place',
+    2: 'inject',
+    3: 'query',
+    4: 'close'
+};
+
+function projectEnvelope(env, bitboard) {
+    const gauge = env[0];
+    const actionCode = bitboard ? ((bitboard >> 22) & 0xFF) : 0;
+    const actionName = GAUGE_ACTION_NAMES[actionCode] || 'UNKNOWN';
+    const cls = GAUGE_ACTION_CLASSES[actionCode] || '';
+
+    const addr = Array.from(env.slice(0, 16))
+        .map(b => b.toString(16).padStart(2, '0')).join(' ');
+    const container = document.getElementById('projection-container');
+    const entry = document.createElement('div');
+    entry.className = 'proj-entry' + (cls ? ' ' + cls : '');
+    entry.innerHTML = `
+        <span class="proj-addr">${addr}</span>
+        <span class="proj-action">${actionName}</span>
+        <span class="proj-receipt">${bitboard ? '0x' + bitboard.toString(16).padStart(16, '0') : ''}</span>
+    `;
+    container.appendChild(entry);
+    if (container.children.length > 100) container.firstChild.remove();
+    container.scrollTop = container.scrollHeight;
+}
+
 // Mesh debug state
 let meshDebugInterval = null;
 
@@ -32,12 +72,12 @@ function requestMeshStatus() {
     const env = new Uint8Array(64);
     const preheader = [0xFF, 0x00, 0x1C, 0x1D, 0x1E, 0x1F, 0x20, 0xFF];
     env.set(preheader, 0);
-    env[8] = 0x10;
+    env[8] = 0x03;
     state.serial.sendEnvelope(env);
 }
 
 function updateMeshDisplay(env) {
-    if (env[8] !== 0x11) return;
+    if (env[8] !== 0x03) return;
     const routeCount = env[9];
     const queueDepth = env[10];
     const deadCount = env[11];
@@ -171,6 +211,7 @@ async function init() {
         if (evt.response) {
             rxLog(`  RESPONSE ${hex(evt.response)}`, 'env-info');
         }
+        projectEnvelope(evt.envelope, evt.bitboard);
         updateMeshDisplay(evt.envelope);
         if (isAudioEnvelope(evt.envelope)) {
             const samples = unpackAudioSamples(evt.envelope);

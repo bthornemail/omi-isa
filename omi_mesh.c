@@ -8,9 +8,10 @@ static const uint8_t CANONICAL_PREHEADER[8] = {
 };
 
 #define ROUTE_UPDATE_MARKER 0x01
-#define ROUTE_DATA_MARKER   0x00
-#define ROUTE_RREQ_MARKER   0x02
-#define ROUTE_RREP_MARKER   0x03
+#define ROUTE_DATA_MARKER   0x02
+#define ROUTE_RREQ_MARKER   0x04
+#define ROUTE_RREP_MARKER   0x05
+#define MESH_STATUS_MARKER  0x03
 
 static OMI_MeshTransport* cast(OMI_Transport* t) {
     return (OMI_MeshTransport*)t;

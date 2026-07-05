@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
 
-VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o
-TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o
-LORA_OBJ=omi_transport_lora.o omi_transport_sim.o omi_probe.o omi_mesh.o
+VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o
+TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o
+LORA_OBJ=omi_transport_lora.o omi_transport_sim.o omi_probe.o omi_mesh.o omicron.o
 
 all: omi_vm omi_toolchain
 
@@ -32,6 +32,7 @@ gauge_exec.o: gauge_exec.c gauge_exec.h omienv.h omi_dispatch.h
 omi_probe.o: omi_probe.c omi_probe.h omi_transport.h omi_dispatch.h cpu.h
 omi_transport_sim.o: omi_transport_sim.c omi_transport_sim.h omi_transport.h
 omi_mesh.o: omi_mesh.c omi_mesh.h omienv.h omi_transport.h
+omicron.o: omicron.c omicron.h omienv.h omi_dispatch.h gauge_exec.h
 omi_transport_lora.o: omi_transport_lora.c omi_transport_lora.h omi_transport.h
 
 test_env: test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
@@ -72,7 +73,8 @@ WASM_SRCDIR=web
 WASM_OBJDIR=web/build
 WASM_OBJS=$(WASM_OBJDIR)/omienv.o $(WASM_OBJDIR)/stream.o $(WASM_OBJDIR)/sector.o \
            $(WASM_OBJDIR)/omi_dispatch.o $(WASM_OBJDIR)/omi_transport.o \
-           $(WASM_OBJDIR)/gauge_exec.o $(WASM_OBJDIR)/cpu.o $(WASM_OBJDIR)/boot.o
+           $(WASM_OBJDIR)/gauge_exec.o $(WASM_OBJDIR)/cpu.o $(WASM_OBJDIR)/boot.o \
+           $(WASM_OBJDIR)/omicron.o
 
 wasm: $(WASM_OBJDIR) $(WASM_OBJS) $(WASM_SRCDIR)/omi_web_bridge.c
 	emcc -Os -s WASM=1 -s MODULARIZE=1 -s EXPORT_NAME=createModule \
@@ -110,14 +112,21 @@ $(WASM_OBJDIR)/cpu.o: cpu.c cpu.h isa.h
 $(WASM_OBJDIR)/boot.o: boot.c cpu.h
 	emcc -Os -s WASM=1 -I. -c boot.c -o $@
 
+$(WASM_OBJDIR)/omicron.o: omicron.c omicron.h omienv.h omi_dispatch.h gauge_exec.h
+	emcc -Os -s WASM=1 -I. -c omicron.c -o $@
+
 test_mesh: test_mesh.c omi_mesh.c omi_transport_sim.c omi_transport.c omienv.c
 	$(CC) $(CFLAGS) -o $@ test_mesh.c omi_mesh.c omi_transport_sim.c omi_transport.c omienv.c
 	./test_mesh
 
-test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh
+test_omicron: test_omicron.c omicron.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+	$(CC) $(CFLAGS) -o $@ test_omicron.c omicron.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+	./test_omicron
+
+test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron
 
 clean:
-	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
+	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
 .PHONY: all run run-tc bootstrap clean wasm test_env test_dispatch test_gauge_exec test_radio_vm test_mesh
