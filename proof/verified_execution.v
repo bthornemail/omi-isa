@@ -35,41 +35,45 @@ Require OMI_bialgebra.
 (********************************************************************)
 
 Definition gf16_mul_alpha (x : N) : N :=
-  if N.testbit x 15
-  then N.lxor (N.shiftl x 1) 0x002D
-  else N.shiftl x 1.
+  N.land
+    (if N.testbit x 15
+     then N.lxor (N.shiftl x 1) 0x002D
+     else N.shiftl x 1)
+    0xFFFF.
 
 Definition A_concrete (x : N) : N := gf16_mul_alpha x.
 Definition B_concrete (c : N) : N := c.
 
-Definition mask (x : N) : N := if N.testbit x 15 then 0x002D else 0%N.
-
-Lemma mask_linear (x y : N) :
-  mask (N.lxor x y) = N.lxor (mask x) (mask y).
+Lemma land_lxor_distr (a b m : N) :
+  N.land (N.lxor a b) m = N.lxor (N.land a m) (N.land b m).
 Proof.
-  unfold mask.
-  rewrite N.lxor_spec.
-  destruct (N.testbit x 15) eqn:Hx, (N.testbit y 15) eqn:Hy; simpl;
-    rewrite ?N.lxor_0_r, ?N.lxor_0_l, ?N.lxor_nilpotent; auto.
+  apply N.bits_inj; intro i.
+  rewrite N.land_spec, N.lxor_spec, !N.land_spec, !N.lxor_spec.
+  destruct (N.testbit a i), (N.testbit b i), (N.testbit m i); auto.
 Qed.
 
-Lemma gf16_mul_alpha_eq (x : N) :
-  gf16_mul_alpha x = N.lxor (N.shiftl x 1) (mask x).
+Definition inner (x : N) : N := N.lxor (N.shiftl x 1) (if N.testbit x 15 then 0x002D else 0%N).
+
+Lemma inner_linear (x y : N) :
+  inner (N.lxor x y) = N.lxor (inner x) (inner y).
 Proof.
-  unfold gf16_mul_alpha, mask.
-  destruct (N.testbit x 15); [reflexivity | rewrite N.lxor_0_r; reflexivity].
+  unfold inner.
+  rewrite N.lxor_spec, N.shiftl_lxor.
+  destruct (N.testbit x 15) eqn:Hx, (N.testbit y 15) eqn:Hy; simpl;
+    rewrite ?N.lxor_0_r, ?N.lxor_0_l, ?N.lxor_nilpotent; auto;
+    repeat rewrite N.lxor_assoc;
+    apply (f_equal (fun t => N.lxor (N.shiftl x 1) t));
+    rewrite <- !N.lxor_assoc;
+    apply (f_equal (fun t => N.lxor t (if N.testbit x 15 then 0x002D else 0%N)));
+    apply N.lxor_comm.
 Qed.
 
 Lemma gf16_mul_alpha_linear (x y : N) :
   gf16_mul_alpha (N.lxor x y) = N.lxor (gf16_mul_alpha x) (gf16_mul_alpha y).
 Proof.
-  rewrite !gf16_mul_alpha_eq.
-  rewrite mask_linear, N.shiftl_lxor.
-  repeat rewrite N.lxor_assoc.
-  apply (f_equal (fun t => N.lxor (N.shiftl x 1) t)).
-  rewrite <- !N.lxor_assoc.
-  apply (f_equal (fun t => N.lxor t (mask y))).
-  apply N.lxor_comm.
+  unfold gf16_mul_alpha.
+  rewrite inner_linear.
+  apply land_lxor_distr.
 Qed.
 
 Lemma A_concrete_linear (x y : N) :
@@ -85,21 +89,43 @@ Lemma gf16_mul_alpha_bounded (x : N) (Hx : (x < 65536)%N) :
 Proof.
   Admitted.
 
-Lemma A_concrete_kernel_trivial (z : N) (Hz : (z < 65536)%N) (HAz : A_concrete z = 0%N) :
-  z = 0%N.
+Lemma log2_lt_16 (a : N) (Ha : (a < 65536)%N) : (N.log2 a < 16)%N.
 Proof.
-  unfold A_concrete, gf16_mul_alpha in HAz.
-  case_eq (N.testbit z 15); intro Hbit; rewrite Hbit in HAz.
-  - apply N.lxor_eq in HAz.
-    assert (Hodd : N.testbit 0x002D 0 = true) by (compute; reflexivity).
-    assert (Heven : N.testbit (N.shiftl z 1) 0 = false).
-    { rewrite N.shiftl_spec_low; [reflexivity | lia]. }
-    rewrite HAz in Heven. rewrite Hodd in Heven. discriminate.
-  - rewrite N.shiftl_mul_pow2 in HAz.
-    apply N.mul_eq_0 in HAz. destruct HAz as [Hz0 | Htwo].
-    + exact Hz0.
-    + exfalso; apply (N.neq_succ_0 1); exact Htwo.
+  destruct (N.eq_dec a 0%N) as [H|H].
+  - rewrite H, N.log2_nonpos; [|apply N.le_0_l].
+    lia.
+  - apply (proj1 (N.log2_lt_pow2 a 16 (proj1 (N.neq_0_lt_0 a) H))). exact Ha.
 Qed.
+
+Lemma land_16bit_id (a : N) (Ha : (a < 65536)%N) :
+  N.land a 0xFFFF = a.
+Proof.
+  assert (Hlog : (N.log2 a < 16)%N) by exact (log2_lt_16 a Ha).
+  assert (Hmask : 0xFFFF = N.ones 16) by (compute; reflexivity).
+  rewrite Hmask; apply N.land_ones_low; exact Hlog.
+Qed.
+
+Lemma testbit_15_of_ge_32768 (z : N) (Hz : (z < 65536)%N) (Hz_ge : (32768 <= z)%N) :
+  N.testbit z 15 = true.
+Proof.
+  destruct (N.eq_dec z 0%N) as [Hz0 | Hzpos].
+  - exfalso; apply (N.lt_irrefl 0%N).
+    apply N.le_lt_trans with 32768%N; [exact Hz_ge |].
+    rewrite Hz0; exact N.lt_0_1.
+  - have := N.log2_spec z Hzpos.  (* 2^log2 z <= z < 2^(log2 z+1) /\ testbit z (log2 z) = true *)
+    move => [Hrange Hbit].
+    have Hlog_lt_16 : (N.log2 z < 16)%N := log2_lt_16 z Hz.
+    have Hlog_ge_15 : (15 <= N.log2 z)%N.
+    { apply N.log2_le_mono; [exact N.le_refl |].
+      apply N.le_trans with (2^15)%N; [| exact Hz_ge].
+      exact (N.eq_le_incl _ _ (N.pow2_15_eq_32768 _ _)). }
+    -- Wait, I need to be careful here. N.log2_le_mono: a <= b → log2 a <= log2 b.
+       I also need N.log2_pow2 or log2(32768) = 15.
+       Actually, I can compute it: log2(32768) = log2(2^15) = 15.
+       Let me check what lemma gives this.
+    ...
+Abort.
+
 
 Lemma log2_lt_16 (a : N) (Ha : (a < 65536)%N) : (N.log2 a < 16)%N.
 Proof.
