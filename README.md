@@ -25,9 +25,15 @@ system over GF(2^16):
 - c is a control parameter, constant per orbit
 - Observers are pure quotient maps: Fano = x mod 7, Tetra = x mod 4, Phase = x & 1
 
-The system is formally verified in Coq (`proof/delta_orbit_theory.v`,
-`proof/functorial_semantics.v`).  The core theorem: every observer defines
-a functor from the orbit groupoid of Δ into FinSet.
+The system is formally verified in four Coq layers:
+1. `proof/delta_orbit_theory.v` — GL(16,2) dynamics, observer category
+2. `proof/functorial_semantics.v` — orbit groupoid 𝒪, functor theorem Obs : 𝒪 → FinSet
+3. `proof/coalgebraic_bisimulation.v` — F-coalgebra bisimulation, trace equivalence
+4. `proof/OMI_bialgebra.v` — Alg/CoAlg/Bialg records, coinductive stream, bialgebra_commutation/coherence, concrete bialgebra instances
+
+The core theorem: every observer defines a functor from the orbit groupoid
+of Δ into FinSet, and the coalgebraic trace_equivalence theorem provides
+a parallel proof via bisimulation.
 
 ### CPU
 
@@ -336,8 +342,10 @@ Phase 7 — Mesh Networking
 
 Formal Verification (Coq)
 └── proof/
-    ├── delta_orbit_theory.v      GL(16,2) dynamics, observer category, concrete observers, 5040 atlas
-    └── functorial_semantics.v    Orbit groupoid 𝒪, functor theorem Obs : 𝒪 → FinSet, trace equivalence, extraction
+    ├── delta_orbit_theory.v          GL(16,2) dynamics, observer category, concrete observers, 5040 atlas
+    ├── functorial_semantics.v        Orbit groupoid 𝒪, functor theorem Obs : 𝒪 → FinSet, trace equivalence, extraction
+    ├── coalgebraic_bisimulation.v    F-coalgebra layer, bisimulations, trace_equivalence theorem, morphism_trace_equivalence
+    └── OMI_bialgebra.v               Alg/CoAlg/Bialg records, coinductive stream, bialgebra_commutation/coherence, concrete bialgebra instances, extraction
 
 Tests
 ├── test_env.c            39 envelope/stream/sector tests
