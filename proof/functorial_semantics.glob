@@ -1,4 +1,4 @@
-DIGEST 603dd336ad94faa3a90d5531ef95adc6
+DIGEST 47d021391aac0062d73e8de0477413b6
 Ffunctorial_semantics
 R711:727 Coq.NArith.NArith <> <> lib
 R745:758 Coq.Lists.List <> <> lib
@@ -476,261 +476,185 @@ R6879:6879 functorial_semantics <> t:77 var
 R6921:6931 functorial_semantics <> Obs_map_mor def
 R6974:6988 functorial_semantics <> functor_theorem thm
 R6974:6988 functorial_semantics <> functor_theorem thm
-prf 7559:7573 <> fano_functorial
-R7589:7593 delta_orbit_theory <> state def
-binder 7585:7585 <> s:79
-R7601:7603 Coq.Init.Datatypes <> nat ind
-binder 7597:7597 <> n:80
-R7633:7635 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7609:7612 delta_orbit_theory <> fano def
-R7615:7622 Coq.Arith.PeanoNat Nat iter def
-R7631:7631 functorial_semantics <> s:79 var
-R7626:7629 delta_orbit_theory <> step def
-R7624:7624 functorial_semantics <> n:80 var
-R7636:7639 delta_orbit_theory <> fano def
-R7641:7641 functorial_semantics <> s:79 var
-R7679:7693 functorial_semantics <> functor_theorem thm
-R7695:7695 Coq.Numbers.BinNums <> N ind
-R7697:7704 delta_orbit_theory <> fano_obs def
-R7679:7693 functorial_semantics <> functor_theorem thm
-R7695:7695 Coq.Numbers.BinNums <> N ind
-R7697:7704 delta_orbit_theory <> fano_obs def
-R7726:7733 delta_orbit_theory <> fano_obs def
-prf 7920:7935 <> tetra_functorial
-R7951:7955 delta_orbit_theory <> state def
-binder 7947:7947 <> s:81
-R7963:7965 Coq.Init.Datatypes <> nat ind
-binder 7959:7959 <> n:82
-R7996:7998 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7971:7975 delta_orbit_theory <> tetra def
-R7978:7985 Coq.Arith.PeanoNat Nat iter def
-R7994:7994 functorial_semantics <> s:81 var
-R7989:7992 delta_orbit_theory <> step def
-R7987:7987 functorial_semantics <> n:82 var
-R7999:8003 delta_orbit_theory <> tetra def
-R8005:8005 functorial_semantics <> s:81 var
-R8043:8057 functorial_semantics <> functor_theorem thm
-R8059:8059 Coq.Numbers.BinNums <> N ind
-R8061:8069 delta_orbit_theory <> tetra_obs def
-R8043:8057 functorial_semantics <> functor_theorem thm
-R8059:8059 Coq.Numbers.BinNums <> N ind
-R8061:8069 delta_orbit_theory <> tetra_obs def
-R8091:8099 delta_orbit_theory <> tetra_obs def
-prf 8286:8301 <> phase_functorial
-R8317:8321 delta_orbit_theory <> state def
-binder 8313:8313 <> s:83
-R8329:8331 Coq.Init.Datatypes <> nat ind
-binder 8325:8325 <> n:84
-R8362:8364 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8337:8341 delta_orbit_theory <> phase def
-R8344:8351 Coq.Arith.PeanoNat Nat iter def
-R8360:8360 functorial_semantics <> s:83 var
-R8355:8358 delta_orbit_theory <> step def
-R8353:8353 functorial_semantics <> n:84 var
-R8365:8369 delta_orbit_theory <> phase def
-R8372:8379 Coq.Arith.PeanoNat Nat iter def
-R8388:8388 functorial_semantics <> s:83 var
-R8383:8386 delta_orbit_theory <> step def
-R8381:8381 functorial_semantics <> n:84 var
-prf 8648:8664 <> energy_functorial
-R8680:8684 delta_orbit_theory <> state def
-binder 8676:8676 <> s:85
-R8692:8694 Coq.Init.Datatypes <> nat ind
-binder 8688:8688 <> n:86
-R8732:8734 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8700:8711 delta_orbit_theory <> state_energy def
-R8714:8721 Coq.Arith.PeanoNat Nat iter def
-R8730:8730 functorial_semantics <> s:85 var
-R8725:8728 delta_orbit_theory <> step def
-R8723:8723 functorial_semantics <> n:86 var
-R8735:8746 delta_orbit_theory <> state_energy def
-R8748:8748 functorial_semantics <> s:85 var
-R8786:8800 functorial_semantics <> functor_theorem thm
-R8802:8802 Coq.Numbers.BinNums <> Z ind
-R8804:8813 delta_orbit_theory <> energy_obs def
-R8786:8800 functorial_semantics <> functor_theorem thm
-R8802:8802 Coq.Numbers.BinNums <> Z ind
-R8804:8813 delta_orbit_theory <> energy_obs def
-R8835:8844 delta_orbit_theory <> energy_obs def
-def 9591:9599 <> trace_obs
-binder 9602:9602 <> A:87
-R9617:9624 delta_orbit_theory <> Observer rec
-R9626:9626 functorial_semantics <> A:87 var
-binder 9613:9613 <> o:88
-R9634:9638 delta_orbit_theory <> state def
-binder 9630:9630 <> s:89
-R9646:9648 Coq.Init.Datatypes <> nat ind
-binder 9642:9642 <> n:90
-R9655:9658 Coq.Init.Datatypes <> list ind
-R9660:9660 functorial_semantics <> A:87 var
-R9667:9669 Coq.Lists.List <> map def
-R9682:9686 delta_orbit_theory <> trace def
-R9688:9688 functorial_semantics <> n:90 var
-R9690:9690 functorial_semantics <> s:89 var
-R9672:9674 delta_orbit_theory <> obs proj
-R9676:9676 functorial_semantics <> A:87 var
-R9678:9678 functorial_semantics <> o:88 var
-prf 9701:9712 <> trace_length
-R9728:9730 Coq.Init.Datatypes <> nat ind
-binder 9724:9724 <> n:91
-R9738:9742 delta_orbit_theory <> state def
-binder 9734:9734 <> s:92
-R9766:9768 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9748:9753 Coq.Init.Datatypes <> length def
-R9756:9760 delta_orbit_theory <> trace def
-R9762:9762 functorial_semantics <> n:91 var
-R9764:9764 functorial_semantics <> s:92 var
-R9769:9769 Coq.Init.Datatypes <> S constr
-R9771:9771 functorial_semantics <> n:91 var
-prf 9950:9964 <> trace_pointwise
-R9980:9984 delta_orbit_theory <> state def
-binder 9976:9976 <> s:93
-R9994:9996 Coq.Init.Datatypes <> nat ind
-binder 9988:9988 <> n:94
-binder 9990:9990 <> k:95
-R10014:10017 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10004:10007 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
-R10003:10003 functorial_semantics <> k:95 var
-R10008:10008 functorial_semantics <> n:94 var
-R10037:10039 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R10018:10020 Coq.Lists.List <> nth def
-R10036:10036 functorial_semantics <> s:93 var
-R10025:10029 delta_orbit_theory <> trace def
-R10031:10031 functorial_semantics <> n:94 var
-R10033:10033 functorial_semantics <> s:93 var
-R10022:10022 functorial_semantics <> k:95 var
-R10040:10047 Coq.Arith.PeanoNat Nat iter def
-R10056:10056 functorial_semantics <> s:93 var
-R10051:10054 delta_orbit_theory <> step def
-R10049:10049 functorial_semantics <> k:95 var
-R10260:10268 Coq.Lists.List <> nth_indep thm
-R10290:10293 delta_orbit_theory <> step def
-R10271:10275 delta_orbit_theory <> trace def
-R10280:10283 delta_orbit_theory <> step def
-R10260:10268 Coq.Lists.List <> nth_indep thm
-R10290:10293 delta_orbit_theory <> step def
-R10271:10275 delta_orbit_theory <> trace def
-R10280:10283 delta_orbit_theory <> step def
-R10260:10268 Coq.Lists.List <> nth_indep thm
-R10290:10293 delta_orbit_theory <> step def
-R10271:10275 delta_orbit_theory <> trace def
-R10280:10283 delta_orbit_theory <> step def
-R10260:10268 Coq.Lists.List <> nth_indep thm
-R10290:10293 delta_orbit_theory <> step def
-R10271:10275 delta_orbit_theory <> trace def
-R10280:10283 delta_orbit_theory <> step def
-R10344:10356 Coq.Arith.PeanoNat Nat iter_swap thm
-R10344:10356 Coq.Arith.PeanoNat Nat iter_swap thm
-R10375:10386 functorial_semantics <> trace_length thm
-R10375:10386 functorial_semantics <> trace_length thm
-R10375:10386 functorial_semantics <> trace_length thm
-prf 10478:10496 <> trace_obs_pointwise
-binder 10508:10508 <> A:96
-R10523:10530 delta_orbit_theory <> Observer rec
-R10532:10532 functorial_semantics <> A:96 var
-binder 10519:10519 <> o:97
-R10542:10546 delta_orbit_theory <> state def
-binder 10538:10538 <> s:98
-R10556:10558 Coq.Init.Datatypes <> nat ind
-binder 10550:10550 <> n:99
-binder 10552:10552 <> k:100
-R10576:10579 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10566:10569 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
-R10565:10565 functorial_semantics <> k:100 var
-R10570:10570 functorial_semantics <> n:99 var
-R10617:10619 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R10580:10582 Coq.Lists.List <> nth def
-R10607:10609 delta_orbit_theory <> obs proj
-R10611:10611 functorial_semantics <> A:96 var
-R10613:10613 functorial_semantics <> o:97 var
-R10615:10615 functorial_semantics <> s:98 var
-R10587:10595 functorial_semantics <> trace_obs def
-R10597:10597 functorial_semantics <> A:96 var
-R10599:10599 functorial_semantics <> o:97 var
-R10601:10601 functorial_semantics <> s:98 var
-R10603:10603 functorial_semantics <> n:99 var
-R10584:10584 functorial_semantics <> k:100 var
-R10620:10627 Coq.Arith.PeanoNat Nat iter def
-R10641:10643 delta_orbit_theory <> obs proj
-R10645:10645 functorial_semantics <> A:96 var
-R10647:10647 functorial_semantics <> o:97 var
-R10649:10649 functorial_semantics <> s:98 var
-R10632:10633 delta_orbit_theory <> fA proj
-R10635:10635 functorial_semantics <> A:96 var
-R10637:10637 functorial_semantics <> o:97 var
-R10629:10629 functorial_semantics <> k:100 var
-R10692:10700 functorial_semantics <> trace_obs def
-R10713:10719 Coq.Lists.List <> map_nth thm
-R10713:10719 Coq.Lists.List <> map_nth thm
-R10713:10719 Coq.Lists.List <> map_nth thm
-R10746:10760 functorial_semantics <> trace_pointwise thm
-R10746:10760 functorial_semantics <> trace_pointwise thm
-R10746:10760 functorial_semantics <> trace_pointwise thm
-R10808:10822 functorial_semantics <> functor_theorem thm
-R10808:10822 functorial_semantics <> functor_theorem thm
-prf 10914:10928 <> trace_obs_equiv
-binder 10940:10940 <> A:101
-R10955:10962 delta_orbit_theory <> Observer rec
-R10964:10964 functorial_semantics <> A:101 var
-binder 10951:10951 <> o:102
-R10974:10978 delta_orbit_theory <> state def
-binder 10970:10970 <> s:103
-R10986:10988 Coq.Init.Datatypes <> nat ind
-binder 10982:10982 <> n:104
-R11011:11013 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R10994:11002 functorial_semantics <> trace_obs def
-R11004:11004 functorial_semantics <> A:101 var
-R11006:11006 functorial_semantics <> o:102 var
-R11008:11008 functorial_semantics <> s:103 var
-R11010:11010 functorial_semantics <> n:104 var
-R11014:11016 Coq.Lists.List <> map def
-R11062:11064 Coq.Lists.List <> seq def
-R11069:11069 Coq.Init.Datatypes <> S constr
-R11071:11071 functorial_semantics <> n:104 var
-binder 11023:11023 <> k:105
-R11028:11035 Coq.Arith.PeanoNat Nat iter def
-R11049:11051 delta_orbit_theory <> obs proj
-R11053:11053 functorial_semantics <> A:101 var
-R11055:11055 functorial_semantics <> o:102 var
-R11057:11057 functorial_semantics <> s:103 var
-R11040:11041 delta_orbit_theory <> fA proj
-R11043:11043 functorial_semantics <> A:101 var
-R11045:11045 functorial_semantics <> o:102 var
-R11037:11037 functorial_semantics <> k:105 var
-R11128:11130 delta_orbit_theory <> obs proj
-R11146:11148 delta_orbit_theory <> obs proj
-R11109:11115 Coq.Lists.List <> nth_ext thm
-R11128:11130 delta_orbit_theory <> obs proj
-R11146:11148 delta_orbit_theory <> obs proj
-R11109:11115 Coq.Lists.List <> nth_ext thm
-R11169:11177 functorial_semantics <> trace_obs def
-R11188:11197 Coq.Lists.List <> map_length thm
-R11200:11211 functorial_semantics <> trace_length thm
-R11214:11223 Coq.Lists.List <> map_length thm
-R11226:11235 Coq.Lists.List <> seq_length thm
-R11188:11197 Coq.Lists.List <> map_length thm
-R11188:11197 Coq.Lists.List <> map_length thm
-R11200:11211 functorial_semantics <> trace_length thm
-R11200:11211 functorial_semantics <> trace_length thm
-R11214:11223 Coq.Lists.List <> map_length thm
-R11214:11223 Coq.Lists.List <> map_length thm
-R11226:11235 Coq.Lists.List <> seq_length thm
-R11226:11235 Coq.Lists.List <> seq_length thm
-R11279:11287 functorial_semantics <> trace_obs def
-R11304:11313 Coq.Lists.List <> map_length thm
-R11316:11327 functorial_semantics <> trace_length thm
-R11304:11313 Coq.Lists.List <> map_length thm
-R11304:11313 Coq.Lists.List <> map_length thm
-R11316:11327 functorial_semantics <> trace_length thm
-R11316:11327 functorial_semantics <> trace_length thm
-R11358:11361 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
-R11358:11361 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
-R11390:11408 functorial_semantics <> trace_obs_pointwise thm
-R11390:11408 functorial_semantics <> trace_obs_pointwise thm
-R11390:11408 functorial_semantics <> trace_obs_pointwise thm
-R11437:11443 Coq.Lists.List <> map_nth thm
-R11437:11443 Coq.Lists.List <> map_nth thm
-R11437:11443 Coq.Lists.List <> map_nth thm
-R11476:11482 Coq.Lists.List <> seq_nth thm
-R11476:11482 Coq.Lists.List <> seq_nth thm
-R11476:11482 Coq.Lists.List <> seq_nth thm
+def 8708:8716 <> trace_obs
+binder 8719:8719 <> A:79
+R8734:8741 delta_orbit_theory <> Observer rec
+R8743:8743 functorial_semantics <> A:79 var
+binder 8730:8730 <> o:80
+R8751:8755 delta_orbit_theory <> state def
+binder 8747:8747 <> s:81
+R8763:8765 Coq.Init.Datatypes <> nat ind
+binder 8759:8759 <> n:82
+R8772:8775 Coq.Init.Datatypes <> list ind
+R8777:8777 functorial_semantics <> A:79 var
+R8784:8786 Coq.Lists.List <> map def
+R8799:8803 delta_orbit_theory <> trace def
+R8805:8805 functorial_semantics <> n:82 var
+R8807:8807 functorial_semantics <> s:81 var
+R8789:8791 delta_orbit_theory <> obs proj
+R8793:8793 functorial_semantics <> A:79 var
+R8795:8795 functorial_semantics <> o:80 var
+prf 8818:8829 <> trace_length
+R8845:8847 Coq.Init.Datatypes <> nat ind
+binder 8841:8841 <> n:83
+R8855:8859 delta_orbit_theory <> state def
+binder 8851:8851 <> s:84
+R8883:8885 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8865:8870 Coq.Init.Datatypes <> length def
+R8873:8877 delta_orbit_theory <> trace def
+R8879:8879 functorial_semantics <> n:83 var
+R8881:8881 functorial_semantics <> s:84 var
+R8886:8886 Coq.Init.Datatypes <> S constr
+R8888:8888 functorial_semantics <> n:83 var
+prf 9067:9081 <> trace_pointwise
+R9097:9101 delta_orbit_theory <> state def
+binder 9093:9093 <> s:85
+R9111:9113 Coq.Init.Datatypes <> nat ind
+binder 9105:9105 <> n:86
+binder 9107:9107 <> k:87
+R9131:9134 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9121:9124 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R9120:9120 functorial_semantics <> k:87 var
+R9125:9125 functorial_semantics <> n:86 var
+R9154:9156 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9135:9137 Coq.Lists.List <> nth def
+R9153:9153 functorial_semantics <> s:85 var
+R9142:9146 delta_orbit_theory <> trace def
+R9148:9148 functorial_semantics <> n:86 var
+R9150:9150 functorial_semantics <> s:85 var
+R9139:9139 functorial_semantics <> k:87 var
+R9157:9164 Coq.Arith.PeanoNat Nat iter def
+R9173:9173 functorial_semantics <> s:85 var
+R9168:9171 delta_orbit_theory <> step def
+R9166:9166 functorial_semantics <> k:87 var
+R9377:9385 Coq.Lists.List <> nth_indep thm
+R9407:9410 delta_orbit_theory <> step def
+R9388:9392 delta_orbit_theory <> trace def
+R9397:9400 delta_orbit_theory <> step def
+R9377:9385 Coq.Lists.List <> nth_indep thm
+R9407:9410 delta_orbit_theory <> step def
+R9388:9392 delta_orbit_theory <> trace def
+R9397:9400 delta_orbit_theory <> step def
+R9377:9385 Coq.Lists.List <> nth_indep thm
+R9407:9410 delta_orbit_theory <> step def
+R9388:9392 delta_orbit_theory <> trace def
+R9397:9400 delta_orbit_theory <> step def
+R9377:9385 Coq.Lists.List <> nth_indep thm
+R9407:9410 delta_orbit_theory <> step def
+R9388:9392 delta_orbit_theory <> trace def
+R9397:9400 delta_orbit_theory <> step def
+R9461:9473 Coq.Arith.PeanoNat Nat iter_swap thm
+R9461:9473 Coq.Arith.PeanoNat Nat iter_swap thm
+R9492:9503 functorial_semantics <> trace_length thm
+R9492:9503 functorial_semantics <> trace_length thm
+R9492:9503 functorial_semantics <> trace_length thm
+prf 9595:9613 <> trace_obs_pointwise
+binder 9625:9625 <> A:88
+R9640:9647 delta_orbit_theory <> Observer rec
+R9649:9649 functorial_semantics <> A:88 var
+binder 9636:9636 <> o:89
+R9659:9663 delta_orbit_theory <> state def
+binder 9655:9655 <> s:90
+R9673:9675 Coq.Init.Datatypes <> nat ind
+binder 9667:9667 <> n:91
+binder 9669:9669 <> k:92
+R9693:9696 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9683:9686 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R9682:9682 functorial_semantics <> k:92 var
+R9687:9687 functorial_semantics <> n:91 var
+R9734:9736 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9697:9699 Coq.Lists.List <> nth def
+R9724:9726 delta_orbit_theory <> obs proj
+R9728:9728 functorial_semantics <> A:88 var
+R9730:9730 functorial_semantics <> o:89 var
+R9732:9732 functorial_semantics <> s:90 var
+R9704:9712 functorial_semantics <> trace_obs def
+R9714:9714 functorial_semantics <> A:88 var
+R9716:9716 functorial_semantics <> o:89 var
+R9718:9718 functorial_semantics <> s:90 var
+R9720:9720 functorial_semantics <> n:91 var
+R9701:9701 functorial_semantics <> k:92 var
+R9737:9744 Coq.Arith.PeanoNat Nat iter def
+R9758:9760 delta_orbit_theory <> obs proj
+R9762:9762 functorial_semantics <> A:88 var
+R9764:9764 functorial_semantics <> o:89 var
+R9766:9766 functorial_semantics <> s:90 var
+R9749:9750 delta_orbit_theory <> fA proj
+R9752:9752 functorial_semantics <> A:88 var
+R9754:9754 functorial_semantics <> o:89 var
+R9746:9746 functorial_semantics <> k:92 var
+R9809:9817 functorial_semantics <> trace_obs def
+R9830:9836 Coq.Lists.List <> map_nth thm
+R9830:9836 Coq.Lists.List <> map_nth thm
+R9830:9836 Coq.Lists.List <> map_nth thm
+R9863:9877 functorial_semantics <> trace_pointwise thm
+R9863:9877 functorial_semantics <> trace_pointwise thm
+R9863:9877 functorial_semantics <> trace_pointwise thm
+R9925:9939 functorial_semantics <> functor_theorem thm
+R9925:9939 functorial_semantics <> functor_theorem thm
+prf 10031:10045 <> trace_obs_equiv
+binder 10057:10057 <> A:93
+R10072:10079 delta_orbit_theory <> Observer rec
+R10081:10081 functorial_semantics <> A:93 var
+binder 10068:10068 <> o:94
+R10091:10095 delta_orbit_theory <> state def
+binder 10087:10087 <> s:95
+R10103:10105 Coq.Init.Datatypes <> nat ind
+binder 10099:10099 <> n:96
+R10128:10130 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10111:10119 functorial_semantics <> trace_obs def
+R10121:10121 functorial_semantics <> A:93 var
+R10123:10123 functorial_semantics <> o:94 var
+R10125:10125 functorial_semantics <> s:95 var
+R10127:10127 functorial_semantics <> n:96 var
+R10131:10133 Coq.Lists.List <> map def
+R10179:10181 Coq.Lists.List <> seq def
+R10186:10186 Coq.Init.Datatypes <> S constr
+R10188:10188 functorial_semantics <> n:96 var
+binder 10140:10140 <> k:97
+R10145:10152 Coq.Arith.PeanoNat Nat iter def
+R10166:10168 delta_orbit_theory <> obs proj
+R10170:10170 functorial_semantics <> A:93 var
+R10172:10172 functorial_semantics <> o:94 var
+R10174:10174 functorial_semantics <> s:95 var
+R10157:10158 delta_orbit_theory <> fA proj
+R10160:10160 functorial_semantics <> A:93 var
+R10162:10162 functorial_semantics <> o:94 var
+R10154:10154 functorial_semantics <> k:97 var
+R10245:10247 delta_orbit_theory <> obs proj
+R10263:10265 delta_orbit_theory <> obs proj
+R10226:10232 Coq.Lists.List <> nth_ext thm
+R10245:10247 delta_orbit_theory <> obs proj
+R10263:10265 delta_orbit_theory <> obs proj
+R10226:10232 Coq.Lists.List <> nth_ext thm
+R10286:10294 functorial_semantics <> trace_obs def
+R10305:10314 Coq.Lists.List <> map_length thm
+R10317:10328 functorial_semantics <> trace_length thm
+R10331:10340 Coq.Lists.List <> map_length thm
+R10343:10352 Coq.Lists.List <> seq_length thm
+R10305:10314 Coq.Lists.List <> map_length thm
+R10305:10314 Coq.Lists.List <> map_length thm
+R10317:10328 functorial_semantics <> trace_length thm
+R10317:10328 functorial_semantics <> trace_length thm
+R10331:10340 Coq.Lists.List <> map_length thm
+R10331:10340 Coq.Lists.List <> map_length thm
+R10343:10352 Coq.Lists.List <> seq_length thm
+R10343:10352 Coq.Lists.List <> seq_length thm
+R10396:10404 functorial_semantics <> trace_obs def
+R10421:10430 Coq.Lists.List <> map_length thm
+R10433:10444 functorial_semantics <> trace_length thm
+R10421:10430 Coq.Lists.List <> map_length thm
+R10421:10430 Coq.Lists.List <> map_length thm
+R10433:10444 functorial_semantics <> trace_length thm
+R10433:10444 functorial_semantics <> trace_length thm
+R10475:10478 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R10475:10478 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R10507:10525 functorial_semantics <> trace_obs_pointwise thm
+R10507:10525 functorial_semantics <> trace_obs_pointwise thm
+R10507:10525 functorial_semantics <> trace_obs_pointwise thm
+R10554:10560 Coq.Lists.List <> map_nth thm
+R10554:10560 Coq.Lists.List <> map_nth thm
+R10554:10560 Coq.Lists.List <> map_nth thm
+R10593:10599 Coq.Lists.List <> seq_nth thm
+R10593:10599 Coq.Lists.List <> seq_nth thm
+R10593:10599 Coq.Lists.List <> seq_nth thm

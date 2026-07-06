@@ -1,4 +1,4 @@
-DIGEST 38377d66a8484752aa7a9a958ce4cb9e
+DIGEST 60189a176cf6974892e163dfea45f0e4
 FOMI_bialgebra
 R569:582 Coq.Lists.List <> <> lib
 R593:611 Coq.Numbers.BinNums <> <> lib
@@ -317,21 +317,9 @@ R6976:6994 OMI_bialgebra <> bialgebra_coherence thm
 R6976:6994 OMI_bialgebra <> bialgebra_coherence thm
 R6976:6994 OMI_bialgebra <> bialgebra_coherence thm
 R7026:7043 OMI_bialgebra ObserverBialgebras <> sec
-def 7490:7499 <> bialg_fano
-R7503:7507 OMI_bialgebra <> Bialg rec
-R7509:7513 delta_orbit_theory <> state def
-R7515:7535 Coq.Numbers.BinNums <> N ind
-R7540:7548 OMI_bialgebra <> bialg_obs def
-R7550:7557 delta_orbit_theory <> fano_obs def
-def 7571:7581 <> bialg_tetra
-R7585:7589 OMI_bialgebra <> Bialg rec
-R7591:7595 delta_orbit_theory <> state def
-R7597:7617 Coq.Numbers.BinNums <> N ind
-R7622:7630 OMI_bialgebra <> bialg_obs def
-R7632:7640 delta_orbit_theory <> tetra_obs def
-def 7654:7665 <> bialg_energy
-R7669:7673 OMI_bialgebra <> Bialg rec
-R7675:7679 delta_orbit_theory <> state def
-R7681:7701 Coq.Numbers.BinNums <> Z ind
-R7706:7714 OMI_bialgebra <> bialg_obs def
-R7716:7725 delta_orbit_theory <> energy_obs def
+def 7536:7545 <> bialg_ctrl
+R7549:7553 OMI_bialgebra <> Bialg rec
+R7555:7559 delta_orbit_theory <> state def
+R7561:7581 Coq.Numbers.BinNums <> N ind
+R7586:7594 OMI_bialgebra <> bialg_obs def
+R7596:7603 delta_orbit_theory <> ctrl_obs def
