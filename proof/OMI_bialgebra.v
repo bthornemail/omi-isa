@@ -189,10 +189,12 @@ End ObserverBialgebras.
 (*  below make the categorical structure concrete.                    *)
 (********************************************************************)
 
-Definition bialg_fano : Bialg state Coq.Numbers.BinNums.N := bialg_obs fano_obs.
-Definition bialg_tetra : Bialg state Coq.Numbers.BinNums.N := bialg_obs tetra_obs.
-Definition bialg_energy : Bialg state Coq.Numbers.BinNums.Z := bialg_obs energy_obs.
-(* phase_obs not defined in delta_orbit_theory.v — add when observer is fully specified *)
+(* Structural instance: control projection *)
+Definition bialg_ctrl : Bialg state Coq.Numbers.BinNums.N := bialg_obs ctrl_obs.
+
+(* Analytic observers (fano, tetra, phase, BQF) are not structural —
+   they do not define Bialg instances.  See delta_orbit_theory.v
+   Layer 3 for the analytic/structural distinction. *)
 
 (********************************************************************)
 (*  7.  EXTRACTION  —  OMI bialgebra to OCaml                       *)
@@ -207,7 +209,7 @@ Extract Constant B => "(fun x -> x)".
 Extraction "omi_bialgebra_extracted.ml"
   Alg CoAlg Bialg
   stream get_nth
-  bialg_obs bialg_fano bialg_tetra bialg_energy
+  bialg_obs bialg_ctrl
   obs_stream bialgebra_commutation bialgebra_coherence.
 
 (********************************************************************)

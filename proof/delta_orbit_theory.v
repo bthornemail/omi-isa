@@ -181,72 +181,47 @@ Qed.
 
 (********************************************************************)
 (*  LAYER 3:  CONCRETE OBSERVERS                                    *)
-(*  Each is a quotient representation of GL(16,2) orbit space.      *)
+(*                                                                    *)
+(*  Two classes of observers:                                        *)
+(*    • Structural — satisfy obs ∘ Δ = fA ∘ obs, participate in      *)
+(*      the categorical / coalgebraic / bialgebraic semantics.       *)
+(*    • Analytic — arbitrary projections used for diagnostics,       *)
+(*      indexing, and atlas coordinates.  NOT assumed functorial.    *)
 (********************************************************************)
 
-(* ──── 3.1  Fano plane (mod 7 quotient) ──── *)
+(* ──── 3.1  Structural observers ──── *)
 
+(* Control projection — invariant under Δ, trivially structural *)
+Definition ctrl (s : state) : N := snd s.
+
+Theorem ctrl_equiv : forall s, ctrl (step s) = ctrl s.
+Proof. intros [x c]; unfold ctrl, step, delta; reflexivity. Qed.
+
+Definition ctrl_obs : Observer N :=
+  {| obs := ctrl; fA := fun c => c; equiv := ctrl_equiv |}.
+
+(* ──── 3.2  Analytic observers  ──── *)
+
+(* These are useful for the 5040 orbit atlas but are NOT equivariant
+   under the GL(16,2) action.  They do not participate in the functor
+   theorem, coalgebraic bisimulation, or bialgebra semantics. *)
+
+(* Fano plane: mod 7 quotient *)
 Definition fano (s : state) : N :=
   match s with (x, _) => x mod 7 end.
 
-(* Induced dynamics on Fano: permutation mod 7 induced by GL action *)
-Definition fano_step (f : N) : N :=
-  (A (f * 9362)) mod 7.
-  (* 9362 = 65536/7 ≈ floor; this maps representatives *)
-
-(* But we don't need fano_step explicitly — we prove equivariance abstractly *)
-Theorem fano_equiv : forall s, fano (step s) = fano s.
-Proof.
-  intros [x c]. unfold fano, step, delta.
-  (* fano depends only on x, and step transforms x by A x xor B c.
-     Mod 7, B c is a constant shift.  Equivariance holds if
-     A preserves mod-7 classes, which it does for any linear operator.
-     Indeed, A mod 7 is a permutation of F₂¹⁶/∼₇ by linearity. *)
-  (* For the concrete GL(16,2) operator, this is a theorem of linear algebra.
-     Here we assert it as an axiom of the system; the proof requires
-     unfolding the specific A, which we leave abstract. *)
-Admitted.
-
-(* ──── 3.2  Fano as Observer ──── *)
-
-Definition fano_obs : Observer N :=
-  {| obs    := fano;
-     fA     := fun f => f;
-     equiv  := fano_equiv
-  |}.
-
-(* ──── 3.3  Tetrahedral class (mod 4 quotient) ──── *)
-
+(* Tetrahedral class: mod 4 quotient *)
 Definition tetra (s : state) : N :=
   match s with (x, _) => x mod 4 end.
 
-Theorem tetra_equiv : forall s, tetra (step s) = tetra s.
-Admitted.
-
-Definition tetra_obs : Observer N :=
-  {| obs    := tetra;
-     fA     := fun t => t;
-     equiv  := tetra_equiv
-  |}.
-
-(* ──── 3.4  Phase (parity) ──── *)
-
+(* Phase: parity (x mod 2) *)
 Definition phase (s : state) : N :=
   match s with (x, _) => x mod 2 end.
 
-Theorem phase_equiv : forall s, phase (step s) = N.lxor (phase s) (phase s).
-Proof.
-  intros [x c]. unfold phase, step, delta.
-  (* The parity of delta x c = parity(A x) xor parity(B c).
-     For GL(16,2) operators, parity is a linear functional. *)
-  (* phase(step(s)) = phase(s) xor phase(s) = 0, so phase flips to 0 each step.
-     This means parity is a transient observer, not an invariant. *)
-  (* Actually, phase(step(s)) = (A x xor B c) mod 2 = (A x mod 2) xor (B c mod 2).
-     This is not generally equal to phase(s).  So the true induced map
-     on F₂ is non-trivial — it's the parity map of the linear action. *)
-Admitted.
+(* ──── 3.3  BQF quadratic form  ──── *)
 
-(* ──── 3.5  BQF quadratic form ──── *)
+(* BQF over Z — the invariant property is unproven for the GF(2^16)
+   dynamics.  Kept here as an analytic measurement function. *)
 
 Open Scope Z_scope.
 
@@ -261,15 +236,6 @@ Proof.
   intros x y. unfold BQF.
   nia.
 Qed.
-
-Theorem BQF_invariant : forall s, state_energy (step s) = state_energy s.
-Admitted.
-
-Definition energy_obs : Observer Z :=
-  {| obs    := state_energy;
-     fA     := fun e => e;
-     equiv  := BQF_invariant
-  |}.
 
 (********************************************************************)
 (*  LAYER 4:  5040 ORBIT ATLAS  (quotient coordinate system)        *)

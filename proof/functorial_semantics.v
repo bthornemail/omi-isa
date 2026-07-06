@@ -187,58 +187,20 @@ Proof.
 Qed.
 
 (********************************************************************)
-(*  COROLLARY: concrete observers are functorial                     *)
+(*  NOTE: concrete analytic observers                               *)
 (*                                                                    *)
-(*  Each concrete observer (Fano, Tetra, Phase, BQF) defines a       *)
-(*  functor from 𝒪.  The theorems below follow from functor_theorem  *)
-(*  applied to the observer instances defined in delta_orbit_theory. *)
+(*  The functions fano, tetra, phase (mod 7/4/2) and state_energy    *)
+(*  (BQF) are defined in delta_orbit_theory.v as plain projections.  *)
+(*  They are analytic observers — useful for the 5040 atlas and      *)
+(*  diagnostics — but are NOT guaranteed to satisfy the equivariance *)
+(*  condition obs ∘ step = fA ∘ obs.  They do NOT define functors    *)
+(*  from 𝒪.                                                          *)
+(*                                                                    *)
+(*  The functor_theorem applies only to structural observers          *)
+(*  (those that provide a valid Observer record with a proof of      *)
+(*  equiv).  Currently the only structural observer is ctrl_obs      *)
+(*  (control projection).                                            *)
 (********************************************************************)
-
-(* Fano functor: Obs_fano : 𝒪 → Fin(7) *)
-Theorem fano_functorial : forall (s : state) (n : nat),
-  fano (Nat.iter n step s) = fano s.
-Proof.
-  intros s n.
-  pose proof (functor_theorem N fano_obs s n) as H.
-  unfold fano_obs in H; simpl in H.
-  rewrite H. clear H.
-  induction n as [| k IHk]; simpl.
-  + reflexivity.
-  + rewrite IHk. reflexivity.
-Qed.
-
-(* Tetra functor: Obs_tetra : 𝒪 → Fin(4) *)
-Theorem tetra_functorial : forall (s : state) (n : nat),
-  tetra (Nat.iter n step s) = tetra s.
-Proof.
-  intros s n.
-  pose proof (functor_theorem N tetra_obs s n) as H.
-  unfold tetra_obs in H; simpl in H.
-  rewrite H. clear H.
-  induction n as [| k IHk]; simpl.
-  + reflexivity.
-  + rewrite IHk. reflexivity.
-Qed.
-
-(* Phase functor: Obs_phase : 𝒪 → Fin(2) *)
-Theorem phase_functorial : forall (s : state) (n : nat),
-  phase (Nat.iter n step s) = phase (Nat.iter n step s).
-Proof. reflexivity. Qed.
-(* Note: phase is not an invariant — it transforms under the induced
-   dynamics on F₂.  The functor theorem still holds (phase is still
-   a functor), but fA is not identity. *)
-
-(* BQF functor: energy is invariant *)
-Theorem energy_functorial : forall (s : state) (n : nat),
-  state_energy (Nat.iter n step s) = state_energy s.
-Proof.
-  intros s n.
-  pose proof (functor_theorem Z energy_obs s n) as H.
-  unfold energy_obs in H; simpl in H. rewrite H. clear H.
-  induction n as [| k IHk]; simpl.
-  + reflexivity.
-  + rewrite IHk. reflexivity.
-Qed.
 
 (********************************************************************)
 (*  LAYER 3:  TRACE EQUIVALENCE                                     *)
