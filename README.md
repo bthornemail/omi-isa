@@ -14,13 +14,20 @@ OMI-Lisp (.omi) → lexer → parser → AST → compiler → 16-bit bytecode �
 
 ## Architecture
 
-### Delta Law
+### GL(16,2) Linear Dynamics
 
-```
-Δ(x) = rotl(x,1) ⊕ rotl(x,3) ⊕ rotr(x,2) ⊕ C
-```
+The orbit engine (`omi_orbit.c/h`) implements a finite linear dynamical
+system over GF(2^16):
 
-XOR preserves information (no bit destruction), rotations spread local influence globally, the constant breaks the zero fixed point. `delta_acc` accumulates all non-R0 XOR results as an invariant trace.
+    Δ(x, c) = A(x) ⊕ c    (x' = A·x ⊕ c, c' = c)
+
+- A ∈ GL(16,2) — multiplication by primitive element α in GF(2^16)
+- c is a control parameter, constant per orbit
+- Observers are pure quotient maps: Fano = x mod 7, Tetra = x mod 4, Phase = x & 1
+
+The system is formally verified in Coq (`proof/delta_orbit_theory.v`,
+`proof/functorial_semantics.v`).  The core theorem: every observer defines
+a functor from the orbit groupoid of Δ into FinSet.
 
 ### CPU
 
@@ -242,7 +249,8 @@ make test_dispatch          # 31 dispatch table tests
 make test_gauge_exec        # 21 gauge lambda execution tests
 make test_radio_vm          # 43 radio VM end-to-end tests
 make test_mesh             # 23 mesh routing/queue tests
-make test                  # all 5 test suites (157 tests)
+make test_orbit            # 68 orbit engine tests
+make test                  # all 6 test suites (225 tests)
 make wasm                   # build WASM module (requires emcc)
 make run                    # ./omi_vm programs/test.omi
 make run-tc                 # toolchain compile only
@@ -260,6 +268,7 @@ All test targets auto-run after compilation. Zero warnings expected.
 | test_gauge_exec | 21 | Gauge bind/unbind, lambda eval, car/cdr chain, depth limit, non-printing semantics |
 | test_radio_vm | 43 | Sim transport, envelope send/recv, probe session, two-node handshake, transport→stream→dispatch pipeline |
 | test_mesh     | 23 | Mesh routing table, route update flood, data forwarding, store-and-forward queue, retry/expiry |
+| test_orbit    | 68 | GL(16,2) orbit engine: delta16, step, trace cycle detection, Fano/Tetra/Phase observers, 5040 atlas, BQF, attestation |
 
 ---
 
@@ -281,6 +290,7 @@ Phase 0 — Core VM + Envelope
 ├── omienv.c / omienv.h   512-bit envelope, bitboard, gauge table
 ├── stream.c / stream.h   streaming parser, auto-dispatch
 ├── sector.c / sector.h   512-byte sector iterator
+├── omi_orbit.c / .h      GL(16,2) orbit engine, observers, 5040 atlas
 
 Phase 1 — Dispatch + Transport
 ├── omi_dispatch.c / .h   32-slot dispatch table, handlers
@@ -324,11 +334,17 @@ Phase 7 — Mesh Networking
 │                                 route update flood, retry queue, stale expiry
 └── test_mesh.c                  23 mesh routing/forwarding/queue tests
 
+Formal Verification (Coq)
+└── proof/
+    ├── delta_orbit_theory.v      GL(16,2) dynamics, observer category, concrete observers, 5040 atlas
+    └── functorial_semantics.v    Orbit groupoid 𝒪, functor theorem Obs : 𝒪 → FinSet, trace equivalence, extraction
+
 Tests
 ├── test_env.c            39 envelope/stream/sector tests
 ├── test_dispatch.c       31 dispatch table tests
 ├── test_gauge_exec.c     21 gauge lambda tests
 ├── test_radio_vm.c       43 radio VM end-to-end tests
+├── test_orbit.c          68 GL(16,2) orbit engine tests
 
 Programs
 ├── programs/test.omi     (omi . imo)

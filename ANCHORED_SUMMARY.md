@@ -72,49 +72,93 @@ All invariants are observer-dependent projections:
 
 ## 5. Category of Observers
 
-Objects:
+The observer category is formalized in Coq as a dependent category over
+the state dynamics.  Every observer is an equivariant map:
 
-    Ob = state → A
+    obs(Δ(s)) = fA(obs(s))
 
-Morphisms:
-
-    f : A → B
-    commuting with Δ:
-
-    f ∘ obs ∘ Δ = obs' ∘ Δ
-
-This forms a dependent category over the state dynamics.
+This commuting diagram defines the morphisms of the observer category.
+The main theorem (`all_observers_are_equivariant_maps`) states that for any
+observer, such an fA exists.
 
 ---
 
-## 6. Execution Layer
+## 6. Orbit Groupoid 𝒪
 
-Implemented in C:
+Objects = states.  Morphisms = forward Δ-iterates:
+
+    𝒪_hom(s,t) = { Δⁿ | n : ℕ, Δⁿ(s) = t }
+
+𝒪 is a thin category (at most one morphism between any two objects).
+It is the orbit groupoid of the deterministic dynamical system Δ.
+
+Category laws (identity, composition, associativity) are proved in Coq
+(`functorial_semantics.v`).
+
+---
+
+## 7. Functor Theorem
+
+**Every observer defines a functor Obs : 𝒪 → FinSet.**
+
+- On objects:  s ↦ A (the observation set)
+- On morphisms:  Δⁿ ↦ (fA)ⁿ (the induced dynamics on A)
+
+Functoriality follows from the equivariance condition by induction on n:
+
+    obs(Δⁿ(s)) = (fA)ⁿ(obs(s))
+
+This is the core theorem `functor_theorem` in `functorial_semantics.v`.
+Concrete observers (Fano, Tetra, BQF) are corollaries.
+
+---
+
+## 8. Trace Equivalence
+
+The Coq trace of an observer matches sequential application of fA:
+
+    trace_obs A o s n = [obs(s), obs(Δ(s)), ..., obs(Δⁿ(s))]
+    nth k (trace_obs ...) = (fA)ᵏ(obs(s))   for k ≤ n
+
+This bridges the Coq formalization to the C execution layer.
+
+---
+
+## 9. Execution Layer
+
+Implemented in C (`omi_orbit.c/h`):
 
 - GL(16,2) multiplication table A[]
 - Control injection c
 - Deterministic step function Δ
-- Floyd/visited cycle detection
+- Visited-array cycle detection
 - Trace extraction
 
 ---
 
-## 7. Formal Layer (Coq)
+## 10. Formal Layer (Coq)
 
-Coq formalization encodes:
+Two files in `proof/`:
 
-- state as dependent pair
-- Δ as total function
-- trace as inductive list
-- observers as equivariant maps
+- `delta_orbit_theory.v`  — GL(16,2) linear dynamics, Observer record, ObsHom
+  category, concrete observers (Fano, Tetra, Phase, BQF), 5040 atlas.
 
-All lemmas reduce to:
-
-    obs(Δ(s)) = f(obs(s))
+- `functorial_semantics.v` — orbit groupoid 𝒪, functor theorem, trace
+  equivalence, extraction interface.
 
 ---
 
-## 8. Fundamental Claim
+## 11. Extraction Interface
+
+Coq constants A and B are extracted to OCaml via `Extract Constant`,
+matching the C implementation in `omi_orbit.c`:
+
+    A(x) = (x << 1) ⊗ 0x002D   (GF(2^16) multiplication by α)
+    B(x) = x                   (identity linear map)
+
+---
+
+## 12. Fundamental Claim
 
 The system is not a program.
 
