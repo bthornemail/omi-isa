@@ -284,15 +284,12 @@ Theorem atlas_slot_bounded : forall f t p,
   N.lt f 7 -> N.lt t 3 -> N.lt p 240 ->
   N.lt (atlas_slot f t p) 5040.
 Proof.
-  intros f t p Hf Ht Hp. unfold atlas_slot.
-  (* f*720 + t*240 + p < 7*720 + 3*240 + 240 = 5040 *)
-  apply N.lt_of_lt_of_le with (6*720 + 2*240 + 239)%N.
-  - apply N.add_lt_mono.
-    + apply N.add_lt_mono.
-      * apply N.mul_lt_mono_l. exact Hf.
-      * apply N.mul_lt_mono_l. exact Ht.
-    + exact Hp.
-  - nia.
+  intros f t p Hf Ht Hp.
+  apply N2Z.inj_lt.
+  apply N2Z.inj_lt in Hf; apply N2Z.inj_lt in Ht; apply N2Z.inj_lt in Hp.
+  unfold atlas_slot.
+  rewrite !N2Z.inj_add, !N2Z.inj_mul.
+  lia.
 Qed.
 
 (* Orbit coordinate from state *)
@@ -311,14 +308,13 @@ Theorem all_observers_are_equivariant_maps :
     exists (f : state -> A) (g : A -> A),
       forall s, f (step s) = g (f s).
 Proof.
-  intros A o. exists (obs o). exists (fA o). exact (equiv o).
+  intros A o. exists (obs A o). exists (fA A o). exact (equiv A o).
 Qed.
 
-Theorem all_orbits_finite : forall s : state, exists n : nat, fst (trace n s) = s.
-Proof.
-  (* State space is finite (2^32 states) → orbit must eventually repeat.
-     Standard pigeonhole principle for finite deterministic systems. *)
+Theorem all_orbits_finite : forall s : state, exists n m : nat, Nat.lt n m /\ Nat.iter n step s = Nat.iter m step s.
 Admitted.
+(* State space is finite (2^32 states) → by pigeonhole principle,
+   within 2^32+1 steps some state must repeat. *)
 
 (********************************************************************)
 (*  END OF delta_orbit_theory.v                                     *)
