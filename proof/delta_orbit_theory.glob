@@ -1,4 +1,4 @@
-DIGEST 8d8607b5aa62b2de8edfb5a075f2aff3
+DIGEST f83073c0644b25c8bf83c64d37987c89
 Fdelta_orbit_theory
 R565:581 Coq.NArith.NArith <> <> lib
 R599:615 Coq.ZArith.ZArith <> <> lib
@@ -718,8 +718,89 @@ R9400:9409 delta_orbit_theory <> atlas_slot def
 R9411:9411 delta_orbit_theory <> f:106 var
 R9413:9413 delta_orbit_theory <> t:107 var
 R9415:9415 delta_orbit_theory <> p:108 var
-R9463:9472 delta_orbit_theory <> atlas_slot def
-R9574:9576 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
-R9566:9568 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
-R9562:9562 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
-R9570:9570 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R9464:9473 Coq.ZArith.Znat N2Z inj_lt thm
+R9464:9473 Coq.ZArith.Znat N2Z inj_lt thm
+R9484:9493 Coq.ZArith.Znat N2Z inj_lt thm
+R9508:9517 Coq.ZArith.Znat N2Z inj_lt thm
+R9532:9541 Coq.ZArith.Znat N2Z inj_lt thm
+R9484:9493 Coq.ZArith.Znat N2Z inj_lt thm
+R9508:9517 Coq.ZArith.Znat N2Z inj_lt thm
+R9532:9541 Coq.ZArith.Znat N2Z inj_lt thm
+R9559:9568 delta_orbit_theory <> atlas_slot def
+R9582:9592 Coq.ZArith.Znat N2Z inj_add thm
+R9596:9606 Coq.ZArith.Znat N2Z inj_mul thm
+R9582:9592 Coq.ZArith.Znat N2Z inj_add thm
+R9582:9592 Coq.ZArith.Znat N2Z inj_add thm
+R9582:9592 Coq.ZArith.Znat N2Z inj_add thm
+R9582:9592 Coq.ZArith.Znat N2Z inj_add thm
+R9596:9606 Coq.ZArith.Znat N2Z inj_mul thm
+R9596:9606 Coq.ZArith.Znat N2Z inj_mul thm
+R9596:9606 Coq.ZArith.Znat N2Z inj_mul thm
+R9596:9606 Coq.ZArith.Znat N2Z inj_mul thm
+def 9667:9677 <> orbit_coord
+R9684:9688 delta_orbit_theory <> state def
+binder 9680:9680 <> s:109
+R9693:9693 Coq.Numbers.BinNums <> N ind
+R9700:9709 delta_orbit_theory <> atlas_slot def
+R9712:9715 delta_orbit_theory <> fano def
+R9717:9717 delta_orbit_theory <> s:109 var
+R9721:9725 delta_orbit_theory <> tetra def
+R9727:9727 delta_orbit_theory <> s:109 var
+R9743:9745 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R9737:9739 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R9731:9734 delta_orbit_theory <> fano def
+R9736:9736 delta_orbit_theory <> s:109 var
+R9753:9755 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R9746:9750 delta_orbit_theory <> tetra def
+R9752:9752 delta_orbit_theory <> s:109 var
+prf 10121:10154 <> all_observers_are_equivariant_maps
+binder 10168:10168 <> A:110
+R10183:10190 delta_orbit_theory <> Observer rec
+R10192:10192 delta_orbit_theory <> A:110 var
+binder 10179:10179 <> o:111
+R10200:10207 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R10235:10243 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R10217:10220 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10212:10216 delta_orbit_theory <> state def
+R10221:10221 delta_orbit_theory <> A:110 var
+binder 10208:10208 <> f:112
+R10230:10233 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10229:10229 delta_orbit_theory <> A:110 var
+R10234:10234 delta_orbit_theory <> A:110 var
+binder 10225:10225 <> g:113
+binder 10251:10251 <> s:114
+R10264:10266 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10254:10254 delta_orbit_theory <> f:112 var
+R10257:10260 delta_orbit_theory <> step def
+R10262:10262 delta_orbit_theory <> s:114 var
+R10267:10267 delta_orbit_theory <> g:113 var
+R10270:10270 delta_orbit_theory <> f:112 var
+R10272:10272 delta_orbit_theory <> s:114 var
+R10305:10307 delta_orbit_theory <> obs proj
+R10305:10307 delta_orbit_theory <> obs proj
+R10323:10324 delta_orbit_theory <> fA proj
+R10323:10324 delta_orbit_theory <> fA proj
+R10339:10343 delta_orbit_theory <> equiv proj
+R10339:10343 delta_orbit_theory <> equiv proj
+prf 10365:10381 <> all_orbits_finite
+R10396:10400 delta_orbit_theory <> state def
+binder 10392:10392 <> s:115
+R10403:10409 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R10419:10420 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R10416:10418 Coq.Init.Datatypes <> nat ind
+binder 10410:10410 <> n:116
+R10416:10418 Coq.Init.Datatypes <> nat ind
+binder 10412:10412 <> m:117
+R10431:10434 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R10421:10426 Coq.Arith.PeanoNat Nat lt def
+R10428:10428 delta_orbit_theory <> n:116 var
+R10430:10430 delta_orbit_theory <> m:117 var
+R10452:10454 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10435:10442 Coq.Arith.PeanoNat Nat iter def
+R10451:10451 delta_orbit_theory <> s:115 var
+R10446:10449 delta_orbit_theory <> step def
+R10444:10444 delta_orbit_theory <> n:116 var
+R10455:10462 Coq.Arith.PeanoNat Nat iter def
+R10471:10471 delta_orbit_theory <> s:115 var
+R10466:10469 delta_orbit_theory <> step def
+R10464:10464 delta_orbit_theory <> m:117 var
