@@ -9,4 +9,5 @@ The OMI mesh layer provides multi-hop routing over LoRa and other transports.
 | 0x02   | RREQ           | On-demand route request |
 | 0x03   | RREP           | On-demand route reply |
 
-See [omi_mesh.h](../omi_mesh.h) and [omi_mesh.c](../omi_mesh.c) for implementation.
+See [omi_mesh.h](../../lib/omi_mesh.h) and [omi_mesh.c](../../lib/omi_mesh.c)
+for implementation.

@@ -1,60 +1,61 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
+CPPFLAGS=-Ilib
+COQC=coqc
+COQFLAGS=-Q proof ''
+COQPROOFFLAGS=-Q . ''
+BUILD_DIR=build
 
-VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
-TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
-LORA_OBJ=omi_transport_lora.o omi_transport_sim.o omi_probe.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
+VM_OBJ=$(BUILD_DIR)/main.o $(BUILD_DIR)/cpu.o $(BUILD_DIR)/boot.o $(BUILD_DIR)/loader.o \
+       $(BUILD_DIR)/compiler.o $(BUILD_DIR)/parser.o $(BUILD_DIR)/ast.o \
+       $(BUILD_DIR)/lexer.o $(BUILD_DIR)/asm.o $(BUILD_DIR)/omienv.o \
+       $(BUILD_DIR)/stream.o $(BUILD_DIR)/sector.o $(BUILD_DIR)/omi_dispatch.o \
+       $(BUILD_DIR)/omi_transport.o $(BUILD_DIR)/gauge_exec.o \
+       $(BUILD_DIR)/omi_mesh.o $(BUILD_DIR)/omicron.o $(BUILD_DIR)/omi_omion.o \
+       $(BUILD_DIR)/omi_receipt.o $(BUILD_DIR)/omi_sense.o $(BUILD_DIR)/omi_pg.o \
+       $(BUILD_DIR)/omi_orbit.o
+TC_OBJ=$(BUILD_DIR)/toolchain_main.o $(BUILD_DIR)/loader.o $(BUILD_DIR)/compiler.o \
+       $(BUILD_DIR)/parser.o $(BUILD_DIR)/ast.o $(BUILD_DIR)/lexer.o \
+       $(BUILD_DIR)/omienv.o $(BUILD_DIR)/stream.o $(BUILD_DIR)/sector.o \
+       $(BUILD_DIR)/omi_dispatch.o $(BUILD_DIR)/omi_transport.o \
+       $(BUILD_DIR)/gauge_exec.o $(BUILD_DIR)/omi_mesh.o $(BUILD_DIR)/omicron.o \
+       $(BUILD_DIR)/omi_omion.o $(BUILD_DIR)/omi_receipt.o \
+       $(BUILD_DIR)/omi_sense.o $(BUILD_DIR)/omi_pg.o $(BUILD_DIR)/omi_orbit.o
 
 all: omi_vm omi_toolchain
 
 omi_vm: $(VM_OBJ)
-	$(CC) $(CFLAGS) -o $@ $(VM_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(VM_OBJ)
 
 omi_toolchain: $(TC_OBJ)
-	$(CC) $(CFLAGS) -o $@ $(TC_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(TC_OBJ)
 
-main.o: main.c cpu.h isa.h ast.h loader.h
-cpu.o: cpu.c cpu.h isa.h
-boot.o: boot.c cpu.h
-loader.o: loader.c loader.h
-compiler.o: compiler.c ast.h isa.h
-parser.o: parser.c lexer.h ast.h
-ast.o: ast.c ast.h
-lexer.o: lexer.c lexer.h
-asm.o: asm.c isa.h
-toolchain_main.o: toolchain_main.c ast.h isa.h loader.h
-omienv.o: omienv.c omienv.h
-stream.o: stream.c stream.h omienv.h omi_dispatch.h cpu.h
-sector.o: sector.c sector.h omienv.h
-omi_dispatch.o: omi_dispatch.c omi_dispatch.h omienv.h cpu.h isa.h gauge_exec.h
-omi_transport.o: omi_transport.c omi_transport.h omienv.h
-gauge_exec.o: gauge_exec.c gauge_exec.h omienv.h omi_dispatch.h
-omi_probe.o: omi_probe.c omi_probe.h omi_transport.h omi_dispatch.h cpu.h
-omi_transport_sim.o: omi_transport_sim.c omi_transport_sim.h omi_transport.h
-omi_mesh.o: omi_mesh.c omi_mesh.h omienv.h omi_transport.h
-omicron.o: omicron.c omicron.h omienv.h omi_dispatch.h gauge_exec.h
-omi_transport_lora.o: omi_transport_lora.c omi_transport_lora.h omi_transport.h
-omi_omion.o: omi_omion.c omi_omion.h omienv.h omicron.h
-omi_receipt.o: omi_receipt.c omi_receipt.h omienv.h omicron.h
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-omi_pg.o: omi_pg.c omi_pg.h omienv.h
+$(BUILD_DIR)/main.o: main.c | $(BUILD_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-omi_orbit.o: omi_orbit.c omi_orbit.h
+$(BUILD_DIR)/toolchain_main.o: toolchain_main.c | $(BUILD_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-test_env: test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
-	$(CC) $(CFLAGS) -o $@ test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
+$(BUILD_DIR)/%.o: lib/%.c | $(BUILD_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+test_env: test/test_env.c lib/omienv.c lib/stream.c lib/sector.c lib/omi_dispatch.c lib/omi_transport.c lib/gauge_exec.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_env
 
-test_dispatch: test_dispatch.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c gauge_exec.c
-	$(CC) $(CFLAGS) -o $@ test_dispatch.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c gauge_exec.c
+test_dispatch: test/test_dispatch.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c lib/gauge_exec.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_dispatch
 
-test_gauge_exec: test_gauge_exec.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
-	$(CC) $(CFLAGS) -o $@ test_gauge_exec.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+test_gauge_exec: test/test_gauge_exec.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_gauge_exec
 
-test_radio_vm: test_radio_vm.c omi_transport_sim.c omi_probe.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c gauge_exec.c
-	$(CC) $(CFLAGS) -o $@ test_radio_vm.c omi_transport_sim.c omi_probe.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c gauge_exec.c
+test_radio_vm: test/test_radio_vm.c lib/omi_transport_sim.c lib/omi_probe.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c lib/gauge_exec.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_radio_vm
 
 run: omi_vm
@@ -72,8 +73,8 @@ bootstrap: omi_vm bootstrap-compiler.bin
 		./omi_vm $$f 2>/dev/null | grep -q halted && echo "PASS: $$f" || echo "FAIL: $$f"; \
 	done
 
-bootstrap-compiler.bin: gen_bootstrap.py
-	python3 gen_bootstrap.py bootstrap-compiler.bin
+bootstrap-compiler.bin: scripts/gen_bootstrap.py
+	python3 scripts/gen_bootstrap.py bootstrap-compiler.bin
 
 WASM_SRCDIR=web
 WASM_OBJDIR=web/build
@@ -86,7 +87,7 @@ wasm: $(WASM_OBJDIR) $(WASM_OBJS) $(WASM_SRCDIR)/omi_web_bridge.c
 	emcc -Os -s WASM=1 -s MODULARIZE=1 -s EXPORT_NAME=createModule \
 		-s EXPORTED_FUNCTIONS='["_omi_web_init","_omi_web_push_byte","_omi_web_has_event","_omi_web_get_envelope","_omi_web_get_opcode","_omi_web_get_bitboard","_omi_web_pop_event","_omi_web_has_response","_omi_web_get_response","_omi_web_get_response_len","_omi_web_execute","_omi_web_inject_sensor","_omi_web_inject_event","_omi_web_inject_hardware","_malloc","_free"]' \
 		-s EXPORTED_RUNTIME_METHODS='["ccall","cwrap","getValue","setValue"]' \
-		-I. $(WASM_SRCDIR)/omi_web_bridge.c $(WASM_OBJS) \
+		-Ilib $(WASM_SRCDIR)/omi_web_bridge.c $(WASM_OBJS) \
 		-o $(WASM_SRCDIR)/omi_wasm.js \
 		--no-entry
 	@echo "WASM build complete: web/omi_wasm.js + web/omi_wasm.wasm"
@@ -94,80 +95,141 @@ wasm: $(WASM_OBJDIR) $(WASM_OBJS) $(WASM_SRCDIR)/omi_web_bridge.c
 $(WASM_OBJDIR):
 	mkdir -p $(WASM_OBJDIR)
 
-$(WASM_OBJDIR)/omienv.o: omienv.c omienv.h
-	emcc -Os -s WASM=1 -I. -c omienv.c -o $@
+$(WASM_OBJDIR)/omienv.o: lib/omienv.c lib/omienv.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omienv.c -o $@
 
-$(WASM_OBJDIR)/stream.o: stream.c stream.h omienv.h omi_dispatch.h cpu.h
-	emcc -Os -s WASM=1 -I. -c stream.c -o $@
+$(WASM_OBJDIR)/stream.o: lib/stream.c lib/stream.h lib/omienv.h lib/omi_dispatch.h lib/cpu.h
+	emcc -Os -s WASM=1 -Ilib -c lib/stream.c -o $@
 
-$(WASM_OBJDIR)/sector.o: sector.c sector.h omienv.h
-	emcc -Os -s WASM=1 -I. -c sector.c -o $@
+$(WASM_OBJDIR)/sector.o: lib/sector.c lib/sector.h lib/omienv.h
+	emcc -Os -s WASM=1 -Ilib -c lib/sector.c -o $@
 
-$(WASM_OBJDIR)/omi_dispatch.o: omi_dispatch.c omi_dispatch.h omienv.h cpu.h isa.h gauge_exec.h
-	emcc -Os -s WASM=1 -I. -c omi_dispatch.c -o $@
+$(WASM_OBJDIR)/omi_dispatch.o: lib/omi_dispatch.c lib/omi_dispatch.h lib/omienv.h lib/cpu.h lib/isa.h lib/gauge_exec.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omi_dispatch.c -o $@
 
-$(WASM_OBJDIR)/omi_transport.o: omi_transport.c omi_transport.h omienv.h
-	emcc -Os -s WASM=1 -I. -c omi_transport.c -o $@
+$(WASM_OBJDIR)/omi_transport.o: lib/omi_transport.c lib/omi_transport.h lib/omienv.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omi_transport.c -o $@
 
-$(WASM_OBJDIR)/gauge_exec.o: gauge_exec.c gauge_exec.h omienv.h omi_dispatch.h
-	emcc -Os -s WASM=1 -I. -c gauge_exec.c -o $@
+$(WASM_OBJDIR)/gauge_exec.o: lib/gauge_exec.c lib/gauge_exec.h lib/omienv.h lib/omi_dispatch.h
+	emcc -Os -s WASM=1 -Ilib -c lib/gauge_exec.c -o $@
 
-$(WASM_OBJDIR)/cpu.o: cpu.c cpu.h isa.h
-	emcc -Os -s WASM=1 -I. -c cpu.c -o $@
+$(WASM_OBJDIR)/cpu.o: lib/cpu.c lib/cpu.h lib/isa.h
+	emcc -Os -s WASM=1 -Ilib -c lib/cpu.c -o $@
 
-$(WASM_OBJDIR)/boot.o: boot.c cpu.h
-	emcc -Os -s WASM=1 -I. -c boot.c -o $@
+$(WASM_OBJDIR)/boot.o: lib/boot.c lib/cpu.h
+	emcc -Os -s WASM=1 -Ilib -c lib/boot.c -o $@
 
-$(WASM_OBJDIR)/omicron.o: omicron.c omicron.h omienv.h omi_dispatch.h gauge_exec.h
-	emcc -Os -s WASM=1 -I. -c omicron.c -o $@
+$(WASM_OBJDIR)/omicron.o: lib/omicron.c lib/omicron.h lib/omienv.h lib/omi_dispatch.h lib/gauge_exec.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omicron.c -o $@
 
-$(WASM_OBJDIR)/omi_omion.o: omi_omion.c omi_omion.h omienv.h omicron.h
-	emcc -Os -s WASM=1 -I. -c omi_omion.c -o $@
+$(WASM_OBJDIR)/omi_omion.o: lib/omi_omion.c lib/omi_omion.h lib/omienv.h lib/omicron.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omi_omion.c -o $@
 
-$(WASM_OBJDIR)/omi_receipt.o: omi_receipt.c omi_receipt.h omienv.h omicron.h
-	emcc -Os -s WASM=1 -I. -c omi_receipt.c -o $@
+$(WASM_OBJDIR)/omi_receipt.o: lib/omi_receipt.c lib/omi_receipt.h lib/omienv.h lib/omicron.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omi_receipt.c -o $@
 
-$(WASM_OBJDIR)/omi_pg.o: omi_pg.c omi_pg.h omienv.h
-	emcc -Os -s WASM=1 -I. -c omi_pg.c -o $@
+$(WASM_OBJDIR)/omi_pg.o: lib/omi_pg.c lib/omi_pg.h lib/omienv.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omi_pg.c -o $@
 
-$(WASM_OBJDIR)/omi_orbit.o: omi_orbit.c omi_orbit.h
-	emcc -Os -s WASM=1 -I. -c omi_orbit.c -o $@
+$(WASM_OBJDIR)/omi_orbit.o: lib/omi_orbit.c lib/omi_orbit.h
+	emcc -Os -s WASM=1 -Ilib -c lib/omi_orbit.c -o $@
 
-test_mesh: test_mesh.c omi_mesh.c omi_transport_sim.c omi_transport.c omienv.c
-	$(CC) $(CFLAGS) -o $@ test_mesh.c omi_mesh.c omi_transport_sim.c omi_transport.c omienv.c
+test_mesh: test/test_mesh.c lib/omi_mesh.c lib/omi_transport_sim.c lib/omi_transport.c lib/omienv.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_mesh
 
-test_omicron: test_omicron.c omicron.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
-	$(CC) $(CFLAGS) -o $@ test_omicron.c omicron.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+test_omicron: test/test_omicron.c lib/omicron.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_omicron
 
-test_omion: test_omion.c omi_omion.c omicron.c omienv.c omi_dispatch.c omi_transport.c gauge_exec.c stream.c sector.c cpu.c boot.c
-	$(CC) $(CFLAGS) -o $@ test_omion.c omi_omion.c omicron.c omienv.c omi_dispatch.c omi_transport.c gauge_exec.c stream.c sector.c cpu.c boot.c
+test_omion: test/test_omion.c lib/omi_omion.c lib/omicron.c lib/omienv.c lib/omi_dispatch.c lib/omi_transport.c lib/gauge_exec.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_omion
 
-test_receipt: test_receipt.c omi_receipt.c omicron.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
-	$(CC) $(CFLAGS) -o $@ test_receipt.c omi_receipt.c omicron.c gauge_exec.c omi_dispatch.c omi_transport.c omienv.c stream.c sector.c cpu.c boot.c
+test_receipt: test/test_receipt.c lib/omi_receipt.c lib/omicron.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_receipt
 
 test_face_chain:
 	node web/test-face-chain.js
 
-test_omi_sense: test_omi_sense.c omi_sense.c omienv.c
-	$(CC) $(CFLAGS) -o $@ test_omi_sense.c omi_sense.c omienv.c
+test_omi_sense: test/test_omi_sense.c lib/omi_sense.c lib/omienv.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_omi_sense
 
-test_pg: test_pg.c omi_pg.c omienv.c
-	$(CC) $(CFLAGS) -o $@ test_pg.c omi_pg.c omienv.c
+test_pg: test/test_pg.c lib/omi_pg.c lib/omienv.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_pg
 
-test_orbit: test_orbit.c omi_orbit.c
-	$(CC) $(CFLAGS) -o $@ test_orbit.c omi_orbit.c
+test_orbit: test/test_orbit.c lib/omi_orbit.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_orbit
 
 test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
 
+PROOF_TARGETS= \
+	proof/AtomicKernel.vo \
+	proof/AtomicKernelVNext.vo \
+	proof/DiagonalClosure.vo \
+	proof/FiniteIncidence.vo \
+	proof/BQFBridge.vo \
+	proof/MetricProjection.vo \
+	proof/PiProjection.vo \
+	proof/OMI_Exports.vo \
+	proof/omi_pi_proof.vo \
+	proof/omi_pi_bridge.vo \
+	proof/delta_orbit_theory.vo \
+	proof/functorial_semantics.vo \
+	proof/coalgebraic_bisimulation.vo \
+	proof/OMI_bialgebra.vo
+
+proof: $(PROOF_TARGETS)
+
+proof/AtomicKernel.vo: proof/AtomicKernel.v
+	cd proof && $(COQC) $(COQPROOFFLAGS) AtomicKernel.v
+
+proof/AtomicKernelVNext.vo: proof/AtomicKernelVNext.v proof/AtomicKernel.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) AtomicKernelVNext.v
+
+proof/DiagonalClosure.vo: proof/DiagonalClosure.v
+	cd proof && $(COQC) $(COQPROOFFLAGS) DiagonalClosure.v
+
+proof/FiniteIncidence.vo: proof/FiniteIncidence.v proof/DiagonalClosure.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) FiniteIncidence.v
+
+proof/BQFBridge.vo: proof/BQFBridge.v proof/DiagonalClosure.vo proof/FiniteIncidence.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) BQFBridge.v
+
+proof/MetricProjection.vo: proof/MetricProjection.v proof/FiniteIncidence.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) MetricProjection.v
+
+proof/PiProjection.vo: proof/PiProjection.v proof/DiagonalClosure.vo proof/BQFBridge.vo proof/MetricProjection.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) PiProjection.v
+
+proof/OMI_Exports.vo: proof/OMI_Exports.v proof/DiagonalClosure.vo proof/FiniteIncidence.vo proof/BQFBridge.vo proof/MetricProjection.vo proof/PiProjection.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) OMI_Exports.v
+
+proof/omi_pi_proof.vo: proof/omi_pi_proof.v proof/OMI_Exports.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) omi_pi_proof.v
+
+proof/omi_pi_bridge.vo: proof/omi_pi_bridge.v proof/AtomicKernelVNext.vo proof/DiagonalClosure.vo proof/PiProjection.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) omi_pi_bridge.v
+
+proof/delta_orbit_theory.vo: proof/delta_orbit_theory.v
+	cd proof && $(COQC) $(COQPROOFFLAGS) delta_orbit_theory.v
+
+proof/functorial_semantics.vo: proof/functorial_semantics.v proof/delta_orbit_theory.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) functorial_semantics.v
+
+proof/coalgebraic_bisimulation.vo: proof/coalgebraic_bisimulation.v proof/delta_orbit_theory.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) coalgebraic_bisimulation.v
+
+proof/OMI_bialgebra.vo: proof/OMI_bialgebra.v proof/delta_orbit_theory.vo proof/functorial_semantics.vo
+	cd proof && $(COQC) $(COQPROOFFLAGS) OMI_bialgebra.v
+
 clean:
-	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
+	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
+	rm -rf $(BUILD_DIR)
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
-.PHONY: all run run-tc bootstrap clean wasm test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+.PHONY: all run run-tc bootstrap clean wasm proof test test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain

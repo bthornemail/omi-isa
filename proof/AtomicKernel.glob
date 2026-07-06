@@ -1,0 +1,159 @@
+DIGEST c0bf0f3509c6a02f144bfc087ce0d4c5
+FAtomicKernel
+R15:31 Coq.NArith.NArith <> <> lib
+R49:62 Coq.Lists.List <> <> lib
+R72:84 Coq.Lists.List ListNotations <> mod
+def 119:122 <> mask
+R131:131 Coq.Numbers.BinNums <> N ind
+binder 125:125 <> n:1
+binder 127:127 <> x:2
+R136:136 Coq.Numbers.BinNums <> N ind
+R141:146 Coq.NArith.BinNat N land def
+R148:148 AtomicKernel <> x:2 var
+R151:156 Coq.NArith.BinNat N pred def
+R159:163 Coq.NArith.BinNat N pow def
+R167:167 AtomicKernel <> n:1 var
+def 184:187 <> rotl
+R198:198 Coq.Numbers.BinNums <> N ind
+binder 190:190 <> n:3
+binder 192:192 <> x:4
+binder 194:194 <> k:5
+R203:203 Coq.Numbers.BinNums <> N ind
+R210:213 AtomicKernel <> mask def
+R215:215 AtomicKernel <> n:3 var
+R218:222 Coq.NArith.BinNat N lor def
+R225:232 Coq.NArith.BinNat N shiftl def
+R234:234 AtomicKernel <> x:4 var
+R236:236 AtomicKernel <> k:5 var
+R240:247 Coq.NArith.BinNat N shiftr def
+R249:249 AtomicKernel <> x:4 var
+R253:255 Coq.NArith.BinNat <> ::N_scope:x_'-'_x not
+R252:252 AtomicKernel <> n:3 var
+R256:256 AtomicKernel <> k:5 var
+def 274:277 <> rotr
+R288:288 Coq.Numbers.BinNums <> N ind
+binder 280:280 <> n:6
+binder 282:282 <> x:7
+binder 284:284 <> k:8
+R293:293 Coq.Numbers.BinNums <> N ind
+R300:303 AtomicKernel <> mask def
+R305:305 AtomicKernel <> n:6 var
+R308:312 Coq.NArith.BinNat N lor def
+R315:322 Coq.NArith.BinNat N shiftr def
+R324:324 AtomicKernel <> x:7 var
+R326:326 AtomicKernel <> k:8 var
+R330:337 Coq.NArith.BinNat N shiftl def
+R339:339 AtomicKernel <> x:7 var
+R343:345 Coq.NArith.BinNat <> ::N_scope:x_'-'_x not
+R342:342 AtomicKernel <> n:6 var
+R346:346 AtomicKernel <> k:8 var
+def 362:374 <> repeat_1D_nat
+R381:383 Coq.Init.Datatypes <> nat ind
+binder 377:377 <> m:9
+R388:388 Coq.Numbers.BinNums <> N ind
+R401:401 AtomicKernel <> m:9 var
+R412:412 Coq.Init.Datatypes <> O constr
+R423:423 Coq.Init.Datatypes <> S constr
+R431:435 Coq.NArith.BinNat N lor def
+R438:445 Coq.NArith.BinNat N shiftl def
+R448:460 AtomicKernel <> repeat_1D_nat:10 def
+def 491:507 <> constant_of_width
+R514:514 Coq.Numbers.BinNums <> N ind
+binder 510:510 <> n:12
+R519:519 Coq.Numbers.BinNums <> N ind
+R524:536 AtomicKernel <> repeat_1D_nat def
+R539:546 Coq.NArith.BinNat N to_nat def
+R549:553 Coq.NArith.BinNat N div def
+R555:555 AtomicKernel <> n:12 var
+def 574:578 <> delta
+R587:587 Coq.Numbers.BinNums <> N ind
+binder 581:581 <> n:13
+binder 583:583 <> x:14
+R592:592 Coq.Numbers.BinNums <> N ind
+R599:602 AtomicKernel <> mask def
+R604:604 AtomicKernel <> n:13 var
+R611:616 Coq.NArith.BinNat N lxor def
+R625:630 Coq.NArith.BinNat N lxor def
+R641:646 Coq.NArith.BinNat N lxor def
+R649:652 AtomicKernel <> rotl def
+R654:654 AtomicKernel <> n:13 var
+R656:656 AtomicKernel <> x:14 var
+R662:665 AtomicKernel <> rotl def
+R667:667 AtomicKernel <> n:13 var
+R669:669 AtomicKernel <> x:14 var
+R684:687 AtomicKernel <> rotr def
+R689:689 AtomicKernel <> n:13 var
+R691:691 AtomicKernel <> x:14 var
+R704:720 AtomicKernel <> constant_of_width def
+R722:722 AtomicKernel <> n:13 var
+def 737:744 <> sequence
+R755:757 Coq.Init.Datatypes <> nat ind
+binder 747:751 <> steps:15
+R770:770 Coq.Numbers.BinNums <> N ind
+binder 761:761 <> n:16
+binder 763:766 <> seed:17
+R775:778 Coq.Init.Datatypes <> list ind
+R780:780 Coq.Numbers.BinNums <> N ind
+R793:797 AtomicKernel <> steps:15 var
+R808:808 Coq.Init.Datatypes <> O constr
+R813:814 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R820:820 Coq.Init.Datatypes <> S constr
+R831:834 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R827:830 AtomicKernel <> seed:17 var
+R835:842 AtomicKernel <> sequence:18 def
+R849:853 AtomicKernel <> delta def
+R855:855 AtomicKernel <> n:16 var
+R857:860 AtomicKernel <> seed:17 var
+R846:846 AtomicKernel <> n:16 var
+prf 879:897 <> delta_deterministic
+binder 910:910 <> n:20
+binder 912:912 <> x:21
+binder 914:914 <> y:22
+R922:925 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R918:920 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R917:917 AtomicKernel <> x:21 var
+R921:921 AtomicKernel <> y:22 var
+R935:937 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R926:930 AtomicKernel <> delta def
+R932:932 AtomicKernel <> n:20 var
+R934:934 AtomicKernel <> x:21 var
+R938:942 AtomicKernel <> delta def
+R944:944 AtomicKernel <> n:20 var
+R946:946 AtomicKernel <> y:22 var
+prf 1003:1024 <> sequence_deterministic
+binder 1037:1041 <> steps:23
+binder 1043:1043 <> n:24
+binder 1045:1045 <> x:25
+binder 1047:1047 <> y:26
+R1055:1058 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1051:1053 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1050:1050 AtomicKernel <> x:25 var
+R1054:1054 AtomicKernel <> y:26 var
+R1077:1079 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1059:1066 AtomicKernel <> sequence def
+R1068:1072 AtomicKernel <> steps:23 var
+R1074:1074 AtomicKernel <> n:24 var
+R1076:1076 AtomicKernel <> x:25 var
+R1080:1087 AtomicKernel <> sequence def
+R1089:1093 AtomicKernel <> steps:23 var
+R1095:1095 AtomicKernel <> n:24 var
+R1097:1097 AtomicKernel <> y:26 var
+prf 1160:1174 <> mask_idempotent
+binder 1187:1187 <> n:27
+binder 1189:1189 <> x:28
+R1209:1211 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1192:1195 AtomicKernel <> mask def
+R1197:1197 AtomicKernel <> n:27 var
+R1200:1203 AtomicKernel <> mask def
+R1205:1205 AtomicKernel <> n:27 var
+R1207:1207 AtomicKernel <> x:28 var
+R1212:1215 AtomicKernel <> mask def
+R1217:1217 AtomicKernel <> n:27 var
+R1219:1219 AtomicKernel <> x:28 var
+R1252:1255 AtomicKernel <> mask def
+R1271:1282 Coq.NArith.BinNat N land_assoc thm
+R1271:1282 Coq.NArith.BinNat N land_assoc thm
+R1271:1282 Coq.NArith.BinNat N land_assoc thm
+R1295:1305 Coq.NArith.BinNat N land_diag thm
+R1295:1305 Coq.NArith.BinNat N land_diag thm
+R1295:1305 Coq.NArith.BinNat N land_diag thm

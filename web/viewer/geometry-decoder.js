@@ -1,4 +1,4 @@
-/* Pure JS TwinGeometry decoder -- deterministic, mirrors omicron.c */
+/* Pure JS TwinGeometry decoder -- deterministic, mirrors lib/omicron.c */
 
 const FANO_LINES = [
   [0,1,2],[0,3,4],[0,5,6],[1,3,5],[1,4,6],[2,3,6],[2,4,5]
@@ -7,7 +7,7 @@ const FANO_LINES = [
 const QUQUART_PHASE = [0x1f, 0x1d, 0x1e, 0x1c];
 const FRAME_NAMES = ['US','GS','RS','FS'];
 
-/* --- Solid geometry (mirrors omicron.c seed shapes) --- */
+/* --- Solid geometry (mirrors lib/omicron.c seed shapes) --- */
 
 function tetraGoldenRatio() {
   let x = 2.0;

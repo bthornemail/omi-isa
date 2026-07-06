@@ -3,18 +3,18 @@ idf_component_register(
         "main.cpp"
         "omi_sx1262.cpp"
         "omi_esp_transport.cpp"
-        "../../omienv.c"
-        "../../stream.c"
-        "../../sector.c"
-        "../../omi_dispatch.c"
-        "../../omi_transport.c"
-        "../../gauge_exec.c"
-        "../../cpu.c"
-        "../../boot.c"
-        "../../omi_mesh.c"
+        "../../lib/omienv.c"
+        "../../lib/stream.c"
+        "../../lib/sector.c"
+        "../../lib/omi_dispatch.c"
+        "../../lib/omi_transport.c"
+        "../../lib/gauge_exec.c"
+        "../../lib/cpu.c"
+        "../../lib/boot.c"
+        "../../lib/omi_mesh.c"
     INCLUDE_DIRS
         "."
-        "../../"
+        "../../lib"
     REQUIRES
         driver
         nvs_flash

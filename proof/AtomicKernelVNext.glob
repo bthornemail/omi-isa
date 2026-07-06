@@ -1,0 +1,190 @@
+DIGEST b03c60973eb714f0ba02c2fc3aa8151d
+FAtomicKernelVNext
+R15:31 Coq.NArith.NArith <> <> lib
+R49:62 Coq.Lists.List <> <> lib
+R72:84 Coq.Lists.List ListNotations <> mod
+R277:288 AtomicKernel <> <> lib
+def 303:306 <> mask
+R315:315 Coq.Numbers.BinNums <> N ind
+binder 309:309 <> n:1
+binder 311:311 <> x:2
+R320:320 Coq.Numbers.BinNums <> N ind
+R325:330 Coq.NArith.BinNat N land def
+R332:332 AtomicKernelVNext <> x:2 var
+R335:340 Coq.NArith.BinNat N pred def
+R343:347 Coq.NArith.BinNat N pow def
+R351:351 AtomicKernelVNext <> n:1 var
+def 368:371 <> rotl
+R382:382 Coq.Numbers.BinNums <> N ind
+binder 374:374 <> n:3
+binder 376:376 <> x:4
+binder 378:378 <> k:5
+R387:387 Coq.Numbers.BinNums <> N ind
+R404:411 Coq.NArith.BinNat N modulo def
+R413:413 AtomicKernelVNext <> k:5 var
+R415:415 AtomicKernelVNext <> n:3 var
+binder 398:399 <> k':6
+R422:425 AtomicKernelVNext <> mask def
+R427:427 AtomicKernelVNext <> n:3 var
+R430:434 Coq.NArith.BinNat N lor def
+R437:444 Coq.NArith.BinNat N shiftl def
+R446:446 AtomicKernelVNext <> x:4 var
+R448:449 AtomicKernelVNext <> k':6 var
+R453:460 Coq.NArith.BinNat N shiftr def
+R462:462 AtomicKernelVNext <> x:4 var
+R466:468 Coq.NArith.BinNat <> ::N_scope:x_'-'_x not
+R465:465 AtomicKernelVNext <> n:3 var
+R469:470 AtomicKernelVNext <> k':6 var
+def 488:491 <> rotr
+R502:502 Coq.Numbers.BinNums <> N ind
+binder 494:494 <> n:7
+binder 496:496 <> x:8
+binder 498:498 <> k:9
+R507:507 Coq.Numbers.BinNums <> N ind
+R524:531 Coq.NArith.BinNat N modulo def
+R533:533 AtomicKernelVNext <> k:9 var
+R535:535 AtomicKernelVNext <> n:7 var
+binder 518:519 <> k':10
+R542:545 AtomicKernelVNext <> mask def
+R547:547 AtomicKernelVNext <> n:7 var
+R550:554 Coq.NArith.BinNat N lor def
+R557:564 Coq.NArith.BinNat N shiftr def
+R566:566 AtomicKernelVNext <> x:8 var
+R568:569 AtomicKernelVNext <> k':10 var
+R573:580 Coq.NArith.BinNat N shiftl def
+R582:582 AtomicKernelVNext <> x:8 var
+R586:588 Coq.NArith.BinNat <> ::N_scope:x_'-'_x not
+R585:585 AtomicKernelVNext <> n:7 var
+R589:590 AtomicKernelVNext <> k':10 var
+def 606:623 <> repeat_byte_1d_nat
+R630:632 Coq.Init.Datatypes <> nat ind
+binder 626:626 <> m:11
+R637:637 Coq.Numbers.BinNums <> N ind
+R650:650 AtomicKernelVNext <> m:11 var
+R661:661 Coq.Init.Datatypes <> O constr
+R672:672 Coq.Init.Datatypes <> S constr
+R680:684 Coq.NArith.BinNat N lor def
+R687:694 Coq.NArith.BinNat N shiftl def
+R697:714 AtomicKernelVNext <> repeat_byte_1d_nat:12 def
+def 745:761 <> constant_of_width
+R768:768 Coq.Numbers.BinNums <> N ind
+binder 764:764 <> n:14
+R773:773 Coq.Numbers.BinNums <> N ind
+R778:795 AtomicKernelVNext <> repeat_byte_1d_nat def
+R798:805 Coq.NArith.BinNat N to_nat def
+R808:812 Coq.NArith.BinNat N div def
+R814:814 AtomicKernelVNext <> n:14 var
+def 833:837 <> delta
+R846:846 Coq.Numbers.BinNums <> N ind
+binder 840:840 <> n:15
+binder 842:842 <> x:16
+R851:851 Coq.Numbers.BinNums <> N ind
+R858:861 AtomicKernelVNext <> mask def
+R863:863 AtomicKernelVNext <> n:15 var
+R870:875 Coq.NArith.BinNat N lxor def
+R884:889 Coq.NArith.BinNat N lxor def
+R892:897 Coq.NArith.BinNat N lxor def
+R900:903 AtomicKernelVNext <> rotl def
+R905:905 AtomicKernelVNext <> n:15 var
+R907:907 AtomicKernelVNext <> x:16 var
+R913:916 AtomicKernelVNext <> rotl def
+R918:918 AtomicKernelVNext <> n:15 var
+R920:920 AtomicKernelVNext <> x:16 var
+R927:930 AtomicKernelVNext <> rotr def
+R932:932 AtomicKernelVNext <> n:15 var
+R934:934 AtomicKernelVNext <> x:16 var
+R947:963 AtomicKernelVNext <> constant_of_width def
+R965:965 AtomicKernelVNext <> n:15 var
+def 980:990 <> replay_loop
+R1001:1003 Coq.Init.Datatypes <> nat ind
+binder 993:997 <> steps:17
+R1011:1011 Coq.Numbers.BinNums <> N ind
+binder 1007:1007 <> n:18
+R1019:1019 Coq.Numbers.BinNums <> N ind
+binder 1015:1015 <> x:19
+R1024:1027 Coq.Init.Datatypes <> list ind
+R1029:1029 Coq.Numbers.BinNums <> N ind
+R1042:1046 AtomicKernelVNext <> steps:17 var
+R1057:1057 Coq.Init.Datatypes <> O constr
+R1062:1063 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R1069:1069 Coq.Init.Datatypes <> S constr
+R1077:1080 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1076:1076 AtomicKernelVNext <> x:19 var
+R1081:1091 AtomicKernelVNext <> replay_loop:20 def
+R1098:1102 AtomicKernelVNext <> delta def
+R1104:1104 AtomicKernelVNext <> n:18 var
+R1106:1106 AtomicKernelVNext <> x:19 var
+R1095:1095 AtomicKernelVNext <> n:18 var
+def 1128:1133 <> replay
+R1140:1140 Coq.Numbers.BinNums <> N ind
+binder 1136:1136 <> n:22
+R1151:1151 Coq.Numbers.BinNums <> N ind
+binder 1144:1147 <> seed:23
+R1163:1165 Coq.Init.Datatypes <> nat ind
+binder 1155:1159 <> steps:24
+R1170:1173 Coq.Init.Datatypes <> list ind
+R1175:1175 Coq.Numbers.BinNums <> N ind
+R1182:1192 AtomicKernelVNext <> replay_loop def
+R1194:1198 AtomicKernelVNext <> steps:24 var
+R1200:1200 AtomicKernelVNext <> n:22 var
+R1203:1206 AtomicKernelVNext <> mask def
+R1208:1208 AtomicKernelVNext <> n:22 var
+R1210:1213 AtomicKernelVNext <> seed:23 var
+prf 1226:1250 <> vnext_delta_deterministic
+binder 1263:1263 <> n:25
+binder 1265:1265 <> x:26
+binder 1267:1267 <> y:27
+R1275:1278 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1271:1273 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1270:1270 AtomicKernelVNext <> x:26 var
+R1274:1274 AtomicKernelVNext <> y:27 var
+R1288:1290 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1279:1283 AtomicKernelVNext <> delta def
+R1285:1285 AtomicKernelVNext <> n:25 var
+R1287:1287 AtomicKernelVNext <> x:26 var
+R1291:1295 AtomicKernelVNext <> delta def
+R1297:1297 AtomicKernelVNext <> n:25 var
+R1299:1299 AtomicKernelVNext <> y:27 var
+prf 1360:1385 <> vnext_replay_deterministic
+binder 1398:1398 <> n:28
+binder 1400:1404 <> steps:29
+binder 1406:1410 <> seed1:30
+binder 1412:1416 <> seed2:31
+R1436:1439 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1428:1430 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1423:1427 AtomicKernelVNext <> seed1:30 var
+R1431:1435 AtomicKernelVNext <> seed2:31 var
+R1460:1462 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1440:1445 AtomicKernelVNext <> replay def
+R1447:1447 AtomicKernelVNext <> n:28 var
+R1449:1453 AtomicKernelVNext <> seed1:30 var
+R1455:1459 AtomicKernelVNext <> steps:29 var
+R1463:1468 AtomicKernelVNext <> replay def
+R1470:1470 AtomicKernelVNext <> n:28 var
+R1472:1476 AtomicKernelVNext <> seed2:31 var
+R1478:1482 AtomicKernelVNext <> steps:29 var
+prf 1563:1583 <> vnext_replay_loop_len
+binder 1596:1596 <> n:32
+binder 1598:1602 <> steps:33
+binder 1604:1604 <> x:34
+R1641:1643 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1611:1616 Coq.Init.Datatypes <> length def
+R1619:1629 AtomicKernelVNext <> replay_loop def
+R1631:1635 AtomicKernelVNext <> steps:33 var
+R1637:1637 AtomicKernelVNext <> n:32 var
+R1639:1639 AtomicKernelVNext <> x:34 var
+R1644:1648 AtomicKernelVNext <> steps:33 var
+prf 1798:1813 <> vnext_replay_len
+binder 1826:1826 <> n:35
+binder 1828:1832 <> steps:36
+binder 1834:1837 <> seed:37
+R1872:1874 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1844:1849 Coq.Init.Datatypes <> length def
+R1852:1857 AtomicKernelVNext <> replay def
+R1859:1859 AtomicKernelVNext <> n:35 var
+R1861:1864 AtomicKernelVNext <> seed:37 var
+R1866:1870 AtomicKernelVNext <> steps:36 var
+R1875:1879 AtomicKernelVNext <> steps:36 var
+R1921:1926 AtomicKernelVNext <> replay def
+R1937:1957 AtomicKernelVNext <> vnext_replay_loop_len thm
+R1937:1957 AtomicKernelVNext <> vnext_replay_loop_len thm

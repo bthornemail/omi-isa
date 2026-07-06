@@ -1,0 +1,350 @@
+DIGEST c8f8fd032df5c5b95f95653e5845256b
+FFiniteIncidence
+R235:247 Coq.NArith.NArith <> <> lib
+R274:283 Coq.Lists.List <> <> lib
+R293:305 Coq.Lists.List ListNotations <> mod
+R344:358 DiagonalClosure <> <> lib
+rec 369:382 <> TetraIncidence
+proj 415:428 <> tetra_vertices
+proj 437:447 <> tetra_edges
+proj 456:466 <> tetra_faces
+proj 475:488 <> tetra_centroid
+R432:432 Coq.Numbers.BinNums <> N ind
+R451:451 Coq.Numbers.BinNums <> N ind
+R470:470 Coq.Numbers.BinNums <> N ind
+R492:492 Coq.Numbers.BinNums <> N ind
+def 509:518 <> tetra_unit
+R522:535 FiniteIncidence <> TetraIncidence rec
+R540:555 FiniteIncidence <> mkTetraIncidence constr
+prf 575:600 <> tetra_incidence_equalities
+R664:669 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R635:637 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R631:633 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R606:619 FiniteIncidence <> tetra_vertices proj
+R621:630 FiniteIncidence <> tetra_unit def
+R660:662 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R638:648 FiniteIncidence <> tetra_edges proj
+R650:659 FiniteIncidence <> tetra_unit def
+R696:698 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R692:694 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R670:680 FiniteIncidence <> tetra_edges proj
+R682:691 FiniteIncidence <> tetra_unit def
+R721:723 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R699:709 FiniteIncidence <> tetra_faces proj
+R711:720 FiniteIncidence <> tetra_unit def
+def 769:796 <> tetra_centroid_vertex_sqdist
+R800:800 Coq.Numbers.BinNums <> N ind
+def 820:843 <> projected_length_squared
+R851:851 Coq.Numbers.BinNums <> N ind
+binder 846:847 <> sq:6
+R856:856 Coq.Numbers.BinNums <> N ind
+R861:862 FiniteIncidence <> sq:6 var
+prf 874:901 <> sqrt3_is_projection_boundary
+R960:962 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R907:930 FiniteIncidence <> projected_length_squared def
+R932:959 FiniteIncidence <> tetra_centroid_vertex_sqdist def
+def 1015:1023 <> fano_line
+R1040:1042 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1036:1038 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1035:1035 Coq.Numbers.BinNums <> N ind
+R1039:1039 Coq.Numbers.BinNums <> N ind
+R1043:1043 Coq.Numbers.BinNums <> N ind
+def 1058:1068 <> fano_points
+R1072:1075 Coq.Init.Datatypes <> list ind
+R1077:1077 Coq.Numbers.BinNums <> N ind
+R1082:1082 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1084:1085 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1087:1088 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1090:1091 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1093:1094 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1096:1097 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1099:1100 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1102:1102 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 1117:1126 <> fano_lines
+R1130:1133 Coq.Init.Datatypes <> list ind
+R1135:1143 FiniteIncidence <> fano_line def
+R1159:1164 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1150:1150 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1152:1153 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1155:1156 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1158:1158 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1174:1179 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1165:1165 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1167:1168 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1170:1171 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1173:1173 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1189:1194 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1180:1180 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1182:1183 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1185:1186 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1188:1188 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1204:1209 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1195:1195 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1197:1198 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1200:1201 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1203:1203 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1219:1224 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1210:1210 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1212:1213 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1215:1216 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1218:1218 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1234:1239 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1225:1225 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1227:1228 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1230:1231 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1233:1233 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1249:1254 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1240:1240 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1242:1243 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1245:1246 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1248:1248 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1255:1257 Coq.Init.Datatypes <> nil constr
+prf 1269:1283 <> fano_line_count
+R1304:1306 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1287:1292 Coq.Init.Datatypes <> length def
+R1294:1303 FiniteIncidence <> fano_lines def
+prf 1360:1375 <> fano_point_count
+R1397:1399 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1379:1384 Coq.Init.Datatypes <> length def
+R1386:1396 FiniteIncidence <> fano_points def
+def 1456:1471 <> fano_line_points
+R1478:1486 FiniteIncidence <> fano_line def
+binder 1474:1474 <> l:7
+R1491:1494 Coq.Init.Datatypes <> list ind
+R1496:1496 Coq.Numbers.BinNums <> N ind
+R1509:1509 FiniteIncidence <> l:7 var
+R1520:1520 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1522:1523 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1525:1526 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1528:1528 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1533:1533 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1535:1536 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1538:1539 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1541:1541 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 1562:1566 <> n_mem
+R1573:1573 Coq.Numbers.BinNums <> N ind
+binder 1569:1569 <> x:9
+R1582:1585 Coq.Init.Datatypes <> list ind
+R1587:1587 Coq.Numbers.BinNums <> N ind
+binder 1577:1578 <> xs:10
+R1592:1595 Coq.Init.Datatypes <> bool ind
+R1602:1608 Coq.Lists.List <> existsb def
+R1620:1621 FiniteIncidence <> xs:10 var
+R1611:1615 Coq.NArith.BinNat N eqb def
+R1617:1617 FiniteIncidence <> x:9 var
+def 1636:1653 <> fano_line_contains
+R1660:1660 Coq.Numbers.BinNums <> N ind
+binder 1656:1656 <> p:11
+R1668:1676 FiniteIncidence <> fano_line def
+binder 1664:1664 <> l:12
+R1681:1684 Coq.Init.Datatypes <> bool ind
+R1691:1695 FiniteIncidence <> n_mem def
+R1697:1697 FiniteIncidence <> p:11 var
+R1700:1715 FiniteIncidence <> fano_line_points def
+R1717:1717 FiniteIncidence <> l:12 var
+def 1733:1753 <> fano_point_line_count
+R1760:1760 Coq.Numbers.BinNums <> N ind
+binder 1756:1756 <> p:13
+R1765:1767 Coq.Init.Datatypes <> nat ind
+R1774:1779 Coq.Init.Datatypes <> length def
+R1782:1787 Coq.Lists.List <> filter def
+R1812:1821 FiniteIncidence <> fano_lines def
+R1790:1807 FiniteIncidence <> fano_line_contains def
+R1809:1809 FiniteIncidence <> p:13 var
+def 1837:1856 <> fano_pair_line_count
+R1865:1865 Coq.Numbers.BinNums <> N ind
+binder 1859:1859 <> p:14
+binder 1861:1861 <> q:15
+R1870:1872 Coq.Init.Datatypes <> nat ind
+R1879:1884 Coq.Init.Datatypes <> length def
+R1887:1892 Coq.Lists.List <> filter def
+R1960:1969 FiniteIncidence <> fano_lines def
+binder 1899:1899 <> l:16
+R1904:1907 Coq.Init.Datatypes <> andb def
+R1935:1952 FiniteIncidence <> fano_line_contains def
+R1954:1954 FiniteIncidence <> q:15 var
+R1956:1956 FiniteIncidence <> l:16 var
+R1910:1927 FiniteIncidence <> fano_line_contains def
+R1929:1929 FiniteIncidence <> p:14 var
+R1931:1931 FiniteIncidence <> l:16 var
+def 1985:2015 <> fano_each_line_has_three_points
+R2040:2048 FiniteIncidence <> fano_line def
+binder 2036:2036 <> l:17
+R2066:2069 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2051:2052 Coq.Lists.List <> In def
+R2056:2065 FiniteIncidence <> fano_lines def
+R2054:2054 FiniteIncidence <> l:17 var
+R2097:2099 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2070:2075 Coq.Init.Datatypes <> length def
+R2078:2093 FiniteIncidence <> fano_line_points def
+R2095:2095 FiniteIncidence <> l:17 var
+def 2119:2149 <> fano_each_point_has_three_lines
+R2174:2174 Coq.Numbers.BinNums <> N ind
+binder 2170:2170 <> p:18
+R2193:2196 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2177:2178 Coq.Lists.List <> In def
+R2182:2192 FiniteIncidence <> fano_points def
+R2180:2180 FiniteIncidence <> p:18 var
+R2220:2222 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2197:2217 FiniteIncidence <> fano_point_line_count def
+R2219:2219 FiniteIncidence <> p:18 var
+def 2242:2271 <> fano_each_pair_has_unique_line
+R2298:2298 Coq.Numbers.BinNums <> N ind
+binder 2292:2292 <> p:19
+binder 2294:2294 <> q:20
+R2321:2328 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2305:2306 Coq.Lists.List <> In def
+R2310:2320 FiniteIncidence <> fano_points def
+R2308:2308 FiniteIncidence <> p:19 var
+R2345:2352 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2329:2330 Coq.Lists.List <> In def
+R2334:2344 FiniteIncidence <> fano_points def
+R2332:2332 FiniteIncidence <> q:20 var
+R2359:2366 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2354:2357 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R2353:2353 FiniteIncidence <> p:19 var
+R2358:2358 FiniteIncidence <> q:20 var
+R2391:2393 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2367:2386 FiniteIncidence <> fano_pair_line_count def
+R2388:2388 FiniteIncidence <> p:19 var
+R2390:2390 FiniteIncidence <> q:20 var
+prf 2410:2425 <> fano_line_widths
+R2429:2459 FiniteIncidence <> fano_each_line_has_three_points def
+prf 2584:2601 <> fano_point_degrees
+R2605:2635 FiniteIncidence <> fano_each_point_has_three_lines def
+prf 2760:2781 <> fano_pair_unique_lines
+R2785:2814 FiniteIncidence <> fano_each_pair_has_unique_line def
+def 3086:3101 <> valid_fano_plane
+R3141:3146 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3133:3135 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3115:3120 Coq.Init.Datatypes <> length def
+R3122:3132 FiniteIncidence <> fano_points def
+R3172:3177 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3164:3166 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3147:3152 Coq.Init.Datatypes <> length def
+R3154:3163 FiniteIncidence <> fano_lines def
+R3209:3214 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3178:3208 FiniteIncidence <> fano_each_line_has_three_points def
+R3246:3251 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3215:3245 FiniteIncidence <> fano_each_point_has_three_lines def
+R3252:3281 FiniteIncidence <> fano_each_pair_has_unique_line def
+rec 3292:3302 <> T0Incidence
+proj 3332:3340 <> t0_points
+proj 3354:3361 <> t0_lines
+R3344:3347 Coq.Init.Datatypes <> list ind
+R3349:3349 Coq.Numbers.BinNums <> N ind
+R3365:3368 Coq.Init.Datatypes <> list ind
+R3370:3378 FiniteIncidence <> fano_line def
+def 3395:3411 <> T0_fano_incidence
+R3415:3425 FiniteIncidence <> T0Incidence rec
+R3432:3444 FiniteIncidence <> mkT0Incidence constr
+R3446:3456 FiniteIncidence <> fano_points def
+R3458:3467 FiniteIncidence <> fano_lines def
+def 3482:3499 <> valid_T0_incidence
+R3506:3516 FiniteIncidence <> T0Incidence rec
+binder 3502:3502 <> t:24
+R3556:3559 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3542:3544 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3531:3539 FiniteIncidence <> t0_points proj
+R3541:3541 FiniteIncidence <> t:24 var
+R3545:3555 FiniteIncidence <> fano_points def
+R3570:3572 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3560:3567 FiniteIncidence <> t0_lines proj
+R3569:3569 FiniteIncidence <> t:24 var
+R3573:3582 FiniteIncidence <> fano_lines def
+prf 3594:3609 <> fano_plane_valid
+R3613:3628 FiniteIncidence <> valid_fano_plane def
+R3647:3650 Coq.Init.Logic <> conj constr
+R3674:3677 Coq.Init.Logic <> conj constr
+R3702:3705 Coq.Init.Logic <> conj constr
+R3733:3736 Coq.Init.Logic <> conj constr
+R3757:3778 FiniteIncidence <> fano_pair_unique_lines thm
+R3738:3755 FiniteIncidence <> fano_point_degrees thm
+R3707:3722 FiniteIncidence <> fano_line_widths thm
+R3679:3693 FiniteIncidence <> fano_line_count thm
+R3652:3667 FiniteIncidence <> fano_point_count thm
+R3647:3650 Coq.Init.Logic <> conj constr
+R3674:3677 Coq.Init.Logic <> conj constr
+R3702:3705 Coq.Init.Logic <> conj constr
+R3733:3736 Coq.Init.Logic <> conj constr
+R3757:3778 FiniteIncidence <> fano_pair_unique_lines thm
+R3738:3755 FiniteIncidence <> fano_point_degrees thm
+R3707:3722 FiniteIncidence <> fano_line_widths thm
+R3679:3693 FiniteIncidence <> fano_line_count thm
+R3652:3667 FiniteIncidence <> fano_point_count thm
+prf 3799:3819 <> T0_induces_fano_plane
+R3861:3864 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3825:3842 FiniteIncidence <> valid_T0_incidence def
+R3844:3860 FiniteIncidence <> T0_fano_incidence def
+R3865:3880 FiniteIncidence <> valid_fano_plane def
+R3909:3924 FiniteIncidence <> fano_plane_valid thm
+R3909:3924 FiniteIncidence <> fano_plane_valid thm
+rec 3940:3953 <> SchlafliSymbol
+proj 3986:3995 <> schlafli_p
+proj 4004:4013 <> schlafli_q
+R3999:3999 Coq.Numbers.BinNums <> N ind
+R4017:4017 Coq.Numbers.BinNums <> N ind
+def 4034:4043 <> Schlafli35
+R4047:4060 FiniteIncidence <> SchlafliSymbol rec
+R4065:4080 FiniteIncidence <> mkSchlafliSymbol constr
+def 4099:4108 <> Schlafli53
+R4112:4125 FiniteIncidence <> SchlafliSymbol rec
+R4130:4145 FiniteIncidence <> mkSchlafliSymbol constr
+def 4164:4176 <> schlafli_dual
+R4185:4198 FiniteIncidence <> SchlafliSymbol rec
+binder 4179:4179 <> s:28
+binder 4181:4181 <> t:29
+R4240:4243 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4225:4227 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4213:4222 FiniteIncidence <> schlafli_p proj
+R4224:4224 FiniteIncidence <> s:28 var
+R4228:4237 FiniteIncidence <> schlafli_q proj
+R4239:4239 FiniteIncidence <> t:29 var
+R4256:4258 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4244:4253 FiniteIncidence <> schlafli_q proj
+R4255:4255 FiniteIncidence <> s:28 var
+R4259:4268 FiniteIncidence <> schlafli_p proj
+R4270:4270 FiniteIncidence <> t:29 var
+prf 4282:4291 <> dual_35_53
+R4295:4307 FiniteIncidence <> schlafli_dual def
+R4309:4318 FiniteIncidence <> Schlafli35 def
+R4320:4329 FiniteIncidence <> Schlafli53 def
+rec 4370:4388 <> RectifiedCommonCore
+proj 4426:4434 <> core_left
+proj 4456:4465 <> core_right
+proj 4487:4499 <> core_vertices
+proj 4508:4521 <> core_faces_tri
+proj 4530:4544 <> core_faces_pent
+R4438:4451 FiniteIncidence <> SchlafliSymbol rec
+R4469:4482 FiniteIncidence <> SchlafliSymbol rec
+R4503:4503 Coq.Numbers.BinNums <> N ind
+R4525:4525 Coq.Numbers.BinNums <> N ind
+R4548:4548 Coq.Numbers.BinNums <> N ind
+def 4565:4588 <> rectified_35_common_core
+R4592:4610 FiniteIncidence <> RectifiedCommonCore rec
+R4617:4637 FiniteIncidence <> mkRectifiedCommonCore constr
+R4639:4648 FiniteIncidence <> Schlafli35 def
+R4650:4659 FiniteIncidence <> Schlafli53 def
+def 4683:4712 <> valid_rectified_35_common_core
+R4719:4737 FiniteIncidence <> RectifiedCommonCore rec
+binder 4715:4715 <> c:36
+R4794:4799 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4752:4764 FiniteIncidence <> schlafli_dual def
+R4767:4775 FiniteIncidence <> core_left proj
+R4777:4777 FiniteIncidence <> c:36 var
+R4781:4790 FiniteIncidence <> core_right proj
+R4792:4792 FiniteIncidence <> c:36 var
+R4820:4825 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4815:4817 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4800:4812 FiniteIncidence <> core_vertices proj
+R4814:4814 FiniteIncidence <> c:36 var
+R4847:4852 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4842:4844 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4826:4839 FiniteIncidence <> core_faces_tri proj
+R4841:4841 FiniteIncidence <> c:36 var
+R4870:4872 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4853:4867 FiniteIncidence <> core_faces_pent proj
+R4869:4869 FiniteIncidence <> c:36 var
+prf 4886:4915 <> rectified_35_common_core_valid
+R4921:4950 FiniteIncidence <> valid_rectified_35_common_core def
+R4952:4975 FiniteIncidence <> rectified_35_common_core def
