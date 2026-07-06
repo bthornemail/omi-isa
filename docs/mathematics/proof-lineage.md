@@ -4,8 +4,9 @@ This document maps the podcast verification target onto the current proof files.
 It is intentionally conservative: it separates runtime delta models, formal
 projection results, and claims that still need bridge theorems.
 
-For the discovery narrative, start with [Computational Cosmology](00_Vision.md).
-That document explains motivation.  This document tracks what the proof files
+For the discovery narrative, start with [Computational Cosmology](../../01_COSMOLOGY.md).
+For the supporting motivation note, see [vision.md](../cosmology/vision.md).
+Those documents explain motivation.  This document tracks what the proof files
 actually establish.
 
 ## Repository Roles

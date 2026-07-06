@@ -4,6 +4,9 @@
 
 ESP32-S3 firmware that implements the OMI-ISA distributed semantic execution stack over LoRa (SX1262). Bridges USB CDC ACM ↔ LoRa radio, forwarding 64-byte envelopes bidirectionally.
 
+For the system context, see [Architecture](../04_ARCHITECTURE.md) and
+[Implementation](../05_IMPLEMENTATION.md).
+
 ## Pin Mapping (Default)
 
 | Pin | Function |
