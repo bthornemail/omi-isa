@@ -1,5 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
+COQC=coqc
+COQFLAGS=-Q proof ''
 
 VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
 TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
@@ -166,8 +168,24 @@ test_orbit: test_orbit.c omi_orbit.c
 
 test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
 
+PROOF_TARGETS= \
+	proof/AtomicKernelVNext.vo \
+	proof/omi_pi_proof.vo \
+	proof/omi_pi_bridge.vo
+
+proof: $(PROOF_TARGETS)
+
+proof/AtomicKernelVNext.vo: proof/AtomicKernelVNext.v
+	$(COQC) $(COQFLAGS) $<
+
+proof/omi_pi_proof.vo: proof/omi_pi_proof.v
+	$(COQC) $(COQFLAGS) $<
+
+proof/omi_pi_bridge.vo: proof/omi_pi_bridge.v proof/AtomicKernelVNext.vo proof/omi_pi_proof.vo
+	$(COQC) $(COQFLAGS) $<
+
 clean:
 	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
-.PHONY: all run run-tc bootstrap clean wasm test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+.PHONY: all run run-tc bootstrap clean wasm proof test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain

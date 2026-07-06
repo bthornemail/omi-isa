@@ -1,0 +1,2811 @@
+DIGEST bae3a3a44b3d7828f6356777ba07b075
+Fomi_pi_proof
+R289:299 Coq.Reals.Reals <> <> lib
+R326:338 Coq.NArith.NArith <> <> lib
+R365:374 Coq.Lists.List <> <> lib
+R401:414 Coq.Arith.PeanoNat <> <> lib
+R441:453 Coq.micromega.Lra <> <> lib
+R480:492 Coq.micromega.Lia <> <> lib
+R502:514 Coq.Lists.List ListNotations <> mod
+def 549:554 <> nibble
+R561:561 Coq.Numbers.BinNums <> N ind
+binder 557:557 <> x:1
+R575:577 Coq.NArith.BinNat <> ::N_scope:x_'<'_x not
+R574:574 omi_pi_proof <> x:1 var
+def 594:602 <> poly_xor4
+R615:615 Coq.Numbers.BinNums <> N ind
+binder 605:605 <> a:2
+binder 607:607 <> b:3
+binder 609:609 <> c:4
+binder 611:611 <> d:5
+R620:620 Coq.Numbers.BinNums <> N ind
+R627:632 Coq.NArith.BinNat N lxor def
+R635:640 Coq.NArith.BinNat N lxor def
+R643:648 Coq.NArith.BinNat N lxor def
+R650:650 omi_pi_proof <> a:2 var
+R652:652 omi_pi_proof <> b:3 var
+R655:655 omi_pi_proof <> c:4 var
+R658:658 omi_pi_proof <> d:5 var
+def 673:678 <> dplus0
+R682:682 Coq.Numbers.BinNums <> N ind
+def 701:706 <> dplus1
+R710:710 Coq.Numbers.BinNums <> N ind
+def 729:734 <> dplus2
+R738:738 Coq.Numbers.BinNums <> N ind
+def 758:763 <> dplus3
+R767:767 Coq.Numbers.BinNums <> N ind
+def 788:794 <> dminus0
+R798:798 Coq.Numbers.BinNums <> N ind
+def 817:823 <> dminus1
+R827:827 Coq.Numbers.BinNums <> N ind
+def 846:852 <> dminus2
+R856:856 Coq.Numbers.BinNums <> N ind
+def 875:881 <> dminus3
+R885:885 Coq.Numbers.BinNums <> N ind
+prf 903:916 <> dplus_xor_zero
+R959:961 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R922:930 omi_pi_proof <> poly_xor4 def
+R932:937 omi_pi_proof <> dplus0 def
+R939:944 omi_pi_proof <> dplus1 def
+R946:951 omi_pi_proof <> dplus2 def
+R953:958 omi_pi_proof <> dplus3 def
+prf 1011:1025 <> dminus_xor_zero
+R1072:1074 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1031:1039 omi_pi_proof <> poly_xor4 def
+R1041:1047 omi_pi_proof <> dminus0 def
+R1049:1055 omi_pi_proof <> dminus1 def
+R1057:1063 omi_pi_proof <> dminus2 def
+R1065:1071 omi_pi_proof <> dminus3 def
+prf 1124:1135 <> dplus_sum_1e
+R1174:1176 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1165:1167 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1156:1158 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1147:1149 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1141:1146 omi_pi_proof <> dplus0 def
+R1150:1155 omi_pi_proof <> dplus1 def
+R1159:1164 omi_pi_proof <> dplus2 def
+R1168:1173 omi_pi_proof <> dplus3 def
+prf 1227:1239 <> dminus_sum_1e
+R1282:1284 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1272:1274 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1262:1264 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1252:1254 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1245:1251 omi_pi_proof <> dminus0 def
+R1255:1261 omi_pi_proof <> dminus1 def
+R1265:1271 omi_pi_proof <> dminus2 def
+R1275:1281 omi_pi_proof <> dminus3 def
+rec 1334:1348 <> DiagonalClosure
+proj 1382:1392 <> closure_xor
+proj 1401:1411 <> closure_sum
+R1396:1396 Coq.Numbers.BinNums <> N ind
+R1415:1415 Coq.Numbers.BinNums <> N ind
+def 1432:1444 <> dplus_closure
+R1448:1462 omi_pi_proof <> DiagonalClosure rec
+R1469:1485 omi_pi_proof <> mkDiagonalClosure constr
+R1488:1496 omi_pi_proof <> poly_xor4 def
+R1498:1503 omi_pi_proof <> dplus0 def
+R1505:1510 omi_pi_proof <> dplus1 def
+R1512:1517 omi_pi_proof <> dplus2 def
+R1519:1524 omi_pi_proof <> dplus3 def
+R1572:1574 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1563:1565 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1554:1556 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1548:1553 omi_pi_proof <> dplus0 def
+R1557:1562 omi_pi_proof <> dplus1 def
+R1566:1571 omi_pi_proof <> dplus2 def
+R1575:1580 omi_pi_proof <> dplus3 def
+def 1596:1609 <> dminus_closure
+R1613:1627 omi_pi_proof <> DiagonalClosure rec
+R1634:1650 omi_pi_proof <> mkDiagonalClosure constr
+R1653:1661 omi_pi_proof <> poly_xor4 def
+R1663:1669 omi_pi_proof <> dminus0 def
+R1671:1677 omi_pi_proof <> dminus1 def
+R1679:1685 omi_pi_proof <> dminus2 def
+R1687:1693 omi_pi_proof <> dminus3 def
+R1744:1746 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1734:1736 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1724:1726 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1717:1723 omi_pi_proof <> dminus0 def
+R1727:1733 omi_pi_proof <> dminus1 def
+R1737:1743 omi_pi_proof <> dminus2 def
+R1747:1753 omi_pi_proof <> dminus3 def
+prf 1766:1784 <> dplus_closure_valid
+R1819:1822 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1815:1817 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1790:1800 omi_pi_proof <> closure_xor proj
+R1802:1814 omi_pi_proof <> dplus_closure def
+R1848:1850 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1823:1833 omi_pi_proof <> closure_sum proj
+R1835:1847 omi_pi_proof <> dplus_closure def
+prf 1894:1913 <> dminus_closure_valid
+R1949:1952 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1945:1947 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1919:1929 omi_pi_proof <> closure_xor proj
+R1931:1944 omi_pi_proof <> dminus_closure def
+R1979:1981 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1953:1963 omi_pi_proof <> closure_sum proj
+R1965:1978 omi_pi_proof <> dminus_closure def
+prf 2025:2035 <> diag_sum_3c
+R2118:2120 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2074:2079 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2117:2117 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2065:2067 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2056:2058 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2047:2049 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2041:2046 omi_pi_proof <> dplus0 def
+R2050:2055 omi_pi_proof <> dplus1 def
+R2059:2064 omi_pi_proof <> dplus2 def
+R2068:2073 omi_pi_proof <> dplus3 def
+R2107:2109 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2097:2099 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2087:2089 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2080:2086 omi_pi_proof <> dminus0 def
+R2090:2096 omi_pi_proof <> dminus1 def
+R2100:2106 omi_pi_proof <> dminus2 def
+R2110:2116 omi_pi_proof <> dminus3 def
+def 2174:2181 <> is_dplus
+R2188:2188 Coq.Numbers.BinNums <> N ind
+binder 2184:2184 <> x:9
+R2193:2196 Coq.Init.Datatypes <> bool ind
+R2250:2254 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2266:2266 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2233:2237 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2249:2249 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2203:2203 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2215:2220 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2232:2232 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2205:2208 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2204:2204 omi_pi_proof <> x:9 var
+R2209:2214 omi_pi_proof <> dplus0 def
+R2222:2225 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2221:2221 omi_pi_proof <> x:9 var
+R2226:2231 omi_pi_proof <> dplus1 def
+R2239:2242 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2238:2238 omi_pi_proof <> x:9 var
+R2243:2248 omi_pi_proof <> dplus2 def
+R2256:2259 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2255:2255 omi_pi_proof <> x:9 var
+R2260:2265 omi_pi_proof <> dplus3 def
+def 2281:2289 <> is_dminus
+R2296:2296 Coq.Numbers.BinNums <> N ind
+binder 2292:2292 <> x:10
+R2301:2304 Coq.Init.Datatypes <> bool ind
+R2361:2365 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2378:2378 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2343:2347 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2360:2360 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2311:2311 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2324:2329 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2342:2342 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R2313:2316 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2312:2312 omi_pi_proof <> x:10 var
+R2317:2323 omi_pi_proof <> dminus0 def
+R2331:2334 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2330:2330 omi_pi_proof <> x:10 var
+R2335:2341 omi_pi_proof <> dminus1 def
+R2349:2352 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2348:2348 omi_pi_proof <> x:10 var
+R2353:2359 omi_pi_proof <> dminus2 def
+R2367:2370 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R2366:2366 omi_pi_proof <> x:10 var
+R2371:2377 omi_pi_proof <> dminus3 def
+def 2393:2406 <> complement_sum
+R2410:2410 Coq.Numbers.BinNums <> N ind
+R2417:2425 Coq.Lists.List <> fold_left def
+R2506:2506 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2508:2509 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2511:2512 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2514:2515 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2517:2518 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2520:2521 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2523:2524 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2526:2527 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2529:2530 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2532:2533 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2535:2536 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2539:2540 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2543:2544 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2547:2548 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2551:2552 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2555:2556 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2559:2559 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+binder 2436:2438 <> acc:11
+binder 2440:2440 <> x:12
+R2448:2450 Coq.Init.Datatypes <> orb def
+R2466:2474 omi_pi_proof <> is_dminus def
+R2476:2476 omi_pi_proof <> x:12 var
+R2453:2460 omi_pi_proof <> is_dplus def
+R2462:2462 omi_pi_proof <> x:12 var
+R2496:2498 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2493:2495 omi_pi_proof <> acc:11 var
+R2499:2499 omi_pi_proof <> x:12 var
+R2484:2486 omi_pi_proof <> acc:11 var
+prf 2577:2593 <> complement_sum_3c
+R2611:2613 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2597:2610 omi_pi_proof <> complement_sum def
+def 2667:2675 <> wheel_sum
+R2679:2679 Coq.Numbers.BinNums <> N ind
+R2686:2694 Coq.Lists.List <> fold_left def
+R2702:2702 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2704:2705 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2707:2708 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2710:2711 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2713:2714 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2716:2717 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2719:2720 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2722:2723 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2725:2726 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2728:2729 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2731:2732 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2735:2736 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2739:2740 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2743:2744 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2747:2748 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2751:2752 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2755:2755 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2696:2700 Coq.NArith.BinNat N add def
+prf 2769:2785 <> full_wheel_sum_78
+R2798:2800 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2789:2797 omi_pi_proof <> wheel_sum def
+def 2855:2860 <> mask16
+R2867:2867 Coq.Numbers.BinNums <> N ind
+binder 2863:2863 <> x:13
+R2872:2872 Coq.Numbers.BinNums <> N ind
+R2878:2882 Coq.NArith.BinNat <> ::N_scope:x_'mod'_x not
+R2877:2877 omi_pi_proof <> x:13 var
+def 2902:2907 <> rotl16
+R2916:2916 Coq.Numbers.BinNums <> N ind
+binder 2910:2910 <> x:14
+binder 2912:2912 <> k:15
+R2921:2921 Coq.Numbers.BinNums <> N ind
+R2928:2933 omi_pi_proof <> mask16 def
+R2957:2959 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R2936:2943 Coq.NArith.BinNat N shiftl def
+R2946:2951 omi_pi_proof <> mask16 def
+R2953:2953 omi_pi_proof <> x:14 var
+R2956:2956 omi_pi_proof <> k:15 var
+R2960:2967 Coq.NArith.BinNat N shiftr def
+R2970:2975 omi_pi_proof <> mask16 def
+R2977:2977 omi_pi_proof <> x:14 var
+R2983:2985 Coq.NArith.BinNat <> ::N_scope:x_'-'_x not
+R2986:2986 omi_pi_proof <> k:15 var
+def 3003:3008 <> rotr16
+R3017:3017 Coq.Numbers.BinNums <> N ind
+binder 3011:3011 <> x:16
+binder 3013:3013 <> k:17
+R3022:3022 Coq.Numbers.BinNums <> N ind
+R3029:3034 omi_pi_proof <> mask16 def
+R3058:3060 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R3037:3044 Coq.NArith.BinNat N shiftr def
+R3047:3052 omi_pi_proof <> mask16 def
+R3054:3054 omi_pi_proof <> x:16 var
+R3057:3057 omi_pi_proof <> k:17 var
+R3061:3068 Coq.NArith.BinNat N shiftl def
+R3071:3076 omi_pi_proof <> mask16 def
+R3078:3078 omi_pi_proof <> x:16 var
+R3084:3086 Coq.NArith.BinNat <> ::N_scope:x_'-'_x not
+R3087:3087 omi_pi_proof <> k:17 var
+def 3104:3110 <> delta16
+R3119:3119 Coq.Numbers.BinNums <> N ind
+binder 3113:3113 <> x:18
+binder 3115:3115 <> c:19
+R3124:3124 Coq.Numbers.BinNums <> N ind
+R3131:3136 omi_pi_proof <> mask16 def
+R3139:3144 Coq.NArith.BinNat N lxor def
+R3147:3152 Coq.NArith.BinNat N lxor def
+R3155:3160 Coq.NArith.BinNat N lxor def
+R3163:3168 omi_pi_proof <> rotl16 def
+R3170:3170 omi_pi_proof <> x:18 var
+R3176:3181 omi_pi_proof <> rotl16 def
+R3183:3183 omi_pi_proof <> x:18 var
+R3190:3195 omi_pi_proof <> rotr16 def
+R3197:3197 omi_pi_proof <> x:18 var
+R3203:3203 omi_pi_proof <> c:19 var
+prf 3216:3227 <> mask16_bound
+R3242:3242 Coq.Numbers.BinNums <> N ind
+binder 3238:3238 <> x:20
+R3253:3255 Coq.NArith.BinNat <> ::N_scope:x_'<'_x not
+R3245:3250 omi_pi_proof <> mask16 def
+R3252:3252 omi_pi_proof <> x:20 var
+R3290:3295 omi_pi_proof <> mask16 def
+R3306:3322 Coq.NArith.BinNat N mod_upper_bound def
+R3306:3322 Coq.NArith.BinNat N mod_upper_bound def
+prf 3355:3378 <> delta16_width_preserving
+R3395:3395 Coq.Numbers.BinNums <> N ind
+binder 3389:3389 <> x:21
+binder 3391:3391 <> c:22
+R3409:3411 Coq.NArith.BinNat <> ::N_scope:x_'<'_x not
+R3398:3404 omi_pi_proof <> delta16 def
+R3406:3406 omi_pi_proof <> x:21 var
+R3408:3408 omi_pi_proof <> c:22 var
+R3449:3455 omi_pi_proof <> delta16 def
+R3466:3477 omi_pi_proof <> mask16_bound thm
+R3466:3477 omi_pi_proof <> mask16_bound thm
+prf 3494:3514 <> delta16_deterministic
+R3531:3531 Coq.Numbers.BinNums <> N ind
+binder 3525:3525 <> x:23
+binder 3527:3527 <> c:24
+R3545:3547 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3534:3540 omi_pi_proof <> delta16 def
+R3542:3542 omi_pi_proof <> x:23 var
+R3544:3544 omi_pi_proof <> c:24 var
+R3548:3554 omi_pi_proof <> delta16 def
+R3556:3556 omi_pi_proof <> x:23 var
+R3558:3558 omi_pi_proof <> c:24 var
+rec 3594:3607 <> TetraIncidence
+proj 3640:3653 <> tetra_vertices
+proj 3662:3672 <> tetra_edges
+proj 3681:3691 <> tetra_faces
+proj 3700:3713 <> tetra_centroid
+R3657:3657 Coq.Numbers.BinNums <> N ind
+R3676:3676 Coq.Numbers.BinNums <> N ind
+R3695:3695 Coq.Numbers.BinNums <> N ind
+R3717:3717 Coq.Numbers.BinNums <> N ind
+def 3734:3743 <> tetra_unit
+R3747:3760 omi_pi_proof <> TetraIncidence rec
+R3765:3780 omi_pi_proof <> mkTetraIncidence constr
+prf 3800:3825 <> tetra_incidence_equalities
+R3889:3894 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3860:3862 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3856:3858 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R3831:3844 omi_pi_proof <> tetra_vertices proj
+R3846:3855 omi_pi_proof <> tetra_unit def
+R3885:3887 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R3863:3873 omi_pi_proof <> tetra_edges proj
+R3875:3884 omi_pi_proof <> tetra_unit def
+R3921:3923 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3917:3919 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R3895:3905 omi_pi_proof <> tetra_edges proj
+R3907:3916 omi_pi_proof <> tetra_unit def
+R3946:3948 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R3924:3934 omi_pi_proof <> tetra_faces proj
+R3936:3945 omi_pi_proof <> tetra_unit def
+def 3994:4021 <> tetra_centroid_vertex_sqdist
+R4025:4025 Coq.Numbers.BinNums <> N ind
+def 4045:4068 <> projected_length_squared
+R4076:4076 Coq.Numbers.BinNums <> N ind
+binder 4071:4072 <> sq:30
+R4081:4081 Coq.Numbers.BinNums <> N ind
+R4086:4087 omi_pi_proof <> sq:30 var
+prf 4099:4126 <> sqrt3_is_projection_boundary
+R4185:4187 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4132:4155 omi_pi_proof <> projected_length_squared def
+R4157:4184 omi_pi_proof <> tetra_centroid_vertex_sqdist def
+def 4240:4248 <> fano_line
+R4265:4267 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4261:4263 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4260:4260 Coq.Numbers.BinNums <> N ind
+R4264:4264 Coq.Numbers.BinNums <> N ind
+R4268:4268 Coq.Numbers.BinNums <> N ind
+def 4283:4293 <> fano_points
+R4297:4300 Coq.Init.Datatypes <> list ind
+R4302:4302 Coq.Numbers.BinNums <> N ind
+R4307:4307 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4309:4310 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4312:4313 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4315:4316 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4318:4319 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4321:4322 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4324:4325 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4327:4327 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 4342:4351 <> fano_lines
+R4355:4358 Coq.Init.Datatypes <> list ind
+R4360:4368 omi_pi_proof <> fano_line def
+R4384:4389 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4375:4375 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4377:4378 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4380:4381 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4383:4383 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4399:4404 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4390:4390 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4392:4393 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4395:4396 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4398:4398 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4414:4419 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4405:4405 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4407:4408 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4410:4411 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4413:4413 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4429:4434 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4420:4420 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4422:4423 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4425:4426 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4428:4428 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4444:4449 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4435:4435 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4437:4438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4440:4441 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4443:4443 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4459:4464 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4450:4450 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4452:4453 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4455:4456 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4458:4458 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4474:4479 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4465:4465 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4467:4468 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4470:4471 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4473:4473 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4480:4482 Coq.Init.Datatypes <> nil constr
+prf 4494:4508 <> fano_line_count
+R4529:4531 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4512:4517 Coq.Init.Datatypes <> length def
+R4519:4528 omi_pi_proof <> fano_lines def
+prf 4585:4600 <> fano_point_count
+R4622:4624 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4604:4609 Coq.Init.Datatypes <> length def
+R4611:4621 omi_pi_proof <> fano_points def
+def 4681:4696 <> fano_line_points
+R4703:4711 omi_pi_proof <> fano_line def
+binder 4699:4699 <> l:31
+R4716:4719 Coq.Init.Datatypes <> list ind
+R4721:4721 Coq.Numbers.BinNums <> N ind
+R4734:4734 omi_pi_proof <> l:31 var
+R4745:4745 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4747:4748 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4750:4751 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4753:4753 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4758:4758 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4760:4761 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4763:4764 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R4766:4766 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 4787:4791 <> n_mem
+R4798:4798 Coq.Numbers.BinNums <> N ind
+binder 4794:4794 <> x:33
+R4807:4810 Coq.Init.Datatypes <> list ind
+R4812:4812 Coq.Numbers.BinNums <> N ind
+binder 4802:4803 <> xs:34
+R4817:4820 Coq.Init.Datatypes <> bool ind
+R4827:4833 Coq.Lists.List <> existsb def
+R4845:4846 omi_pi_proof <> xs:34 var
+R4836:4840 Coq.NArith.BinNat N eqb def
+R4842:4842 omi_pi_proof <> x:33 var
+def 4861:4878 <> fano_line_contains
+R4885:4885 Coq.Numbers.BinNums <> N ind
+binder 4881:4881 <> p:35
+R4893:4901 omi_pi_proof <> fano_line def
+binder 4889:4889 <> l:36
+R4906:4909 Coq.Init.Datatypes <> bool ind
+R4916:4920 omi_pi_proof <> n_mem def
+R4922:4922 omi_pi_proof <> p:35 var
+R4925:4940 omi_pi_proof <> fano_line_points def
+R4942:4942 omi_pi_proof <> l:36 var
+def 4958:4978 <> fano_point_line_count
+R4985:4985 Coq.Numbers.BinNums <> N ind
+binder 4981:4981 <> p:37
+R4990:4992 Coq.Init.Datatypes <> nat ind
+R4999:5004 Coq.Init.Datatypes <> length def
+R5007:5012 Coq.Lists.List <> filter def
+R5037:5046 omi_pi_proof <> fano_lines def
+R5015:5032 omi_pi_proof <> fano_line_contains def
+R5034:5034 omi_pi_proof <> p:37 var
+def 5062:5081 <> fano_pair_line_count
+R5090:5090 Coq.Numbers.BinNums <> N ind
+binder 5084:5084 <> p:38
+binder 5086:5086 <> q:39
+R5095:5097 Coq.Init.Datatypes <> nat ind
+R5104:5109 Coq.Init.Datatypes <> length def
+R5112:5117 Coq.Lists.List <> filter def
+R5185:5194 omi_pi_proof <> fano_lines def
+binder 5124:5124 <> l:40
+R5129:5132 Coq.Init.Datatypes <> andb def
+R5160:5177 omi_pi_proof <> fano_line_contains def
+R5179:5179 omi_pi_proof <> q:39 var
+R5181:5181 omi_pi_proof <> l:40 var
+R5135:5152 omi_pi_proof <> fano_line_contains def
+R5154:5154 omi_pi_proof <> p:38 var
+R5156:5156 omi_pi_proof <> l:40 var
+def 5210:5240 <> fano_each_line_has_three_points
+R5265:5273 omi_pi_proof <> fano_line def
+binder 5261:5261 <> l:41
+R5291:5294 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5276:5277 Coq.Lists.List <> In def
+R5281:5290 omi_pi_proof <> fano_lines def
+R5279:5279 omi_pi_proof <> l:41 var
+R5322:5324 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5295:5300 Coq.Init.Datatypes <> length def
+R5303:5318 omi_pi_proof <> fano_line_points def
+R5320:5320 omi_pi_proof <> l:41 var
+def 5344:5374 <> fano_each_point_has_three_lines
+R5399:5399 Coq.Numbers.BinNums <> N ind
+binder 5395:5395 <> p:42
+R5418:5421 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5402:5403 Coq.Lists.List <> In def
+R5407:5417 omi_pi_proof <> fano_points def
+R5405:5405 omi_pi_proof <> p:42 var
+R5445:5447 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5422:5442 omi_pi_proof <> fano_point_line_count def
+R5444:5444 omi_pi_proof <> p:42 var
+def 5467:5496 <> fano_each_pair_has_unique_line
+R5523:5523 Coq.Numbers.BinNums <> N ind
+binder 5517:5517 <> p:43
+binder 5519:5519 <> q:44
+R5546:5553 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5530:5531 Coq.Lists.List <> In def
+R5535:5545 omi_pi_proof <> fano_points def
+R5533:5533 omi_pi_proof <> p:43 var
+R5570:5577 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5554:5555 Coq.Lists.List <> In def
+R5559:5569 omi_pi_proof <> fano_points def
+R5557:5557 omi_pi_proof <> q:44 var
+R5584:5591 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5579:5582 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R5578:5578 omi_pi_proof <> p:43 var
+R5583:5583 omi_pi_proof <> q:44 var
+R5616:5618 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5592:5611 omi_pi_proof <> fano_pair_line_count def
+R5613:5613 omi_pi_proof <> p:43 var
+R5615:5615 omi_pi_proof <> q:44 var
+prf 5635:5650 <> fano_line_widths
+R5654:5684 omi_pi_proof <> fano_each_line_has_three_points def
+prf 5809:5826 <> fano_point_degrees
+R5830:5860 omi_pi_proof <> fano_each_point_has_three_lines def
+prf 5985:6006 <> fano_pair_unique_lines
+R6010:6039 omi_pi_proof <> fano_each_pair_has_unique_line def
+def 6311:6326 <> valid_fano_plane
+R6366:6371 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6358:6360 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6340:6345 Coq.Init.Datatypes <> length def
+R6347:6357 omi_pi_proof <> fano_points def
+R6397:6402 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6389:6391 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6372:6377 Coq.Init.Datatypes <> length def
+R6379:6388 omi_pi_proof <> fano_lines def
+R6434:6439 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6403:6433 omi_pi_proof <> fano_each_line_has_three_points def
+R6471:6476 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6440:6470 omi_pi_proof <> fano_each_point_has_three_lines def
+R6477:6506 omi_pi_proof <> fano_each_pair_has_unique_line def
+rec 6517:6527 <> T0Incidence
+proj 6557:6565 <> t0_points
+proj 6579:6586 <> t0_lines
+R6569:6572 Coq.Init.Datatypes <> list ind
+R6574:6574 Coq.Numbers.BinNums <> N ind
+R6590:6593 Coq.Init.Datatypes <> list ind
+R6595:6603 omi_pi_proof <> fano_line def
+def 6620:6636 <> T0_fano_incidence
+R6640:6650 omi_pi_proof <> T0Incidence rec
+R6657:6669 omi_pi_proof <> mkT0Incidence constr
+R6671:6681 omi_pi_proof <> fano_points def
+R6683:6692 omi_pi_proof <> fano_lines def
+def 6707:6724 <> valid_T0_incidence
+R6731:6741 omi_pi_proof <> T0Incidence rec
+binder 6727:6727 <> t:48
+R6781:6784 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6767:6769 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6756:6764 omi_pi_proof <> t0_points proj
+R6766:6766 omi_pi_proof <> t:48 var
+R6770:6780 omi_pi_proof <> fano_points def
+R6795:6797 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6785:6792 omi_pi_proof <> t0_lines proj
+R6794:6794 omi_pi_proof <> t:48 var
+R6798:6807 omi_pi_proof <> fano_lines def
+prf 6819:6834 <> fano_plane_valid
+R6838:6853 omi_pi_proof <> valid_fano_plane def
+R6872:6875 Coq.Init.Logic <> conj constr
+R6899:6902 Coq.Init.Logic <> conj constr
+R6927:6930 Coq.Init.Logic <> conj constr
+R6958:6961 Coq.Init.Logic <> conj constr
+R6982:7003 omi_pi_proof <> fano_pair_unique_lines thm
+R6963:6980 omi_pi_proof <> fano_point_degrees thm
+R6932:6947 omi_pi_proof <> fano_line_widths thm
+R6904:6918 omi_pi_proof <> fano_line_count thm
+R6877:6892 omi_pi_proof <> fano_point_count thm
+R6872:6875 Coq.Init.Logic <> conj constr
+R6899:6902 Coq.Init.Logic <> conj constr
+R6927:6930 Coq.Init.Logic <> conj constr
+R6958:6961 Coq.Init.Logic <> conj constr
+R6982:7003 omi_pi_proof <> fano_pair_unique_lines thm
+R6963:6980 omi_pi_proof <> fano_point_degrees thm
+R6932:6947 omi_pi_proof <> fano_line_widths thm
+R6904:6918 omi_pi_proof <> fano_line_count thm
+R6877:6892 omi_pi_proof <> fano_point_count thm
+prf 7024:7044 <> T0_induces_fano_plane
+R7086:7089 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7050:7067 omi_pi_proof <> valid_T0_incidence def
+R7069:7085 omi_pi_proof <> T0_fano_incidence def
+R7090:7105 omi_pi_proof <> valid_fano_plane def
+R7134:7149 omi_pi_proof <> fano_plane_valid thm
+R7134:7149 omi_pi_proof <> fano_plane_valid thm
+rec 7165:7178 <> SchlafliSymbol
+proj 7211:7220 <> schlafli_p
+proj 7229:7238 <> schlafli_q
+R7224:7224 Coq.Numbers.BinNums <> N ind
+R7242:7242 Coq.Numbers.BinNums <> N ind
+def 7259:7268 <> Schlafli35
+R7272:7285 omi_pi_proof <> SchlafliSymbol rec
+R7290:7305 omi_pi_proof <> mkSchlafliSymbol constr
+def 7324:7333 <> Schlafli53
+R7337:7350 omi_pi_proof <> SchlafliSymbol rec
+R7355:7370 omi_pi_proof <> mkSchlafliSymbol constr
+def 7389:7401 <> schlafli_dual
+R7410:7423 omi_pi_proof <> SchlafliSymbol rec
+binder 7404:7404 <> s:52
+binder 7406:7406 <> t:53
+R7465:7468 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R7450:7452 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7438:7447 omi_pi_proof <> schlafli_p proj
+R7449:7449 omi_pi_proof <> s:52 var
+R7453:7462 omi_pi_proof <> schlafli_q proj
+R7464:7464 omi_pi_proof <> t:53 var
+R7481:7483 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7469:7478 omi_pi_proof <> schlafli_q proj
+R7480:7480 omi_pi_proof <> s:52 var
+R7484:7493 omi_pi_proof <> schlafli_p proj
+R7495:7495 omi_pi_proof <> t:53 var
+prf 7507:7516 <> dual_35_53
+R7520:7532 omi_pi_proof <> schlafli_dual def
+R7534:7543 omi_pi_proof <> Schlafli35 def
+R7545:7554 omi_pi_proof <> Schlafli53 def
+rec 7595:7613 <> RectifiedCommonCore
+proj 7651:7659 <> core_left
+proj 7681:7690 <> core_right
+proj 7712:7724 <> core_vertices
+proj 7733:7746 <> core_faces_tri
+proj 7755:7769 <> core_faces_pent
+R7663:7676 omi_pi_proof <> SchlafliSymbol rec
+R7694:7707 omi_pi_proof <> SchlafliSymbol rec
+R7728:7728 Coq.Numbers.BinNums <> N ind
+R7750:7750 Coq.Numbers.BinNums <> N ind
+R7773:7773 Coq.Numbers.BinNums <> N ind
+def 7790:7813 <> rectified_35_common_core
+R7817:7835 omi_pi_proof <> RectifiedCommonCore rec
+R7842:7862 omi_pi_proof <> mkRectifiedCommonCore constr
+R7864:7873 omi_pi_proof <> Schlafli35 def
+R7875:7884 omi_pi_proof <> Schlafli53 def
+def 7908:7937 <> valid_rectified_35_common_core
+R7944:7962 omi_pi_proof <> RectifiedCommonCore rec
+binder 7940:7940 <> c:60
+R8019:8024 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R7977:7989 omi_pi_proof <> schlafli_dual def
+R7992:8000 omi_pi_proof <> core_left proj
+R8002:8002 omi_pi_proof <> c:60 var
+R8006:8015 omi_pi_proof <> core_right proj
+R8017:8017 omi_pi_proof <> c:60 var
+R8045:8050 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8040:8042 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8025:8037 omi_pi_proof <> core_vertices proj
+R8039:8039 omi_pi_proof <> c:60 var
+R8072:8077 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8067:8069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8051:8064 omi_pi_proof <> core_faces_tri proj
+R8066:8066 omi_pi_proof <> c:60 var
+R8095:8097 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8078:8092 omi_pi_proof <> core_faces_pent proj
+R8094:8094 omi_pi_proof <> c:60 var
+prf 8111:8140 <> rectified_35_common_core_valid
+R8146:8175 omi_pi_proof <> valid_rectified_35_common_core def
+R8177:8200 omi_pi_proof <> rectified_35_common_core def
+def 8261:8274 <> bqf_high_shell
+R8281:8281 Coq.Numbers.BinNums <> N ind
+binder 8277:8277 <> x:61
+R8286:8286 Coq.Numbers.BinNums <> N ind
+R8297:8299 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8293:8295 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8296:8296 omi_pi_proof <> x:61 var
+R8300:8300 omi_pi_proof <> x:61 var
+def 8315:8331 <> bqf_chiral_bridge
+R8340:8340 Coq.Numbers.BinNums <> N ind
+binder 8334:8334 <> x:62
+binder 8336:8336 <> y:63
+R8345:8345 Coq.Numbers.BinNums <> N ind
+R8356:8358 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8352:8354 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8355:8355 omi_pi_proof <> x:62 var
+R8359:8359 omi_pi_proof <> y:63 var
+def 8374:8387 <> bqf_local_seed
+R8394:8394 Coq.Numbers.BinNums <> N ind
+binder 8390:8390 <> y:64
+R8399:8399 Coq.Numbers.BinNums <> N ind
+R8409:8411 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8405:8407 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8408:8408 omi_pi_proof <> y:64 var
+R8412:8412 omi_pi_proof <> y:64 var
+def 8427:8429 <> bqf
+R8438:8438 Coq.Numbers.BinNums <> N ind
+binder 8432:8432 <> x:65
+binder 8434:8434 <> y:66
+R8443:8443 Coq.Numbers.BinNums <> N ind
+R8490:8492 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R8466:8468 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R8450:8463 omi_pi_proof <> bqf_high_shell def
+R8465:8465 omi_pi_proof <> x:65 var
+R8469:8485 omi_pi_proof <> bqf_chiral_bridge def
+R8487:8487 omi_pi_proof <> x:65 var
+R8489:8489 omi_pi_proof <> y:66 var
+R8493:8506 omi_pi_proof <> bqf_local_seed def
+R8508:8508 omi_pi_proof <> y:66 var
+prf 8520:8532 <> bqf_decompose
+R8549:8549 Coq.Numbers.BinNums <> N ind
+binder 8543:8543 <> x:67
+binder 8545:8545 <> y:68
+R8561:8563 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8554:8556 omi_pi_proof <> bqf def
+R8558:8558 omi_pi_proof <> x:67 var
+R8560:8560 omi_pi_proof <> y:68 var
+R8565:8568 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8599:8599 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8591:8593 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R8579:8581 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R8575:8577 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8571:8573 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8574:8574 omi_pi_proof <> x:67 var
+R8578:8578 omi_pi_proof <> x:67 var
+R8587:8589 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8583:8585 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8586:8586 omi_pi_proof <> x:67 var
+R8590:8590 omi_pi_proof <> y:68 var
+R8595:8597 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8594:8594 omi_pi_proof <> y:68 var
+R8598:8598 omi_pi_proof <> y:68 var
+R8632:8634 omi_pi_proof <> bqf def
+R8637:8650 omi_pi_proof <> bqf_high_shell def
+R8653:8669 omi_pi_proof <> bqf_chiral_bridge def
+R8672:8685 omi_pi_proof <> bqf_local_seed def
+prf 8709:8733 <> bqf_chiral_bridge_is_16xy
+R8750:8750 Coq.Numbers.BinNums <> N ind
+binder 8744:8744 <> x:69
+binder 8746:8746 <> y:70
+R8776:8778 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8755:8771 omi_pi_proof <> bqf_chiral_bridge def
+R8773:8773 omi_pi_proof <> x:69 var
+R8775:8775 omi_pi_proof <> y:70 var
+R8785:8787 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8781:8783 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R8784:8784 omi_pi_proof <> x:69 var
+R8788:8788 omi_pi_proof <> y:70 var
+prf 8825:8837 <> bqf_layer_sum
+R8854:8854 Coq.Numbers.BinNums <> N ind
+binder 8848:8848 <> x:71
+binder 8850:8850 <> y:72
+R8866:8868 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8859:8861 omi_pi_proof <> bqf def
+R8863:8863 omi_pi_proof <> x:71 var
+R8865:8865 omi_pi_proof <> y:72 var
+R8909:8911 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R8885:8887 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R8869:8882 omi_pi_proof <> bqf_high_shell def
+R8884:8884 omi_pi_proof <> x:71 var
+R8888:8904 omi_pi_proof <> bqf_chiral_bridge def
+R8906:8906 omi_pi_proof <> x:71 var
+R8908:8908 omi_pi_proof <> y:72 var
+R8912:8925 omi_pi_proof <> bqf_local_seed def
+R8927:8927 omi_pi_proof <> y:72 var
+rec 8963:8980 <> ProjectionBoundary
+proj 9017:9038 <> finite_incidence_exact
+proj 9050:9086 <> metric_projection_only_after_boundary
+proj 9098:9118 <> no_stored_pi_constant
+proj 9130:9145 <> no_hash_identity
+def 9169:9191 <> omi_projection_boundary
+R9195:9212 omi_pi_proof <> ProjectionBoundary rec
+R9219:9238 omi_pi_proof <> mkProjectionBoundary constr
+R9240:9243 Coq.Init.Logic <> True ind
+R9245:9248 Coq.Init.Logic <> True ind
+R9250:9253 Coq.Init.Logic <> True ind
+R9255:9258 Coq.Init.Logic <> True ind
+prf 9270:9299 <> projection_boundary_separation
+R9351:9356 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9305:9326 omi_pi_proof <> finite_incidence_exact proj
+R9328:9350 omi_pi_proof <> omi_projection_boundary def
+R9418:9423 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9357:9393 omi_pi_proof <> metric_projection_only_after_boundary proj
+R9395:9417 omi_pi_proof <> omi_projection_boundary def
+R9469:9474 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9424:9444 omi_pi_proof <> no_stored_pi_constant proj
+R9446:9468 omi_pi_proof <> omi_projection_boundary def
+R9475:9490 omi_pi_proof <> no_hash_identity proj
+R9492:9514 omi_pi_proof <> omi_projection_boundary def
+def 9576:9584 <> OMI_SQRT3
+R9588:9588 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R9593:9596 Coq.Reals.R_sqrt <> sqrt def
+prf 9610:9626 <> OMI_SQRT3_squared
+R9653:9655 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9641:9643 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R9632:9640 omi_pi_proof <> OMI_SQRT3 def
+R9644:9652 omi_pi_proof <> OMI_SQRT3 def
+R9675:9683 omi_pi_proof <> OMI_SQRT3 def
+R9703:9705 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R9697:9700 Coq.Reals.R_sqrt <> sqrt def
+R9706:9709 Coq.Reals.R_sqrt <> sqrt def
+R9726:9728 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R9720:9723 Coq.Reals.R_sqrt <> sqrt def
+R9703:9705 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R9697:9700 Coq.Reals.R_sqrt <> sqrt def
+R9706:9709 Coq.Reals.R_sqrt <> sqrt def
+R9726:9728 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R9720:9723 Coq.Reals.R_sqrt <> sqrt def
+R9749:9757 Coq.Reals.R_sqrt <> pow2_sqrt thm
+R9749:9757 Coq.Reals.R_sqrt <> pow2_sqrt thm
+def 9784:9796 <> classical_phi
+R9800:9800 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R9805:9805 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R9816:9819 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R9807:9809 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R9810:9813 Coq.Reals.R_sqrt <> sqrt def
+prf 9836:9851 <> sqrt5_sq_for_phi
+R9865:9867 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9861:9863 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R9855:9858 Coq.Reals.R_sqrt <> sqrt def
+R9886:9894 Coq.Reals.R_sqrt <> pow2_sqrt thm
+R9886:9894 Coq.Reals.R_sqrt <> pow2_sqrt thm
+def 9921:9928 <> phi_step
+R9935:9935 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 9931:9931 <> x:78
+R9940:9940 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R9946:9948 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R9949:9950 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R9951:9951 omi_pi_proof <> x:78 var
+def 9966:9989 <> phi_fixed_point_equation
+R9996:9996 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 9992:9992 <> x:79
+R10016:10018 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10012:10014 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R10011:10011 omi_pi_proof <> x:79 var
+R10020:10022 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R10019:10019 omi_pi_proof <> x:79 var
+prf 10035:10067 <> classical_phi_satisfies_quadratic
+R10073:10096 omi_pi_proof <> phi_fixed_point_equation def
+R10098:10110 omi_pi_proof <> classical_phi def
+R10129:10152 omi_pi_proof <> phi_fixed_point_equation def
+R10155:10167 omi_pi_proof <> classical_phi def
+R10179:10192 Coq.Reals.RIneq <> Rmult_eq_reg_l thm
+R10179:10192 Coq.Reals.RIneq <> Rmult_eq_reg_l thm
+R10230:10245 omi_pi_proof <> sqrt5_sq_for_phi thm
+R10230:10245 omi_pi_proof <> sqrt5_sq_for_phi thm
+R10230:10245 omi_pi_proof <> sqrt5_sq_for_phi thm
+prf 10280:10301 <> classical_phi_positive
+R10306:10308 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R10309:10321 omi_pi_proof <> classical_phi def
+R10340:10352 omi_pi_proof <> classical_phi def
+R10364:10379 Coq.Reals.RIneq <> Rdiv_lt_0_compat thm
+R10383:10385 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R10386:10389 Coq.Reals.R_sqrt <> sqrt def
+R10364:10379 Coq.Reals.RIneq <> Rdiv_lt_0_compat thm
+R10383:10385 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R10386:10389 Coq.Reals.R_sqrt <> sqrt def
+R10408:10427 Coq.Reals.RIneq <> Rplus_lt_le_0_compat thm
+R10443:10450 Coq.Reals.R_sqrt <> sqrt_pos thm
+R10408:10427 Coq.Reals.RIneq <> Rplus_lt_le_0_compat thm
+R10443:10450 Coq.Reals.R_sqrt <> sqrt_pos thm
+prf 10477:10503 <> classical_phi_fixed_by_step
+R10531:10533 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10509:10516 omi_pi_proof <> phi_step def
+R10518:10530 omi_pi_proof <> classical_phi def
+R10534:10546 omi_pi_proof <> classical_phi def
+R10565:10572 omi_pi_proof <> phi_step def
+R10604:10607 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R10591:10603 omi_pi_proof <> classical_phi def
+R10621:10630 Coq.Reals.RIneq <> Rgt_not_eq thm
+R10639:10660 omi_pi_proof <> classical_phi_positive thm
+R10604:10607 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R10591:10603 omi_pi_proof <> classical_phi def
+R10621:10630 Coq.Reals.RIneq <> Rgt_not_eq thm
+R10639:10660 omi_pi_proof <> classical_phi_positive thm
+R10673:10686 Coq.Reals.RIneq <> Rmult_eq_reg_r thm
+R10688:10700 omi_pi_proof <> classical_phi def
+R10673:10686 Coq.Reals.RIneq <> Rmult_eq_reg_r thm
+R10688:10700 omi_pi_proof <> classical_phi def
+R10751:10783 omi_pi_proof <> classical_phi_satisfies_quadratic thm
+R10751:10783 omi_pi_proof <> classical_phi_satisfies_quadratic thm
+R10751:10783 omi_pi_proof <> classical_phi_satisfies_quadratic thm
+def 10828:10842 <> OMI_PHI_witness
+R10848:10848 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10850:10852 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10854:10856 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10962:10962 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10853:10853 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10849:10849 <> x:80
+R10912:10926 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R10857:10886 omi_pi_proof <> valid_rectified_35_common_core def
+R10888:10911 omi_pi_proof <> rectified_35_common_core def
+R10953:10956 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R10927:10950 omi_pi_proof <> phi_fixed_point_equation def
+R10952:10952 omi_pi_proof <> x:80 var
+R10958:10960 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R10961:10961 omi_pi_proof <> x:80 var
+R10969:10973 Coq.Init.Specif <> exist constr
+R10996:10999 Coq.Init.Logic <> conj constr
+R11039:11042 Coq.Init.Logic <> conj constr
+R11078:11099 omi_pi_proof <> classical_phi_positive thm
+R11044:11076 omi_pi_proof <> classical_phi_satisfies_quadratic thm
+R11001:11030 omi_pi_proof <> rectified_35_common_core_valid thm
+R10977:10989 omi_pi_proof <> classical_phi def
+def 11116:11122 <> OMI_PHI
+R11126:11126 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R11131:11139 Coq.Init.Specif <> proj1_sig def
+R11141:11155 omi_pi_proof <> OMI_PHI_witness def
+prf 11167:11188 <> OMI_PHI_from_incidence
+R11194:11223 omi_pi_proof <> valid_rectified_35_common_core def
+R11225:11248 omi_pi_proof <> rectified_35_common_core def
+R11267:11271 Coq.Init.Logic <> proj1 thm
+R11274:11282 Coq.Init.Specif <> proj2_sig def
+R11284:11298 omi_pi_proof <> OMI_PHI_witness def
+R11267:11271 Coq.Init.Logic <> proj1 thm
+R11274:11282 Coq.Init.Specif <> proj2_sig def
+R11284:11298 omi_pi_proof <> OMI_PHI_witness def
+prf 11317:11343 <> OMI_PHI_satisfies_quadratic
+R11349:11372 omi_pi_proof <> phi_fixed_point_equation def
+R11374:11380 omi_pi_proof <> OMI_PHI def
+R11399:11403 Coq.Init.Logic <> proj1 thm
+R11406:11410 Coq.Init.Logic <> proj2 thm
+R11413:11421 Coq.Init.Specif <> proj2_sig def
+R11423:11437 omi_pi_proof <> OMI_PHI_witness def
+R11399:11403 Coq.Init.Logic <> proj1 thm
+R11406:11410 Coq.Init.Logic <> proj2 thm
+R11413:11421 Coq.Init.Specif <> proj2_sig def
+R11423:11437 omi_pi_proof <> OMI_PHI_witness def
+prf 11457:11472 <> OMI_PHI_positive
+R11479:11481 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R11482:11488 omi_pi_proof <> OMI_PHI def
+R11507:11511 Coq.Init.Logic <> proj2 thm
+R11514:11518 Coq.Init.Logic <> proj2 thm
+R11521:11529 Coq.Init.Specif <> proj2_sig def
+R11531:11545 omi_pi_proof <> OMI_PHI_witness def
+R11507:11511 Coq.Init.Logic <> proj2 thm
+R11514:11518 Coq.Init.Logic <> proj2 thm
+R11521:11529 Coq.Init.Specif <> proj2_sig def
+R11531:11545 omi_pi_proof <> OMI_PHI_witness def
+prf 11565:11585 <> OMI_PHI_fixed_by_step
+R11607:11609 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11591:11598 omi_pi_proof <> phi_step def
+R11600:11606 omi_pi_proof <> OMI_PHI def
+R11610:11616 omi_pi_proof <> OMI_PHI def
+R11635:11641 omi_pi_proof <> OMI_PHI def
+R11644:11658 omi_pi_proof <> OMI_PHI_witness def
+R11678:11704 omi_pi_proof <> classical_phi_fixed_by_step thm
+R11678:11704 omi_pi_proof <> classical_phi_fixed_by_step thm
+prf 11721:11748 <> OMI_PHI_equals_classical_phi
+R11761:11763 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11754:11760 omi_pi_proof <> OMI_PHI def
+R11764:11776 omi_pi_proof <> classical_phi def
+def 11816:11823 <> phi_iter
+R11830:11832 Coq.Init.Datatypes <> nat ind
+binder 11826:11826 <> n:81
+R11837:11837 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R11844:11851 Coq.Arith.PeanoNat Nat iter def
+R11855:11862 omi_pi_proof <> phi_step def
+R11853:11853 omi_pi_proof <> n:81 var
+prf 11876:11885 <> phi_iter_0
+R11901:11903 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11891:11898 omi_pi_proof <> phi_iter def
+prf 11941:11953 <> phi_iter_step
+R11968:11970 Coq.Init.Datatypes <> nat ind
+binder 11964:11964 <> n:82
+R11989:11991 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11975:11982 omi_pi_proof <> phi_iter def
+R11985:11985 Coq.Init.Datatypes <> S constr
+R11987:11987 omi_pi_proof <> n:82 var
+R11992:11999 omi_pi_proof <> phi_step def
+R12002:12009 omi_pi_proof <> phi_iter def
+R12011:12011 omi_pi_proof <> n:82 var
+R12042:12049 omi_pi_proof <> phi_iter def
+prf 12090:12106 <> phi_iter_positive
+R12121:12123 Coq.Init.Datatypes <> nat ind
+binder 12117:12117 <> n:83
+R12129:12131 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R12132:12139 omi_pi_proof <> phi_iter def
+R12141:12141 omi_pi_proof <> n:83 var
+R12189:12196 omi_pi_proof <> phi_iter def
+R12231:12243 omi_pi_proof <> phi_iter_step thm
+R12231:12243 omi_pi_proof <> phi_iter_step thm
+R12231:12243 omi_pi_proof <> phi_iter_step thm
+R12257:12264 omi_pi_proof <> phi_step def
+R12280:12282 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R12283:12284 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R12285:12292 omi_pi_proof <> phi_iter def
+R12313:12328 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R12280:12282 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R12283:12284 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R12285:12292 omi_pi_proof <> phi_iter def
+R12313:12328 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+prf 12365:12394 <> OMI_PHI_recurrence_fixed_point
+R12416:12418 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12400:12407 omi_pi_proof <> phi_step def
+R12409:12415 omi_pi_proof <> OMI_PHI def
+R12419:12425 omi_pi_proof <> OMI_PHI def
+R12443:12463 omi_pi_proof <> OMI_PHI_fixed_by_step thm
+R12443:12463 omi_pi_proof <> OMI_PHI_fixed_by_step thm
+def 12483:12505 <> OMI_PHI_from_recurrence
+R12509:12509 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12514:12520 omi_pi_proof <> OMI_PHI def
+prf 12532:12569 <> OMI_PHI_from_recurrence_equals_OMI_PHI
+R12598:12600 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12575:12597 omi_pi_proof <> OMI_PHI_from_recurrence def
+R12601:12607 omi_pi_proof <> OMI_PHI def
+prf 12644:12687 <> OMI_PHI_from_recurrence_equals_classical_phi
+R12716:12718 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12693:12715 omi_pi_proof <> OMI_PHI_from_recurrence def
+R12719:12731 omi_pi_proof <> classical_phi def
+R12750:12772 omi_pi_proof <> OMI_PHI_from_recurrence def
+R12783:12810 omi_pi_proof <> OMI_PHI_equals_classical_phi thm
+R12783:12810 omi_pi_proof <> OMI_PHI_equals_classical_phi thm
+def 12828:12830 <> fib
+R12837:12839 Coq.Init.Datatypes <> nat ind
+binder 12833:12833 <> n:84
+R12844:12846 Coq.Init.Datatypes <> nat ind
+R12859:12859 omi_pi_proof <> n:84 var
+R12870:12870 Coq.Init.Datatypes <> O constr
+R12875:12875 Coq.Init.Datatypes <> O constr
+R12881:12881 Coq.Init.Datatypes <> S constr
+R12915:12915 Coq.Init.Datatypes <> O constr
+R12920:12920 Coq.Init.Datatypes <> S constr
+R12922:12922 Coq.Init.Datatypes <> O constr
+R12932:12932 Coq.Init.Datatypes <> S constr
+R12945:12947 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R12940:12942 omi_pi_proof <> fib:85 def
+R12948:12950 omi_pi_proof <> fib:85 def
+prf 12985:13001 <> fib_succ_positive
+R13016:13018 Coq.Init.Datatypes <> nat ind
+binder 13012:13012 <> n:88
+R13025:13027 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R13028:13030 omi_pi_proof <> fib def
+R13033:13033 Coq.Init.Datatypes <> S constr
+R13035:13035 omi_pi_proof <> n:88 var
+def 13177:13185 <> fib_ratio
+R13192:13194 Coq.Init.Datatypes <> nat ind
+binder 13188:13188 <> n:89
+R13199:13199 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R13225:13227 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R13206:13208 Coq.Reals.Raxioms <> INR def
+R13211:13213 omi_pi_proof <> fib def
+R13216:13216 Coq.Init.Datatypes <> S constr
+R13219:13219 Coq.Init.Datatypes <> S constr
+R13221:13221 omi_pi_proof <> n:89 var
+R13228:13230 Coq.Reals.Raxioms <> INR def
+R13233:13235 omi_pi_proof <> fib def
+R13238:13238 Coq.Init.Datatypes <> S constr
+R13240:13240 omi_pi_proof <> n:89 var
+prf 13254:13271 <> phi_iter_fib_ratio
+R13286:13288 Coq.Init.Datatypes <> nat ind
+binder 13282:13282 <> n:90
+R13303:13305 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13293:13300 omi_pi_proof <> phi_iter def
+R13302:13302 omi_pi_proof <> n:90 var
+R13306:13314 omi_pi_proof <> fib_ratio def
+R13316:13316 omi_pi_proof <> n:90 var
+R13364:13371 omi_pi_proof <> phi_iter def
+R13374:13382 omi_pi_proof <> fib_ratio def
+R13419:13431 omi_pi_proof <> phi_iter_step thm
+R13419:13431 omi_pi_proof <> phi_iter_step thm
+R13419:13431 omi_pi_proof <> phi_iter_step thm
+R13449:13456 omi_pi_proof <> phi_step def
+R13459:13467 omi_pi_proof <> fib_ratio def
+R13482:13484 omi_pi_proof <> fib def
+R13487:13487 Coq.Init.Datatypes <> S constr
+R13490:13490 Coq.Init.Datatypes <> S constr
+R13493:13493 Coq.Init.Datatypes <> S constr
+R13520:13522 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R13507:13509 omi_pi_proof <> fib def
+R13512:13512 Coq.Init.Datatypes <> S constr
+R13515:13515 Coq.Init.Datatypes <> S constr
+R13523:13525 omi_pi_proof <> fib def
+R13528:13528 Coq.Init.Datatypes <> S constr
+R13482:13484 omi_pi_proof <> fib def
+R13487:13487 Coq.Init.Datatypes <> S constr
+R13490:13490 Coq.Init.Datatypes <> S constr
+R13493:13493 Coq.Init.Datatypes <> S constr
+R13520:13522 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R13507:13509 omi_pi_proof <> fib def
+R13512:13512 Coq.Init.Datatypes <> S constr
+R13515:13515 Coq.Init.Datatypes <> S constr
+R13523:13525 omi_pi_proof <> fib def
+R13528:13528 Coq.Init.Datatypes <> S constr
+R13551:13558 Coq.Reals.RIneq <> plus_INR thm
+R13551:13558 Coq.Reals.RIneq <> plus_INR thm
+R13551:13558 Coq.Reals.RIneq <> plus_INR thm
+R13575:13577 Coq.Reals.Raxioms <> INR def
+R13580:13582 omi_pi_proof <> fib def
+R13585:13585 Coq.Init.Datatypes <> S constr
+R13588:13588 Coq.Init.Datatypes <> S constr
+R13575:13577 Coq.Reals.Raxioms <> INR def
+R13580:13582 omi_pi_proof <> fib def
+R13585:13585 Coq.Init.Datatypes <> S constr
+R13588:13588 Coq.Init.Datatypes <> S constr
+R13611:13613 Coq.Reals.Raxioms <> INR def
+R13616:13618 omi_pi_proof <> fib def
+R13621:13621 Coq.Init.Datatypes <> S constr
+R13611:13613 Coq.Reals.Raxioms <> INR def
+R13616:13618 omi_pi_proof <> fib def
+R13621:13621 Coq.Init.Datatypes <> S constr
+R13647:13650 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R13647:13650 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R13676:13684 Coq.Reals.RIneq <> not_0_INR thm
+R13676:13684 Coq.Reals.RIneq <> not_0_INR thm
+R13699:13715 omi_pi_proof <> fib_succ_positive thm
+R13718:13718 Coq.Init.Datatypes <> S constr
+R13699:13715 omi_pi_proof <> fib_succ_positive thm
+R13718:13718 Coq.Init.Datatypes <> S constr
+R13750:13753 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R13750:13753 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R13779:13787 Coq.Reals.RIneq <> not_0_INR thm
+R13779:13787 Coq.Reals.RIneq <> not_0_INR thm
+R13802:13818 omi_pi_proof <> fib_succ_positive thm
+R13802:13818 omi_pi_proof <> fib_succ_positive thm
+prf 13875:13886 <> OMI_PHI_gt_1
+R13893:13895 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R13896:13902 omi_pi_proof <> OMI_PHI def
+R13921:13927 omi_pi_proof <> OMI_PHI def
+R13930:13944 omi_pi_proof <> OMI_PHI_witness def
+R13947:13959 omi_pi_proof <> classical_phi def
+R13980:13993 Coq.Reals.RIneq <> Rmult_lt_reg_r thm
+R13980:13993 Coq.Reals.RIneq <> Rmult_lt_reg_r thm
+R14046:14048 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14049:14052 Coq.Reals.R_sqrt <> sqrt def
+R14046:14048 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14049:14052 Coq.Reals.R_sqrt <> sqrt def
+R14080:14083 Coq.Reals.R_sqrt <> sqrt def
+R14100:14105 Coq.Reals.R_sqrt <> sqrt_1 thm
+R14080:14083 Coq.Reals.R_sqrt <> sqrt def
+R14100:14105 Coq.Reals.R_sqrt <> sqrt_1 thm
+R14100:14105 Coq.Reals.R_sqrt <> sqrt_1 thm
+R14134:14142 Coq.Reals.R_sqrt <> sqrt_lt_1 thm
+R14134:14142 Coq.Reals.R_sqrt <> sqrt_lt_1 thm
+prf 14175:14187 <> phi_iter_ge_1
+R14202:14204 Coq.Init.Datatypes <> nat ind
+binder 14198:14198 <> n:91
+R14210:14213 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R14214:14221 omi_pi_proof <> phi_iter def
+R14223:14223 omi_pi_proof <> n:91 var
+R14271:14278 omi_pi_proof <> phi_iter def
+R14313:14325 omi_pi_proof <> phi_iter_step thm
+R14313:14325 omi_pi_proof <> phi_iter_step thm
+R14313:14325 omi_pi_proof <> phi_iter_step thm
+R14339:14346 omi_pi_proof <> phi_step def
+R14362:14365 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R14366:14367 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14368:14375 omi_pi_proof <> phi_iter def
+R14362:14365 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R14366:14367 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14368:14375 omi_pi_proof <> phi_iter def
+R14393:14398 Coq.Reals.RIneq <> Rlt_le thm
+R14393:14398 Coq.Reals.RIneq <> Rlt_le thm
+R14407:14422 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R14407:14422 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+prf 14455:14468 <> phi_error_step
+R14483:14485 Coq.Init.Datatypes <> nat ind
+binder 14479:14479 <> n:92
+R14521:14526 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R14490:14493 Coq.Reals.Rbasic_fun <> Rabs def
+R14510:14512 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14496:14503 omi_pi_proof <> phi_iter def
+R14506:14506 Coq.Init.Datatypes <> S constr
+R14508:14508 omi_pi_proof <> n:92 var
+R14513:14519 omi_pi_proof <> OMI_PHI def
+R14554:14556 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R14527:14530 Coq.Reals.Rbasic_fun <> Rabs def
+R14543:14545 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14533:14540 omi_pi_proof <> phi_iter def
+R14542:14542 omi_pi_proof <> n:92 var
+R14546:14552 omi_pi_proof <> OMI_PHI def
+R14557:14558 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14559:14565 omi_pi_proof <> OMI_PHI def
+R14605:14607 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14608:14615 omi_pi_proof <> phi_iter def
+R14629:14645 omi_pi_proof <> phi_iter_positive thm
+R14605:14607 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14608:14615 omi_pi_proof <> phi_iter def
+R14629:14645 omi_pi_proof <> phi_iter_positive thm
+R14666:14668 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14669:14675 omi_pi_proof <> OMI_PHI def
+R14687:14698 omi_pi_proof <> OMI_PHI_gt_1 thm
+R14666:14668 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14669:14675 omi_pi_proof <> OMI_PHI def
+R14687:14698 omi_pi_proof <> OMI_PHI_gt_1 thm
+R14720:14722 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14723:14729 omi_pi_proof <> OMI_PHI def
+R14720:14722 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14723:14729 omi_pi_proof <> OMI_PHI def
+R14758:14761 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R14762:14769 omi_pi_proof <> phi_iter def
+R14783:14795 omi_pi_proof <> phi_iter_ge_1 thm
+R14758:14761 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R14762:14769 omi_pi_proof <> phi_iter def
+R14783:14795 omi_pi_proof <> phi_iter_ge_1 thm
+R14820:14822 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14833:14835 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R14823:14830 omi_pi_proof <> phi_iter def
+R14836:14842 omi_pi_proof <> OMI_PHI def
+R14820:14822 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R14833:14835 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R14823:14830 omi_pi_proof <> phi_iter def
+R14836:14842 omi_pi_proof <> OMI_PHI def
+R14878:14880 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14864:14871 omi_pi_proof <> phi_iter def
+R14874:14874 Coq.Init.Datatypes <> S constr
+R14881:14887 omi_pi_proof <> OMI_PHI def
+R14916:14919 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14933:14933 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14901:14903 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R14904:14905 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14906:14913 omi_pi_proof <> phi_iter def
+R14921:14923 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R14924:14925 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14926:14932 omi_pi_proof <> OMI_PHI def
+R14878:14880 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14864:14871 omi_pi_proof <> phi_iter def
+R14874:14874 Coq.Init.Datatypes <> S constr
+R14881:14887 omi_pi_proof <> OMI_PHI def
+R14916:14919 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14933:14933 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R14901:14903 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R14904:14905 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14906:14913 omi_pi_proof <> phi_iter def
+R14921:14923 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R14924:14925 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R14926:14932 omi_pi_proof <> OMI_PHI def
+R14955:14967 omi_pi_proof <> phi_iter_step thm
+R14955:14967 omi_pi_proof <> phi_iter_step thm
+R14955:14967 omi_pi_proof <> phi_iter_step thm
+R14981:14988 omi_pi_proof <> phi_step def
+R15017:15019 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15010:15016 omi_pi_proof <> OMI_PHI def
+R15021:15023 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R15024:15025 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15026:15032 omi_pi_proof <> OMI_PHI def
+R15017:15019 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15010:15016 omi_pi_proof <> OMI_PHI def
+R15021:15023 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R15024:15025 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15026:15032 omi_pi_proof <> OMI_PHI def
+R15058:15078 omi_pi_proof <> OMI_PHI_fixed_by_step thm
+R15058:15078 omi_pi_proof <> OMI_PHI_fixed_by_step thm
+R15123:15126 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15140:15140 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15108:15110 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R15111:15112 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15113:15120 omi_pi_proof <> phi_iter def
+R15128:15130 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R15131:15132 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15133:15139 omi_pi_proof <> OMI_PHI def
+R15176:15179 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R15200:15200 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R15153:15154 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R15175:15175 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R15165:15167 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15155:15162 omi_pi_proof <> phi_iter def
+R15168:15174 omi_pi_proof <> OMI_PHI def
+R15190:15192 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15180:15187 omi_pi_proof <> phi_iter def
+R15193:15199 omi_pi_proof <> OMI_PHI def
+R15123:15126 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15140:15140 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15108:15110 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R15111:15112 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15113:15120 omi_pi_proof <> phi_iter def
+R15128:15130 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R15131:15132 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15133:15139 omi_pi_proof <> OMI_PHI def
+R15176:15179 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R15200:15200 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R15153:15154 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R15175:15175 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R15165:15167 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15155:15162 omi_pi_proof <> phi_iter def
+R15168:15174 omi_pi_proof <> OMI_PHI def
+R15190:15192 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15180:15187 omi_pi_proof <> phi_iter def
+R15193:15199 omi_pi_proof <> OMI_PHI def
+R15233:15236 Coq.Reals.Rdefinitions <> Rdiv def
+R15249:15257 Coq.Reals.Rbasic_fun <> Rabs_mult thm
+R15249:15257 Coq.Reals.Rbasic_fun <> Rabs_mult thm
+R15249:15257 Coq.Reals.Rbasic_fun <> Rabs_mult thm
+R15270:15278 Coq.Reals.Rbasic_fun <> Rabs_Ropp thm
+R15270:15278 Coq.Reals.Rbasic_fun <> Rabs_Ropp thm
+R15270:15278 Coq.Reals.Rbasic_fun <> Rabs_Ropp thm
+R15291:15298 Coq.Reals.Rbasic_fun <> Rabs_inv thm
+R15291:15298 Coq.Reals.Rbasic_fun <> Rabs_inv thm
+R15291:15298 Coq.Reals.Rbasic_fun <> Rabs_inv thm
+R15345:15347 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15318:15321 Coq.Reals.Rbasic_fun <> Rabs def
+R15334:15336 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15324:15331 omi_pi_proof <> phi_iter def
+R15337:15343 omi_pi_proof <> OMI_PHI def
+R15358:15360 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15348:15355 omi_pi_proof <> phi_iter def
+R15361:15367 omi_pi_proof <> OMI_PHI def
+R15345:15347 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15318:15321 Coq.Reals.Rbasic_fun <> Rabs def
+R15334:15336 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15324:15331 omi_pi_proof <> phi_iter def
+R15337:15343 omi_pi_proof <> OMI_PHI def
+R15358:15360 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15348:15355 omi_pi_proof <> phi_iter def
+R15361:15367 omi_pi_proof <> OMI_PHI def
+R15381:15390 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R15381:15390 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R15441:15457 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R15441:15457 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R15470:15477 Coq.Reals.Rbasic_fun <> Rabs_pos thm
+R15470:15477 Coq.Reals.Rbasic_fun <> Rabs_pos thm
+R15490:15506 Coq.Reals.RIneq <> Rinv_le_contravar thm
+R15490:15506 Coq.Reals.RIneq <> Rinv_le_contravar thm
+prf 15545:15564 <> phi_iter_error_bound
+R15579:15581 Coq.Init.Datatypes <> nat ind
+binder 15575:15575 <> n:93
+R15612:15617 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R15586:15590 Coq.Reals.Rfunctions <> Rdist def
+R15593:15600 omi_pi_proof <> phi_iter def
+R15602:15602 omi_pi_proof <> n:93 var
+R15605:15611 omi_pi_proof <> OMI_PHI def
+R15644:15646 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15618:15622 Coq.Reals.Rfunctions <> Rdist def
+R15625:15632 omi_pi_proof <> phi_iter def
+R15637:15643 omi_pi_proof <> OMI_PHI def
+R15647:15647 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15657:15660 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15648:15649 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15650:15656 omi_pi_proof <> OMI_PHI def
+R15661:15661 omi_pi_proof <> n:93 var
+R15743:15743 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15753:15756 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15744:15745 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15746:15752 omi_pi_proof <> OMI_PHI def
+R15757:15757 Coq.Init.Datatypes <> S constr
+R15783:15785 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15774:15775 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15776:15782 omi_pi_proof <> OMI_PHI def
+R15786:15786 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15796:15799 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15787:15788 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15789:15795 omi_pi_proof <> OMI_PHI def
+R15743:15743 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15753:15756 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15744:15745 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15746:15752 omi_pi_proof <> OMI_PHI def
+R15757:15757 Coq.Init.Datatypes <> S constr
+R15783:15785 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15774:15775 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15776:15782 omi_pi_proof <> OMI_PHI def
+R15786:15786 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15796:15799 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15787:15788 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15789:15795 omi_pi_proof <> OMI_PHI def
+R15832:15836 Coq.Reals.Rfunctions <> Rdist def
+R15855:15863 Coq.Reals.RIneq <> Rle_trans thm
+R15855:15863 Coq.Reals.RIneq <> Rle_trans thm
+R15878:15891 omi_pi_proof <> phi_error_step thm
+R15878:15891 omi_pi_proof <> phi_error_step thm
+R15936:15947 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15975:15975 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15909:15912 Coq.Reals.Rbasic_fun <> Rabs def
+R15925:15927 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15915:15922 omi_pi_proof <> phi_iter def
+R15928:15934 omi_pi_proof <> OMI_PHI def
+R15957:15959 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15948:15949 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15950:15956 omi_pi_proof <> OMI_PHI def
+R15960:15960 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15970:15973 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15961:15962 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15963:15969 omi_pi_proof <> OMI_PHI def
+R15992:15992 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R16038:16051 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R16020:16022 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15993:15996 Coq.Reals.Rbasic_fun <> Rabs def
+R16009:16011 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15999:16006 omi_pi_proof <> phi_iter def
+R16012:16018 omi_pi_proof <> OMI_PHI def
+R16023:16023 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16033:16036 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16024:16025 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16026:16032 omi_pi_proof <> OMI_PHI def
+R16052:16053 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16054:16060 omi_pi_proof <> OMI_PHI def
+R15936:15947 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15975:15975 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15909:15912 Coq.Reals.Rbasic_fun <> Rabs def
+R15925:15927 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15915:15922 omi_pi_proof <> phi_iter def
+R15928:15934 omi_pi_proof <> OMI_PHI def
+R15957:15959 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15948:15949 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15950:15956 omi_pi_proof <> OMI_PHI def
+R15960:15960 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15970:15973 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R15961:15962 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R15963:15969 omi_pi_proof <> OMI_PHI def
+R15992:15992 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R16038:16051 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R16020:16022 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R15993:15996 Coq.Reals.Rbasic_fun <> Rabs def
+R16009:16011 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R15999:16006 omi_pi_proof <> phi_iter def
+R16012:16018 omi_pi_proof <> OMI_PHI def
+R16023:16023 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16033:16036 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16024:16025 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16026:16032 omi_pi_proof <> OMI_PHI def
+R16052:16053 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16054:16060 omi_pi_proof <> OMI_PHI def
+R16084:16100 Coq.Reals.RIneq <> Rmult_le_compat_r thm
+R16084:16100 Coq.Reals.RIneq <> Rmult_le_compat_r thm
+R16123:16138 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R16123:16138 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R16155:16163 Coq.Reals.Raxioms <> Rlt_trans thm
+R16194:16205 omi_pi_proof <> OMI_PHI_gt_1 thm
+R16155:16163 Coq.Reals.Raxioms <> Rlt_trans thm
+R16194:16205 omi_pi_proof <> OMI_PHI_gt_1 thm
+prf 16241:16258 <> phi_iter_converges
+R16264:16268 Coq.Reals.Rseries <> Un_cv def
+R16279:16285 omi_pi_proof <> OMI_PHI def
+R16270:16277 omi_pi_proof <> phi_iter def
+R16304:16308 Coq.Reals.Rseries <> Un_cv def
+R16342:16346 Coq.Reals.Rfunctions <> Rdist def
+R16349:16356 omi_pi_proof <> phi_iter def
+R16361:16367 omi_pi_proof <> OMI_PHI def
+R16342:16346 Coq.Reals.Rfunctions <> Rdist def
+R16349:16356 omi_pi_proof <> phi_iter def
+R16361:16367 omi_pi_proof <> OMI_PHI def
+R16389:16391 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16392:16398 omi_pi_proof <> OMI_PHI def
+R16410:16421 omi_pi_proof <> OMI_PHI_gt_1 thm
+R16389:16391 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16392:16398 omi_pi_proof <> OMI_PHI def
+R16410:16421 omi_pi_proof <> OMI_PHI_gt_1 thm
+R16462:16464 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16446:16449 Coq.Reals.Rbasic_fun <> Rabs def
+R16452:16453 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16454:16460 omi_pi_proof <> OMI_PHI def
+R16462:16464 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16446:16449 Coq.Reals.Rbasic_fun <> Rabs def
+R16452:16453 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16454:16460 omi_pi_proof <> OMI_PHI def
+R16481:16490 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R16481:16490 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R16481:16490 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R16481:16490 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R16515:16516 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16515:16516 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16543:16561 Coq.Reals.RIneq <> Rinv_1_lt_contravar thm
+R16565:16571 omi_pi_proof <> OMI_PHI def
+R16543:16561 Coq.Reals.RIneq <> Rinv_1_lt_contravar thm
+R16565:16571 omi_pi_proof <> OMI_PHI def
+R16598:16613 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R16598:16613 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R16642:16644 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16642:16644 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16663:16667 Coq.Reals.Rfunctions <> Rdist def
+R16670:16677 omi_pi_proof <> phi_iter def
+R16703:16712 Coq.Reals.Rbasic_fun <> Rabs_left1 thm
+R16703:16712 Coq.Reals.Rbasic_fun <> Rabs_left1 thm
+R16703:16712 Coq.Reals.Rbasic_fun <> Rabs_left1 thm
+R16703:16712 Coq.Reals.Rbasic_fun <> Rabs_left1 thm
+R16734:16746 Coq.Reals.Rfunctions <> pow_lt_1_zero thm
+R16749:16750 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16751:16757 omi_pi_proof <> OMI_PHI def
+R16774:16776 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R16734:16746 Coq.Reals.Rfunctions <> pow_lt_1_zero thm
+R16749:16750 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16751:16757 omi_pi_proof <> OMI_PHI def
+R16774:16776 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R16802:16817 Coq.Reals.RIneq <> Rdiv_lt_0_compat thm
+R16802:16817 Coq.Reals.RIneq <> Rdiv_lt_0_compat thm
+R16863:16874 Coq.Reals.RIneq <> Rle_lt_trans thm
+R16863:16874 Coq.Reals.RIneq <> Rle_lt_trans thm
+R16887:16906 omi_pi_proof <> phi_iter_error_bound thm
+R16887:16906 omi_pi_proof <> phi_iter_error_bound thm
+R16950:16952 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16928:16931 Coq.Reals.Rbasic_fun <> Rabs def
+R16934:16934 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16944:16947 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16935:16936 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16937:16943 omi_pi_proof <> OMI_PHI def
+R16956:16958 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R16950:16952 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R16928:16931 Coq.Reals.Rbasic_fun <> Rabs def
+R16934:16934 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16944:16947 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R16935:16936 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R16937:16943 omi_pi_proof <> OMI_PHI def
+R16956:16958 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R17000:17009 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R17000:17009 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R17000:17009 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R17000:17009 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R17053:17055 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R17035:17037 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17038:17038 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17048:17051 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17039:17040 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R17041:17047 omi_pi_proof <> OMI_PHI def
+R17053:17055 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R17035:17037 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17038:17038 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17048:17051 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17039:17040 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R17041:17047 omi_pi_proof <> OMI_PHI def
+R17102:17104 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R17084:17086 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17087:17087 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17097:17100 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17088:17089 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R17090:17096 omi_pi_proof <> OMI_PHI def
+R17106:17109 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17117:17117 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17113:17115 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R17102:17104 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R17084:17086 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17087:17087 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17097:17100 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R17088:17089 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R17090:17096 omi_pi_proof <> OMI_PHI def
+R17106:17109 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17117:17117 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17113:17115 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R17135:17151 Coq.Reals.Raxioms <> Rmult_lt_compat_l thm
+R17135:17151 Coq.Reals.Raxioms <> Rmult_lt_compat_l thm
+R17200:17203 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17211:17211 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17207:17209 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R17200:17203 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17211:17211 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R17207:17209 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R17290:17295 Coq.Reals.Rfunctions <> pow_lt thm
+R17290:17295 Coq.Reals.Rfunctions <> pow_lt thm
+R17304:17319 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R17304:17319 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+prf 17341:17363 <> fib_ratio_converges_phi
+R17369:17373 Coq.Reals.Rseries <> Un_cv def
+R17385:17391 omi_pi_proof <> OMI_PHI def
+R17375:17383 omi_pi_proof <> fib_ratio def
+R17432:17439 omi_pi_proof <> phi_iter def
+R17410:17418 Coq.Reals.Ratan <> Un_cv_ext thm
+R17432:17439 omi_pi_proof <> phi_iter def
+R17410:17418 Coq.Reals.Ratan <> Un_cv_ext thm
+R17466:17483 omi_pi_proof <> phi_iter_fib_ratio thm
+R17466:17483 omi_pi_proof <> phi_iter_fib_ratio thm
+R17496:17513 omi_pi_proof <> phi_iter_converges thm
+R17496:17513 omi_pi_proof <> phi_iter_converges thm
+ind 17532:17542 <> ChiralPhase
+constr 17556:17565 <> DPlusPhase
+constr 17569:17579 <> DMinusPhase
+constr 17583:17595 <> BalancedPhase
+constr 17599:17613 <> IncompletePhase
+scheme 17532:17542 <> ChiralPhase_rect
+scheme 17532:17542 <> ChiralPhase_ind
+scheme 17532:17542 <> ChiralPhase_rec
+scheme 17532:17542 <> ChiralPhase_sind
+def 17628:17640 <> phase_to_sign
+R17647:17657 omi_pi_proof <> ChiralPhase ind
+binder 17643:17643 <> p:96
+R17662:17662 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R17675:17675 omi_pi_proof <> p:96 var
+R17686:17695 omi_pi_proof <> DPlusPhase constr
+R17706:17716 omi_pi_proof <> DMinusPhase constr
+R17728:17740 omi_pi_proof <> BalancedPhase constr
+R17751:17765 omi_pi_proof <> IncompletePhase constr
+def 17791:17813 <> diagonal_phase_schedule
+R17817:17820 Coq.Init.Datatypes <> list ind
+R17822:17832 omi_pi_proof <> ChiralPhase ind
+R17839:17839 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R17850:17851 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R17863:17863 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R17840:17849 omi_pi_proof <> DPlusPhase constr
+R17852:17862 omi_pi_proof <> DMinusPhase constr
+def 17878:17894 <> polybius_phase_at
+R17901:17903 Coq.Init.Datatypes <> nat ind
+binder 17897:17897 <> n:98
+R17908:17918 omi_pi_proof <> ChiralPhase ind
+R17925:17927 Coq.Lists.List <> nth def
+R17967:17979 omi_pi_proof <> BalancedPhase constr
+R17943:17965 omi_pi_proof <> diagonal_phase_schedule def
+R17931:17935 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R17930:17930 omi_pi_proof <> n:98 var
+def 17994:18012 <> diagonal_race_phase
+R18019:18021 Coq.Init.Datatypes <> nat ind
+binder 18015:18015 <> n:99
+R18026:18036 omi_pi_proof <> ChiralPhase ind
+R18049:18065 omi_pi_proof <> polybius_phase_at def
+R18067:18067 omi_pi_proof <> n:99 var
+R18078:18087 omi_pi_proof <> DPlusPhase constr
+R18101:18104 Coq.Init.Datatypes <> andb def
+R18165:18168 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R18140:18150 omi_pi_proof <> closure_sum proj
+R18152:18164 omi_pi_proof <> dplus_closure def
+R18132:18135 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R18107:18117 omi_pi_proof <> closure_xor proj
+R18119:18131 omi_pi_proof <> dplus_closure def
+R18200:18214 omi_pi_proof <> IncompletePhase constr
+R18184:18193 omi_pi_proof <> DPlusPhase constr
+R18220:18230 omi_pi_proof <> DMinusPhase constr
+R18244:18247 Coq.Init.Datatypes <> andb def
+R18310:18313 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R18284:18294 omi_pi_proof <> closure_sum proj
+R18296:18309 omi_pi_proof <> dminus_closure def
+R18276:18279 Coq.NArith.BinNat <> ::N_scope:x_'=?'_x not
+R18250:18260 omi_pi_proof <> closure_xor proj
+R18262:18275 omi_pi_proof <> dminus_closure def
+R18346:18360 omi_pi_proof <> IncompletePhase constr
+R18329:18339 omi_pi_proof <> DMinusPhase constr
+R18366:18378 omi_pi_proof <> BalancedPhase constr
+R18383:18395 omi_pi_proof <> BalancedPhase constr
+R18401:18415 omi_pi_proof <> IncompletePhase constr
+R18420:18434 omi_pi_proof <> IncompletePhase constr
+prf 18452:18479 <> diagonal_phase_schedule_even
+R18494:18496 Coq.Init.Datatypes <> nat ind
+binder 18490:18490 <> n:100
+R18520:18522 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18501:18517 omi_pi_proof <> polybius_phase_at def
+R18519:18519 omi_pi_proof <> n:100 var
+R18526:18533 Coq.Arith.PeanoNat Nat even def
+R18535:18535 omi_pi_proof <> n:100 var
+R18558:18568 omi_pi_proof <> DMinusPhase constr
+R18542:18551 omi_pi_proof <> DPlusPhase constr
+R18598:18614 omi_pi_proof <> polybius_phase_at def
+R18617:18639 omi_pi_proof <> diagonal_phase_schedule def
+R18654:18661 Coq.Arith.PeanoNat Nat even def
+R18654:18661 Coq.Arith.PeanoNat Nat even def
+R18689:18693 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R18689:18693 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R18744:18746 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18778:18780 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R18774:18774 Coq.Init.Datatypes <> S constr
+R18813:18831 Coq.Arith.PeanoNat Nat mod_upper_bound def
+R18744:18746 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18778:18780 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R18774:18774 Coq.Init.Datatypes <> S constr
+R18813:18831 Coq.Arith.PeanoNat Nat mod_upper_bound def
+R18889:18901 Coq.Arith.PeanoNat Nat even_spec thm
+R18889:18901 Coq.Arith.PeanoNat Nat even_spec thm
+R18953:18953 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18961:18964 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18955:18959 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R18953:18953 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18961:18964 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18955:18959 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R19006:19017 Coq.Arith.PeanoNat Nat mul_comm thm
+R19006:19017 Coq.Arith.PeanoNat Nat mul_comm thm
+R19006:19017 Coq.Arith.PeanoNat Nat mul_comm thm
+R19034:19049 Coq.Arith.PeanoNat Nat.Div0 mod_mul thm
+R19034:19049 Coq.Arith.PeanoNat Nat.Div0 mod_mul thm
+R19078:19082 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R19078:19082 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R19127:19134 Coq.Arith.PeanoNat Nat Even def
+R19127:19134 Coq.Arith.PeanoNat Nat Even def
+R19154:19172 Coq.Arith.PeanoNat Nat.Lcm0 mod_divide thm
+R19154:19172 Coq.Arith.PeanoNat Nat.Lcm0 mod_divide thm
+R19246:19257 Coq.Arith.PeanoNat Nat mul_comm thm
+R19246:19257 Coq.Arith.PeanoNat Nat mul_comm thm
+R19246:19257 Coq.Arith.PeanoNat Nat mul_comm thm
+R19290:19302 Coq.Arith.PeanoNat Nat even_spec thm
+R19290:19302 Coq.Arith.PeanoNat Nat even_spec thm
+R19369:19371 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19403:19405 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R19399:19399 Coq.Init.Datatypes <> S constr
+R19438:19456 Coq.Arith.PeanoNat Nat mod_upper_bound def
+R19369:19371 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19403:19405 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R19399:19399 Coq.Init.Datatypes <> S constr
+R19438:19456 Coq.Arith.PeanoNat Nat mod_upper_bound def
+prf 19520:19563 <> polybius_diagonal_race_forces_phase_schedule
+R19578:19580 Coq.Init.Datatypes <> nat ind
+binder 19574:19574 <> n:101
+R19606:19608 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19585:19603 omi_pi_proof <> diagonal_race_phase def
+R19605:19605 omi_pi_proof <> n:101 var
+R19609:19625 omi_pi_proof <> polybius_phase_at def
+R19627:19627 omi_pi_proof <> n:101 var
+R19657:19675 omi_pi_proof <> diagonal_race_phase def
+R19690:19706 omi_pi_proof <> polybius_phase_at def
+R19690:19706 omi_pi_proof <> polybius_phase_at def
+rec 19750:19768 <> DiagonalAccumulator
+proj 19806:19822 <> accumulator_phase
+R19826:19836 omi_pi_proof <> ChiralPhase ind
+def 19853:19874 <> diagonal_closure_ready
+R19881:19895 omi_pi_proof <> DiagonalClosure rec
+binder 19877:19877 <> c:104
+R19900:19903 Coq.Init.Datatypes <> bool ind
+R19910:19913 Coq.Init.Datatypes <> andb def
+R19942:19946 Coq.NArith.BinNat N eqb def
+R19949:19959 omi_pi_proof <> closure_sum proj
+R19961:19961 omi_pi_proof <> c:104 var
+R19916:19920 Coq.NArith.BinNat N eqb def
+R19923:19933 omi_pi_proof <> closure_xor proj
+R19935:19935 omi_pi_proof <> c:104 var
+def 19981:20005 <> diagonal_accumulator_step
+R20012:20030 omi_pi_proof <> DiagonalAccumulator rec
+binder 20008:20008 <> a:105
+R20035:20053 omi_pi_proof <> DiagonalAccumulator rec
+R20066:20082 omi_pi_proof <> accumulator_phase proj
+R20084:20084 omi_pi_proof <> a:105 var
+R20095:20104 omi_pi_proof <> DPlusPhase constr
+R20118:20139 omi_pi_proof <> diagonal_closure_ready def
+R20141:20153 omi_pi_proof <> dplus_closure def
+R20211:20231 omi_pi_proof <> mkDiagonalAccumulator constr
+R20233:20247 omi_pi_proof <> IncompletePhase constr
+R20166:20186 omi_pi_proof <> mkDiagonalAccumulator constr
+R20188:20198 omi_pi_proof <> DMinusPhase constr
+R20253:20263 omi_pi_proof <> DMinusPhase constr
+R20277:20298 omi_pi_proof <> diagonal_closure_ready def
+R20300:20313 omi_pi_proof <> dminus_closure def
+R20370:20390 omi_pi_proof <> mkDiagonalAccumulator constr
+R20392:20406 omi_pi_proof <> IncompletePhase constr
+R20326:20346 omi_pi_proof <> mkDiagonalAccumulator constr
+R20348:20357 omi_pi_proof <> DPlusPhase constr
+R20412:20424 omi_pi_proof <> BalancedPhase constr
+R20429:20449 omi_pi_proof <> mkDiagonalAccumulator constr
+R20451:20463 omi_pi_proof <> BalancedPhase constr
+R20469:20483 omi_pi_proof <> IncompletePhase constr
+R20488:20508 omi_pi_proof <> mkDiagonalAccumulator constr
+R20510:20524 omi_pi_proof <> IncompletePhase constr
+def 20545:20567 <> diagonal_accumulator_at
+R20574:20576 Coq.Init.Datatypes <> nat ind
+binder 20570:20570 <> n:106
+R20581:20599 omi_pi_proof <> DiagonalAccumulator rec
+R20606:20613 Coq.Arith.PeanoNat Nat iter def
+R20644:20664 omi_pi_proof <> mkDiagonalAccumulator constr
+R20666:20675 omi_pi_proof <> DPlusPhase constr
+R20617:20641 omi_pi_proof <> diagonal_accumulator_step def
+R20615:20615 omi_pi_proof <> n:106 var
+def 20691:20716 <> diagonal_accumulator_phase
+R20723:20725 Coq.Init.Datatypes <> nat ind
+binder 20719:20719 <> n:107
+R20730:20740 omi_pi_proof <> ChiralPhase ind
+R20747:20763 omi_pi_proof <> accumulator_phase proj
+R20766:20788 omi_pi_proof <> diagonal_accumulator_at def
+R20790:20790 omi_pi_proof <> n:107 var
+prf 20801:20820 <> nat_induction_by_two
+R20840:20843 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20837:20839 Coq.Init.Datatypes <> nat ind
+binder 20833:20833 <> P:108
+R20861:20868 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20854:20854 omi_pi_proof <> P:108 var
+R20876:20883 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20869:20869 omi_pi_proof <> P:108 var
+R20884:20884 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20919:20927 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20896:20898 Coq.Init.Datatypes <> nat ind
+binder 20892:20892 <> n:109
+R20904:20907 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20901:20901 omi_pi_proof <> P:108 var
+R20903:20903 omi_pi_proof <> n:109 var
+R20908:20908 omi_pi_proof <> P:108 var
+R20911:20911 Coq.Init.Datatypes <> S constr
+R20914:20914 Coq.Init.Datatypes <> S constr
+R20916:20916 omi_pi_proof <> n:109 var
+R20939:20941 Coq.Init.Datatypes <> nat ind
+binder 20935:20935 <> n:110
+R20944:20944 omi_pi_proof <> P:108 var
+R20946:20946 omi_pi_proof <> n:110 var
+R20995:20998 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R21002:21002 Coq.Init.Datatypes <> S constr
+R20995:20998 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R21002:21002 Coq.Init.Datatypes <> S constr
+prf 21159:21200 <> diagonal_accumulator_forces_phase_schedule
+R21215:21217 Coq.Init.Datatypes <> nat ind
+binder 21211:21211 <> n:111
+R21250:21252 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21222:21247 omi_pi_proof <> diagonal_accumulator_phase def
+R21249:21249 omi_pi_proof <> n:111 var
+R21253:21269 omi_pi_proof <> polybius_phase_at def
+R21271:21271 omi_pi_proof <> n:111 var
+R21312:21331 omi_pi_proof <> nat_induction_by_two thm
+R21312:21331 omi_pi_proof <> nat_induction_by_two thm
+R21403:21428 omi_pi_proof <> diagonal_accumulator_phase def
+R21431:21453 omi_pi_proof <> diagonal_accumulator_at def
+R21473:21480 Coq.Arith.PeanoNat Nat iter def
+R21519:21539 omi_pi_proof <> mkDiagonalAccumulator constr
+R21541:21550 omi_pi_proof <> DPlusPhase constr
+R21492:21516 omi_pi_proof <> diagonal_accumulator_step def
+R21483:21483 Coq.Init.Datatypes <> S constr
+R21486:21486 Coq.Init.Datatypes <> S constr
+R21566:21590 omi_pi_proof <> diagonal_accumulator_step def
+R21607:21631 omi_pi_proof <> diagonal_accumulator_step def
+R21650:21657 Coq.Arith.PeanoNat Nat iter def
+R21688:21708 omi_pi_proof <> mkDiagonalAccumulator constr
+R21710:21719 omi_pi_proof <> DPlusPhase constr
+R21661:21685 omi_pi_proof <> diagonal_accumulator_step def
+R21473:21480 Coq.Arith.PeanoNat Nat iter def
+R21519:21539 omi_pi_proof <> mkDiagonalAccumulator constr
+R21541:21550 omi_pi_proof <> DPlusPhase constr
+R21492:21516 omi_pi_proof <> diagonal_accumulator_step def
+R21483:21483 Coq.Init.Datatypes <> S constr
+R21486:21486 Coq.Init.Datatypes <> S constr
+R21566:21590 omi_pi_proof <> diagonal_accumulator_step def
+R21607:21631 omi_pi_proof <> diagonal_accumulator_step def
+R21650:21657 Coq.Arith.PeanoNat Nat iter def
+R21688:21708 omi_pi_proof <> mkDiagonalAccumulator constr
+R21710:21719 omi_pi_proof <> DPlusPhase constr
+R21661:21685 omi_pi_proof <> diagonal_accumulator_step def
+R21740:21747 Coq.Arith.PeanoNat Nat iter def
+R21778:21798 omi_pi_proof <> mkDiagonalAccumulator constr
+R21800:21809 omi_pi_proof <> DPlusPhase constr
+R21751:21775 omi_pi_proof <> diagonal_accumulator_step def
+R21740:21747 Coq.Arith.PeanoNat Nat iter def
+R21778:21798 omi_pi_proof <> mkDiagonalAccumulator constr
+R21800:21809 omi_pi_proof <> DPlusPhase constr
+R21751:21775 omi_pi_proof <> diagonal_accumulator_step def
+R21868:21895 omi_pi_proof <> diagonal_phase_schedule_even thm
+R21868:21895 omi_pi_proof <> diagonal_phase_schedule_even thm
+R21868:21895 omi_pi_proof <> diagonal_phase_schedule_even thm
+R21910:21937 omi_pi_proof <> diagonal_phase_schedule_even thm
+R21910:21937 omi_pi_proof <> diagonal_phase_schedule_even thm
+R21910:21937 omi_pi_proof <> diagonal_phase_schedule_even thm
+R21952:21969 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R21952:21969 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R21952:21969 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R21986:21993 Coq.Arith.PeanoNat Nat even def
+R21986:21993 Coq.Arith.PeanoNat Nat even def
+prf 22038:22076 <> diagonal_accumulator_phase_matches_race
+R22091:22093 Coq.Init.Datatypes <> nat ind
+binder 22087:22087 <> n:112
+R22126:22128 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22098:22123 omi_pi_proof <> diagonal_accumulator_phase def
+R22125:22125 omi_pi_proof <> n:112 var
+R22129:22147 omi_pi_proof <> diagonal_race_phase def
+R22149:22149 omi_pi_proof <> n:112 var
+R22180:22221 omi_pi_proof <> diagonal_accumulator_forces_phase_schedule thm
+R22180:22221 omi_pi_proof <> diagonal_accumulator_forces_phase_schedule thm
+R22180:22221 omi_pi_proof <> diagonal_accumulator_forces_phase_schedule thm
+R22234:22277 omi_pi_proof <> polybius_diagonal_race_forces_phase_schedule thm
+R22234:22277 omi_pi_proof <> polybius_diagonal_race_forces_phase_schedule thm
+R22234:22277 omi_pi_proof <> polybius_diagonal_race_forces_phase_schedule thm
+def 22312:22336 <> five_factorial_resolution
+R22340:22340 Coq.Numbers.BinNums <> N ind
+def 22364:22382 <> local240_resolution
+R22386:22386 Coq.Numbers.BinNums <> N ind
+R22393:22395 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R22396:22420 omi_pi_proof <> five_factorial_resolution def
+prf 22435:22460 <> local240_is_two_5factorial
+R22485:22487 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22466:22484 omi_pi_proof <> local240_resolution def
+def 22544:22556 <> fano_selector
+R22563:22565 Coq.Init.Datatypes <> nat ind
+binder 22559:22559 <> n:113
+R22570:22570 Coq.Numbers.BinNums <> N ind
+R22575:22582 Coq.NArith.BinNat N of_nat def
+R22586:22590 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R22585:22585 omi_pi_proof <> n:113 var
+def 22611:22627 <> local240_selector
+R22634:22636 Coq.Init.Datatypes <> nat ind
+binder 22630:22630 <> n:114
+R22641:22641 Coq.Numbers.BinNums <> N ind
+R22646:22653 Coq.NArith.BinNat N of_nat def
+R22657:22661 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R22656:22656 omi_pi_proof <> n:114 var
+def 22684:22711 <> projection_denominator_index
+R22718:22720 Coq.Init.Datatypes <> nat ind
+binder 22714:22714 <> n:115
+R22725:22725 Coq.Numbers.BinNums <> N ind
+R22730:22737 Coq.NArith.BinNat N of_nat def
+R22745:22747 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R22741:22743 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R22744:22744 omi_pi_proof <> n:115 var
+rec 22760:22768 <> BQFBridge
+proj 22796:22807 <> bridge_orbit
+proj 22818:22829 <> bridge_fano7
+proj 22838:22852 <> bridge_local240
+proj 22861:22872 <> bridge_cross
+R22811:22813 Coq.Init.Datatypes <> nat ind
+R22833:22833 Coq.Numbers.BinNums <> N ind
+R22856:22856 Coq.Numbers.BinNums <> N ind
+R22876:22876 Coq.Numbers.BinNums <> N ind
+def 22893:22904 <> bridge_phase
+R22911:22919 omi_pi_proof <> BQFBridge rec
+binder 22907:22907 <> b:121
+R22924:22934 omi_pi_proof <> ChiralPhase ind
+R22941:22966 omi_pi_proof <> diagonal_accumulator_phase def
+R22969:22980 omi_pi_proof <> bridge_orbit proj
+R22982:22982 omi_pi_proof <> b:121 var
+def 22998:23015 <> bridge_denominator
+R23022:23030 omi_pi_proof <> BQFBridge rec
+binder 23018:23018 <> b:122
+R23035:23035 Coq.Numbers.BinNums <> N ind
+R23042:23069 omi_pi_proof <> projection_denominator_index def
+R23072:23083 omi_pi_proof <> bridge_orbit proj
+R23085:23085 omi_pi_proof <> b:122 var
+def 23101:23113 <> bqf_bridge_at
+R23120:23122 Coq.Init.Datatypes <> nat ind
+binder 23116:23116 <> n:123
+R23127:23135 omi_pi_proof <> BQFBridge rec
+R23167:23169 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R23152:23164 omi_pi_proof <> fano_selector def
+R23166:23166 omi_pi_proof <> n:123 var
+binder 23146:23146 <> x:124
+R23209:23211 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R23190:23206 omi_pi_proof <> local240_selector def
+R23208:23208 omi_pi_proof <> n:123 var
+binder 23184:23184 <> y:125
+R23222:23232 omi_pi_proof <> mkBQFBridge constr
+R23238:23238 omi_pi_proof <> n:123 var
+R23245:23257 omi_pi_proof <> fano_selector def
+R23259:23259 omi_pi_proof <> n:123 var
+R23267:23283 omi_pi_proof <> local240_selector def
+R23285:23285 omi_pi_proof <> n:123 var
+R23293:23309 omi_pi_proof <> bqf_chiral_bridge def
+R23311:23311 omi_pi_proof <> x:124 var
+R23313:23313 omi_pi_proof <> y:125 var
+prf 23326:23344 <> fano_selector_bound
+R23359:23361 Coq.Init.Datatypes <> nat ind
+binder 23355:23355 <> n:126
+R23382:23384 Coq.NArith.BinNat <> ::N_scope:x_'<'_x not
+R23367:23379 omi_pi_proof <> fano_selector def
+R23381:23381 omi_pi_proof <> n:126 var
+R23418:23430 omi_pi_proof <> fano_selector def
+R23441:23456 Coq.NArith.BinNat N compare_lt_iff thm
+R23441:23456 Coq.NArith.BinNat N compare_lt_iff thm
+R23505:23507 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23488:23491 Coq.NArith.BinNat <> ::N_scope:x_'?='_x not
+R23470:23477 Coq.NArith.BinNat N of_nat def
+R23481:23485 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R23492:23499 Coq.NArith.BinNat N of_nat def
+R23508:23509 Coq.Init.Datatypes <> Lt constr
+R23505:23507 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23488:23491 Coq.NArith.BinNat <> ::N_scope:x_'?='_x not
+R23470:23477 Coq.NArith.BinNat N of_nat def
+R23481:23485 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R23492:23499 Coq.NArith.BinNat N of_nat def
+R23508:23509 Coq.Init.Datatypes <> Lt constr
+R23526:23542 Coq.NArith.Nnat Nat2N inj_compare thm
+R23526:23542 Coq.NArith.Nnat Nat2N inj_compare thm
+R23526:23542 Coq.NArith.Nnat Nat2N inj_compare thm
+R23553:23570 Coq.Arith.PeanoNat Nat compare_lt_iff thm
+R23553:23570 Coq.Arith.PeanoNat Nat compare_lt_iff thm
+R23581:23599 Coq.Arith.PeanoNat Nat mod_upper_bound def
+R23581:23599 Coq.Arith.PeanoNat Nat mod_upper_bound def
+prf 23623:23645 <> local240_selector_bound
+R23660:23662 Coq.Init.Datatypes <> nat ind
+binder 23656:23656 <> n:127
+R23687:23689 Coq.NArith.BinNat <> ::N_scope:x_'<'_x not
+R23668:23684 omi_pi_proof <> local240_selector def
+R23686:23686 omi_pi_proof <> n:127 var
+R23690:23708 omi_pi_proof <> local240_resolution def
+R23742:23767 omi_pi_proof <> local240_is_two_5factorial thm
+R23742:23767 omi_pi_proof <> local240_is_two_5factorial thm
+R23742:23767 omi_pi_proof <> local240_is_two_5factorial thm
+R23779:23795 omi_pi_proof <> local240_selector def
+R23806:23821 Coq.NArith.BinNat N compare_lt_iff thm
+R23806:23821 Coq.NArith.BinNat N compare_lt_iff thm
+R23874:23876 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23855:23858 Coq.NArith.BinNat <> ::N_scope:x_'?='_x not
+R23835:23842 Coq.NArith.BinNat N of_nat def
+R23846:23850 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R23859:23866 Coq.NArith.BinNat N of_nat def
+R23877:23878 Coq.Init.Datatypes <> Lt constr
+R23874:23876 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23855:23858 Coq.NArith.BinNat <> ::N_scope:x_'?='_x not
+R23835:23842 Coq.NArith.BinNat N of_nat def
+R23846:23850 Coq.Arith.PeanoNat <> ::nat_scope:x_'mod'_x not
+R23859:23866 Coq.NArith.BinNat N of_nat def
+R23877:23878 Coq.Init.Datatypes <> Lt constr
+R23895:23911 Coq.NArith.Nnat Nat2N inj_compare thm
+R23895:23911 Coq.NArith.Nnat Nat2N inj_compare thm
+R23895:23911 Coq.NArith.Nnat Nat2N inj_compare thm
+R23922:23939 Coq.Arith.PeanoNat Nat compare_lt_iff thm
+R23922:23939 Coq.Arith.PeanoNat Nat compare_lt_iff thm
+R23950:23968 Coq.Arith.PeanoNat Nat mod_upper_bound def
+R23950:23968 Coq.Arith.PeanoNat Nat mod_upper_bound def
+prf 23992:24027 <> bqf_bridge_phase_matches_accumulator
+R24042:24044 Coq.Init.Datatypes <> nat ind
+binder 24038:24038 <> n:128
+R24079:24081 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24049:24060 omi_pi_proof <> bridge_phase def
+R24063:24075 omi_pi_proof <> bqf_bridge_at def
+R24077:24077 omi_pi_proof <> n:128 var
+R24082:24107 omi_pi_proof <> diagonal_accumulator_phase def
+R24109:24109 omi_pi_proof <> n:128 var
+prf 24146:24181 <> bqf_bridge_phase_computed_from_orbit
+R24196:24204 omi_pi_proof <> BQFBridge rec
+binder 24192:24192 <> b:129
+R24223:24225 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24209:24220 omi_pi_proof <> bridge_phase def
+R24222:24222 omi_pi_proof <> b:129 var
+R24226:24251 omi_pi_proof <> diagonal_accumulator_phase def
+R24254:24265 omi_pi_proof <> bridge_orbit proj
+R24267:24267 omi_pi_proof <> b:129 var
+prf 24305:24346 <> bqf_bridge_denominator_computed_from_orbit
+R24361:24369 omi_pi_proof <> BQFBridge rec
+binder 24357:24357 <> b:130
+R24394:24396 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24374:24391 omi_pi_proof <> bridge_denominator def
+R24393:24393 omi_pi_proof <> b:130 var
+R24397:24424 omi_pi_proof <> projection_denominator_index def
+R24427:24438 omi_pi_proof <> bridge_orbit proj
+R24440:24440 omi_pi_proof <> b:130 var
+prf 24478:24501 <> bqf_bridge_cross_is_16xy
+R24516:24518 Coq.Init.Datatypes <> nat ind
+binder 24512:24512 <> n:131
+R24553:24559 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24523:24534 omi_pi_proof <> bridge_cross proj
+R24537:24549 omi_pi_proof <> bqf_bridge_at def
+R24551:24551 omi_pi_proof <> n:131 var
+R24587:24590 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R24614:24614 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R24563:24566 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R24586:24586 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R24582:24584 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R24567:24579 omi_pi_proof <> fano_selector def
+R24581:24581 omi_pi_proof <> n:131 var
+R24610:24612 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R24591:24607 omi_pi_proof <> local240_selector def
+R24609:24609 omi_pi_proof <> n:131 var
+prf 24654:24669 <> dplus_phase_sign
+R24697:24699 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24673:24685 omi_pi_proof <> phase_to_sign def
+R24687:24696 omi_pi_proof <> DPlusPhase constr
+prf 24737:24753 <> dminus_phase_sign
+R24782:24784 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24757:24769 omi_pi_proof <> phase_to_sign def
+R24771:24781 omi_pi_proof <> DMinusPhase constr
+def 24826:24831 <> OMI_PI
+R24835:24835 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R24840:24845 Coq.Reals.AltSeries <> Alt_PI def
+def 24860:24876 <> omi_pi_phase_even
+R24883:24885 Coq.Init.Datatypes <> nat ind
+binder 24879:24879 <> n:132
+R24890:24893 Coq.Init.Datatypes <> bool ind
+R24898:24905 Coq.Arith.PeanoNat Nat even def
+R24907:24907 omi_pi_proof <> n:132 var
+def 24922:24932 <> omi_pi_sign
+R24939:24941 Coq.Init.Datatypes <> nat ind
+binder 24935:24935 <> n:133
+R24946:24946 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R24956:24972 omi_pi_proof <> omi_pi_phase_even def
+R24974:24974 omi_pi_proof <> n:133 var
+def 25004:25013 <> omi_pi_den
+R25020:25022 Coq.Init.Datatypes <> nat ind
+binder 25016:25016 <> n:134
+R25027:25027 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25032:25034 Coq.Reals.Raxioms <> INR def
+R25042:25044 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R25038:25040 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R25041:25041 omi_pi_proof <> n:134 var
+prf 25058:25098 <> bqf_bridge_denominator_matches_projection
+R25113:25115 Coq.Init.Datatypes <> nat ind
+binder 25109:25109 <> n:135
+R25173:25175 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25120:25122 Coq.Reals.Raxioms <> INR def
+R25125:25132 Coq.NArith.BinNat N to_nat def
+R25135:25152 omi_pi_proof <> bridge_denominator def
+R25155:25167 omi_pi_proof <> bqf_bridge_at def
+R25169:25169 omi_pi_proof <> n:135 var
+R25176:25185 omi_pi_proof <> omi_pi_den def
+R25187:25187 omi_pi_proof <> n:135 var
+R25217:25234 omi_pi_proof <> bridge_denominator def
+R25237:25249 omi_pi_proof <> bqf_bridge_at def
+R25252:25279 omi_pi_proof <> projection_denominator_index def
+R25282:25291 omi_pi_proof <> omi_pi_den def
+R25313:25320 Coq.NArith.Nnat Nat2N id thm
+R25313:25320 Coq.NArith.Nnat Nat2N id thm
+R25313:25320 Coq.NArith.Nnat Nat2N id thm
+prf 25352:25389 <> bqf_bridge_carries_projection_schedule
+R25404:25406 Coq.Init.Datatypes <> nat ind
+binder 25400:25400 <> n:136
+R25445:25450 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R25441:25443 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25411:25422 omi_pi_proof <> bridge_orbit proj
+R25425:25437 omi_pi_proof <> bqf_bridge_at def
+R25439:25439 omi_pi_proof <> n:136 var
+R25444:25444 omi_pi_proof <> n:136 var
+R25512:25517 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R25481:25483 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25451:25462 omi_pi_proof <> bridge_phase def
+R25465:25477 omi_pi_proof <> bqf_bridge_at def
+R25479:25479 omi_pi_proof <> n:136 var
+R25484:25509 omi_pi_proof <> diagonal_accumulator_phase def
+R25511:25511 omi_pi_proof <> n:136 var
+R25586:25591 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R25571:25573 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25518:25520 Coq.Reals.Raxioms <> INR def
+R25523:25530 Coq.NArith.BinNat N to_nat def
+R25533:25550 omi_pi_proof <> bridge_denominator def
+R25553:25565 omi_pi_proof <> bqf_bridge_at def
+R25567:25567 omi_pi_proof <> n:136 var
+R25574:25583 omi_pi_proof <> omi_pi_den def
+R25585:25585 omi_pi_proof <> n:136 var
+R25622:25628 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25592:25603 omi_pi_proof <> bridge_cross proj
+R25606:25618 omi_pi_proof <> bqf_bridge_at def
+R25620:25620 omi_pi_proof <> n:136 var
+R25656:25659 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R25683:25683 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R25632:25635 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R25655:25655 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R25651:25653 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R25636:25648 omi_pi_proof <> fano_selector def
+R25650:25650 omi_pi_proof <> n:136 var
+R25679:25681 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R25660:25676 omi_pi_proof <> local240_selector def
+R25678:25678 omi_pi_proof <> n:136 var
+R25756:25791 omi_pi_proof <> bqf_bridge_phase_matches_accumulator thm
+R25756:25791 omi_pi_proof <> bqf_bridge_phase_matches_accumulator thm
+R25821:25861 omi_pi_proof <> bqf_bridge_denominator_matches_projection thm
+R25821:25861 omi_pi_proof <> bqf_bridge_denominator_matches_projection thm
+R25878:25901 omi_pi_proof <> bqf_bridge_cross_is_16xy thm
+R25878:25901 omi_pi_proof <> bqf_bridge_cross_is_16xy thm
+def 25921:25946 <> omi_pi_term_from_incidence
+R25953:25955 Coq.Init.Datatypes <> nat ind
+binder 25949:25949 <> n:137
+R25960:25960 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25980:25982 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R25967:25977 omi_pi_proof <> omi_pi_sign def
+R25979:25979 omi_pi_proof <> n:137 var
+R25983:25992 omi_pi_proof <> omi_pi_den def
+R25994:25994 omi_pi_proof <> n:137 var
+prf 26006:26044 <> polybius_phase_sign_matches_omi_pi_sign
+R26059:26061 Coq.Init.Datatypes <> nat ind
+binder 26055:26055 <> n:138
+R26101:26103 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26066:26078 omi_pi_proof <> phase_to_sign def
+R26081:26097 omi_pi_proof <> polybius_phase_at def
+R26099:26099 omi_pi_proof <> n:138 var
+R26104:26114 omi_pi_proof <> omi_pi_sign def
+R26116:26116 omi_pi_proof <> n:138 var
+R26147:26174 omi_pi_proof <> diagonal_phase_schedule_even thm
+R26147:26174 omi_pi_proof <> diagonal_phase_schedule_even thm
+R26147:26174 omi_pi_proof <> diagonal_phase_schedule_even thm
+R26186:26196 omi_pi_proof <> omi_pi_sign def
+R26199:26215 omi_pi_proof <> omi_pi_phase_even def
+R26230:26237 Coq.Arith.PeanoNat Nat even def
+R26230:26237 Coq.Arith.PeanoNat Nat even def
+def 26273:26297 <> omi_pi_term_from_polybius
+R26304:26306 Coq.Init.Datatypes <> nat ind
+binder 26300:26300 <> n:139
+R26311:26311 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R26353:26355 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R26318:26330 omi_pi_proof <> phase_to_sign def
+R26333:26349 omi_pi_proof <> polybius_phase_at def
+R26351:26351 omi_pi_proof <> n:139 var
+R26356:26365 omi_pi_proof <> omi_pi_den def
+R26367:26367 omi_pi_proof <> n:139 var
+prf 26379:26421 <> omi_pi_term_from_polybius_matches_incidence
+R26436:26438 Coq.Init.Datatypes <> nat ind
+binder 26432:26432 <> n:140
+R26470:26472 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26443:26467 omi_pi_proof <> omi_pi_term_from_polybius def
+R26469:26469 omi_pi_proof <> n:140 var
+R26473:26498 omi_pi_proof <> omi_pi_term_from_incidence def
+R26500:26500 omi_pi_proof <> n:140 var
+R26530:26554 omi_pi_proof <> omi_pi_term_from_polybius def
+R26557:26582 omi_pi_proof <> omi_pi_term_from_incidence def
+R26595:26633 omi_pi_proof <> polybius_phase_sign_matches_omi_pi_sign thm
+R26595:26633 omi_pi_proof <> polybius_phase_sign_matches_omi_pi_sign thm
+R26595:26633 omi_pi_proof <> polybius_phase_sign_matches_omi_pi_sign thm
+def 26668:26697 <> omi_pi_term_from_diagonal_race
+R26704:26706 Coq.Init.Datatypes <> nat ind
+binder 26700:26700 <> n:141
+R26711:26711 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R26755:26757 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R26718:26730 omi_pi_proof <> phase_to_sign def
+R26733:26751 omi_pi_proof <> diagonal_race_phase def
+R26753:26753 omi_pi_proof <> n:141 var
+R26758:26767 omi_pi_proof <> omi_pi_den def
+R26769:26769 omi_pi_proof <> n:141 var
+prf 26781:26827 <> omi_pi_term_from_diagonal_race_matches_polybius
+R26842:26844 Coq.Init.Datatypes <> nat ind
+binder 26838:26838 <> n:142
+R26881:26883 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26849:26878 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R26880:26880 omi_pi_proof <> n:142 var
+R26884:26908 omi_pi_proof <> omi_pi_term_from_polybius def
+R26910:26910 omi_pi_proof <> n:142 var
+R26940:26969 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R26972:26996 omi_pi_proof <> omi_pi_term_from_polybius def
+R27009:27052 omi_pi_proof <> polybius_diagonal_race_forces_phase_schedule thm
+R27009:27052 omi_pi_proof <> polybius_diagonal_race_forces_phase_schedule thm
+R27009:27052 omi_pi_proof <> polybius_diagonal_race_forces_phase_schedule thm
+def 27087:27123 <> omi_pi_term_from_diagonal_accumulator
+R27130:27132 Coq.Init.Datatypes <> nat ind
+binder 27126:27126 <> n:143
+R27137:27137 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R27188:27190 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R27144:27156 omi_pi_proof <> phase_to_sign def
+R27159:27184 omi_pi_proof <> diagonal_accumulator_phase def
+R27186:27186 omi_pi_proof <> n:143 var
+R27191:27200 omi_pi_proof <> omi_pi_den def
+R27202:27202 omi_pi_proof <> n:143 var
+prf 27214:27263 <> omi_pi_term_from_diagonal_accumulator_matches_race
+R27278:27280 Coq.Init.Datatypes <> nat ind
+binder 27274:27274 <> n:144
+R27324:27326 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27285:27321 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator def
+R27323:27323 omi_pi_proof <> n:144 var
+R27327:27356 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R27358:27358 omi_pi_proof <> n:144 var
+R27388:27424 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator def
+R27427:27456 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R27469:27507 omi_pi_proof <> diagonal_accumulator_phase_matches_race thm
+R27469:27507 omi_pi_proof <> diagonal_accumulator_phase_matches_race thm
+R27469:27507 omi_pi_proof <> diagonal_accumulator_phase_matches_race thm
+prf 27539:27569 <> omi_pi_sign_matches_alternation
+R27584:27586 Coq.Init.Datatypes <> nat ind
+binder 27580:27580 <> n:145
+R27604:27606 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27591:27601 omi_pi_proof <> omi_pi_sign def
+R27603:27603 omi_pi_proof <> n:145 var
+R27607:27607 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R27610:27613 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R27614:27614 omi_pi_proof <> n:145 var
+R27655:27674 omi_pi_proof <> nat_induction_by_two thm
+R27655:27674 omi_pi_proof <> nat_induction_by_two thm
+R27717:27727 omi_pi_proof <> omi_pi_sign def
+R27730:27746 omi_pi_proof <> omi_pi_phase_even def
+R27782:27792 omi_pi_proof <> omi_pi_sign def
+R27795:27811 omi_pi_proof <> omi_pi_phase_even def
+R27831:27848 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R27831:27848 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R27831:27848 Coq.Arith.PeanoNat Nat even_succ_succ thm
+prf 27903:27928 <> omi_pi_term_matches_tg_alt
+R27943:27945 Coq.Init.Datatypes <> nat ind
+binder 27939:27939 <> n:146
+R27978:27980 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27950:27975 omi_pi_proof <> omi_pi_term_from_incidence def
+R27977:27977 omi_pi_proof <> n:146 var
+R27981:27986 Coq.Reals.AltSeries <> tg_alt def
+R27988:27992 Coq.Reals.AltSeries <> PI_tg def
+R27994:27994 omi_pi_proof <> n:146 var
+R28024:28049 omi_pi_proof <> omi_pi_term_from_incidence def
+R28052:28061 omi_pi_proof <> omi_pi_den def
+R28064:28069 Coq.Reals.AltSeries <> tg_alt def
+R28072:28076 Coq.Reals.AltSeries <> PI_tg def
+R28089:28119 omi_pi_proof <> omi_pi_sign_matches_alternation thm
+R28089:28119 omi_pi_proof <> omi_pi_sign_matches_alternation thm
+R28089:28119 omi_pi_proof <> omi_pi_sign_matches_alternation thm
+R28139:28147 Coq.Reals.RIneq <> not_0_INR thm
+R28139:28147 Coq.Reals.RIneq <> not_0_INR thm
+def 28174:28187 <> omi_pi_partial
+R28194:28196 Coq.Init.Datatypes <> nat ind
+binder 28190:28190 <> n:147
+R28201:28201 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28209:28211 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R28212:28219 Coq.Reals.Rfunctions <> sum_f_R0 def
+R28222:28227 Coq.Reals.AltSeries <> tg_alt def
+R28229:28233 Coq.Reals.AltSeries <> PI_tg def
+R28236:28236 omi_pi_proof <> n:147 var
+def 28251:28279 <> omi_pi_partial_from_incidence
+R28286:28288 Coq.Init.Datatypes <> nat ind
+binder 28282:28282 <> n:148
+R28293:28293 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28301:28303 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R28304:28311 Coq.Reals.Rfunctions <> sum_f_R0 def
+R28313:28338 omi_pi_proof <> omi_pi_term_from_incidence def
+R28340:28340 omi_pi_proof <> n:148 var
+def 28355:28382 <> omi_pi_partial_from_polybius
+R28389:28391 Coq.Init.Datatypes <> nat ind
+binder 28385:28385 <> n:149
+R28396:28396 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28404:28406 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R28407:28414 Coq.Reals.Rfunctions <> sum_f_R0 def
+R28416:28440 omi_pi_proof <> omi_pi_term_from_polybius def
+R28442:28442 omi_pi_proof <> n:149 var
+def 28457:28489 <> omi_pi_partial_from_diagonal_race
+R28496:28498 Coq.Init.Datatypes <> nat ind
+binder 28492:28492 <> n:150
+R28503:28503 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28511:28513 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R28514:28521 Coq.Reals.Rfunctions <> sum_f_R0 def
+R28523:28552 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R28554:28554 omi_pi_proof <> n:150 var
+def 28569:28608 <> omi_pi_partial_from_diagonal_accumulator
+R28615:28617 Coq.Init.Datatypes <> nat ind
+binder 28611:28611 <> n:151
+R28622:28622 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28630:28632 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R28633:28640 Coq.Reals.Rfunctions <> sum_f_R0 def
+R28642:28678 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator def
+R28680:28680 omi_pi_proof <> n:151 var
+def 28695:28706 <> omi_pi_lower
+R28713:28715 Coq.Init.Datatypes <> nat ind
+binder 28709:28709 <> n:152
+R28720:28720 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28725:28738 omi_pi_proof <> omi_pi_partial def
+R28741:28741 Coq.Init.Datatypes <> S constr
+R28745:28747 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R28748:28748 omi_pi_proof <> n:152 var
+def 28765:28776 <> omi_pi_upper
+R28783:28785 Coq.Init.Datatypes <> nat ind
+binder 28779:28779 <> n:153
+R28790:28790 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R28795:28808 omi_pi_proof <> omi_pi_partial def
+R28812:28814 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R28815:28815 omi_pi_proof <> n:153 var
+prf 28828:28864 <> omi_pi_partial_from_incidence_matches
+R28879:28881 Coq.Init.Datatypes <> nat ind
+binder 28875:28875 <> n:154
+R28917:28919 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28886:28914 omi_pi_proof <> omi_pi_partial_from_incidence def
+R28916:28916 omi_pi_proof <> n:154 var
+R28920:28933 omi_pi_proof <> omi_pi_partial def
+R28935:28935 omi_pi_proof <> n:154 var
+R28965:28993 omi_pi_proof <> omi_pi_partial_from_incidence def
+R28996:29009 omi_pi_proof <> omi_pi_partial def
+R29020:29036 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R29020:29036 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R29047:29052 Coq.Reals.PartSum <> sum_eq thm
+R29047:29052 Coq.Reals.PartSum <> sum_eq thm
+R29077:29102 omi_pi_proof <> omi_pi_term_matches_tg_alt thm
+R29077:29102 omi_pi_proof <> omi_pi_term_matches_tg_alt thm
+prf 29119:29164 <> omi_pi_partial_from_polybius_matches_incidence
+R29179:29181 Coq.Init.Datatypes <> nat ind
+binder 29175:29175 <> n:155
+R29216:29218 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29186:29213 omi_pi_proof <> omi_pi_partial_from_polybius def
+R29215:29215 omi_pi_proof <> n:155 var
+R29219:29247 omi_pi_proof <> omi_pi_partial_from_incidence def
+R29249:29249 omi_pi_proof <> n:155 var
+R29279:29306 omi_pi_proof <> omi_pi_partial_from_polybius def
+R29309:29337 omi_pi_proof <> omi_pi_partial_from_incidence def
+R29348:29364 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R29348:29364 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R29375:29380 Coq.Reals.PartSum <> sum_eq thm
+R29375:29380 Coq.Reals.PartSum <> sum_eq thm
+R29405:29447 omi_pi_proof <> omi_pi_term_from_polybius_matches_incidence thm
+R29405:29447 omi_pi_proof <> omi_pi_term_from_polybius_matches_incidence thm
+prf 29464:29513 <> omi_pi_partial_from_diagonal_race_matches_polybius
+R29528:29530 Coq.Init.Datatypes <> nat ind
+binder 29524:29524 <> n:156
+R29570:29572 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29535:29567 omi_pi_proof <> omi_pi_partial_from_diagonal_race def
+R29569:29569 omi_pi_proof <> n:156 var
+R29573:29600 omi_pi_proof <> omi_pi_partial_from_polybius def
+R29602:29602 omi_pi_proof <> n:156 var
+R29632:29664 omi_pi_proof <> omi_pi_partial_from_diagonal_race def
+R29667:29694 omi_pi_proof <> omi_pi_partial_from_polybius def
+R29705:29721 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R29705:29721 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R29732:29737 Coq.Reals.PartSum <> sum_eq thm
+R29732:29737 Coq.Reals.PartSum <> sum_eq thm
+R29762:29808 omi_pi_proof <> omi_pi_term_from_diagonal_race_matches_polybius thm
+R29762:29808 omi_pi_proof <> omi_pi_term_from_diagonal_race_matches_polybius thm
+prf 29825:29877 <> omi_pi_partial_from_diagonal_accumulator_matches_race
+R29892:29894 Coq.Init.Datatypes <> nat ind
+binder 29888:29888 <> n:157
+R29941:29943 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29899:29938 omi_pi_proof <> omi_pi_partial_from_diagonal_accumulator def
+R29940:29940 omi_pi_proof <> n:157 var
+R29944:29976 omi_pi_proof <> omi_pi_partial_from_diagonal_race def
+R29978:29978 omi_pi_proof <> n:157 var
+R30008:30047 omi_pi_proof <> omi_pi_partial_from_diagonal_accumulator def
+R30050:30082 omi_pi_proof <> omi_pi_partial_from_diagonal_race def
+R30093:30109 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R30093:30109 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R30120:30125 Coq.Reals.PartSum <> sum_eq thm
+R30120:30125 Coq.Reals.PartSum <> sum_eq thm
+R30150:30199 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+R30150:30199 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+prf 30216:30249 <> omi_pi_projection_series_converges
+R30255:30259 Coq.Reals.Rseries <> Un_cv def
+R30311:30313 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30305:30310 omi_pi_proof <> OMI_PI def
+R30270:30272 Coq.Init.Datatypes <> nat ind
+binder 30266:30266 <> n:158
+R30277:30284 Coq.Reals.Rfunctions <> sum_f_R0 def
+R30287:30292 Coq.Reals.AltSeries <> tg_alt def
+R30294:30298 Coq.Reals.AltSeries <> PI_tg def
+R30301:30301 omi_pi_proof <> n:158 var
+R30334:30339 omi_pi_proof <> OMI_PI def
+R30342:30347 Coq.Reals.AltSeries <> Alt_PI def
+R30361:30368 Coq.Reals.AltSeries <> exist_PI thm
+R30406:30408 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30402:30404 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30406:30408 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30402:30404 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+prf 30455:30486 <> omi_pi_projection_interval_route
+R30501:30503 Coq.Init.Datatypes <> nat ind
+binder 30497:30497 <> n:159
+R30522:30525 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R30532:30535 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R30508:30519 omi_pi_proof <> omi_pi_lower def
+R30521:30521 omi_pi_proof <> n:159 var
+R30526:30531 omi_pi_proof <> OMI_PI def
+R30526:30531 omi_pi_proof <> OMI_PI def
+R30536:30547 omi_pi_proof <> omi_pi_upper def
+R30549:30549 omi_pi_proof <> n:159 var
+R30579:30590 omi_pi_proof <> omi_pi_lower def
+R30593:30604 omi_pi_proof <> omi_pi_upper def
+R30607:30620 omi_pi_proof <> omi_pi_partial def
+R30623:30628 omi_pi_proof <> OMI_PI def
+R30643:30653 Coq.Reals.AltSeries <> Alt_PI_ineq thm
+R30643:30653 Coq.Reals.AltSeries <> Alt_PI_ineq thm
+R30693:30698 Coq.Reals.AltSeries <> Alt_PI def
+R30707:30710 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30721:30721 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30717:30719 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30711:30716 Coq.Reals.AltSeries <> Alt_PI def
+R30693:30698 Coq.Reals.AltSeries <> Alt_PI def
+R30707:30710 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30721:30721 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30717:30719 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30711:30716 Coq.Reals.AltSeries <> Alt_PI def
+R30744:30760 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R30744:30760 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R30780:30785 Coq.Reals.AltSeries <> Alt_PI def
+R30794:30797 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30808:30808 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30804:30806 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30798:30803 Coq.Reals.AltSeries <> Alt_PI def
+R30780:30785 Coq.Reals.AltSeries <> Alt_PI def
+R30794:30797 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30808:30808 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30804:30806 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R30798:30803 Coq.Reals.AltSeries <> Alt_PI def
+R30831:30847 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R30831:30847 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+prf 30869:30894 <> omi_pi_partial_error_bound
+R30909:30911 Coq.Init.Datatypes <> nat ind
+binder 30905:30905 <> n:160
+R30947:30950 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R30916:30920 Coq.Reals.Rfunctions <> Rdist def
+R30923:30936 omi_pi_proof <> omi_pi_partial def
+R30938:30938 omi_pi_proof <> n:160 var
+R30941:30946 omi_pi_proof <> OMI_PI def
+R30952:30954 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R30955:30959 Coq.Reals.AltSeries <> PI_tg def
+R30961:30961 omi_pi_proof <> n:160 var
+R30991:31004 omi_pi_proof <> omi_pi_partial def
+R31017:31022 omi_pi_proof <> OMI_PI def
+R31031:31034 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R31045:31045 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R31041:31043 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R31035:31040 omi_pi_proof <> OMI_PI def
+R31017:31022 omi_pi_proof <> OMI_PI def
+R31031:31034 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R31045:31045 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R31041:31043 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R31035:31040 omi_pi_proof <> OMI_PI def
+R31068:31079 Coq.Reals.Rfunctions <> Rdist_mult_l thm
+R31068:31079 Coq.Reals.Rfunctions <> Rdist_mult_l thm
+R31068:31079 Coq.Reals.Rfunctions <> Rdist_mult_l thm
+R31093:31096 Coq.Reals.Rbasic_fun <> Rabs def
+R31120:31129 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R31093:31096 Coq.Reals.Rbasic_fun <> Rabs def
+R31120:31129 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R31120:31129 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R31120:31129 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R31146:31162 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R31146:31162 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R31183:31202 Coq.Reals.Ratan <> Alt_first_term_bound thm
+R31204:31208 Coq.Reals.AltSeries <> PI_tg def
+R31217:31219 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R31211:31216 omi_pi_proof <> OMI_PI def
+R31183:31202 Coq.Reals.Ratan <> Alt_first_term_bound thm
+R31204:31208 Coq.Reals.AltSeries <> PI_tg def
+R31217:31219 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R31211:31216 omi_pi_proof <> OMI_PI def
+R31239:31254 Coq.Reals.AltSeries <> PI_tg_decreasing thm
+R31239:31254 Coq.Reals.AltSeries <> PI_tg_decreasing thm
+R31267:31274 Coq.Reals.AltSeries <> PI_tg_cv thm
+R31267:31274 Coq.Reals.AltSeries <> PI_tg_cv thm
+R31287:31320 omi_pi_proof <> omi_pi_projection_series_converges thm
+R31287:31320 omi_pi_proof <> omi_pi_projection_series_converges thm
+R31333:31336 Coq.Init.Peano <> le_n constr
+R31333:31336 Coq.Init.Peano <> le_n constr
+prf 31353:31387 <> omi_pi_partial_error_bound_explicit
+R31402:31404 Coq.Init.Datatypes <> nat ind
+binder 31398:31398 <> n:161
+R31440:31443 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R31409:31413 Coq.Reals.Rfunctions <> Rdist def
+R31416:31429 omi_pi_proof <> omi_pi_partial def
+R31431:31431 omi_pi_proof <> n:161 var
+R31434:31439 omi_pi_proof <> OMI_PI def
+R31445:31447 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R31448:31450 Coq.Reals.Raxioms <> INR def
+R31458:31460 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R31454:31456 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R31457:31457 omi_pi_proof <> n:161 var
+R31492:31500 Coq.Reals.RIneq <> Rle_trans thm
+R31492:31500 Coq.Reals.RIneq <> Rle_trans thm
+R31513:31538 omi_pi_proof <> omi_pi_partial_error_bound thm
+R31513:31538 omi_pi_proof <> omi_pi_partial_error_bound thm
+R31552:31556 Coq.Reals.AltSeries <> PI_tg def
+prf 31601:31621 <> OMI_PI_Equals_Real_PI
+R31631:31633 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31625:31630 omi_pi_proof <> OMI_PI def
+R31634:31635 Coq.Reals.Rtrigo1 <> PI def
+R31654:31659 omi_pi_proof <> OMI_PI def
+R31670:31678 Coq.Reals.Ratan <> Alt_PI_eq thm
+R31670:31678 Coq.Reals.Ratan <> Alt_PI_eq thm
+prf 31695:31738 <> omi_pi_incidence_projection_series_converges
+R31744:31748 Coq.Reals.Rseries <> Un_cv def
+R31812:31814 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R31806:31811 omi_pi_proof <> OMI_PI def
+R31759:31761 Coq.Init.Datatypes <> nat ind
+binder 31755:31755 <> n:162
+R31766:31773 Coq.Reals.Rfunctions <> sum_f_R0 def
+R31775:31800 omi_pi_proof <> omi_pi_term_from_incidence def
+R31802:31802 omi_pi_proof <> n:162 var
+R31869:31871 Coq.Init.Datatypes <> nat ind
+binder 31865:31865 <> n:163
+R31876:31883 Coq.Reals.Rfunctions <> sum_f_R0 def
+R31886:31891 Coq.Reals.AltSeries <> tg_alt def
+R31893:31897 Coq.Reals.AltSeries <> PI_tg def
+R31900:31900 omi_pi_proof <> n:163 var
+R31835:31843 Coq.Reals.Ratan <> Un_cv_ext thm
+R31869:31871 Coq.Init.Datatypes <> nat ind
+binder 31865:31865 <> n:164
+R31876:31883 Coq.Reals.Rfunctions <> sum_f_R0 def
+R31886:31891 Coq.Reals.AltSeries <> tg_alt def
+R31893:31897 Coq.Reals.AltSeries <> PI_tg def
+R31900:31900 omi_pi_proof <> n:164 var
+R31835:31843 Coq.Reals.Ratan <> Un_cv_ext thm
+R31941:31946 Coq.Reals.PartSum <> sum_eq thm
+R31941:31946 Coq.Reals.PartSum <> sum_eq thm
+R31975:32000 omi_pi_proof <> omi_pi_term_matches_tg_alt thm
+R31975:32000 omi_pi_proof <> omi_pi_term_matches_tg_alt thm
+R32013:32046 omi_pi_proof <> omi_pi_projection_series_converges thm
+R32013:32046 omi_pi_proof <> omi_pi_projection_series_converges thm
+def 32066:32087 <> omi_pi_incidence_limit
+R32091:32091 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R32093:32095 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R32097:32099 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R32162:32162 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R32096:32096 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 32092:32092 <> l:165
+R32100:32104 Coq.Reals.Rseries <> Un_cv def
+R32161:32161 omi_pi_proof <> l:165 var
+R32115:32117 Coq.Init.Datatypes <> nat ind
+binder 32111:32111 <> n:166
+R32122:32129 Coq.Reals.Rfunctions <> sum_f_R0 def
+R32131:32156 omi_pi_proof <> omi_pi_term_from_incidence def
+R32158:32158 omi_pi_proof <> n:166 var
+R32169:32173 Coq.Init.Specif <> exist constr
+R32190:32233 omi_pi_proof <> omi_pi_incidence_projection_series_converges thm
+R32184:32186 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R32178:32183 omi_pi_proof <> OMI_PI def
+def 32248:32268 <> OMI_PI_from_incidence
+R32272:32272 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R32278:32280 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R32281:32289 Coq.Init.Specif <> proj1_sig def
+R32291:32312 omi_pi_proof <> omi_pi_incidence_limit def
+prf 32324:32358 <> OMI_PI_from_incidence_equals_OMI_PI
+R32385:32387 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32364:32384 omi_pi_proof <> OMI_PI_from_incidence def
+R32388:32393 omi_pi_proof <> OMI_PI def
+R32412:32432 omi_pi_proof <> OMI_PI_from_incidence def
+R32435:32456 omi_pi_proof <> omi_pi_incidence_limit def
+prf 32491:32521 <> OMI_PI_from_incidence_equals_PI
+R32548:32550 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32527:32547 omi_pi_proof <> OMI_PI_from_incidence def
+R32551:32552 Coq.Reals.Rtrigo1 <> PI def
+R32572:32606 omi_pi_proof <> OMI_PI_from_incidence_equals_OMI_PI thm
+R32572:32606 omi_pi_proof <> OMI_PI_from_incidence_equals_OMI_PI thm
+R32572:32606 omi_pi_proof <> OMI_PI_from_incidence_equals_OMI_PI thm
+R32617:32637 omi_pi_proof <> OMI_PI_Equals_Real_PI thm
+R32617:32637 omi_pi_proof <> OMI_PI_Equals_Real_PI thm
+prf 32654:32696 <> omi_pi_polybius_projection_series_converges
+R32702:32706 Coq.Reals.Rseries <> Un_cv def
+R32769:32771 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R32763:32768 omi_pi_proof <> OMI_PI def
+R32717:32719 Coq.Init.Datatypes <> nat ind
+binder 32713:32713 <> n:167
+R32724:32731 Coq.Reals.Rfunctions <> sum_f_R0 def
+R32733:32757 omi_pi_proof <> omi_pi_term_from_polybius def
+R32759:32759 omi_pi_proof <> n:167 var
+R32826:32828 Coq.Init.Datatypes <> nat ind
+binder 32822:32822 <> n:168
+R32833:32840 Coq.Reals.Rfunctions <> sum_f_R0 def
+R32842:32867 omi_pi_proof <> omi_pi_term_from_incidence def
+R32869:32869 omi_pi_proof <> n:168 var
+R32792:32800 Coq.Reals.Ratan <> Un_cv_ext thm
+R32826:32828 Coq.Init.Datatypes <> nat ind
+binder 32822:32822 <> n:169
+R32833:32840 Coq.Reals.Rfunctions <> sum_f_R0 def
+R32842:32867 omi_pi_proof <> omi_pi_term_from_incidence def
+R32869:32869 omi_pi_proof <> n:169 var
+R32792:32800 Coq.Reals.Ratan <> Un_cv_ext thm
+R32910:32915 Coq.Reals.PartSum <> sum_eq thm
+R32910:32915 Coq.Reals.PartSum <> sum_eq thm
+R32944:32986 omi_pi_proof <> omi_pi_term_from_polybius_matches_incidence thm
+R32944:32986 omi_pi_proof <> omi_pi_term_from_polybius_matches_incidence thm
+R32999:33042 omi_pi_proof <> omi_pi_incidence_projection_series_converges thm
+R32999:33042 omi_pi_proof <> omi_pi_incidence_projection_series_converges thm
+def 33062:33082 <> omi_pi_polybius_limit
+R33086:33086 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R33088:33090 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R33092:33094 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R33156:33156 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R33091:33091 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 33087:33087 <> l:170
+R33095:33099 Coq.Reals.Rseries <> Un_cv def
+R33155:33155 omi_pi_proof <> l:170 var
+R33110:33112 Coq.Init.Datatypes <> nat ind
+binder 33106:33106 <> n:171
+R33117:33124 Coq.Reals.Rfunctions <> sum_f_R0 def
+R33126:33150 omi_pi_proof <> omi_pi_term_from_polybius def
+R33152:33152 omi_pi_proof <> n:171 var
+R33163:33167 Coq.Init.Specif <> exist constr
+R33184:33226 omi_pi_proof <> omi_pi_polybius_projection_series_converges thm
+R33178:33180 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R33172:33177 omi_pi_proof <> OMI_PI def
+def 33241:33260 <> OMI_PI_from_polybius
+R33264:33264 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R33270:33272 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R33273:33281 Coq.Init.Specif <> proj1_sig def
+R33283:33303 omi_pi_proof <> omi_pi_polybius_limit def
+prf 33315:33351 <> OMI_PI_from_polybius_equals_incidence
+R33377:33379 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R33357:33376 omi_pi_proof <> OMI_PI_from_polybius def
+R33380:33400 omi_pi_proof <> OMI_PI_from_incidence def
+R33419:33438 omi_pi_proof <> OMI_PI_from_polybius def
+R33441:33461 omi_pi_proof <> omi_pi_polybius_limit def
+R33468:33488 omi_pi_proof <> OMI_PI_from_incidence def
+R33491:33512 omi_pi_proof <> omi_pi_incidence_limit def
+prf 33547:33576 <> OMI_PI_from_polybius_equals_PI
+R33602:33604 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R33582:33601 omi_pi_proof <> OMI_PI_from_polybius def
+R33605:33606 Coq.Reals.Rtrigo1 <> PI def
+R33626:33662 omi_pi_proof <> OMI_PI_from_polybius_equals_incidence thm
+R33626:33662 omi_pi_proof <> OMI_PI_from_polybius_equals_incidence thm
+R33626:33662 omi_pi_proof <> OMI_PI_from_polybius_equals_incidence thm
+R33673:33703 omi_pi_proof <> OMI_PI_from_incidence_equals_PI thm
+R33673:33703 omi_pi_proof <> OMI_PI_from_incidence_equals_PI thm
+prf 33720:33767 <> omi_pi_diagonal_race_projection_series_converges
+R33773:33777 Coq.Reals.Rseries <> Un_cv def
+R33845:33847 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R33839:33844 omi_pi_proof <> OMI_PI def
+R33788:33790 Coq.Init.Datatypes <> nat ind
+binder 33784:33784 <> n:172
+R33795:33802 Coq.Reals.Rfunctions <> sum_f_R0 def
+R33804:33833 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R33835:33835 omi_pi_proof <> n:172 var
+R33902:33904 Coq.Init.Datatypes <> nat ind
+binder 33898:33898 <> n:173
+R33909:33916 Coq.Reals.Rfunctions <> sum_f_R0 def
+R33918:33942 omi_pi_proof <> omi_pi_term_from_polybius def
+R33944:33944 omi_pi_proof <> n:173 var
+R33868:33876 Coq.Reals.Ratan <> Un_cv_ext thm
+R33902:33904 Coq.Init.Datatypes <> nat ind
+binder 33898:33898 <> n:174
+R33909:33916 Coq.Reals.Rfunctions <> sum_f_R0 def
+R33918:33942 omi_pi_proof <> omi_pi_term_from_polybius def
+R33944:33944 omi_pi_proof <> n:174 var
+R33868:33876 Coq.Reals.Ratan <> Un_cv_ext thm
+R33985:33990 Coq.Reals.PartSum <> sum_eq thm
+R33985:33990 Coq.Reals.PartSum <> sum_eq thm
+R34019:34065 omi_pi_proof <> omi_pi_term_from_diagonal_race_matches_polybius thm
+R34019:34065 omi_pi_proof <> omi_pi_term_from_diagonal_race_matches_polybius thm
+R34078:34120 omi_pi_proof <> omi_pi_polybius_projection_series_converges thm
+R34078:34120 omi_pi_proof <> omi_pi_polybius_projection_series_converges thm
+def 34140:34165 <> omi_pi_diagonal_race_limit
+R34171:34171 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R34173:34175 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R34177:34179 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R34246:34246 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R34176:34176 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 34172:34172 <> l:175
+R34180:34184 Coq.Reals.Rseries <> Un_cv def
+R34245:34245 omi_pi_proof <> l:175 var
+R34195:34197 Coq.Init.Datatypes <> nat ind
+binder 34191:34191 <> n:176
+R34202:34209 Coq.Reals.Rfunctions <> sum_f_R0 def
+R34211:34240 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R34242:34242 omi_pi_proof <> n:176 var
+R34253:34257 Coq.Init.Specif <> exist constr
+R34274:34321 omi_pi_proof <> omi_pi_diagonal_race_projection_series_converges thm
+R34268:34270 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R34262:34267 omi_pi_proof <> OMI_PI def
+def 34336:34360 <> OMI_PI_from_diagonal_race
+R34364:34364 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R34372:34374 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R34375:34383 Coq.Init.Specif <> proj1_sig def
+R34385:34410 omi_pi_proof <> omi_pi_diagonal_race_limit def
+prf 34422:34462 <> OMI_PI_from_diagonal_race_equals_polybius
+R34493:34495 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R34468:34492 omi_pi_proof <> OMI_PI_from_diagonal_race def
+R34496:34515 omi_pi_proof <> OMI_PI_from_polybius def
+R34534:34558 omi_pi_proof <> OMI_PI_from_diagonal_race def
+R34561:34586 omi_pi_proof <> omi_pi_diagonal_race_limit def
+R34593:34612 omi_pi_proof <> OMI_PI_from_polybius def
+R34615:34635 omi_pi_proof <> omi_pi_polybius_limit def
+prf 34670:34704 <> OMI_PI_from_diagonal_race_equals_PI
+R34735:34737 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R34710:34734 omi_pi_proof <> OMI_PI_from_diagonal_race def
+R34738:34739 Coq.Reals.Rtrigo1 <> PI def
+R34759:34799 omi_pi_proof <> OMI_PI_from_diagonal_race_equals_polybius thm
+R34759:34799 omi_pi_proof <> OMI_PI_from_diagonal_race_equals_polybius thm
+R34759:34799 omi_pi_proof <> OMI_PI_from_diagonal_race_equals_polybius thm
+R34810:34839 omi_pi_proof <> OMI_PI_from_polybius_equals_PI thm
+R34810:34839 omi_pi_proof <> OMI_PI_from_polybius_equals_PI thm
+prf 34856:34910 <> omi_pi_diagonal_accumulator_projection_series_converges
+R34916:34920 Coq.Reals.Rseries <> Un_cv def
+R34995:34997 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R34989:34994 omi_pi_proof <> OMI_PI def
+R34931:34933 Coq.Init.Datatypes <> nat ind
+binder 34927:34927 <> n:177
+R34938:34945 Coq.Reals.Rfunctions <> sum_f_R0 def
+R34947:34983 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator def
+R34985:34985 omi_pi_proof <> n:177 var
+R35052:35054 Coq.Init.Datatypes <> nat ind
+binder 35048:35048 <> n:178
+R35059:35066 Coq.Reals.Rfunctions <> sum_f_R0 def
+R35068:35097 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R35099:35099 omi_pi_proof <> n:178 var
+R35018:35026 Coq.Reals.Ratan <> Un_cv_ext thm
+R35052:35054 Coq.Init.Datatypes <> nat ind
+binder 35048:35048 <> n:179
+R35059:35066 Coq.Reals.Rfunctions <> sum_f_R0 def
+R35068:35097 omi_pi_proof <> omi_pi_term_from_diagonal_race def
+R35099:35099 omi_pi_proof <> n:179 var
+R35018:35026 Coq.Reals.Ratan <> Un_cv_ext thm
+R35140:35145 Coq.Reals.PartSum <> sum_eq thm
+R35140:35145 Coq.Reals.PartSum <> sum_eq thm
+R35174:35223 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+R35174:35223 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+R35236:35283 omi_pi_proof <> omi_pi_diagonal_race_projection_series_converges thm
+R35236:35283 omi_pi_proof <> omi_pi_diagonal_race_projection_series_converges thm
+def 35303:35335 <> omi_pi_diagonal_accumulator_limit
+R35341:35341 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R35343:35345 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R35347:35349 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R35423:35423 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R35346:35346 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 35342:35342 <> l:180
+R35350:35354 Coq.Reals.Rseries <> Un_cv def
+R35422:35422 omi_pi_proof <> l:180 var
+R35365:35367 Coq.Init.Datatypes <> nat ind
+binder 35361:35361 <> n:181
+R35372:35379 Coq.Reals.Rfunctions <> sum_f_R0 def
+R35381:35417 omi_pi_proof <> omi_pi_term_from_diagonal_accumulator def
+R35419:35419 omi_pi_proof <> n:181 var
+R35430:35434 Coq.Init.Specif <> exist constr
+R35451:35505 omi_pi_proof <> omi_pi_diagonal_accumulator_projection_series_converges thm
+R35445:35447 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R35439:35444 omi_pi_proof <> OMI_PI def
+def 35520:35551 <> OMI_PI_from_diagonal_accumulator
+R35555:35555 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R35563:35565 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R35566:35574 Coq.Init.Specif <> proj1_sig def
+R35576:35608 omi_pi_proof <> omi_pi_diagonal_accumulator_limit def
+prf 35620:35663 <> OMI_PI_from_diagonal_accumulator_equals_race
+R35701:35703 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R35669:35700 omi_pi_proof <> OMI_PI_from_diagonal_accumulator def
+R35704:35728 omi_pi_proof <> OMI_PI_from_diagonal_race def
+R35747:35778 omi_pi_proof <> OMI_PI_from_diagonal_accumulator def
+R35781:35813 omi_pi_proof <> omi_pi_diagonal_accumulator_limit def
+R35820:35844 omi_pi_proof <> OMI_PI_from_diagonal_race def
+R35847:35872 omi_pi_proof <> omi_pi_diagonal_race_limit def
+prf 35907:35948 <> OMI_PI_from_diagonal_accumulator_equals_PI
+R35986:35988 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R35954:35985 omi_pi_proof <> OMI_PI_from_diagonal_accumulator def
+R35989:35990 Coq.Reals.Rtrigo1 <> PI def
+R36010:36053 omi_pi_proof <> OMI_PI_from_diagonal_accumulator_equals_race thm
+R36010:36053 omi_pi_proof <> OMI_PI_from_diagonal_accumulator_equals_race thm
+R36010:36053 omi_pi_proof <> OMI_PI_from_diagonal_accumulator_equals_race thm
+R36064:36098 omi_pi_proof <> OMI_PI_from_diagonal_race_equals_PI thm
+R36064:36098 omi_pi_proof <> OMI_PI_from_diagonal_race_equals_PI thm
+prf 36115:36127 <> omi_pi_bounds
+R36132:36134 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R36141:36143 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R36135:36140 omi_pi_proof <> OMI_PI def
+R36135:36140 omi_pi_proof <> OMI_PI def
+R36164:36184 omi_pi_proof <> OMI_PI_Equals_Real_PI thm
+R36164:36184 omi_pi_proof <> OMI_PI_Equals_Real_PI thm
+R36164:36184 omi_pi_proof <> OMI_PI_Equals_Real_PI thm
+R36210:36216 Coq.Reals.Ratan <> PI_ineq thm
+R36210:36216 Coq.Reals.Ratan <> PI_ineq thm
+R36245:36256 Coq.Reals.RIneq <> Rlt_le_trans thm
+R36262:36264 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R36265:36272 Coq.Reals.Rfunctions <> sum_f_R0 def
+R36275:36280 Coq.Reals.AltSeries <> tg_alt def
+R36282:36286 Coq.Reals.AltSeries <> PI_tg def
+R36245:36256 Coq.Reals.RIneq <> Rlt_le_trans thm
+R36262:36264 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R36265:36272 Coq.Reals.Rfunctions <> sum_f_R0 def
+R36275:36280 Coq.Reals.AltSeries <> tg_alt def
+R36282:36286 Coq.Reals.AltSeries <> PI_tg def
+R36309:36316 Coq.Reals.Rfunctions <> sum_f_R0 def
+R36319:36324 Coq.Reals.AltSeries <> tg_alt def
+R36327:36331 Coq.Reals.AltSeries <> PI_tg def
+R36375:36391 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R36398:36398 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R36375:36391 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R36398:36398 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R36469:36475 Coq.Reals.Ratan <> PI_ineq thm
+R36469:36475 Coq.Reals.Ratan <> PI_ineq thm
+R36503:36514 Coq.Reals.RIneq <> Rle_lt_trans thm
+R36520:36522 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R36523:36530 Coq.Reals.Rfunctions <> sum_f_R0 def
+R36533:36538 Coq.Reals.AltSeries <> tg_alt def
+R36540:36544 Coq.Reals.AltSeries <> PI_tg def
+R36503:36514 Coq.Reals.RIneq <> Rle_lt_trans thm
+R36520:36522 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R36523:36530 Coq.Reals.Rfunctions <> sum_f_R0 def
+R36533:36538 Coq.Reals.AltSeries <> tg_alt def
+R36540:36544 Coq.Reals.AltSeries <> PI_tg def
+R36567:36583 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R36590:36590 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R36567:36583 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R36590:36590 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R36657:36664 Coq.Reals.Rfunctions <> sum_f_R0 def
+R36667:36672 Coq.Reals.AltSeries <> tg_alt def
+R36675:36679 Coq.Reals.AltSeries <> PI_tg def
