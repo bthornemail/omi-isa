@@ -50,7 +50,7 @@ Theorem mask_idempotent :
 Proof.
   intros n x.
   unfold mask.
-  rewrite N.land_assoc.
+  rewrite <- N.land_assoc.
   rewrite N.land_diag.
   reflexivity.
 Qed.

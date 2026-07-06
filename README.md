@@ -2,6 +2,13 @@
 
 A 7-phase distributed semantic execution stack: 16-bit reversible-XOR register VM, 512-bit envelope transport, 32-slot dispatch ISA, gauge lambda engine, LoRa RF transport, Web Serial + WASM bridge, and mesh networking.
 
+OMI is framed as a computational cosmology: a model of how an observable world
+can arise from minimal relational structure.  The project keeps discovery,
+formal proof, and implementation separate.  The executable artifacts are the
+authority; the Coq proofs justify those artifacts; the documentation explains
+why those artifacts were chosen.  See [docs/00_Vision.md](docs/00_Vision.md)
+for the narrative frame.
+
 ```
 OMI-Lisp (.omi) → lexer → parser → AST → compiler → 16-bit bytecode → boot → CPU → log
 
@@ -14,9 +21,21 @@ OMI-Lisp (.omi) → lexer → parser → AST → compiler → 16-bit bytecode �
 
 ## Architecture
 
+### Narrative Order
+
+The repository is organized around a progression from motivation to execution:
+
+1. Canonical cosmology: observer, distinction, place, relation, replay.
+2. Atomic kernel: mask, rotate, XOR, replay, determinism.
+3. Finite geometry: diagonals, incidence, BQF bridge, local schedules.
+4. Projection: sqrt3, phi, pi, and real-analysis boundaries.
+5. Dynamics: GL(16,2) orbit semantics and executable observers.
+6. Verification: functorial, coalgebraic, bialgebraic, and execution layers.
+7. Hardware: C, WASM, and ESP32/LoRa realization.
+
 ### GL(16,2) Linear Dynamics
 
-The orbit engine (`omi_orbit.c/h`) implements a finite linear dynamical
+The orbit engine (`lib/omi_orbit.c` / `lib/omi_orbit.h`) implements a finite linear dynamical
 system over GF(2^16):
 
     Δ(x, c) = A(x) ⊕ c    (x' = A·x ⊕ c, c' = c)
@@ -179,13 +198,13 @@ Node A                    Node B
   |<-- SYNC_COMMIT_ACK ---|    Both nodes probe_state = NEGOTIATED
 ```
 
-Managed by `omi_probe.h/c` — session-based state machine with `omi_probe_handshake()` convenience function.
+Managed by `lib/omi_probe.h` / `lib/omi_probe.c` — session-based state machine with `omi_probe_handshake()` convenience function.
 
 ---
 
 ## Streaming Parser
 
-State machine (`stream.h/c`) that reassembles 64-byte envelopes from a byte stream:
+State machine (`lib/stream.h` / `lib/stream.c`) that reassembles 64-byte envelopes from a byte stream:
 
 ```
 WAITING → HEADER (match 8-byte pre-header) → PAYLOAD (fill 56 bytes) → COMPLETE
@@ -201,7 +220,7 @@ WAITING → HEADER (match 8-byte pre-header) → PAYLOAD (fill 56 bytes) → COM
 
 ## Transport Layer
 
-Abstract `OMI_Transport` interface (`omi_transport.h/c`):
+Abstract `OMI_Transport` interface (`lib/omi_transport.h` / `lib/omi_transport.c`):
 
 | Method | Signature | Purpose |
 |--------|-----------|---------|
@@ -212,14 +231,14 @@ Abstract `OMI_Transport` interface (`omi_transport.h/c`):
 
 ### Implementations
 
-- **`omi_transport_sim.c`** — linked ring-buffer pair for two-node simulation
-- **`omi_transport_lora.c`** — SX1262 SPI driver stub (Linux `/dev/spidev`)
+- **`lib/omi_transport_sim.c`** — linked ring-buffer pair for two-node simulation
+- **`lib/omi_transport_lora.c`** — SX1262 SPI driver stub (Linux `/dev/spidev`)
 
 ---
 
 ## Gauge Lambda Execution
 
-`gauge_exec.h/c` — runtime lambda evaluation engine:
+`lib/gauge_exec.h` / `lib/gauge_exec.c` — runtime lambda evaluation engine:
 
 - `gauge_exec_bind(code, handler)` — bind a handler to a gauge slot
 - `gauge_exec_unbind(code)` — release binding
@@ -240,7 +259,7 @@ When a gauge entry has `is_lambda=1`, executing it evaluates the car/cdr chain d
 
 ## Sector Iterator
 
-`sector.h/c` — 512-byte sector divided into 8 × 64-byte cells for storage iteration.
+`lib/sector.h` / `lib/sector.c` — 512-byte sector divided into 8 × 64-byte cells for storage iteration.
 
 ---
 
@@ -256,7 +275,7 @@ make test_gauge_exec        # 21 gauge lambda execution tests
 make test_radio_vm          # 43 radio VM end-to-end tests
 make test_mesh             # 23 mesh routing/queue tests
 make test_orbit            # 68 orbit engine tests
-make test                  # all 6 test suites (225 tests)
+make test                  # all C and web test suites
 make wasm                   # build WASM module (requires emcc)
 make run                    # ./omi_vm programs/test.omi
 make run-tc                 # toolchain compile only
@@ -275,6 +294,11 @@ All test targets auto-run after compilation. Zero warnings expected.
 | test_radio_vm | 43 | Sim transport, envelope send/recv, probe session, two-node handshake, transport→stream→dispatch pipeline |
 | test_mesh     | 23 | Mesh routing table, route update flood, data forwarding, store-and-forward queue, retry/expiry |
 | test_orbit    | 68 | GL(16,2) orbit engine: delta16, step, trace cycle detection, Fano/Tetra/Phase observers, 5040 atlas, BQF, attestation |
+| test_omi_sense | 55 | OMI sense delta/projection checks |
+| test_pg | — | Projective geometry checks |
+| test_omicron | — | Omicron lowering/runtime checks |
+| test_omion | — | Omion runtime checks |
+| test_receipt | — | Receipt generation and verification checks |
 
 ---
 
@@ -282,33 +306,33 @@ All test targets auto-run after compilation. Zero warnings expected.
 
 ```
 Phase 0 — Core VM + Envelope
-├── isa.h                 opcodes, bit masks, encoding shifts
-├── cpu.c / cpu.h         16-bit register VM, step(), run(), mode enforcement
-├── boot.c                boot sequence (seed, delta init, kernel entry)
-├── asm.c                 instruction encoder
-├── ast.c / ast.h         AST node constructors
-├── compiler.c            OMI-Lisp AST → 16-bit bytecode
-├── lexer.c / lexer.h     OMI-Lisp tokenizer
-├── parser.c              recursive-descent parser
-├── loader.c / loader.h   binary loader
 ├── main.c                pipeline entry point
 ├── toolchain_main.c      standalone compiler entry
-├── omienv.c / omienv.h   512-bit envelope, bitboard, gauge table
-├── stream.c / stream.h   streaming parser, auto-dispatch
-├── sector.c / sector.h   512-byte sector iterator
-├── omi_orbit.c / .h      GL(16,2) orbit engine, observers, 5040 atlas
+├── lib/isa.h                 opcodes, bit masks, encoding shifts
+├── lib/cpu.c / lib/cpu.h     16-bit register VM, step(), run(), mode enforcement
+├── lib/boot.c                boot sequence (seed, delta init, kernel entry)
+├── lib/asm.c                 instruction encoder
+├── lib/ast.c / lib/ast.h     AST node constructors
+├── lib/compiler.c            OMI-Lisp AST → 16-bit bytecode
+├── lib/lexer.c / lib/lexer.h OMI-Lisp tokenizer
+├── lib/parser.c              recursive-descent parser
+├── lib/loader.c / lib/loader.h binary loader
+├── lib/omienv.c / lib/omienv.h 512-bit envelope, bitboard, gauge table
+├── lib/stream.c / lib/stream.h streaming parser, auto-dispatch
+├── lib/sector.c / lib/sector.h 512-byte sector iterator
+├── lib/omi_orbit.c / lib/omi_orbit.h GL(16,2) orbit engine, observers, 5040 atlas
 
 Phase 1 — Dispatch + Transport
-├── omi_dispatch.c / .h   32-slot dispatch table, handlers
-├── omi_transport.c / .h  abstract transport interface
+├── lib/omi_dispatch.c / lib/omi_dispatch.h   32-slot dispatch table, handlers
+├── lib/omi_transport.c / lib/omi_transport.h abstract transport interface
 
 Phase 2 — Gauge Lambda
-├── gauge_exec.c / .h     gauge lambda evaluation engine
+├── lib/gauge_exec.c / lib/gauge_exec.h       gauge lambda evaluation engine
 
 Phase 3 — Radio VM
-├── omi_transport_sim.c / .h  simulated paired transport
-├── omi_transport_lora.c / .h SX1262 LoRa driver stub
-├── omi_probe.c / .h      probe handshake state machine
+├── lib/omi_transport_sim.c / lib/omi_transport_sim.h   simulated paired transport
+├── lib/omi_transport_lora.c / lib/omi_transport_lora.h SX1262 LoRa driver stub
+├── lib/omi_probe.c / lib/omi_probe.h                   probe handshake state machine
 
 Phase 4 — Web Serial + WASM Bridge
 ├── web/omi_web_bridge.c     Emscripten WASM bindings
@@ -336,9 +360,12 @@ Phase 6 — Web Audio Integration
 └── web/omi_audio_worklet.js     (AudioWorkletProcessor: PCM → 16-sample frames)
 
 Phase 7 — Mesh Networking
-├── omi_mesh.c / omi_mesh.h      Mesh transport layer: routing table, store-and-forward,
-│                                 route update flood, retry queue, stale expiry
-└── test_mesh.c                  23 mesh routing/forwarding/queue tests
+├── lib/omi_mesh.c / lib/omi_mesh.h      Mesh transport layer: routing table, store-and-forward,
+│                                         route update flood, retry queue, stale expiry
+└── test/test_mesh.c                     23 mesh routing/forwarding/queue tests
+
+Scripts
+└── scripts/gen_bootstrap.py     bootstrap compiler image generator
 
 Formal Verification (Coq)
 └── proof/
@@ -348,11 +375,17 @@ Formal Verification (Coq)
     └── OMI_bialgebra.v               Alg/CoAlg/Bialg records, coinductive stream, bialgebra_commutation/coherence, concrete bialgebra instances, extraction
 
 Tests
-├── test_env.c            39 envelope/stream/sector tests
-├── test_dispatch.c       31 dispatch table tests
-├── test_gauge_exec.c     21 gauge lambda tests
-├── test_radio_vm.c       43 radio VM end-to-end tests
-├── test_orbit.c          68 GL(16,2) orbit engine tests
+├── test/test_env.c            39 envelope/stream/sector tests
+├── test/test_dispatch.c       31 dispatch table tests
+├── test/test_gauge_exec.c     21 gauge lambda tests
+├── test/test_radio_vm.c       43 radio VM end-to-end tests
+├── test/test_mesh.c           23 mesh routing/forwarding/queue tests
+├── test/test_orbit.c          68 GL(16,2) orbit engine tests
+├── test/test_omi_sense.c      55 OMI sense tests
+├── test/test_pg.c             projective geometry tests
+├── test/test_omicron.c        omicron tests
+├── test/test_omion.c          omion tests
+└── test/test_receipt.c        receipt tests
 
 Programs
 ├── programs/test.omi     (omi . imo)

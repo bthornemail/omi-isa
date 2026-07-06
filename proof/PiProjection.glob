@@ -1,0 +1,792 @@
+DIGEST fd875c37eb6d725619b33dc47b997cee
+FPiProjection
+R130:140 Coq.Reals.Reals <> <> lib
+R167:179 Coq.NArith.NArith <> <> lib
+R206:219 Coq.Arith.PeanoNat <> <> lib
+R246:258 Coq.micromega.Lra <> <> lib
+R285:297 Coq.micromega.Lia <> <> lib
+R336:350 DiagonalClosure <> <> lib
+R368:376 BQFBridge <> <> lib
+R394:409 MetricProjection <> <> lib
+def 424:429 <> OMI_PI
+R433:433 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R438:443 Coq.Reals.AltSeries <> Alt_PI def
+def 458:474 <> omi_pi_phase_even
+R481:483 Coq.Init.Datatypes <> nat ind
+binder 477:477 <> n:1
+R488:491 Coq.Init.Datatypes <> bool ind
+R496:503 Coq.Arith.PeanoNat Nat even def
+R505:505 PiProjection <> n:1 var
+def 520:530 <> omi_pi_sign
+R537:539 Coq.Init.Datatypes <> nat ind
+binder 533:533 <> n:2
+R544:544 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R554:570 PiProjection <> omi_pi_phase_even def
+R572:572 PiProjection <> n:2 var
+def 602:611 <> omi_pi_den
+R618:620 Coq.Init.Datatypes <> nat ind
+binder 614:614 <> n:3
+R625:625 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R630:632 Coq.Reals.Raxioms <> INR def
+R640:642 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R636:638 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R639:639 PiProjection <> n:3 var
+prf 656:696 <> bqf_bridge_denominator_matches_projection
+R711:713 Coq.Init.Datatypes <> nat ind
+binder 707:707 <> n:4
+R771:773 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R718:720 Coq.Reals.Raxioms <> INR def
+R723:730 Coq.NArith.BinNat N to_nat def
+R733:750 BQFBridge <> bridge_denominator def
+R753:765 BQFBridge <> bqf_bridge_at def
+R767:767 PiProjection <> n:4 var
+R774:783 PiProjection <> omi_pi_den def
+R785:785 PiProjection <> n:4 var
+R815:832 BQFBridge <> bridge_denominator def
+R835:847 BQFBridge <> bqf_bridge_at def
+R850:877 BQFBridge <> projection_denominator_index def
+R880:889 PiProjection <> omi_pi_den def
+R911:918 Coq.NArith.Nnat Nat2N id thm
+R911:918 Coq.NArith.Nnat Nat2N id thm
+R911:918 Coq.NArith.Nnat Nat2N id thm
+prf 950:987 <> bqf_bridge_carries_projection_schedule
+R1002:1004 Coq.Init.Datatypes <> nat ind
+binder 998:998 <> n:5
+R1043:1048 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1039:1041 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1009:1020 BQFBridge <> bridge_orbit proj
+R1023:1035 BQFBridge <> bqf_bridge_at def
+R1037:1037 PiProjection <> n:5 var
+R1042:1042 PiProjection <> n:5 var
+R1110:1115 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1079:1081 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1049:1060 BQFBridge <> bridge_phase def
+R1063:1075 BQFBridge <> bqf_bridge_at def
+R1077:1077 PiProjection <> n:5 var
+R1082:1107 DiagonalClosure <> diagonal_accumulator_phase def
+R1109:1109 PiProjection <> n:5 var
+R1184:1189 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1169:1171 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1116:1118 Coq.Reals.Raxioms <> INR def
+R1121:1128 Coq.NArith.BinNat N to_nat def
+R1131:1148 BQFBridge <> bridge_denominator def
+R1151:1163 BQFBridge <> bqf_bridge_at def
+R1165:1165 PiProjection <> n:5 var
+R1172:1181 PiProjection <> omi_pi_den def
+R1183:1183 PiProjection <> n:5 var
+R1220:1226 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1190:1201 BQFBridge <> bridge_cross proj
+R1204:1216 BQFBridge <> bqf_bridge_at def
+R1218:1218 PiProjection <> n:5 var
+R1254:1257 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R1281:1281 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R1230:1233 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R1253:1253 Coq.NArith.BinNat <> ::N_scope:x_'*'_x not
+R1249:1251 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1234:1246 BQFBridge <> fano_selector def
+R1248:1248 PiProjection <> n:5 var
+R1277:1279 Coq.NArith.BinNat <> ::N_scope:x_'+'_x not
+R1258:1274 BQFBridge <> local240_selector def
+R1276:1276 PiProjection <> n:5 var
+R1354:1389 BQFBridge <> bqf_bridge_phase_matches_accumulator thm
+R1354:1389 BQFBridge <> bqf_bridge_phase_matches_accumulator thm
+R1419:1459 PiProjection <> bqf_bridge_denominator_matches_projection thm
+R1419:1459 PiProjection <> bqf_bridge_denominator_matches_projection thm
+R1476:1499 BQFBridge <> bqf_bridge_cross_is_16xy thm
+R1476:1499 BQFBridge <> bqf_bridge_cross_is_16xy thm
+def 1519:1544 <> omi_pi_term_from_incidence
+R1551:1553 Coq.Init.Datatypes <> nat ind
+binder 1547:1547 <> n:6
+R1558:1558 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1578:1580 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1565:1575 PiProjection <> omi_pi_sign def
+R1577:1577 PiProjection <> n:6 var
+R1581:1590 PiProjection <> omi_pi_den def
+R1592:1592 PiProjection <> n:6 var
+prf 1604:1642 <> polybius_phase_sign_matches_omi_pi_sign
+R1657:1659 Coq.Init.Datatypes <> nat ind
+binder 1653:1653 <> n:7
+R1699:1701 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1664:1676 DiagonalClosure <> phase_to_sign def
+R1679:1695 DiagonalClosure <> polybius_phase_at def
+R1697:1697 PiProjection <> n:7 var
+R1702:1712 PiProjection <> omi_pi_sign def
+R1714:1714 PiProjection <> n:7 var
+R1745:1772 DiagonalClosure <> diagonal_phase_schedule_even thm
+R1745:1772 DiagonalClosure <> diagonal_phase_schedule_even thm
+R1745:1772 DiagonalClosure <> diagonal_phase_schedule_even thm
+R1784:1794 PiProjection <> omi_pi_sign def
+R1797:1813 PiProjection <> omi_pi_phase_even def
+R1828:1835 Coq.Arith.PeanoNat Nat even def
+R1828:1835 Coq.Arith.PeanoNat Nat even def
+def 1871:1895 <> omi_pi_term_from_polybius
+R1902:1904 Coq.Init.Datatypes <> nat ind
+binder 1898:1898 <> n:8
+R1909:1909 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1951:1953 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1916:1928 DiagonalClosure <> phase_to_sign def
+R1931:1947 DiagonalClosure <> polybius_phase_at def
+R1949:1949 PiProjection <> n:8 var
+R1954:1963 PiProjection <> omi_pi_den def
+R1965:1965 PiProjection <> n:8 var
+prf 1977:2019 <> omi_pi_term_from_polybius_matches_incidence
+R2034:2036 Coq.Init.Datatypes <> nat ind
+binder 2030:2030 <> n:9
+R2068:2070 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2041:2065 PiProjection <> omi_pi_term_from_polybius def
+R2067:2067 PiProjection <> n:9 var
+R2071:2096 PiProjection <> omi_pi_term_from_incidence def
+R2098:2098 PiProjection <> n:9 var
+R2128:2152 PiProjection <> omi_pi_term_from_polybius def
+R2155:2180 PiProjection <> omi_pi_term_from_incidence def
+R2193:2231 PiProjection <> polybius_phase_sign_matches_omi_pi_sign thm
+R2193:2231 PiProjection <> polybius_phase_sign_matches_omi_pi_sign thm
+R2193:2231 PiProjection <> polybius_phase_sign_matches_omi_pi_sign thm
+def 2266:2295 <> omi_pi_term_from_diagonal_race
+R2302:2304 Coq.Init.Datatypes <> nat ind
+binder 2298:2298 <> n:10
+R2309:2309 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2353:2355 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2316:2328 DiagonalClosure <> phase_to_sign def
+R2331:2349 DiagonalClosure <> diagonal_race_phase def
+R2351:2351 PiProjection <> n:10 var
+R2356:2365 PiProjection <> omi_pi_den def
+R2367:2367 PiProjection <> n:10 var
+prf 2379:2425 <> omi_pi_term_from_diagonal_race_matches_polybius
+R2440:2442 Coq.Init.Datatypes <> nat ind
+binder 2436:2436 <> n:11
+R2479:2481 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2447:2476 PiProjection <> omi_pi_term_from_diagonal_race def
+R2478:2478 PiProjection <> n:11 var
+R2482:2506 PiProjection <> omi_pi_term_from_polybius def
+R2508:2508 PiProjection <> n:11 var
+R2538:2567 PiProjection <> omi_pi_term_from_diagonal_race def
+R2570:2594 PiProjection <> omi_pi_term_from_polybius def
+R2607:2650 DiagonalClosure <> polybius_diagonal_race_forces_phase_schedule thm
+R2607:2650 DiagonalClosure <> polybius_diagonal_race_forces_phase_schedule thm
+R2607:2650 DiagonalClosure <> polybius_diagonal_race_forces_phase_schedule thm
+def 2685:2721 <> omi_pi_term_from_diagonal_accumulator
+R2728:2730 Coq.Init.Datatypes <> nat ind
+binder 2724:2724 <> n:12
+R2735:2735 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2786:2788 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2742:2754 DiagonalClosure <> phase_to_sign def
+R2757:2782 DiagonalClosure <> diagonal_accumulator_phase def
+R2784:2784 PiProjection <> n:12 var
+R2789:2798 PiProjection <> omi_pi_den def
+R2800:2800 PiProjection <> n:12 var
+prf 2812:2861 <> omi_pi_term_from_diagonal_accumulator_matches_race
+R2876:2878 Coq.Init.Datatypes <> nat ind
+binder 2872:2872 <> n:13
+R2922:2924 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2883:2919 PiProjection <> omi_pi_term_from_diagonal_accumulator def
+R2921:2921 PiProjection <> n:13 var
+R2925:2954 PiProjection <> omi_pi_term_from_diagonal_race def
+R2956:2956 PiProjection <> n:13 var
+R2986:3022 PiProjection <> omi_pi_term_from_diagonal_accumulator def
+R3025:3054 PiProjection <> omi_pi_term_from_diagonal_race def
+R3067:3105 DiagonalClosure <> diagonal_accumulator_phase_matches_race thm
+R3067:3105 DiagonalClosure <> diagonal_accumulator_phase_matches_race thm
+R3067:3105 DiagonalClosure <> diagonal_accumulator_phase_matches_race thm
+prf 3137:3167 <> omi_pi_sign_matches_alternation
+R3182:3184 Coq.Init.Datatypes <> nat ind
+binder 3178:3178 <> n:14
+R3202:3204 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3189:3199 PiProjection <> omi_pi_sign def
+R3201:3201 PiProjection <> n:14 var
+R3205:3205 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R3208:3211 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R3212:3212 PiProjection <> n:14 var
+R3253:3272 DiagonalClosure <> nat_induction_by_two thm
+R3253:3272 DiagonalClosure <> nat_induction_by_two thm
+R3315:3325 PiProjection <> omi_pi_sign def
+R3328:3344 PiProjection <> omi_pi_phase_even def
+R3380:3390 PiProjection <> omi_pi_sign def
+R3393:3409 PiProjection <> omi_pi_phase_even def
+R3429:3446 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R3429:3446 Coq.Arith.PeanoNat Nat even_succ_succ thm
+R3429:3446 Coq.Arith.PeanoNat Nat even_succ_succ thm
+prf 3501:3526 <> omi_pi_term_matches_tg_alt
+R3541:3543 Coq.Init.Datatypes <> nat ind
+binder 3537:3537 <> n:15
+R3576:3578 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3548:3573 PiProjection <> omi_pi_term_from_incidence def
+R3575:3575 PiProjection <> n:15 var
+R3579:3584 Coq.Reals.AltSeries <> tg_alt def
+R3586:3590 Coq.Reals.AltSeries <> PI_tg def
+R3592:3592 PiProjection <> n:15 var
+R3622:3647 PiProjection <> omi_pi_term_from_incidence def
+R3650:3659 PiProjection <> omi_pi_den def
+R3662:3667 Coq.Reals.AltSeries <> tg_alt def
+R3670:3674 Coq.Reals.AltSeries <> PI_tg def
+R3687:3717 PiProjection <> omi_pi_sign_matches_alternation thm
+R3687:3717 PiProjection <> omi_pi_sign_matches_alternation thm
+R3687:3717 PiProjection <> omi_pi_sign_matches_alternation thm
+R3737:3745 Coq.Reals.RIneq <> not_0_INR thm
+R3737:3745 Coq.Reals.RIneq <> not_0_INR thm
+def 3772:3785 <> omi_pi_partial
+R3792:3794 Coq.Init.Datatypes <> nat ind
+binder 3788:3788 <> n:16
+R3799:3799 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3807:3809 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3810:3817 Coq.Reals.Rfunctions <> sum_f_R0 def
+R3820:3825 Coq.Reals.AltSeries <> tg_alt def
+R3827:3831 Coq.Reals.AltSeries <> PI_tg def
+R3834:3834 PiProjection <> n:16 var
+def 3849:3877 <> omi_pi_partial_from_incidence
+R3884:3886 Coq.Init.Datatypes <> nat ind
+binder 3880:3880 <> n:17
+R3891:3891 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3899:3901 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3902:3909 Coq.Reals.Rfunctions <> sum_f_R0 def
+R3911:3936 PiProjection <> omi_pi_term_from_incidence def
+R3938:3938 PiProjection <> n:17 var
+def 3953:3980 <> omi_pi_partial_from_polybius
+R3987:3989 Coq.Init.Datatypes <> nat ind
+binder 3983:3983 <> n:18
+R3994:3994 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4002:4004 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4005:4012 Coq.Reals.Rfunctions <> sum_f_R0 def
+R4014:4038 PiProjection <> omi_pi_term_from_polybius def
+R4040:4040 PiProjection <> n:18 var
+def 4055:4087 <> omi_pi_partial_from_diagonal_race
+R4094:4096 Coq.Init.Datatypes <> nat ind
+binder 4090:4090 <> n:19
+R4101:4101 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4109:4111 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4112:4119 Coq.Reals.Rfunctions <> sum_f_R0 def
+R4121:4150 PiProjection <> omi_pi_term_from_diagonal_race def
+R4152:4152 PiProjection <> n:19 var
+def 4167:4206 <> omi_pi_partial_from_diagonal_accumulator
+R4213:4215 Coq.Init.Datatypes <> nat ind
+binder 4209:4209 <> n:20
+R4220:4220 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4228:4230 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4231:4238 Coq.Reals.Rfunctions <> sum_f_R0 def
+R4240:4276 PiProjection <> omi_pi_term_from_diagonal_accumulator def
+R4278:4278 PiProjection <> n:20 var
+def 4293:4304 <> omi_pi_lower
+R4311:4313 Coq.Init.Datatypes <> nat ind
+binder 4307:4307 <> n:21
+R4318:4318 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4323:4336 PiProjection <> omi_pi_partial def
+R4339:4339 Coq.Init.Datatypes <> S constr
+R4343:4345 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R4346:4346 PiProjection <> n:21 var
+def 4363:4374 <> omi_pi_upper
+R4381:4383 Coq.Init.Datatypes <> nat ind
+binder 4377:4377 <> n:22
+R4388:4388 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4393:4406 PiProjection <> omi_pi_partial def
+R4410:4412 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R4413:4413 PiProjection <> n:22 var
+prf 4426:4462 <> omi_pi_partial_from_incidence_matches
+R4477:4479 Coq.Init.Datatypes <> nat ind
+binder 4473:4473 <> n:23
+R4515:4517 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4484:4512 PiProjection <> omi_pi_partial_from_incidence def
+R4514:4514 PiProjection <> n:23 var
+R4518:4531 PiProjection <> omi_pi_partial def
+R4533:4533 PiProjection <> n:23 var
+R4563:4591 PiProjection <> omi_pi_partial_from_incidence def
+R4594:4607 PiProjection <> omi_pi_partial def
+R4618:4634 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R4618:4634 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R4645:4650 Coq.Reals.PartSum <> sum_eq thm
+R4645:4650 Coq.Reals.PartSum <> sum_eq thm
+R4675:4700 PiProjection <> omi_pi_term_matches_tg_alt thm
+R4675:4700 PiProjection <> omi_pi_term_matches_tg_alt thm
+prf 4717:4762 <> omi_pi_partial_from_polybius_matches_incidence
+R4777:4779 Coq.Init.Datatypes <> nat ind
+binder 4773:4773 <> n:24
+R4814:4816 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4784:4811 PiProjection <> omi_pi_partial_from_polybius def
+R4813:4813 PiProjection <> n:24 var
+R4817:4845 PiProjection <> omi_pi_partial_from_incidence def
+R4847:4847 PiProjection <> n:24 var
+R4877:4904 PiProjection <> omi_pi_partial_from_polybius def
+R4907:4935 PiProjection <> omi_pi_partial_from_incidence def
+R4946:4962 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R4946:4962 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R4973:4978 Coq.Reals.PartSum <> sum_eq thm
+R4973:4978 Coq.Reals.PartSum <> sum_eq thm
+R5003:5045 PiProjection <> omi_pi_term_from_polybius_matches_incidence thm
+R5003:5045 PiProjection <> omi_pi_term_from_polybius_matches_incidence thm
+prf 5062:5111 <> omi_pi_partial_from_diagonal_race_matches_polybius
+R5126:5128 Coq.Init.Datatypes <> nat ind
+binder 5122:5122 <> n:25
+R5168:5170 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5133:5165 PiProjection <> omi_pi_partial_from_diagonal_race def
+R5167:5167 PiProjection <> n:25 var
+R5171:5198 PiProjection <> omi_pi_partial_from_polybius def
+R5200:5200 PiProjection <> n:25 var
+R5230:5262 PiProjection <> omi_pi_partial_from_diagonal_race def
+R5265:5292 PiProjection <> omi_pi_partial_from_polybius def
+R5303:5319 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R5303:5319 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R5330:5335 Coq.Reals.PartSum <> sum_eq thm
+R5330:5335 Coq.Reals.PartSum <> sum_eq thm
+R5360:5406 PiProjection <> omi_pi_term_from_diagonal_race_matches_polybius thm
+R5360:5406 PiProjection <> omi_pi_term_from_diagonal_race_matches_polybius thm
+prf 5423:5475 <> omi_pi_partial_from_diagonal_accumulator_matches_race
+R5490:5492 Coq.Init.Datatypes <> nat ind
+binder 5486:5486 <> n:26
+R5539:5541 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5497:5536 PiProjection <> omi_pi_partial_from_diagonal_accumulator def
+R5538:5538 PiProjection <> n:26 var
+R5542:5574 PiProjection <> omi_pi_partial_from_diagonal_race def
+R5576:5576 PiProjection <> n:26 var
+R5606:5645 PiProjection <> omi_pi_partial_from_diagonal_accumulator def
+R5648:5680 PiProjection <> omi_pi_partial_from_diagonal_race def
+R5691:5707 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R5691:5707 Coq.Reals.RIneq <> Rmult_eq_compat_l thm
+R5718:5723 Coq.Reals.PartSum <> sum_eq thm
+R5718:5723 Coq.Reals.PartSum <> sum_eq thm
+R5748:5797 PiProjection <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+R5748:5797 PiProjection <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+prf 5814:5847 <> omi_pi_projection_series_converges
+R5853:5857 Coq.Reals.Rseries <> Un_cv def
+R5909:5911 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R5903:5908 PiProjection <> OMI_PI def
+R5868:5870 Coq.Init.Datatypes <> nat ind
+binder 5864:5864 <> n:27
+R5875:5882 Coq.Reals.Rfunctions <> sum_f_R0 def
+R5885:5890 Coq.Reals.AltSeries <> tg_alt def
+R5892:5896 Coq.Reals.AltSeries <> PI_tg def
+R5899:5899 PiProjection <> n:27 var
+R5932:5937 PiProjection <> OMI_PI def
+R5940:5945 Coq.Reals.AltSeries <> Alt_PI def
+R5959:5966 Coq.Reals.AltSeries <> exist_PI thm
+R6004:6006 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6000:6002 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6004:6006 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6000:6002 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+prf 6053:6084 <> omi_pi_projection_interval_route
+R6099:6101 Coq.Init.Datatypes <> nat ind
+binder 6095:6095 <> n:28
+R6120:6123 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R6130:6133 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R6106:6117 PiProjection <> omi_pi_lower def
+R6119:6119 PiProjection <> n:28 var
+R6124:6129 PiProjection <> OMI_PI def
+R6124:6129 PiProjection <> OMI_PI def
+R6134:6145 PiProjection <> omi_pi_upper def
+R6147:6147 PiProjection <> n:28 var
+R6177:6188 PiProjection <> omi_pi_lower def
+R6191:6202 PiProjection <> omi_pi_upper def
+R6205:6218 PiProjection <> omi_pi_partial def
+R6221:6226 PiProjection <> OMI_PI def
+R6241:6251 Coq.Reals.AltSeries <> Alt_PI_ineq thm
+R6241:6251 Coq.Reals.AltSeries <> Alt_PI_ineq thm
+R6291:6296 Coq.Reals.AltSeries <> Alt_PI def
+R6305:6308 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6319:6319 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6315:6317 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6309:6314 Coq.Reals.AltSeries <> Alt_PI def
+R6291:6296 Coq.Reals.AltSeries <> Alt_PI def
+R6305:6308 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6319:6319 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6315:6317 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6309:6314 Coq.Reals.AltSeries <> Alt_PI def
+R6342:6358 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R6342:6358 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R6378:6383 Coq.Reals.AltSeries <> Alt_PI def
+R6392:6395 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6406:6406 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6402:6404 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6396:6401 Coq.Reals.AltSeries <> Alt_PI def
+R6378:6383 Coq.Reals.AltSeries <> Alt_PI def
+R6392:6395 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6406:6406 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6402:6404 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6396:6401 Coq.Reals.AltSeries <> Alt_PI def
+R6429:6445 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R6429:6445 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+prf 6467:6492 <> omi_pi_partial_error_bound
+R6507:6509 Coq.Init.Datatypes <> nat ind
+binder 6503:6503 <> n:29
+R6545:6548 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R6514:6518 Coq.Reals.Rfunctions <> Rdist def
+R6521:6534 PiProjection <> omi_pi_partial def
+R6536:6536 PiProjection <> n:29 var
+R6539:6544 PiProjection <> OMI_PI def
+R6550:6552 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6553:6557 Coq.Reals.AltSeries <> PI_tg def
+R6559:6559 PiProjection <> n:29 var
+R6589:6602 PiProjection <> omi_pi_partial def
+R6615:6620 PiProjection <> OMI_PI def
+R6629:6632 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6643:6643 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6639:6641 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6633:6638 PiProjection <> OMI_PI def
+R6615:6620 PiProjection <> OMI_PI def
+R6629:6632 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6643:6643 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6639:6641 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6633:6638 PiProjection <> OMI_PI def
+R6666:6677 Coq.Reals.Rfunctions <> Rdist_mult_l thm
+R6666:6677 Coq.Reals.Rfunctions <> Rdist_mult_l thm
+R6666:6677 Coq.Reals.Rfunctions <> Rdist_mult_l thm
+R6691:6694 Coq.Reals.Rbasic_fun <> Rabs def
+R6718:6727 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R6691:6694 Coq.Reals.Rbasic_fun <> Rabs def
+R6718:6727 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R6718:6727 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R6718:6727 Coq.Reals.Rbasic_fun <> Rabs_right thm
+R6744:6760 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R6744:6760 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R6781:6800 Coq.Reals.Ratan <> Alt_first_term_bound thm
+R6802:6806 Coq.Reals.AltSeries <> PI_tg def
+R6815:6817 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6809:6814 PiProjection <> OMI_PI def
+R6781:6800 Coq.Reals.Ratan <> Alt_first_term_bound thm
+R6802:6806 Coq.Reals.AltSeries <> PI_tg def
+R6815:6817 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6809:6814 PiProjection <> OMI_PI def
+R6837:6852 Coq.Reals.AltSeries <> PI_tg_decreasing thm
+R6837:6852 Coq.Reals.AltSeries <> PI_tg_decreasing thm
+R6865:6872 Coq.Reals.AltSeries <> PI_tg_cv thm
+R6865:6872 Coq.Reals.AltSeries <> PI_tg_cv thm
+R6885:6918 PiProjection <> omi_pi_projection_series_converges thm
+R6885:6918 PiProjection <> omi_pi_projection_series_converges thm
+R6931:6934 Coq.Init.Peano <> le_n constr
+R6931:6934 Coq.Init.Peano <> le_n constr
+prf 6951:6985 <> omi_pi_partial_error_bound_explicit
+R7000:7002 Coq.Init.Datatypes <> nat ind
+binder 6996:6996 <> n:30
+R7038:7041 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R7007:7011 Coq.Reals.Rfunctions <> Rdist def
+R7014:7027 PiProjection <> omi_pi_partial def
+R7029:7029 PiProjection <> n:30 var
+R7032:7037 PiProjection <> OMI_PI def
+R7043:7045 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R7046:7048 Coq.Reals.Raxioms <> INR def
+R7056:7058 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R7052:7054 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R7055:7055 PiProjection <> n:30 var
+R7090:7098 Coq.Reals.RIneq <> Rle_trans thm
+R7090:7098 Coq.Reals.RIneq <> Rle_trans thm
+R7111:7136 PiProjection <> omi_pi_partial_error_bound thm
+R7111:7136 PiProjection <> omi_pi_partial_error_bound thm
+R7150:7154 Coq.Reals.AltSeries <> PI_tg def
+prf 7199:7219 <> OMI_PI_Equals_Real_PI
+R7229:7231 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7223:7228 PiProjection <> OMI_PI def
+R7232:7233 Coq.Reals.Rtrigo1 <> PI def
+R7252:7257 PiProjection <> OMI_PI def
+R7268:7276 Coq.Reals.Ratan <> Alt_PI_eq thm
+R7268:7276 Coq.Reals.Ratan <> Alt_PI_eq thm
+prf 7293:7336 <> omi_pi_incidence_projection_series_converges
+R7342:7346 Coq.Reals.Rseries <> Un_cv def
+R7410:7412 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R7404:7409 PiProjection <> OMI_PI def
+R7357:7359 Coq.Init.Datatypes <> nat ind
+binder 7353:7353 <> n:31
+R7364:7371 Coq.Reals.Rfunctions <> sum_f_R0 def
+R7373:7398 PiProjection <> omi_pi_term_from_incidence def
+R7400:7400 PiProjection <> n:31 var
+R7467:7469 Coq.Init.Datatypes <> nat ind
+binder 7463:7463 <> n:32
+R7474:7481 Coq.Reals.Rfunctions <> sum_f_R0 def
+R7484:7489 Coq.Reals.AltSeries <> tg_alt def
+R7491:7495 Coq.Reals.AltSeries <> PI_tg def
+R7498:7498 PiProjection <> n:32 var
+R7433:7441 Coq.Reals.Ratan <> Un_cv_ext thm
+R7467:7469 Coq.Init.Datatypes <> nat ind
+binder 7463:7463 <> n:33
+R7474:7481 Coq.Reals.Rfunctions <> sum_f_R0 def
+R7484:7489 Coq.Reals.AltSeries <> tg_alt def
+R7491:7495 Coq.Reals.AltSeries <> PI_tg def
+R7498:7498 PiProjection <> n:33 var
+R7433:7441 Coq.Reals.Ratan <> Un_cv_ext thm
+R7539:7544 Coq.Reals.PartSum <> sum_eq thm
+R7539:7544 Coq.Reals.PartSum <> sum_eq thm
+R7573:7598 PiProjection <> omi_pi_term_matches_tg_alt thm
+R7573:7598 PiProjection <> omi_pi_term_matches_tg_alt thm
+R7611:7644 PiProjection <> omi_pi_projection_series_converges thm
+R7611:7644 PiProjection <> omi_pi_projection_series_converges thm
+def 7664:7685 <> omi_pi_incidence_limit
+R7689:7689 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7691:7693 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7695:7697 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7760:7760 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7694:7694 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 7690:7690 <> l:34
+R7698:7702 Coq.Reals.Rseries <> Un_cv def
+R7759:7759 PiProjection <> l:34 var
+R7713:7715 Coq.Init.Datatypes <> nat ind
+binder 7709:7709 <> n:35
+R7720:7727 Coq.Reals.Rfunctions <> sum_f_R0 def
+R7729:7754 PiProjection <> omi_pi_term_from_incidence def
+R7756:7756 PiProjection <> n:35 var
+R7767:7771 Coq.Init.Specif <> exist constr
+R7788:7831 PiProjection <> omi_pi_incidence_projection_series_converges thm
+R7782:7784 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R7776:7781 PiProjection <> OMI_PI def
+def 7846:7866 <> OMI_PI_from_incidence
+R7870:7870 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R7876:7878 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R7879:7887 Coq.Init.Specif <> proj1_sig def
+R7889:7910 PiProjection <> omi_pi_incidence_limit def
+prf 7922:7956 <> OMI_PI_from_incidence_equals_OMI_PI
+R7983:7985 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7962:7982 PiProjection <> OMI_PI_from_incidence def
+R7986:7991 PiProjection <> OMI_PI def
+R8010:8030 PiProjection <> OMI_PI_from_incidence def
+R8033:8054 PiProjection <> omi_pi_incidence_limit def
+prf 8089:8119 <> OMI_PI_from_incidence_equals_PI
+R8146:8148 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8125:8145 PiProjection <> OMI_PI_from_incidence def
+R8149:8150 Coq.Reals.Rtrigo1 <> PI def
+R8170:8204 PiProjection <> OMI_PI_from_incidence_equals_OMI_PI thm
+R8170:8204 PiProjection <> OMI_PI_from_incidence_equals_OMI_PI thm
+R8170:8204 PiProjection <> OMI_PI_from_incidence_equals_OMI_PI thm
+R8215:8235 PiProjection <> OMI_PI_Equals_Real_PI thm
+R8215:8235 PiProjection <> OMI_PI_Equals_Real_PI thm
+prf 8252:8294 <> omi_pi_polybius_projection_series_converges
+R8300:8304 Coq.Reals.Rseries <> Un_cv def
+R8367:8369 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8361:8366 PiProjection <> OMI_PI def
+R8315:8317 Coq.Init.Datatypes <> nat ind
+binder 8311:8311 <> n:36
+R8322:8329 Coq.Reals.Rfunctions <> sum_f_R0 def
+R8331:8355 PiProjection <> omi_pi_term_from_polybius def
+R8357:8357 PiProjection <> n:36 var
+R8424:8426 Coq.Init.Datatypes <> nat ind
+binder 8420:8420 <> n:37
+R8431:8438 Coq.Reals.Rfunctions <> sum_f_R0 def
+R8440:8465 PiProjection <> omi_pi_term_from_incidence def
+R8467:8467 PiProjection <> n:37 var
+R8390:8398 Coq.Reals.Ratan <> Un_cv_ext thm
+R8424:8426 Coq.Init.Datatypes <> nat ind
+binder 8420:8420 <> n:38
+R8431:8438 Coq.Reals.Rfunctions <> sum_f_R0 def
+R8440:8465 PiProjection <> omi_pi_term_from_incidence def
+R8467:8467 PiProjection <> n:38 var
+R8390:8398 Coq.Reals.Ratan <> Un_cv_ext thm
+R8508:8513 Coq.Reals.PartSum <> sum_eq thm
+R8508:8513 Coq.Reals.PartSum <> sum_eq thm
+R8542:8584 PiProjection <> omi_pi_term_from_polybius_matches_incidence thm
+R8542:8584 PiProjection <> omi_pi_term_from_polybius_matches_incidence thm
+R8597:8640 PiProjection <> omi_pi_incidence_projection_series_converges thm
+R8597:8640 PiProjection <> omi_pi_incidence_projection_series_converges thm
+def 8660:8680 <> omi_pi_polybius_limit
+R8684:8684 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R8686:8688 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R8690:8692 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R8754:8754 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R8689:8689 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 8685:8685 <> l:39
+R8693:8697 Coq.Reals.Rseries <> Un_cv def
+R8753:8753 PiProjection <> l:39 var
+R8708:8710 Coq.Init.Datatypes <> nat ind
+binder 8704:8704 <> n:40
+R8715:8722 Coq.Reals.Rfunctions <> sum_f_R0 def
+R8724:8748 PiProjection <> omi_pi_term_from_polybius def
+R8750:8750 PiProjection <> n:40 var
+R8761:8765 Coq.Init.Specif <> exist constr
+R8782:8824 PiProjection <> omi_pi_polybius_projection_series_converges thm
+R8776:8778 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8770:8775 PiProjection <> OMI_PI def
+def 8839:8858 <> OMI_PI_from_polybius
+R8862:8862 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R8868:8870 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8871:8879 Coq.Init.Specif <> proj1_sig def
+R8881:8901 PiProjection <> omi_pi_polybius_limit def
+prf 8913:8949 <> OMI_PI_from_polybius_equals_incidence
+R8975:8977 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8955:8974 PiProjection <> OMI_PI_from_polybius def
+R8978:8998 PiProjection <> OMI_PI_from_incidence def
+R9017:9036 PiProjection <> OMI_PI_from_polybius def
+R9039:9059 PiProjection <> omi_pi_polybius_limit def
+R9066:9086 PiProjection <> OMI_PI_from_incidence def
+R9089:9110 PiProjection <> omi_pi_incidence_limit def
+prf 9145:9174 <> OMI_PI_from_polybius_equals_PI
+R9200:9202 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9180:9199 PiProjection <> OMI_PI_from_polybius def
+R9203:9204 Coq.Reals.Rtrigo1 <> PI def
+R9224:9260 PiProjection <> OMI_PI_from_polybius_equals_incidence thm
+R9224:9260 PiProjection <> OMI_PI_from_polybius_equals_incidence thm
+R9224:9260 PiProjection <> OMI_PI_from_polybius_equals_incidence thm
+R9271:9301 PiProjection <> OMI_PI_from_incidence_equals_PI thm
+R9271:9301 PiProjection <> OMI_PI_from_incidence_equals_PI thm
+prf 9318:9365 <> omi_pi_diagonal_race_projection_series_converges
+R9371:9375 Coq.Reals.Rseries <> Un_cv def
+R9443:9445 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R9437:9442 PiProjection <> OMI_PI def
+R9386:9388 Coq.Init.Datatypes <> nat ind
+binder 9382:9382 <> n:41
+R9393:9400 Coq.Reals.Rfunctions <> sum_f_R0 def
+R9402:9431 PiProjection <> omi_pi_term_from_diagonal_race def
+R9433:9433 PiProjection <> n:41 var
+R9500:9502 Coq.Init.Datatypes <> nat ind
+binder 9496:9496 <> n:42
+R9507:9514 Coq.Reals.Rfunctions <> sum_f_R0 def
+R9516:9540 PiProjection <> omi_pi_term_from_polybius def
+R9542:9542 PiProjection <> n:42 var
+R9466:9474 Coq.Reals.Ratan <> Un_cv_ext thm
+R9500:9502 Coq.Init.Datatypes <> nat ind
+binder 9496:9496 <> n:43
+R9507:9514 Coq.Reals.Rfunctions <> sum_f_R0 def
+R9516:9540 PiProjection <> omi_pi_term_from_polybius def
+R9542:9542 PiProjection <> n:43 var
+R9466:9474 Coq.Reals.Ratan <> Un_cv_ext thm
+R9583:9588 Coq.Reals.PartSum <> sum_eq thm
+R9583:9588 Coq.Reals.PartSum <> sum_eq thm
+R9617:9663 PiProjection <> omi_pi_term_from_diagonal_race_matches_polybius thm
+R9617:9663 PiProjection <> omi_pi_term_from_diagonal_race_matches_polybius thm
+R9676:9718 PiProjection <> omi_pi_polybius_projection_series_converges thm
+R9676:9718 PiProjection <> omi_pi_polybius_projection_series_converges thm
+def 9738:9763 <> omi_pi_diagonal_race_limit
+R9769:9769 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R9771:9773 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R9775:9777 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R9844:9844 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R9774:9774 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 9770:9770 <> l:44
+R9778:9782 Coq.Reals.Rseries <> Un_cv def
+R9843:9843 PiProjection <> l:44 var
+R9793:9795 Coq.Init.Datatypes <> nat ind
+binder 9789:9789 <> n:45
+R9800:9807 Coq.Reals.Rfunctions <> sum_f_R0 def
+R9809:9838 PiProjection <> omi_pi_term_from_diagonal_race def
+R9840:9840 PiProjection <> n:45 var
+R9851:9855 Coq.Init.Specif <> exist constr
+R9872:9919 PiProjection <> omi_pi_diagonal_race_projection_series_converges thm
+R9866:9868 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R9860:9865 PiProjection <> OMI_PI def
+def 9934:9958 <> OMI_PI_from_diagonal_race
+R9962:9962 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R9970:9972 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R9973:9981 Coq.Init.Specif <> proj1_sig def
+R9983:10008 PiProjection <> omi_pi_diagonal_race_limit def
+prf 10020:10060 <> OMI_PI_from_diagonal_race_equals_polybius
+R10091:10093 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10066:10090 PiProjection <> OMI_PI_from_diagonal_race def
+R10094:10113 PiProjection <> OMI_PI_from_polybius def
+R10132:10156 PiProjection <> OMI_PI_from_diagonal_race def
+R10159:10184 PiProjection <> omi_pi_diagonal_race_limit def
+R10191:10210 PiProjection <> OMI_PI_from_polybius def
+R10213:10233 PiProjection <> omi_pi_polybius_limit def
+prf 10268:10302 <> OMI_PI_from_diagonal_race_equals_PI
+R10333:10335 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10308:10332 PiProjection <> OMI_PI_from_diagonal_race def
+R10336:10337 Coq.Reals.Rtrigo1 <> PI def
+R10357:10397 PiProjection <> OMI_PI_from_diagonal_race_equals_polybius thm
+R10357:10397 PiProjection <> OMI_PI_from_diagonal_race_equals_polybius thm
+R10357:10397 PiProjection <> OMI_PI_from_diagonal_race_equals_polybius thm
+R10408:10437 PiProjection <> OMI_PI_from_polybius_equals_PI thm
+R10408:10437 PiProjection <> OMI_PI_from_polybius_equals_PI thm
+prf 10454:10508 <> omi_pi_diagonal_accumulator_projection_series_converges
+R10514:10518 Coq.Reals.Rseries <> Un_cv def
+R10593:10595 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R10587:10592 PiProjection <> OMI_PI def
+R10529:10531 Coq.Init.Datatypes <> nat ind
+binder 10525:10525 <> n:46
+R10536:10543 Coq.Reals.Rfunctions <> sum_f_R0 def
+R10545:10581 PiProjection <> omi_pi_term_from_diagonal_accumulator def
+R10583:10583 PiProjection <> n:46 var
+R10650:10652 Coq.Init.Datatypes <> nat ind
+binder 10646:10646 <> n:47
+R10657:10664 Coq.Reals.Rfunctions <> sum_f_R0 def
+R10666:10695 PiProjection <> omi_pi_term_from_diagonal_race def
+R10697:10697 PiProjection <> n:47 var
+R10616:10624 Coq.Reals.Ratan <> Un_cv_ext thm
+R10650:10652 Coq.Init.Datatypes <> nat ind
+binder 10646:10646 <> n:48
+R10657:10664 Coq.Reals.Rfunctions <> sum_f_R0 def
+R10666:10695 PiProjection <> omi_pi_term_from_diagonal_race def
+R10697:10697 PiProjection <> n:48 var
+R10616:10624 Coq.Reals.Ratan <> Un_cv_ext thm
+R10738:10743 Coq.Reals.PartSum <> sum_eq thm
+R10738:10743 Coq.Reals.PartSum <> sum_eq thm
+R10772:10821 PiProjection <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+R10772:10821 PiProjection <> omi_pi_term_from_diagonal_accumulator_matches_race thm
+R10834:10881 PiProjection <> omi_pi_diagonal_race_projection_series_converges thm
+R10834:10881 PiProjection <> omi_pi_diagonal_race_projection_series_converges thm
+def 10901:10933 <> omi_pi_diagonal_accumulator_limit
+R10939:10939 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10941:10943 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10945:10947 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R11021:11021 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R10944:10944 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10940:10940 <> l:49
+R10948:10952 Coq.Reals.Rseries <> Un_cv def
+R11020:11020 PiProjection <> l:49 var
+R10963:10965 Coq.Init.Datatypes <> nat ind
+binder 10959:10959 <> n:50
+R10970:10977 Coq.Reals.Rfunctions <> sum_f_R0 def
+R10979:11015 PiProjection <> omi_pi_term_from_diagonal_accumulator def
+R11017:11017 PiProjection <> n:50 var
+R11028:11032 Coq.Init.Specif <> exist constr
+R11049:11103 PiProjection <> omi_pi_diagonal_accumulator_projection_series_converges thm
+R11043:11045 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R11037:11042 PiProjection <> OMI_PI def
+def 11118:11149 <> OMI_PI_from_diagonal_accumulator
+R11153:11153 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R11161:11163 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11164:11172 Coq.Init.Specif <> proj1_sig def
+R11174:11206 PiProjection <> omi_pi_diagonal_accumulator_limit def
+prf 11218:11261 <> OMI_PI_from_diagonal_accumulator_equals_race
+R11299:11301 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11267:11298 PiProjection <> OMI_PI_from_diagonal_accumulator def
+R11302:11326 PiProjection <> OMI_PI_from_diagonal_race def
+R11345:11376 PiProjection <> OMI_PI_from_diagonal_accumulator def
+R11379:11411 PiProjection <> omi_pi_diagonal_accumulator_limit def
+R11418:11442 PiProjection <> OMI_PI_from_diagonal_race def
+R11445:11470 PiProjection <> omi_pi_diagonal_race_limit def
+prf 11505:11546 <> OMI_PI_from_diagonal_accumulator_equals_PI
+R11584:11586 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11552:11583 PiProjection <> OMI_PI_from_diagonal_accumulator def
+R11587:11588 Coq.Reals.Rtrigo1 <> PI def
+R11608:11651 PiProjection <> OMI_PI_from_diagonal_accumulator_equals_race thm
+R11608:11651 PiProjection <> OMI_PI_from_diagonal_accumulator_equals_race thm
+R11608:11651 PiProjection <> OMI_PI_from_diagonal_accumulator_equals_race thm
+R11662:11696 PiProjection <> OMI_PI_from_diagonal_race_equals_PI thm
+R11662:11696 PiProjection <> OMI_PI_from_diagonal_race_equals_PI thm
+prf 11713:11725 <> omi_pi_bounds
+R11730:11732 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R11739:11741 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R11733:11738 PiProjection <> OMI_PI def
+R11733:11738 PiProjection <> OMI_PI def
+R11762:11782 PiProjection <> OMI_PI_Equals_Real_PI thm
+R11762:11782 PiProjection <> OMI_PI_Equals_Real_PI thm
+R11762:11782 PiProjection <> OMI_PI_Equals_Real_PI thm
+R11808:11814 Coq.Reals.Ratan <> PI_ineq thm
+R11808:11814 Coq.Reals.Ratan <> PI_ineq thm
+R11843:11854 Coq.Reals.RIneq <> Rlt_le_trans thm
+R11860:11862 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11863:11870 Coq.Reals.Rfunctions <> sum_f_R0 def
+R11873:11878 Coq.Reals.AltSeries <> tg_alt def
+R11880:11884 Coq.Reals.AltSeries <> PI_tg def
+R11843:11854 Coq.Reals.RIneq <> Rlt_le_trans thm
+R11860:11862 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11863:11870 Coq.Reals.Rfunctions <> sum_f_R0 def
+R11873:11878 Coq.Reals.AltSeries <> tg_alt def
+R11880:11884 Coq.Reals.AltSeries <> PI_tg def
+R11907:11914 Coq.Reals.Rfunctions <> sum_f_R0 def
+R11917:11922 Coq.Reals.AltSeries <> tg_alt def
+R11925:11929 Coq.Reals.AltSeries <> PI_tg def
+R11973:11989 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R11996:11996 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R11973:11989 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R11996:11996 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12067:12073 Coq.Reals.Ratan <> PI_ineq thm
+R12067:12073 Coq.Reals.Ratan <> PI_ineq thm
+R12101:12112 Coq.Reals.RIneq <> Rle_lt_trans thm
+R12118:12120 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R12121:12128 Coq.Reals.Rfunctions <> sum_f_R0 def
+R12131:12136 Coq.Reals.AltSeries <> tg_alt def
+R12138:12142 Coq.Reals.AltSeries <> PI_tg def
+R12101:12112 Coq.Reals.RIneq <> Rle_lt_trans thm
+R12118:12120 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R12121:12128 Coq.Reals.Rfunctions <> sum_f_R0 def
+R12131:12136 Coq.Reals.AltSeries <> tg_alt def
+R12138:12142 Coq.Reals.AltSeries <> PI_tg def
+R12165:12181 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R12188:12188 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12165:12181 Coq.Reals.RIneq <> Rmult_le_compat_l thm
+R12188:12188 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12255:12262 Coq.Reals.Rfunctions <> sum_f_R0 def
+R12265:12270 Coq.Reals.AltSeries <> tg_alt def
+R12273:12277 Coq.Reals.AltSeries <> PI_tg def

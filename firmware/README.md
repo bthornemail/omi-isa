@@ -51,7 +51,7 @@ LoRa RX ──→ OMI_Transport ──→ OMI_512_Envelope ──→ UART ──
 
 ## OMI Component Files
 
-The build includes the core OMI C stack via relative paths in CMakeLists.txt:
-- `omienv.c`, `stream.c`, `sector.c`
-- `omi_dispatch.c`, `omi_transport.c`
-- `gauge_exec.c`, `cpu.c`, `boot.c`
+The build includes the core OMI C stack from `lib/` via relative paths in CMakeLists.txt:
+- `lib/omienv.c`, `lib/stream.c`, `lib/sector.c`
+- `lib/omi_dispatch.c`, `lib/omi_transport.c`
+- `lib/gauge_exec.c`, `lib/cpu.c`, `lib/boot.c`

@@ -14,7 +14,8 @@ From Coq Require Import Reals.Reals.
 Import ListNotations.
 
 Require AtomicKernelVNext.
-Require omi_pi_proof.
+Require DiagonalClosure.
+Require PiProjection.
 
 Open Scope R_scope.
 
@@ -23,7 +24,7 @@ Record KernelPiSample : Type := mkKernelPiSample {
   sample_seed : N;
   sample_index : nat;
   sample_state : N;
-  sample_phase : omi_pi_proof.ChiralPhase;
+  sample_phase : DiagonalClosure.ChiralPhase;
   sample_term : R
 }.
 
@@ -42,26 +43,26 @@ Definition kernel_pi_sample
     seed
     index
     (replay_state_at width seed index)
-    (omi_pi_proof.diagonal_accumulator_phase index)
-    (omi_pi_proof.omi_pi_term_from_diagonal_accumulator index).
+    (DiagonalClosure.diagonal_accumulator_phase index)
+    (PiProjection.omi_pi_term_from_diagonal_accumulator index).
 
 Theorem kernel_pi_sample_phase_is_accumulator :
   forall width seed index,
     sample_phase (kernel_pi_sample width seed index) =
-    omi_pi_proof.diagonal_accumulator_phase index.
+    DiagonalClosure.diagonal_accumulator_phase index.
 Proof. reflexivity. Qed.
 
 Theorem kernel_pi_sample_term_matches_incidence :
   forall width seed index,
     sample_term (kernel_pi_sample width seed index) =
-    omi_pi_proof.omi_pi_term_from_incidence index.
+    PiProjection.omi_pi_term_from_incidence index.
 Proof.
   intros width seed index.
   unfold kernel_pi_sample.
   simpl.
-  rewrite omi_pi_proof.omi_pi_term_from_diagonal_accumulator_matches_race.
-  rewrite omi_pi_proof.omi_pi_term_from_diagonal_race_matches_polybius.
-  apply omi_pi_proof.omi_pi_term_from_polybius_matches_incidence.
+  rewrite PiProjection.omi_pi_term_from_diagonal_accumulator_matches_race.
+  rewrite PiProjection.omi_pi_term_from_diagonal_race_matches_polybius.
+  apply PiProjection.omi_pi_term_from_polybius_matches_incidence.
 Qed.
 
 Theorem kernel_pi_projection_series_converges :
@@ -71,18 +72,18 @@ Theorem kernel_pi_projection_series_converges :
          sum_f_R0
            (fun k : nat => sample_term (kernel_pi_sample width seed k))
            n)
-      (omi_pi_proof.OMI_PI / 4).
+      (PiProjection.OMI_PI / 4).
 Proof.
   intros width seed.
   eapply Un_cv_ext with
     (un := fun n : nat =>
-       sum_f_R0 omi_pi_proof.omi_pi_term_from_incidence n).
+       sum_f_R0 PiProjection.omi_pi_term_from_incidence n).
   - intro n.
     apply sum_eq.
     intros k _.
     symmetry.
     apply kernel_pi_sample_term_matches_incidence.
-  - apply omi_pi_proof.omi_pi_incidence_projection_series_converges.
+  - apply PiProjection.omi_pi_incidence_projection_series_converges.
 Qed.
 
 Theorem kernel_pi_projection_equals_real_pi :
@@ -97,13 +98,13 @@ Theorem kernel_pi_projection_equals_real_pi :
                     (fun k : nat => sample_term (kernel_pi_sample width seed k))
                     n)
                l)
-          (omi_pi_proof.OMI_PI / 4)
+          (PiProjection.OMI_PI / 4)
           (kernel_pi_projection_series_converges width seed))
     = PI.
 Proof.
   intros width seed.
   simpl.
-  rewrite <- omi_pi_proof.OMI_PI_Equals_Real_PI.
+  rewrite <- PiProjection.OMI_PI_Equals_Real_PI.
   field.
 Qed.
 
