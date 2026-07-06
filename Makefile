@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
 
-VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o
-TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o
-LORA_OBJ=omi_transport_lora.o omi_transport_sim.o omi_probe.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o
+VM_OBJ=main.o cpu.o boot.o loader.o compiler.o parser.o ast.o lexer.o asm.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
+TC_OBJ=toolchain_main.o loader.o compiler.o parser.o ast.o lexer.o omienv.o stream.o sector.o omi_dispatch.o omi_transport.o gauge_exec.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
+LORA_OBJ=omi_transport_lora.o omi_transport_sim.o omi_probe.o omi_mesh.o omicron.o omi_omion.o omi_receipt.o omi_sense.o omi_pg.o omi_orbit.o
 
 all: omi_vm omi_toolchain
 
@@ -38,6 +38,8 @@ omi_omion.o: omi_omion.c omi_omion.h omienv.h omicron.h
 omi_receipt.o: omi_receipt.c omi_receipt.h omienv.h omicron.h
 
 omi_pg.o: omi_pg.c omi_pg.h omienv.h
+
+omi_orbit.o: omi_orbit.c omi_orbit.h
 
 test_env: test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
 	$(CC) $(CFLAGS) -o $@ test_env.c omienv.c stream.c sector.c omi_dispatch.c omi_transport.c gauge_exec.c
@@ -128,6 +130,9 @@ $(WASM_OBJDIR)/omi_receipt.o: omi_receipt.c omi_receipt.h omienv.h omicron.h
 $(WASM_OBJDIR)/omi_pg.o: omi_pg.c omi_pg.h omienv.h
 	emcc -Os -s WASM=1 -I. -c omi_pg.c -o $@
 
+$(WASM_OBJDIR)/omi_orbit.o: omi_orbit.c omi_orbit.h
+	emcc -Os -s WASM=1 -I. -c omi_orbit.c -o $@
+
 test_mesh: test_mesh.c omi_mesh.c omi_transport_sim.c omi_transport.c omienv.c
 	$(CC) $(CFLAGS) -o $@ test_mesh.c omi_mesh.c omi_transport_sim.c omi_transport.c omienv.c
 	./test_mesh
@@ -155,10 +160,14 @@ test_pg: test_pg.c omi_pg.c omienv.c
 	$(CC) $(CFLAGS) -o $@ test_pg.c omi_pg.c omienv.c
 	./test_pg
 
-test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_face_chain
+test_orbit: test_orbit.c omi_orbit.c
+	$(CC) $(CFLAGS) -o $@ test_orbit.c omi_orbit.c
+	./test_orbit
+
+test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
 
 clean:
-	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_pg test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
+	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
-.PHONY: all run run-tc bootstrap clean wasm test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_face_chain
+.PHONY: all run run-tc bootstrap clean wasm test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
