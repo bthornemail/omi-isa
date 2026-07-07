@@ -1,9 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
 CPPFLAGS=-Ilib
-COQC=coqc
-COQFLAGS=-Q proof ''
-COQPROOFFLAGS=-Q . ''
 BUILD_DIR=build
 
 VM_OBJ=$(BUILD_DIR)/main.o $(BUILD_DIR)/cpu.o $(BUILD_DIR)/boot.o $(BUILD_DIR)/loader.o \
@@ -167,65 +164,12 @@ test_orbit: test/test_orbit.c lib/omi_orbit.c
 
 test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
 
-PROOF_TARGETS= \
-	proof/AtomicKernel.vo \
-	proof/AtomicKernelVNext.vo \
-	proof/DiagonalClosure.vo \
-	proof/FiniteIncidence.vo \
-	proof/BQFBridge.vo \
-	proof/MetricProjection.vo \
-	proof/PiProjection.vo \
-	proof/OMI_Exports.vo \
-	proof/omi_pi_proof.vo \
-	proof/omi_pi_bridge.vo \
-	proof/delta_orbit_theory.vo \
-	proof/functorial_semantics.vo \
-	proof/coalgebraic_bisimulation.vo \
-	proof/OMI_bialgebra.vo
-
-proof: $(PROOF_TARGETS)
-
-proof/AtomicKernel.vo: proof/AtomicKernel.v
-	cd proof && $(COQC) $(COQPROOFFLAGS) AtomicKernel.v
-
-proof/AtomicKernelVNext.vo: proof/AtomicKernelVNext.v proof/AtomicKernel.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) AtomicKernelVNext.v
-
-proof/DiagonalClosure.vo: proof/DiagonalClosure.v
-	cd proof && $(COQC) $(COQPROOFFLAGS) DiagonalClosure.v
-
-proof/FiniteIncidence.vo: proof/FiniteIncidence.v proof/DiagonalClosure.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) FiniteIncidence.v
-
-proof/BQFBridge.vo: proof/BQFBridge.v proof/DiagonalClosure.vo proof/FiniteIncidence.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) BQFBridge.v
-
-proof/MetricProjection.vo: proof/MetricProjection.v proof/FiniteIncidence.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) MetricProjection.v
-
-proof/PiProjection.vo: proof/PiProjection.v proof/DiagonalClosure.vo proof/BQFBridge.vo proof/MetricProjection.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) PiProjection.v
-
-proof/OMI_Exports.vo: proof/OMI_Exports.v proof/DiagonalClosure.vo proof/FiniteIncidence.vo proof/BQFBridge.vo proof/MetricProjection.vo proof/PiProjection.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) OMI_Exports.v
-
-proof/omi_pi_proof.vo: proof/omi_pi_proof.v proof/OMI_Exports.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) omi_pi_proof.v
-
-proof/omi_pi_bridge.vo: proof/omi_pi_bridge.v proof/AtomicKernelVNext.vo proof/DiagonalClosure.vo proof/PiProjection.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) omi_pi_bridge.v
-
-proof/delta_orbit_theory.vo: proof/delta_orbit_theory.v
-	cd proof && $(COQC) $(COQPROOFFLAGS) delta_orbit_theory.v
-
-proof/functorial_semantics.vo: proof/functorial_semantics.v proof/delta_orbit_theory.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) functorial_semantics.v
-
-proof/coalgebraic_bisimulation.vo: proof/coalgebraic_bisimulation.v proof/delta_orbit_theory.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) coalgebraic_bisimulation.v
-
-proof/OMI_bialgebra.vo: proof/OMI_bialgebra.v proof/delta_orbit_theory.vo proof/functorial_semantics.vo
-	cd proof && $(COQC) $(COQPROOFFLAGS) OMI_bialgebra.v
+proof:
+	@if [ -d ../omi-axioms ]; then \
+		$(MAKE) -C ../omi-axioms proof; \
+	else \
+		echo "OMI proofs live in the omi-axioms repository."; \
+	fi
 
 clean:
 	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
