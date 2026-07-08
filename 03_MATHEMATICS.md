@@ -1,5 +1,12 @@
 # 03. Mathematics
 
+> **Normative status: proof lineage and consequence map.**
+> Claims in this chapter are categorized as proven, tested, or targeted.
+> Mathematics is included as lineage and compatibility discipline, not
+> as a license to overstate what the C runtime proves. Runtime claims
+> are made by tests and by explicit bridge theorems where those theorems
+> exist.
+
 ## What Mathematics Does In OMI
 
 Mathematics answers what must follow once boundaries are fixed.

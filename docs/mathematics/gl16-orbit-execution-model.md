@@ -732,18 +732,9 @@ The identity observer is initial in the category of equivariant observers.
 
 | Component | File | Status |
 |-----------|------|--------|
-| State | `omi_state.h` | ✅ |
-| GL(16,2) LFSR | `omi_gl16.c` | ✅ |
-| Delta step | `omi_delta.c` | ✅ |
-| Floyd cycle detection | `omi_cycle.c` | ✅ |
-| Trace iterator | `omi_trace.c` | ✅ |
-| Fano observer | `omi_fano.c` | ✅ |
-| Tetra observer | `omi_tetra.c` | ✅ |
-| Phase observer | `omi_phase.c` | ✅ |
-| BQF observer | `omi_bqf.c` | ✅ |
-| Slot5040 atlas | `omi_atlas.c` | ✅ |
-| Coq formalization | `delta_orbit_theory.v` | ✅ |
-| Test suite | `test_orbit.c` | ✅ |
+| All orbit engine | `lib/omi_orbit.c` / `lib/omi_orbit.h` | ✅ |
+| Coq formalization | `../omi-axioms/coq/delta_orbit_theory.v` | ✅ |
+| Test suite | `test/test_orbit.c` | ✅ |
 | Makefile | `Makefile` | ✅ |
 
 ---

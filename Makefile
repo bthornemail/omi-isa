@@ -2,6 +2,7 @@ CC=gcc
 CFLAGS=-Wall -Wextra -std=c99 -g
 CPPFLAGS=-Ilib
 BUILD_DIR=build
+BIN_DIR=bin
 
 VM_OBJ=$(BUILD_DIR)/main.o $(BUILD_DIR)/cpu.o $(BUILD_DIR)/boot.o $(BUILD_DIR)/loader.o \
        $(BUILD_DIR)/compiler.o $(BUILD_DIR)/parser.o $(BUILD_DIR)/ast.o \
@@ -19,16 +20,23 @@ TC_OBJ=$(BUILD_DIR)/toolchain_main.o $(BUILD_DIR)/loader.o $(BUILD_DIR)/compiler
        $(BUILD_DIR)/omi_omion.o $(BUILD_DIR)/omi_receipt.o \
        $(BUILD_DIR)/omi_sense.o $(BUILD_DIR)/omi_pg.o $(BUILD_DIR)/omi_orbit.o
 
-all: omi_vm omi_toolchain
+all: $(BIN_DIR)/omi_vm $(BIN_DIR)/omi_toolchain
 
-omi_vm: $(VM_OBJ)
+# Convenience aliases (build from root without path prefix)
+omi_vm: $(BIN_DIR)/omi_vm
+omi_toolchain: $(BIN_DIR)/omi_toolchain
+
+$(BIN_DIR)/omi_vm: $(VM_OBJ) | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(VM_OBJ)
 
-omi_toolchain: $(TC_OBJ)
+$(BIN_DIR)/omi_toolchain: $(TC_OBJ) | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(TC_OBJ)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
 
 $(BUILD_DIR)/main.o: main.c | $(BUILD_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
@@ -39,35 +47,90 @@ $(BUILD_DIR)/toolchain_main.o: toolchain_main.c | $(BUILD_DIR)
 $(BUILD_DIR)/%.o: lib/%.c | $(BUILD_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-test_env: test/test_env.c lib/omienv.c lib/stream.c lib/sector.c lib/omi_dispatch.c lib/omi_transport.c lib/gauge_exec.c
+$(BIN_DIR)/test_env: test/test_env.c lib/omienv.c lib/stream.c lib/sector.c lib/omi_dispatch.c lib/omi_transport.c lib/gauge_exec.c | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_env
 
-test_dispatch: test/test_dispatch.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c lib/gauge_exec.c
+test_env: $(BIN_DIR)/test_env
+	$(BIN_DIR)/test_env
+
+$(BIN_DIR)/test_dispatch: test/test_dispatch.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c lib/gauge_exec.c | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_dispatch
 
-test_gauge_exec: test/test_gauge_exec.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
+test_dispatch: $(BIN_DIR)/test_dispatch
+	$(BIN_DIR)/test_dispatch
+
+$(BIN_DIR)/test_gauge_exec: test/test_gauge_exec.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_gauge_exec
 
-test_radio_vm: test/test_radio_vm.c lib/omi_transport_sim.c lib/omi_probe.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c lib/gauge_exec.c
+test_gauge_exec: $(BIN_DIR)/test_gauge_exec
+	$(BIN_DIR)/test_gauge_exec
+
+$(BIN_DIR)/test_radio_vm: test/test_radio_vm.c lib/omi_transport_sim.c lib/omi_probe.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c lib/gauge_exec.c | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_radio_vm
 
-run: omi_vm
-	./omi_vm programs/test.omi
+test_radio_vm: $(BIN_DIR)/test_radio_vm
+	$(BIN_DIR)/test_radio_vm
 
-run-tc: omi_toolchain
-	./omi_toolchain programs/test.omi test.bin
+$(BIN_DIR)/test_mesh: test/test_mesh.c lib/omi_mesh.c lib/omi_transport_sim.c lib/omi_transport.c lib/omienv.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 
-bootstrap: omi_vm bootstrap-compiler.bin
-	./omi_vm --boot bootstrap-compiler.bin bootstrap-compiler.omi /tmp/bt_self.bin
+test_mesh: $(BIN_DIR)/test_mesh
+	$(BIN_DIR)/test_mesh
+
+$(BIN_DIR)/test_omicron: test/test_omicron.c lib/omicron.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
+test_omicron: $(BIN_DIR)/test_omicron
+	$(BIN_DIR)/test_omicron
+
+$(BIN_DIR)/test_omion: test/test_omion.c lib/omi_omion.c lib/omicron.c lib/omienv.c lib/omi_dispatch.c lib/omi_transport.c lib/gauge_exec.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
+test_omion: $(BIN_DIR)/test_omion
+	$(BIN_DIR)/test_omion
+
+$(BIN_DIR)/test_receipt: test/test_receipt.c lib/omi_receipt.c lib/omicron.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
+test_receipt: $(BIN_DIR)/test_receipt
+	$(BIN_DIR)/test_receipt
+
+$(BIN_DIR)/test_omi_sense: test/test_omi_sense.c lib/omi_sense.c lib/omienv.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
+test_omi_sense: $(BIN_DIR)/test_omi_sense
+	$(BIN_DIR)/test_omi_sense
+
+$(BIN_DIR)/test_pg: test/test_pg.c lib/omi_pg.c lib/omienv.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
+test_pg: $(BIN_DIR)/test_pg
+	$(BIN_DIR)/test_pg
+
+$(BIN_DIR)/test_orbit: test/test_orbit.c lib/omi_orbit.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
+test_orbit: $(BIN_DIR)/test_orbit
+	$(BIN_DIR)/test_orbit
+
+test_face_chain:
+	node web/test-face-chain.js
+
+test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+
+run: $(BIN_DIR)/omi_vm
+	$(BIN_DIR)/omi_vm programs/test.omi
+
+run-tc: $(BIN_DIR)/omi_toolchain
+	$(BIN_DIR)/omi_toolchain programs/test.omi test.bin
+
+bootstrap: $(BIN_DIR)/omi_vm bootstrap-compiler.bin
+	$(BIN_DIR)/omi_vm --boot bootstrap-compiler.bin bootstrap-compiler.omi /tmp/bt_self.bin
 	cmp bootstrap-compiler.bin /tmp/bt_self.bin && echo "PASS: self-bootstrap" || echo "FAIL: self-bootstrap"
-	./omi_vm --boot bootstrap-compiler.bin programs/test.omi /tmp/bt_test.bin
+	$(BIN_DIR)/omi_vm --boot bootstrap-compiler.bin programs/test.omi /tmp/bt_test.bin
 	python3 -c "assert open('/tmp/bt_test.bin','rb').read()==b'', 'test.omi should produce 0 words'; print('PASS: test.omi -> 0 words')"
 	for f in programs/init.omi programs/kernel.omi programs/test.omi; do \
-		./omi_vm $$f 2>/dev/null | grep -q halted && echo "PASS: $$f" || echo "FAIL: $$f"; \
+		$(BIN_DIR)/omi_vm $$f 2>/dev/null | grep -q halted && echo "PASS: $$f" || echo "FAIL: $$f"; \
 	done
 
 bootstrap-compiler.bin: scripts/gen_bootstrap.py
@@ -76,9 +139,9 @@ bootstrap-compiler.bin: scripts/gen_bootstrap.py
 WASM_SRCDIR=web
 WASM_OBJDIR=web/build
 WASM_OBJS=$(WASM_OBJDIR)/omienv.o $(WASM_OBJDIR)/stream.o $(WASM_OBJDIR)/sector.o \
-           $(WASM_OBJDIR)/omi_dispatch.o $(WASM_OBJDIR)/omi_transport.o \
-           $(WASM_OBJDIR)/gauge_exec.o $(WASM_OBJDIR)/cpu.o $(WASM_OBJDIR)/boot.o \
-           $(WASM_OBJDIR)/omicron.o $(WASM_OBJDIR)/omi_omion.o $(WASM_OBJDIR)/omi_receipt.o
+          $(WASM_OBJDIR)/omi_dispatch.o $(WASM_OBJDIR)/omi_transport.o \
+          $(WASM_OBJDIR)/gauge_exec.o $(WASM_OBJDIR)/cpu.o $(WASM_OBJDIR)/boot.o \
+          $(WASM_OBJDIR)/omicron.o $(WASM_OBJDIR)/omi_omion.o $(WASM_OBJDIR)/omi_receipt.o
 
 wasm: $(WASM_OBJDIR) $(WASM_OBJS) $(WASM_SRCDIR)/omi_web_bridge.c
 	emcc -Os -s WASM=1 -s MODULARIZE=1 -s EXPORT_NAME=createModule \
@@ -131,39 +194,6 @@ $(WASM_OBJDIR)/omi_pg.o: lib/omi_pg.c lib/omi_pg.h lib/omienv.h
 $(WASM_OBJDIR)/omi_orbit.o: lib/omi_orbit.c lib/omi_orbit.h
 	emcc -Os -s WASM=1 -Ilib -c lib/omi_orbit.c -o $@
 
-test_mesh: test/test_mesh.c lib/omi_mesh.c lib/omi_transport_sim.c lib/omi_transport.c lib/omienv.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_mesh
-
-test_omicron: test/test_omicron.c lib/omicron.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_omicron
-
-test_omion: test/test_omion.c lib/omi_omion.c lib/omicron.c lib/omienv.c lib/omi_dispatch.c lib/omi_transport.c lib/gauge_exec.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_omion
-
-test_receipt: test/test_receipt.c lib/omi_receipt.c lib/omicron.c lib/gauge_exec.c lib/omi_dispatch.c lib/omi_transport.c lib/omienv.c lib/stream.c lib/sector.c lib/cpu.c lib/boot.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_receipt
-
-test_face_chain:
-	node web/test-face-chain.js
-
-test_omi_sense: test/test_omi_sense.c lib/omi_sense.c lib/omienv.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_omi_sense
-
-test_pg: test/test_pg.c lib/omi_pg.c lib/omienv.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_pg
-
-test_orbit: test/test_orbit.c lib/omi_orbit.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
-	./test_orbit
-
-test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
-
 proof:
 	@if [ -d ../omi-axioms ]; then \
 		$(MAKE) -C ../omi-axioms proof; \
@@ -172,8 +202,10 @@ proof:
 	fi
 
 clean:
-	rm -f *.o omi_vm omi_toolchain test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
-	rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR) $(BIN_DIR)
+	mkdir -p $(BUILD_DIR) $(BIN_DIR)
+	touch $(BUILD_DIR)/.gitkeep $(BIN_DIR)/.gitkeep
+	rm -f test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
 .PHONY: all run run-tc bootstrap clean wasm proof test test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain

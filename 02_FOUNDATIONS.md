@@ -1,5 +1,12 @@
 # 02. Foundations
 
+> **Normative status: vocabulary / reduction boundary.**
+> This chapter defines the irreducible vocabulary of OMI: NULL, pair,
+> CAR, CDR, place value, bounded width, delta, replay, observer, and
+> receipt. It becomes concrete in this repository only where it appears
+> as fixed machine boundaries: 16-bit instruction words, 8 registers,
+> 64-byte envelopes, 32 dispatch slots.
+
 ## What Cannot Be Reduced
 
 Foundations answers what survives every successful reduction.

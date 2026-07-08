@@ -1,5 +1,11 @@
 # 05. Implementation
 
+> **Normative status: artifact/build/test map.**
+> This chapter describes the active source tree and build commands.
+> It distinguishes what lives in this repository from what has been
+> extracted to sibling repos. Artifacts and tests define this repo's
+> current behavior.
+
 ## How The System Becomes Artifact
 
 Implementation answers how the protocol is built, tested, and verified.
@@ -32,6 +38,18 @@ The repository is organized around artifact boundaries:
 
 The Coq proof stack lives in the sibling `../omi-axioms` repository.
 
+The build layout separates source from artifacts:
+
+```text
+lib/     reusable source code (authority)
+build/   object files, generated intermediates (disposable)
+bin/     runnable binaries and test executables (disposable)
+```
+
+No generated binary belongs at repo root. `lib/` is source authority;
+`build/` and `bin/` are disposable artifact surfaces removed by
+`make clean`.
+
 This layout is not cosmetic.
 
 It reflects the story:
@@ -54,6 +72,8 @@ make
 make test
 make -B proof
 ```
+
+Outputs land in `bin/`. Intermediates land in `build/`.
 
 The `proof` target delegates to `../omi-axioms`.
 

@@ -1,5 +1,11 @@
 # 04. Architecture
 
+> **Normative status: primary technical protocol map.**
+> This chapter is the technical center of omi-isa. It defines the
+> active pipeline from source text to executable receipt. Compatible
+> implementations MUST preserve the boundaries and surfaces described
+> here.
+
 ## How Mathematics Becomes Protocol
 
 Architecture answers how mathematical structure becomes a computing system.
@@ -38,6 +44,11 @@ OMI-Lisp
   -> Mesh
   -> Receipts
 ```
+
+OMI-Port route candidates are external candidate inputs.
+They are not authority inside omi-isa. If consumed later,
+they must pass this repository's runtime, observer, and
+receipt boundaries.
 
 The important insertion is Observers.
 

@@ -1,1 +1,16 @@
-media/
+build/*
+!build/.gitkeep
+
+bin/*
+!bin/.gitkeep
+
+*.o
+*.pyc
+__pycache__/
+omi.log
+test.bin
+bootstrap-compiler.bin
+bootstrap-compiler.omi
+web/build/
+web/omi_wasm.js
+web/omi_wasm.wasm

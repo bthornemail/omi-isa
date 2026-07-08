@@ -1,5 +1,10 @@
 # 01. Cosmology
 
+> **Normative status: motivational.**
+> This chapter explains why the ISA was shaped around boundary, place,
+> relation, observer, and receipt. It does not define opcode behavior,
+> proof status, or runtime compatibility.
+
 ## Why This Chapter Exists
 
 Cosmology answers why OMI exists.

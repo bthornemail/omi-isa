@@ -126,7 +126,7 @@ Pointwise equivalence: the $k$-th element of the trace (where $k \le n$) corresp
 
 ## 9. Coalgebraic Semantics (F-Coalgebra Layer)
 
-A third Coq file, [coalgebraic_bisimulation.v](file:///home/main/omi/omi-isa/proof/coalgebraic_bisimulation.v), provides a general coalgebraic semantics that unifies the observer and orbit frameworks:
+A third Coq file, [coalgebraic_bisimulation.v](file:///home/main/omi/omi-axioms/coq/coalgebraic_bisimulation.v), provides a general coalgebraic semantics that unifies the observer and orbit frameworks:
 
 ### Output Functor
 
@@ -166,7 +166,7 @@ This bridges the orbit groupoid semantics (functor $Obs : \mathcal{O} \to \text{
 
 ### 4. Bialgebra Structure (Algebra ⊗ Coalgebra)
 
-A fourth Coq file, [OMI_bialgebra.v](file:///home/main/omi/omi-isa/proof/OMI_bialgebra.v), unifies the algebraic structure (GL(16,2) action) with the coalgebraic structure (observation unfolding) into a single bialgebra record:
+A fourth Coq file, [OMI_bialgebra.v](file:///home/main/omi/omi-axioms/coq/OMI_bialgebra.v), unifies the algebraic structure (GL(16,2) action) with the coalgebraic structure (observation unfolding) into a single bialgebra record:
 
 | Record     | Fields                          | Meaning                                        |
 |------------|---------------------------------|------------------------------------------------|
@@ -211,10 +211,10 @@ Implemented in C (`omi_orbit.c` / `omi_orbit.h`):
 
 The formalization is split into four Coq files:
 
-- [delta_orbit_theory.v](file:///home/main/omi/omi-isa/proof/delta_orbit_theory.v): Encodes the $\text{GL}(16,2)$ linear operators, state type, step function, trace, Observer and ObsHom category records, modulus observers, and 5040 orbit atlas.
-- [functorial_semantics.v](file:///home/main/omi/omi-isa/proof/functorial_semantics.v): Encodes the orbit groupoid $\mathcal{O}$ category laws, the observer functor map, the functor theorem, trace equivalence, and the Extraction directives.
-- [coalgebraic_bisimulation.v](file:///home/main/omi/omi-isa/proof/coalgebraic_bisimulation.v): Encodes the $F(X) = X \times O$ output functor, $F$-coalgebras, coalgebra morphisms, bisimulations, and the `trace_equivalence` / `morphism_trace_equivalence` theorems that bridge the coalgebraic and orbit semantics.
-- [OMI_bialgebra.v](file:///home/main/omi/omi-isa/proof/OMI_bialgebra.v): Encodes the unified bialgebra structure: `Alg`, `CoAlg`, `Bialg` records, coinductive stream, `obs_stream` cofixpoint, `bialgebra_commutation`/`bialgebra_coherence`, concrete observer bialgebras, and extraction.
+- [delta_orbit_theory.v](file:///home/main/omi/omi-axioms/coq/delta_orbit_theory.v): Encodes the $\text{GL}(16,2)$ linear operators, state type, step function, trace, Observer and ObsHom category records, modulus observers, and 5040 orbit atlas.
+- [functorial_semantics.v](file:///home/main/omi/omi-axioms/coq/functorial_semantics.v): Encodes the orbit groupoid $\mathcal{O}$ category laws, the observer functor map, the functor theorem, trace equivalence, and the Extraction directives.
+- [coalgebraic_bisimulation.v](file:///home/main/omi/omi-axioms/coq/coalgebraic_bisimulation.v): Encodes the $F(X) = X \times O$ output functor, $F$-coalgebras, coalgebra morphisms, bisimulations, and the `trace_equivalence` / `morphism_trace_equivalence` theorems that bridge the coalgebraic and orbit semantics.
+- [OMI_bialgebra.v](file:///home/main/omi/omi-axioms/coq/OMI_bialgebra.v): Encodes the unified bialgebra structure: `Alg`, `CoAlg`, `Bialg` records, coinductive stream, `obs_stream` cofixpoint, `bialgebra_commutation`/`bialgebra_coherence`, concrete observer bialgebras, and extraction.
 
 ---
 

@@ -1,68 +1,22 @@
 # OMI-ISA
 
-## The OMI Declaration
+OMI-ISA implements the bounded executable surface of OMI:
+fixed-width instructions, deterministic replay, 512-bit envelopes,
+dispatch, observers, transport adapters, mesh routing, and receipts.
 
-Modern computing begins with symbols.
+This repository is not the whole OMI canon. It is the ISA/runtime
+layer. Sibling repositories provide the declaration surface (`omi-lisp`),
+dormant route-candidate derivation (`omi-port`), and proof lineage
+(`omi-axioms`). They are external to this repo's authority boundary.
 
-Variables.
-
-Identifiers.
-
-References.
-
-Objects.
-
-Types.
-
-Messages.
-
-Protocols.
-
-OMI explores the opposite direction.
-
-It asks whether computation can begin before symbolic naming, from distinction,
-position, relation, and deterministic replay alone.
-
-In this view, positions precede variables.
-
-Relations precede objects.
-
-Pathways precede names.
-
-Containers precede payloads.
-
-Algorithms, not prose, are the primary authority.
-
-Proofs justify those algorithms.
-
-Documentation explains them.
-
-Philosophical interpretation motivates why they were chosen.
-
-None of those interpretations replace the behavior of the executable system
-itself.
-
-## The Constitutional Question
-
-Every engineering discipline eventually asks what cannot be removed.
-
-OMI asks that question of computation:
+The governing question is:
 
 > What structure can be removed while the same canonical replay still results?
 
-That question is the center of the repository.
-
-Everything else is an answer.
-
 The C runtime answers it operationally.
-
-The Coq proofs answer it formally.
-
+The proof stack answers it formally.
 The architecture answers it as a protocol.
-
 The firmware answers it as hardware.
-
-The documentation answers it as a narrative path from motivation to rigor.
 
 ## What OMI Is
 
