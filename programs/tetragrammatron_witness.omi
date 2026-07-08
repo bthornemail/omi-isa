@@ -1,0 +1,15 @@
+(tetragrammatron . witness)
+
+; Tetragrammatron alternating witness fixture.
+;
+; Registers:
+;   witness = 0xAA55
+;   inverse = 0x55AA
+;
+; Balance:
+;   each register has 8 one bits and 8 zero bits
+;
+; XOR witnesses:
+;   0xAA55 ^ 0x55AA = 0xFFFF
+;   0xAA55 ^ 0xFFFF = 0x55AA
+;   0x55AA ^ 0xFFFF = 0xAA55
