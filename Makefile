@@ -110,13 +110,19 @@ test_pg: $(BIN_DIR)/test_pg
 $(BIN_DIR)/test_orbit: test/test_orbit.c lib/omi_orbit.c | $(BIN_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 
+$(BIN_DIR)/test_lisp_handoff: test/test_lisp_handoff.c lib/loader.c lib/lexer.c lib/parser.c lib/ast.c lib/compiler.c lib/cpu.c lib/boot.c | $(BIN_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+
 test_orbit: $(BIN_DIR)/test_orbit
 	$(BIN_DIR)/test_orbit
+
+test_lisp_handoff: $(BIN_DIR)/test_lisp_handoff
+	$(BIN_DIR)/test_lisp_handoff
 
 test_face_chain:
 	node web/test-face-chain.js
 
-test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+test: test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_lisp_handoff test_face_chain
 
 run: $(BIN_DIR)/omi_vm
 	$(BIN_DIR)/omi_vm programs/test.omi
@@ -208,4 +214,4 @@ clean:
 	rm -f test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
-.PHONY: all run run-tc bootstrap clean wasm proof test test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+.PHONY: all run run-tc bootstrap clean wasm proof test test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_lisp_handoff test_face_chain

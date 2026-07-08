@@ -92,7 +92,23 @@ make test_orbit
 make test_omi_sense
 make test_dispatch
 make test_mesh
+make test_lisp_handoff
 ```
+
+## Handoff Fixtures
+
+The `handoff/` directory holds cross-repository seam fixtures:
+
+```text
+handoff/omi-lisp/source/     omi-lisp-shaped .omi source files
+handoff/omi-lisp/lowered/    future omi-lisp bytecode output
+handoff/omi-lisp/expected/   expected deterministic receipts
+```
+
+These files are the boundary. No sibling source code is imported.
+The local OMI-Lisp parser is a compatibility parser for testing
+the lowering path only. See `docs/architecture/omi-lisp-handoff.md`
+for the full contract.
 
 These commands are part of the documentation.
 
@@ -187,6 +203,7 @@ The major test artifacts include:
 - `test/test_omicron.c`
 - `test/test_omion.c`
 - `test/test_receipt.c`
+- `test/test_lisp_handoff.c`
 
 Tests do not replace proofs.
 

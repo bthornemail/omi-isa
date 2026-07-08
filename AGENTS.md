@@ -17,6 +17,9 @@ Agents must not:
 - Treat extracted proofs as still belonging to this repository
 - Re-introduce files that were extracted (proof/, canon/, dev-docs/
   beyond the one alignment doc)
+- Import sibling omi-lisp or omi-port source code as a dependency
+- Add new code features before handoff fixture alignment is committed
+- Treat handoff/ directory as local program territory
 
 ## Extracted Siblings
 
@@ -28,6 +31,26 @@ Agents must not:
 
 These repos are external. Agents may reference them but must not
 create code dependencies.
+
+## Handoff Boundary
+
+The `handoff/` directory is the seam between repositories:
+
+```text
+handoff/omi-lisp/
+  source/     .omi fixture files from omi-lisp territory
+  lowered/    future .omibin bytecode from omi-lisp compiler
+  expected/   .receipt.txt deterministic expected outputs
+```
+
+Rules:
+- `handoff/` is for external seams only
+- `programs/` is for native local examples
+- No sibling source code may be imported
+- The local OMI-Lisp parser (`lib/parser.c`) is a compatibility
+  parser for testing the lowering path, not canonical omi-lisp
+- Handoff tests must verify deterministic observable output
+  against committed expected receipt fixtures
 
 ## Build Layout
 
