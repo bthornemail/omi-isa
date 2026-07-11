@@ -1,0 +1,22 @@
+(tetragrammatron . govern)
+
+; Polybius gauge and fold-carry fixture.
+;
+; Local hexadecimal gauge:
+;   0 1 2 3
+;   4 5 6 7
+;   8 9 A B
+;   C D E F
+;
+; Diagonal closures:
+;   D+ = {0,5,A,F} -> 0x1E
+;   D- = {3,6,9,C} -> 0x1E
+;
+; Full nibble field:
+;   0 + 1 + ... + F -> 0x78
+;
+; Fold-carry:
+;   0x3C << 1 -> 0x78
+;
+; Bridge:
+;   0xAA55 is a 16-bit external bridge word, not a byte gauge value.

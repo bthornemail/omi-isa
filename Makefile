@@ -170,7 +170,15 @@ test_tetragrammatron_witness: test/test_tetragrammatron_witness.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
 	./test_tetragrammatron_witness
 
-test: test_null_ring test_tetragrammatron_witness test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+test_tetragrammatron_govern: test/test_tetragrammatron_govern.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+	./test_tetragrammatron_govern
+
+test_metatron_witness: test/test_metatron_witness.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^
+	./test_metatron_witness
+
+test: test_null_ring test_tetragrammatron_witness test_tetragrammatron_govern test_metatron_witness test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
 
 proof:
 	@if [ -d ../omi-axioms ]; then \
@@ -180,8 +188,8 @@ proof:
 	fi
 
 clean:
-	rm -f *.o omi_vm omi_toolchain test_null_ring test_tetragrammatron_witness test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
+	rm -f *.o omi_vm omi_toolchain test_null_ring test_tetragrammatron_witness test_tetragrammatron_govern test_metatron_witness test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test.bin omi.log bootstrap-compiler.bin bootstrap-compiler.omi
 	rm -rf $(BUILD_DIR)
 	rm -rf $(WASM_OBJDIR) $(WASM_SRCDIR)/omi_wasm.js $(WASM_SRCDIR)/omi_wasm.wasm
 
-.PHONY: all run run-tc bootstrap clean wasm proof test test_null_ring test_tetragrammatron_witness test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain
+.PHONY: all run run-tc bootstrap clean wasm proof test test_null_ring test_tetragrammatron_witness test_tetragrammatron_govern test_metatron_witness test_env test_dispatch test_gauge_exec test_radio_vm test_mesh test_omicron test_omion test_receipt test_omi_sense test_pg test_orbit test_face_chain

@@ -1,15 +1,73 @@
 (tetragrammatron . witness)
 
-; Tetragrammatron alternating witness fixture.
+; Tetragrammatron Polybius governor witness fixture.
 ;
-; Registers:
-;   witness = 0xAA55
-;   inverse = 0x55AA
+; Polyharmonic axis:
+;   3 clocks
+;     Atomic Logic Clock
+;     Spectral Observer Clock
+;     Cosmic Orbit Clock
+;
+;   4 visible offsets
+;     FS = 0x0001
+;     GS = 0x0010
+;     RS = 0x0100
+;     US = 0x1000
+;
+;   5 governor modes
+;     FACTS        p=-1
+;     RULES        p=0
+;     CLOSURES     p=1
+;     COMBINATORS  p=2
+;     CONS         p=3
+;
+; Miquel incidence controller:
+;   8 points
+;   6 blocks
+;   3 blocks through each point
+;   4 points in each block
+;   8 * 3 = 6 * 4 = 24 flags
+;
+; OMI oversight frame:
+;   5 hidden governor positions
+;   6 pairwise gauge planes
+;   5 + 6 = 11 oversight positions
+;
+; This is an OMI eleven-position frame. It is not an identity claim about the
+; standard abstract regular 11-cell.
+;
+; Polybius gauge:
+;   0 1 2 3
+;   4 5 6 7
+;   8 9 A B
+;   C D E F
+;
+; Tetrahedral diagonals:
+;   D+ = {0,5,A,F}
+;   D- = {3,6,9,C}
+;
+; Diagonal closure:
+;   0 + 5 + A + F = 0x1E
+;   3 + 6 + 9 + C = 0x1E
+;
+; Full nibble-field closure:
+;   0 + 1 + 2 + ... + F = 0x78
+;
+; Fold/carry relation:
+;   centered-fold = 0x3C
+;   carry-fold    = 0x78
+;   0x78 = (0x3C << 1) & 0xFF
+;   0x3C = 0x78 >> 1
 ;
 ; Balance:
-;   each register has 8 one bits and 8 zero bits
+;   each 8-bit register has 4 one bits and 4 zero bits
 ;
-; XOR witnesses:
-;   0xAA55 ^ 0x55AA = 0xFFFF
-;   0xAA55 ^ 0xFFFF = 0x55AA
-;   0x55AA ^ 0xFFFF = 0xAA55
+; Difference witness:
+;   0x3C ^ 0x78 = 0x44
+;
+; Boundary:
+;   Tetragrammatron governs lawful Polybius gauge transitions.
+;   Tetragrammatron does not project or scribe.
+;   This fixture does not add keywords, validate arbitrary frames, accept
+;   receipts, or alter lowering.
+;   Receipt accepts replay-stable state.
